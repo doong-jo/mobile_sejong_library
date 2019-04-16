@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">library_sejong</string>
+    <string name="app_name">세종대학교 학술정보원</string>
+
+
+    <!--Navigation Drawer-->
+    <string name="nav_lend_book">대출현황</string>
+    <string name="nav_lend_book_record">대출/반납 기록</string>
+    <string name="nav_appointment_book">예약 현황</string>
+
+    <string name="nav_header_title">동천이</string>
+    <string name="nav_header_subtitle">dongcheon@sju.ac.kr</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 </resources>
