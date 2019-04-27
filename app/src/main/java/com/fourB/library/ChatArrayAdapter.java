@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
 public class ChatArrayAdapter extends ArrayAdapter {
 
-    private TextView chatText;
-    private ArrayList<ChatMessage> chatMessageList = new ArrayList<ChatMessage>();
-    private LinearLayout singleMessageContainer;
+    private TextView mChatText;
+    private ArrayList<ChatMessage> mChatMessageList = new ArrayList<ChatMessage>();
+    private LinearLayout mSingleMessageContainer;
 
     public void add(ChatMessage object) {
-        chatMessageList.add(object);
+        mChatMessageList.add(object);
         super.add(object);
     }
 
@@ -27,11 +27,11 @@ public class ChatArrayAdapter extends ArrayAdapter {
     }
 
     public int getCount() {
-        return this.chatMessageList.size();
+        return this.mChatMessageList.size();
     }
 
     public ChatMessage getItem(int index) {
-        return this.chatMessageList.get(index);
+        return this.mChatMessageList.get(index);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -41,12 +41,12 @@ public class ChatArrayAdapter extends ArrayAdapter {
             row = inflater.inflate(R.layout.activity_chat_singlemessage, parent, false);
         }
 
-        singleMessageContainer = (LinearLayout) row.findViewById(R.id.singleMessageContainer);
+        mSingleMessageContainer = (LinearLayout) row.findViewById(R.id.singleMessageContainer);
         ChatMessage chatMessageObj = getItem(position);
-        chatText = (TextView) row.findViewById(R.id.text_message_body);
-        chatText.setText(chatMessageObj.message);
-        chatText.setBackgroundResource(chatMessageObj.left ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
-        singleMessageContainer.setGravity(chatMessageObj.left ? Gravity.LEFT : Gravity.RIGHT);
+        mChatText = (TextView) row.findViewById(R.id.text_message_body);
+        mChatText.setText(chatMessageObj.message);
+        mChatText.setBackgroundResource(chatMessageObj.left ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
+        mSingleMessageContainer.setGravity(chatMessageObj.left ? Gravity.LEFT : Gravity.RIGHT);
         return row;
     }
 
