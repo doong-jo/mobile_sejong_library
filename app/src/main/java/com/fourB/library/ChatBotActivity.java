@@ -14,9 +14,6 @@ public class ChatBotActivity extends AppCompatActivity {
         setTitle("챗봇");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-    // test
-    // ㄴㅇㄹㄴㅁㅇㄹㄴㅁㄹ
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
