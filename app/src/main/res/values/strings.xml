@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">세종대학교 학술정보원</string>
+
+    <!--Menu-->
+    <string name="menu_notice">공지사항</string>
+    <string name="menu_study_room">스터디룸</string>
+    <string name="menu_reading_room">열람실</string>
+    <string name="menu_ebook">E - book</string>
+    <string name="menu_mobile">모바일이용증</string>
+    <string name="menu_barcord">바코드 검색</string>
+    <string name="menu_search_book">도서 검색</string>
+    <string name="menu_usage">이용안내</string>
+    <string name="menu_classic_book">고전독서인증</string>
+
+    <!--Navigation Drawer-->
+    <string name="nav_lend_book">대출현황</string>
+    <string name="nav_lend_book_record">대출/반납 기록</string>
+    <string name="nav_appointment_book">예약 현황</string>
+
+    <string name="nav_header_title">동천이</string>
+    <string name="nav_header_subtitle">dongcheon@sju.ac.kr</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+</resources>
