@@ -16,7 +16,7 @@ public class ChatBotActivity extends AppCompatActivity {
     }
 
     // test
-
+    // ㄴㅇㄹㄴㅁㅇㄹㄴㅁㄹ
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
