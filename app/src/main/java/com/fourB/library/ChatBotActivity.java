@@ -20,10 +20,10 @@ public class ChatBotActivity extends AppCompatActivity {
 
     private static final String TAG = "ChatActivity";
 
-    private ChatArrayAdapter chatArrayAdapter;
-    private ListView listView;
-    private EditText chatText;
-    private Button buttonSend;
+    private ChatArrayAdapter mChatArrayAdapter;
+    private ListView mListView;
+    private EditText mChatText;
+    private Button mButtonSend;
 
     Intent intent;
     private boolean side = false;
@@ -38,15 +38,9 @@ public class ChatBotActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        buttonSend = (Button) findViewById(R.id.buttonSend);
+        allFindViewById();
 
-        listView = (ListView) findViewById(R.id.listView);
-
-        chatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_singlemessage);
-        listView.setAdapter(chatArrayAdapter);
-
-        chatText = (EditText) findViewById(R.id.chatText);
-        chatText.setOnKeyListener(new OnKeyListener() {
+        mChatText.setOnKeyListener(new OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     return sendChatMessage();
@@ -54,29 +48,40 @@ public class ChatBotActivity extends AppCompatActivity {
                 return false;
             }
         });
-        buttonSend.setOnClickListener(new View.OnClickListener() {
+
+        mButtonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 sendChatMessage();
             }
         });
 
-        listView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
-        listView.setAdapter(chatArrayAdapter);
-
-        chatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
+        mChatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
                 super.onChanged();
-                listView.setSelection(chatArrayAdapter.getCount() - 1);
+                mListView.setSelection(mChatArrayAdapter.getCount() - 1);
             }
         });
 
     }
 
+    private void allFindViewById(){
+
+        mButtonSend = (Button) findViewById(R.id.buttonSend);
+        mListView = (ListView) findViewById(R.id.listView);
+        mChatText = (EditText) findViewById(R.id.chatText);
+
+        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_singlemessage);
+        mListView.setAdapter(mChatArrayAdapter);
+
+        mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        mListView.setAdapter(mChatArrayAdapter);
+    }
+
     private boolean sendChatMessage(){
-        chatArrayAdapter.add(new ChatMessage(side, chatText.getText().toString()));
-        chatText.setText("");
+        mChatArrayAdapter.add(new ChatMessage(side, mChatText.getText().toString()));
+        mChatText.setText("");
         side = !side;
         return true;
     }
