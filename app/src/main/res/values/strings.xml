@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">세종대학교 학술정보원</string>
 
+    <!--DialogFlow-->
+    <string name="korean_lang_code">ko</string>
+
     <!--Menu-->
     <string name="menu_notice">공지사항</string>
     <string name="menu_study_room">스터디룸</string>
@@ -11,6 +14,7 @@
     <string name="menu_search_book">도서 검색</string>
     <string name="menu_usage">이용안내</string>
     <string name="menu_classic_book">고전독서인증</string>
+    <string name="menu_chatbot">챗봇</string>
 
     <!--ReadingRoom-->
     <string name="readingRoom_A">A 열람실</string>
@@ -33,4 +37,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
+
+    <string name="ebookUrl">https://ebook.sejong.ac.kr/m/main.asp</string>
 </resources>

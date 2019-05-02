@@ -3,6 +3,8 @@
     package="com.fourB.library">
     <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -24,10 +26,13 @@
         <activity
             android:name=".ChatBotActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".PopupActivity"
-            android:theme="@android:style/Theme.Dialog">
 
+        <activity
+            android:name=".EbookActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
+
         <activity
             android:name=".ReadingRoom.ReadingRoomActivity"
             android:theme="@style/AppTheme" />

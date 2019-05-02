@@ -16,6 +16,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/INDEX.LIST'
+    }
 }
 
 dependencies {
@@ -29,6 +40,14 @@ dependencies {
     // zxing
     implementation 'com.google.zxing:core:3.3.3'
     implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
+
+    // DialogFlow SDK
+    implementation 'ai.api:sdk:2.0.7@aar'
+    implementation 'ai.api:libai:1.6.12'
+
+    // Java V2
+    implementation 'com.google.cloud:google-cloud-dialogflow:0.67.0-alpha'
+    implementation 'io.grpc:grpc-okhttp:1.15.1'
 
 
     testImplementation 'junit:junit:4.12'
