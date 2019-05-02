@@ -1,4 +1,4 @@
-package com.fourB.library;
+package com.fourB.library.ChatBot;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.fourB.library.R;
 
 import java.util.ArrayList;
 

@@ -1,14 +1,12 @@
-package com.fourB.library;
+package com.fourB.library.ChatBot;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
-import android.app.Activity;
 import android.content.Intent;
 import android.database.DataSetObserver;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
@@ -17,17 +15,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.fourB.library.R;
 import com.fourB.library.async.RequestJavaV2Task;
 
-import ai.api.AIListener;
 import ai.api.android.AIConfiguration;
 import ai.api.android.AIDataService;
-import ai.api.android.AIService;
-import ai.api.model.AIError;
 import ai.api.model.AIRequest;
-import ai.api.model.AIResponse;
 
-public class ChatBotActivity extends AppCompatActivity {
+public class ChatBotActivity extends AppCompatActivity implements ChatBotService {
 
     private static final String TAG = "ChatActivity";
 
@@ -36,13 +31,36 @@ public class ChatBotActivity extends AppCompatActivity {
     private EditText mChatText;
     private Button mButtonSend;
 
-    Intent intent;
-    private boolean side = false;
+    static final boolean LEFT_SIDE = true;
+    static final boolean RIGHT_SIDE = false;
+
+    ChatBotService mThisInterface;
+    AIDataRequest mAIDataRequset;
+
+    class AIDataRequest {
+        private AIDataService mAIDataService;
+        private AIRequest mAIRequset;
+        private RequestJavaV2Task mAsyncV2;
+
+        public AIDataRequest(Context context, AIConfiguration config) {
+            mAIDataService = new AIDataService(context, config);
+            mAIRequset = new AIRequest();
+            mAIRequset.setLanguage(getString(R.string.korean_lang_code));
+        }
+
+        public void request(String requsetMessage) {
+            mAIRequset.setQuery(requsetMessage);
+            mAsyncV2 = new RequestJavaV2Task(mAIDataService, mThisInterface);
+            mAsyncV2.execute(mAIRequset);
+        }
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatbot);
+
+        mThisInterface = this;
 
         setTitle(getString(R.string.menu_chatbot));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,15 +69,9 @@ public class ChatBotActivity extends AppCompatActivity {
                 AIConfiguration.SupportedLanguages.Korean,
                 AIConfiguration.RecognitionEngine.System);
 
-        final AIDataService aiDataService = new AIDataService(this, config);
-        final AIRequest aiRequest = new AIRequest();
-        aiRequest.setLanguage(getString(R.string.korean_lang_code));
-        aiRequest.setQuery("신고");
+        mAIDataRequset = new AIDataRequest(this, config);
 
-        RequestJavaV2Task asyncV2 = new RequestJavaV2Task(aiDataService);
-        asyncV2.execute(aiRequest);
-
-        allFindViewById();
+        initView();
 
         mChatText.setOnKeyListener(new OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -87,7 +99,7 @@ public class ChatBotActivity extends AppCompatActivity {
 
     }
 
-    private void allFindViewById(){
+    private void initView(){
 
         mButtonSend = (Button) findViewById(R.id.buttonSend);
         mListView = (ListView) findViewById(R.id.listView);
@@ -101,9 +113,12 @@ public class ChatBotActivity extends AppCompatActivity {
     }
 
     private boolean sendChatMessage(){
-        mChatArrayAdapter.add(new ChatMessage(side, mChatText.getText().toString()));
+        final String msg = mChatText.getText().toString();
+
+        mChatArrayAdapter.add(new ChatMessage(RIGHT_SIDE, mChatText.getText().toString()));
+        mAIDataRequset.request(msg);
+
         mChatText.setText("");
-        side = !side;
         return true;
     }
 
@@ -123,5 +138,15 @@ public class ChatBotActivity extends AppCompatActivity {
         super.onBackPressed();
 
         finish();
+    }
+
+    @Override
+    public void botSpeech(String result) {
+        mChatArrayAdapter.add(new ChatMessage(LEFT_SIDE, result));
+    }
+
+    @Override
+    public void userSpeech(String message) {
+
     }
 }
