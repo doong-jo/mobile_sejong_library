@@ -50,7 +50,7 @@ public class ReadingRoomWVFragment extends Fragment {
         mWebView.setWebChromeClient(new WebChromeClient());
         mWebView.setWebViewClient(new WebViewClientClass());
 
-        //mWebView.getSettings().setSupportZoom( true ); //Modify this
+
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.loadUrl(roomUrl);
@@ -65,14 +65,13 @@ public class ReadingRoomWVFragment extends Fragment {
     }
 
     public void setRoomUrl(String index) {
-        String roomUrl = "http://210.107.226.14/seat/roomview5.asp?room_no=";
+        String roomUrl = getString(R.string.readingRoom_url);
         this.roomUrl = roomUrl + index;
     }
 
     private class WebViewClientClass extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Log.d("check URL", url);
             view.loadUrl(url);
             return true;
         }

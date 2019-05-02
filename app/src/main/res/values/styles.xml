@@ -75,4 +75,20 @@
         <item name="android:layout_marginLeft">8dp</item>
     </style>
 
+    <!--Button Style-->
+    <style name="Button">
+
+    </style>
+
+    <style name="Button.ReadingRoomBack">
+        <item name="android:background">@color/btnPink</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="Button.ReadingRoomSeeSeat">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/btnPink</item>
+    </style>
+
 </resources>

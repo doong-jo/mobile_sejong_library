@@ -13,23 +13,33 @@ import android.widget.Button;
 import com.fourB.library.R;
 
 public class ReadingRoomFragment extends Fragment {
-    ReadingRoomCallBack callBack;
-    Button[] mBtnArray = new Button[7];
+    private final int ROOM_NUM = 7;
+    private final int [] ROOM_ID = {
+            R.id.btn_reading_room_A,
+            R.id.btn_reading_room_B,
+            R.id.btn_reading_room_C,
+            R.id.btn_reading_room_D_A,
+            R.id.btn_reading_room_D_B,
+            R.id.btn_reading_room_3_A,
+            R.id.btn_reading_room_3_B
+    };
+    private ReadingRoomCallBack mCallBack;
+    private Button[] mBtnArray = new Button[ROOM_NUM];
     ViewGroup rootView;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof ReadingRoomCallBack) {
-            callBack = (ReadingRoomCallBack) context;
+            mCallBack = (ReadingRoomCallBack) context;
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        if (callBack != null)
-            callBack = null;
+        if (mCallBack != null)
+            mCallBack = null;
     }
 
     @Nullable
@@ -41,51 +51,17 @@ public class ReadingRoomFragment extends Fragment {
     }
 
     public void BtnSetting(){
-        mBtnArray[0] = (Button)rootView.findViewById(R.id.btn_reading_room_A);
-        mBtnArray[1] = (Button)rootView.findViewById(R.id.btn_reading_room_B);
-        mBtnArray[2] = (Button)rootView.findViewById(R.id.btn_reading_room_C);
-        mBtnArray[3] = (Button)rootView.findViewById(R.id.btn_reading_room_D_A);
-        mBtnArray[4] = (Button)rootView.findViewById(R.id.btn_reading_room_D_B);
-        mBtnArray[5] = (Button)rootView.findViewById(R.id.btn_reading_room_3_A);
-        mBtnArray[6] = (Button)rootView.findViewById(R.id.btn_reading_room_3_B);
-        for(int i=0; i<mBtnArray.length; i++){
+        for(int i=0; i< mBtnArray.length; i++){
+            mBtnArray[i] = (Button)rootView.findViewById(ROOM_ID[i]);
+            mBtnArray[i].setTag(i);
             mBtnArray[i].setOnClickListener(btnClickListener);
         }
     }
+
     private Button.OnClickListener btnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btn_reading_room_A:
-                    callBack.onCommand(1);
-                    break;
-
-                case R.id.btn_reading_room_B:
-                    callBack.onCommand(2);
-                    break;
-
-                case R.id.btn_reading_room_C:
-                    callBack.onCommand(3);
-                    break;
-
-                case R.id.btn_reading_room_D_A:
-                    callBack.onCommand(4);
-                    break;
-
-                case R.id.btn_reading_room_D_B:
-                    callBack.onCommand(5);
-                    break;
-
-                case R.id.btn_reading_room_3_A:
-                    callBack.onCommand(6);
-                    break;
-                case R.id.btn_reading_room_3_B:
-                    callBack.onCommand(7);
-                    break;
-
-                    default:
-                        break;
-            }
+            mCallBack.onCommand((int)(v.getTag()) + 1);
         }
     };
 }
