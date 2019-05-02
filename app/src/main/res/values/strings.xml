@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">세종대학교 학술정보원</string>
 
+    <!--DialogFlow-->
+    <string name="korean_lang_code">ko</string>
+
     <!--Menu-->
     <string name="menu_notice">공지사항</string>
     <string name="menu_study_room">스터디룸</string>
@@ -11,6 +14,7 @@
     <string name="menu_search_book">도서 검색</string>
     <string name="menu_usage">이용안내</string>
     <string name="menu_classic_book">고전독서인증</string>
+    <string name="menu_chatbot">챗봇</string>
 
     <!--Navigation Drawer-->
     <string name="nav_lend_book">대출현황</string>
