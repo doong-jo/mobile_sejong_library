@@ -12,6 +12,16 @@
     <string name="menu_usage">이용안내</string>
     <string name="menu_classic_book">고전독서인증</string>
 
+    <!--ReadingRoom-->
+    <string name="readingRoom_A">A 열람실</string>
+    <string name="readingRoom_B">B 열람실</string>
+    <string name="readingRoom_C">C 열람실</string>
+    <string name="readingRoom_D_A">D-A 열람실</string>
+    <string name="readingRoom_D_B">D-B 열람실</string>
+    <string name="readingRoom_3_A">3층 A 열람실</string>
+    <string name="readingRoom_3_B">3층 B 열람실</string>
+    <string name="readingRoom_see_seat">좌석보기</string>
+
     <!--Navigation Drawer-->
     <string name="nav_lend_book">대출현황</string>
     <string name="nav_lend_book_record">대출/반납 기록</string>
