@@ -3,6 +3,7 @@ package com.fourB.library;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +16,16 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.fourB.library.async.RequestJavaV2Task;
+
+import ai.api.AIListener;
+import ai.api.android.AIConfiguration;
+import ai.api.android.AIDataService;
+import ai.api.android.AIService;
+import ai.api.model.AIError;
+import ai.api.model.AIRequest;
+import ai.api.model.AIResponse;
 
 public class ChatBotActivity extends AppCompatActivity {
 
@@ -33,10 +44,20 @@ public class ChatBotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatbot);
 
-        setTitle("챗봇");
+        setTitle(getString(R.string.menu_chatbot));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent i = getIntent();
+        final AIConfiguration config = new AIConfiguration("6d747f5fec06408d87631a072c965fe0",
+                AIConfiguration.SupportedLanguages.Korean,
+                AIConfiguration.RecognitionEngine.System);
+
+        final AIDataService aiDataService = new AIDataService(this, config);
+        final AIRequest aiRequest = new AIRequest();
+        aiRequest.setLanguage(getString(R.string.korean_lang_code));
+        aiRequest.setQuery("신고");
+
+        RequestJavaV2Task asyncV2 = new RequestJavaV2Task(aiDataService);
+        asyncV2.execute(aiRequest);
 
         allFindViewById();
 
