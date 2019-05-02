@@ -26,9 +26,15 @@
         <activity
             android:name=".ChatBotActivity"
             android:theme="@style/AppTheme"
-            >
-
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="E-Book">
         </activity>
+
+        <activity
+            android:name=".WebViewActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
 
     </application>
 

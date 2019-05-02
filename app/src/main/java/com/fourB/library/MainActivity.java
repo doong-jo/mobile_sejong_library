@@ -1,9 +1,11 @@
 package com.fourB.library;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +22,9 @@ import com.google.zxing.integration.android.IntentIntegrator;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     // test
+    CardView mEbookView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,16 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        AllFindViewById();
+
+        mEbookView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WebViewActivity.class);
+                startActivity(intent);
+            }
+         });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -48,6 +63,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 //        IntentIntegrator
+    }
+
+    private void AllFindViewById(){
+        mEbookView = (CardView)findViewById(R.id.EbookView);
     }
 
     @Override
