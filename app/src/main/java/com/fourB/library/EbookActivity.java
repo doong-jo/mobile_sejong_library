@@ -7,15 +7,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class WebViewActivity extends AppCompatActivity {
+public class EbookActivity extends AppCompatActivity {
 
     private  WebView mWebView;//Mobile Web View
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview);
+        setContentView(R.layout.activity_ebook);
 
-        setTitle("E-Book");
+        setTitle(getString(R.string.menu_ebook));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mWebView=(WebView)findViewById(R.id.activity_main_webview);
@@ -31,7 +32,7 @@ public class WebViewActivity extends AppCompatActivity {
                 return true;
             }
         });
-        mWebView.loadUrl("https://ebook.sejong.ac.kr/m/main.asp");
+        mWebView.loadUrl(getString(R.string.ebookUrl));
     }
 
     @Override
