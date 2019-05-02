@@ -18,21 +18,14 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".ChatBotActivity"
+            android:name=".EbookActivity"
             android:theme="@style/AppTheme"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="E-Book">
-        </activity>
-
-        <activity
-            android:name=".WebViewActivity"
-            android:theme="@style/AppTheme">
+            android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
 
