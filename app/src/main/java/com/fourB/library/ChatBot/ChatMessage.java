@@ -2,12 +2,20 @@ package com.fourB.library.ChatBot;
 
 public class ChatMessage {
 
-    public boolean left;
-    public String message;
+    private boolean mLeft;
+    private String mMsg;
 
     public ChatMessage(boolean left, String message) {
         super();
-        this.left = left;
-        this.message = message;
+        this.mLeft = left;
+        this.mMsg = message;
+    }
+
+    public boolean getSide() {
+        return mLeft;
+    }
+
+    public String getMsg() {
+        return mMsg;
     }
 }

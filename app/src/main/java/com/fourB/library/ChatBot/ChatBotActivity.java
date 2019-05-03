@@ -18,24 +18,23 @@ import android.widget.ListView;
 import com.fourB.library.R;
 import com.fourB.library.async.RequestJavaV2Task;
 
+import java.util.Objects;
+
 import ai.api.android.AIConfiguration;
 import ai.api.android.AIDataService;
 import ai.api.model.AIRequest;
 
 public class ChatBotActivity extends AppCompatActivity implements ChatBotService {
-
-    private static final String TAG = "ChatActivity";
+    static final boolean LEFT_SIDE = true;
+    static final boolean RIGHT_SIDE = false;
 
     private ChatArrayAdapter mChatArrayAdapter;
     private ListView mListView;
     private EditText mChatText;
     private Button mButtonSend;
 
-    static final boolean LEFT_SIDE = true;
-    static final boolean RIGHT_SIDE = false;
-
-    ChatBotService mThisInterface;
-    AIDataRequest mAIDataRequset;
+    private ChatBotService mThisInterface;
+    private AIDataRequest mAIDataRequset;
 
     class AIDataRequest {
         private AIDataService mAIDataService;
@@ -59,20 +58,45 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatbot);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         mThisInterface = this;
 
-        setTitle(getString(R.string.menu_chatbot));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        initAIConfigure();
+        initView();
+        initListener();
 
+        mChatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                mListView.setSelection(mChatArrayAdapter.getCount() - 1);
+            }
+        });
+
+    }
+
+    private void initAIConfigure() {
         final AIConfiguration config = new AIConfiguration("6d747f5fec06408d87631a072c965fe0",
                 AIConfiguration.SupportedLanguages.Korean,
                 AIConfiguration.RecognitionEngine.System);
 
         mAIDataRequset = new AIDataRequest(this, config);
+    }
 
-        initView();
+    private void initView(){
+        mButtonSend = (Button) findViewById(R.id.buttonSend);
+        mListView = (ListView) findViewById(R.id.listView);
+        mChatText = (EditText) findViewById(R.id.chatText);
 
+        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_singlemessage);
+        mListView.setAdapter(mChatArrayAdapter);
+
+        mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        mListView.setAdapter(mChatArrayAdapter);
+    }
+
+    private void initListener() {
         mChatText.setOnKeyListener(new OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -88,35 +112,11 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
                 sendChatMessage();
             }
         });
-
-        mChatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
-            @Override
-            public void onChanged() {
-                super.onChanged();
-                mListView.setSelection(mChatArrayAdapter.getCount() - 1);
-            }
-        });
-
-    }
-
-    private void initView(){
-
-        mButtonSend = (Button) findViewById(R.id.buttonSend);
-        mListView = (ListView) findViewById(R.id.listView);
-        mChatText = (EditText) findViewById(R.id.chatText);
-
-        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_singlemessage);
-        mListView.setAdapter(mChatArrayAdapter);
-
-        mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
-        mListView.setAdapter(mChatArrayAdapter);
     }
 
     private boolean sendChatMessage(){
         final String msg = mChatText.getText().toString();
-
-        mChatArrayAdapter.add(new ChatMessage(RIGHT_SIDE, mChatText.getText().toString()));
-        mAIDataRequset.request(msg);
+        userSpeech(msg);
 
         mChatText.setText("");
         return true;
@@ -146,7 +146,8 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     }
 
     @Override
-    public void userSpeech(String message) {
-
+    public void userSpeech(final String msg) {
+        mChatArrayAdapter.add(new ChatMessage(RIGHT_SIDE, mChatText.getText().toString()));
+        mAIDataRequset.request(msg);
     }
 }

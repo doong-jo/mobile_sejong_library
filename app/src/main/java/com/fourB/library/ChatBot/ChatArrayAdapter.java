@@ -20,8 +20,8 @@ public class ChatArrayAdapter extends ArrayAdapter {
     private LinearLayout mSingleMessageContainer;
 
     public void add(ChatMessage object) {
-        mChatMessageList.add(object);
         super.add(object);
+        mChatMessageList.add(object);
     }
 
     public ChatArrayAdapter(Context context, int textViewResourceId) {
@@ -44,12 +44,21 @@ public class ChatArrayAdapter extends ArrayAdapter {
         }
 
         mSingleMessageContainer = (LinearLayout) row.findViewById(R.id.singleMessageContainer);
-        ChatMessage chatMessageObj = getItem(position);
         mChatText = (TextView) row.findViewById(R.id.text_message_body);
-        mChatText.setText(chatMessageObj.message);
-        mChatText.setBackgroundResource(chatMessageObj.left ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
-        mSingleMessageContainer.setGravity(chatMessageObj.left ? Gravity.LEFT : Gravity.RIGHT);
+
+        initChatData(position);
+
         return row;
+    }
+
+    public void initChatData(int position) {
+        ChatMessage chatMessageObj = getItem(position);
+        final String msg = chatMessageObj.getMsg();
+        final boolean side = chatMessageObj.getSide();
+
+        mChatText.setText(msg);
+        mChatText.setBackgroundResource(side ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
+        mSingleMessageContainer.setGravity(side ? Gravity.START : Gravity.END);
     }
 
 }
