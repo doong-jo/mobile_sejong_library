@@ -65,7 +65,7 @@ public class ReadingRoomWVFragment extends Fragment {
     }
 
     public void setRoomUrl(String index) {
-        String roomUrl = getString(R.string.readingRoom_url);
+        String roomUrl = getString(R.string.reading_room_url);
         this.roomUrl = roomUrl + index;
     }
 

@@ -30,7 +30,7 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="Text.ReadingRoom">
+    <style name="Text.reading_room">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">28sp</item>
         <item name="android:layout_marginTop">10dp</item>
@@ -39,13 +39,13 @@
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="Text.ReadingRoomProgressBarNow">
+    <style name="Text.reading_room_progress_now">
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="Text.ReadingRoomProgressBarMax">
+    <style name="Text.reading_room_progress_max">
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">@android:color/black</item>
@@ -80,13 +80,13 @@
 
     </style>
 
-    <style name="Button.ReadingRoomBack">
+    <style name="Button.reading_room_back">
         <item name="android:background">@color/btnPink</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20dp</item>
     </style>
 
-    <style name="Button.ReadingRoomSeeSeat">
+    <style name="Button.reading_room_see_seat">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/btnPink</item>
     </style>
