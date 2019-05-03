@@ -1,6 +1,5 @@
 package com.fourB.library;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fourB.library.ChatBot.ChatBotActivity;
+import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -31,14 +31,21 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        CardView readingRoom = (CardView)findViewById(R.id.cardView_reading_room);
+        readingRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ReadingRoomActivity.class);
+                startActivity(intent);
+            }
+        });
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ChatBotActivity.class);
                 startActivity(intent);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
 
@@ -61,7 +68,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        IntentIntegrator
     }
 
     private void AllFindViewById(){

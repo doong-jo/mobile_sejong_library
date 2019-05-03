@@ -16,6 +16,29 @@
     <string name="menu_classic_book">고전독서인증</string>
     <string name="menu_chatbot">챗봇</string>
 
+    <!--ReadingRoom-->
+    <string name="readingRoom_A">A 열람실</string>
+    <string name="readingRoom_B">B 열람실</string>
+    <string name="readingRoom_C">C 열람실</string>
+    <string name="readingRoom_D_A">D-A 열람실</string>
+    <string name="readingRoom_D_B">D-B 열람실</string>
+    <string name="readingRoom_3_A">3층 A 열람실</string>
+    <string name="readingRoom_3_B">3층 B 열람실</string>
+    <string name="readingRoom_see_seat">좌석보기</string>
+    <string name="readingRoom_back">이전</string>
+    <string name="readingRoom_url">http://210.107.226.14/seat/roomview5.asp?room_no=</string>
+    <string name="readingRoom_0_num">0</string>
+    <string name="readingRoom_A_num">188</string>
+    <string name="readingRoom_B_num">188</string>
+    <string name="readingRoom_C_num">208</string>
+    <string name="readingRoom_D_A_num">156</string>
+    <string name="readingRoom_D_B_num">174</string>
+    <string name="readingRoom_3_A_num">236</string>
+    <string name="readingRoom_3_B_num">160</string>
+
+
+
+
     <!--Navigation Drawer-->
     <string name="nav_lend_book">대출현황</string>
     <string name="nav_lend_book_record">대출/반납 기록</string>
