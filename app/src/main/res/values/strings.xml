@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">세종대학교 학술정보원</string>
 
+    <string name="SchoolName">세종대학교</string>
+    <string name="EngName">SEJONG UNIVERSITY</string>
+    <string name="detail">학술정보원 모바일 앱</string>
+    <string name="pw">비밀번호</string>
+    <string name="stid">학번</string>
+    <string name="button">로그인</string>
+    <string name="check">자동 로그인</string>
+    <string name="select">학부생</string>
+    <string name="todo">TODO</string>
+
+    <string name="studyroom_page_name">스터디룸 예약</string>
+    <string name="guide_borrow_page_name">책 대여 안내</string>
+    <string name="guide_ipad_page_name">아이패드 대여 안내</string>
+    <string name="guide_floor_page_name">층별 이용안내</string>
+    <string name="login_page_name">층별 이용안내</string>
+
+
     <!--DialogFlow-->
     <string name="korean_lang_code">ko</string>
 

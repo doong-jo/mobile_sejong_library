@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f7f1f1"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시설 이용안내"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/radiuslayout"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="9F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제 3자료실 (09:00 ~ 22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="8F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자유 열람실/학술전산처장실 (09:00~22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="7F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스터디룸/여학생 휴게실/화상회의실/중앙 서버룸 (09:00~22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="6F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제 2자료실 (09:00 ~ 22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="5F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제 1자료실 (09:00 ~ 22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="FF"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="교양영어 테스트 센터/전산 실습실/독서당/창의토론 라운지/스터디룸 (09:00~22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="3F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자유 열람실/인터넷 라운지/노트북 전용석 (연중 무휴/인터넷 라운지X)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="2F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="멀티미디어/대출실/학술정보실/전산정보실 (09:00~22:00)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="1F"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자유 열람실 A/B/C (연중 무휴)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@color/hintColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="B1"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자유 열람실 D (연중 무휴)"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/guideTextSize"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
