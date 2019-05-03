@@ -40,11 +40,11 @@ public class ChatArrayAdapter extends ArrayAdapter {
         View row = convertView;
         if (row == null) {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.activity_chat_singlemessage, parent, false);
+            row = inflater.inflate(R.layout.activity_chat_msg, parent, false);
         }
 
-        mSingleMessageContainer = (LinearLayout) row.findViewById(R.id.singleMessageContainer);
-        mChatText = (TextView) row.findViewById(R.id.text_message_body);
+        mSingleMessageContainer = (LinearLayout) row.findViewById(R.id.msg_container);
+        mChatText = (TextView) row.findViewById(R.id.msg_body);
 
         initChatData(position);
 

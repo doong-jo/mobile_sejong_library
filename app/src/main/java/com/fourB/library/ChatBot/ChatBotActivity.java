@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.content.Intent;
 import android.database.DataSetObserver;
 import android.view.KeyEvent;
 import android.view.View;
@@ -89,7 +88,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
         mListView = (ListView) findViewById(R.id.listView);
         mChatText = (EditText) findViewById(R.id.chatText);
 
-        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_singlemessage);
+        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_msg);
         mListView.setAdapter(mChatArrayAdapter);
 
         mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);

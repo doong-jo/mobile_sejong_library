@@ -51,6 +51,13 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="Text.chat_message">
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:maxWidth">300dp</item>
+        <item name="android:breakStrategy">simple</item>
+    </style>
+
     <!--Image Style-->
     <style name="Image">
 
@@ -69,10 +76,10 @@
     </style>
 
     <style name="Image.ChatBot">
-        <item name="android:layout_width">32dp</item>
-        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
         <item name="android:background">@mipmap/ic_launcher_round</item>
-        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_margin">10dp</item>
     </style>
 
     <!--Button Style-->
