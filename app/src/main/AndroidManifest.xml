@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fourB.library">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -45,10 +46,23 @@
         <activity
             android:name=".ChatBotActivity"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".StudyRoom"
             android:theme="@style/AppTheme"
             android:label="@string/studyroom_page_name"/>
+
+
+        <activity
+            android:name=".EbookActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+
+        <activity
+            android:name=".ReadingRoom.ReadingRoomActivity"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

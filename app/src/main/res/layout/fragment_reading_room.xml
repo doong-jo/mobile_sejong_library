@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backPink"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_A"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_A_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_A_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_A_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_B"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_B_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_B_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_B_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_C"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_C"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_C_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_C_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_C_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_C"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_D_A"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_D"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_D_A_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_D_A_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_D_A_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_D_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_D_B"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_D_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_D_B_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_D_B_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_D_B_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_D_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_3_A"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_3_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_3_A_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_3_A_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_3_A_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_3_A"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+        <android.support.design.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:strokeColor="@color/borderPink"
+            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
+            app:cardElevation="@dimen/reading_room_cardView_elevation"
+            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
+            android:layout_margin="@dimen/reading_room_cardView_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.ReadingRoom"
+                    android:text="@string/readingRoom_3_B"/>
+
+                <ProgressBar
+                    android:id="@+id/bar_reading_room_3_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:indeterminate="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_0_num"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/text_3_B_now"
+                        style="@style/Text.ReadingRoomProgressBarNow"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="130"/>
+
+                    <TextView
+                        android:id="@+id/text_3_B_max"
+                        style="@style/Text.ReadingRoomProgressBarMax"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/readingRoom_3_B_num" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_reading_room_3_B"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readingRoom_see_seat"
+                    style="@style/Button.ReadingRoomSeeSeat"/>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
