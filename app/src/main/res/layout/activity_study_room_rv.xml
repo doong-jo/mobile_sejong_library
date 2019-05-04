@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bgbg"
+    android:background="@color/background_pink"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/studybox"
+        android:background="@drawable/radiuslayout"
         android:layout_marginBottom="20dp">
 
         <LinearLayout
@@ -26,51 +26,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="시설명"
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
+                style="@style/Text.StudyRoomRVTextView"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="날짜"
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                style="@style/Text.StudyRoomRVTextView"
                 android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="시작시간"
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                style="@style/Text.StudyRoomRVTextView"
                 android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이용시간"
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                style="@style/Text.StudyRoomRVTextView"
                 android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="동반이용자"
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                style="@style/Text.StudyRoomRVTextView"
                 android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
+                />
 
         </LinearLayout>
 
@@ -86,21 +75,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="01 스터디룸 (7층) "
-                android:textColor="@color/textColor"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
+                style="@style/Text.StudyRoomRVTextView"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/textColor"
                 android:text="2019/04/30"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 android:layout_marginTop="15dp"
-                android:layout_gravity="center"
+                style="@style/Text.StudyRoomRVTextView"
                 />
 
             <LinearLayout
@@ -111,17 +94,17 @@
                 android:layout_gravity="left">
 
                 <Button
-                    android:id="@+id/btntime2"
+                    android:id="@+id/studyroomRV_btntime"
                     android:layout_width="80dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="15dp"
                     android:text="select"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:background="@color/colorAccent"
                     />
 
                 <TextView
-                    android:id="@+id/txtView4"
+                    android:id="@+id/studyroomRV_timetext"
                     android:layout_marginLeft="30dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

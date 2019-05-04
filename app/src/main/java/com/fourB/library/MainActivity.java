@@ -13,14 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
-
-import java.util.ArrayList;
+import com.fourB.library.StudyRoom.StudyRoomActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -29,7 +25,6 @@ public class MainActivity extends AppCompatActivity
 
     // test
     CardView mEbookView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         studyRoomCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StudyRoom.class);
+                Intent intent = new Intent(getApplicationContext(), StudyRoomActivity.class);
                 startActivity(intent);
             }
         });
@@ -69,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         guideCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Guide_Borrow.class);
+                Intent intent = new Intent(getApplicationContext(), GuideFloorUseActivity.class);
                 startActivity(intent);
             }
         });
