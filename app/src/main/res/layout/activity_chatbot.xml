@@ -22,21 +22,23 @@
         <EditText
             android:id="@+id/chatText"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
+            android:layout_height="48dp"
+            android:padding="10dp"
+            android:background="@drawable/chat_edittext"
+            android:inputType="text"
+            android:ems="@integer/chat_edittext_ems"
+            android:imeOptions="actionSend"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_toLeftOf="@+id/buttonSend" />
 
-        <Button
+        <android.support.v7.widget.AppCompatImageButton
             android:id="@+id/buttonSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_send_black_24dp"
+            android:background="@android:color/holo_red_dark"
             android:layout_alignBottom="@+id/chatText"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 

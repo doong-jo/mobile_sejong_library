@@ -1,11 +1,8 @@
-package com.fourB.library.async;
+package com.fourB.library.ChatBot.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.fourB.library.ChatBot.ChatBotService;
-
-import java.util.ArrayList;
 
 import ai.api.AIDataService;
 import ai.api.AIServiceException;
@@ -21,6 +18,12 @@ public class RequestJavaV2Task extends AsyncTask<AIRequest, Void, AIResponse> {
     public RequestJavaV2Task(AIDataService aiDataService, ChatBotService serviceActivity) {
         mAiDataService = aiDataService;
         mTargetActivity = serviceActivity;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        mTargetActivity.preBotSpeech();
     }
 
     @Override
@@ -40,13 +43,10 @@ public class RequestJavaV2Task extends AsyncTask<AIRequest, Void, AIResponse> {
         if (response != null) {
             final Result result = response.getResult();
             final String resultString = response.getResult().getFulfillment().getSpeech();
-            Log.i("DialogFlow", "Resolved query: " + result.getResolvedQuery());
-            Log.d("DialogFlow", "Result : " + resultString);
-
+//            Log.i("DialogFlow", "Resolved query: " + result.getResolvedQuery());
+//            Log.d("DialogFlow", "Result : " + resultString);
 
             mTargetActivity.botSpeech(resultString);
-
-            // process aiResponse here
         }
     }
 

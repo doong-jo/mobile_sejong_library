@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/msg_container">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/msg_body"
+            android:background="@drawable/rounded_rectangle_orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Your Question Display Hear... ddddddddddddddddd dddddddddddddddddddd.Your Question Display Hear....Your Question Display Hear....Your Question Display Hear...."
+            app:layout_alignParentRight="true"
+            style="@style/Text.chat_message" />
+    </RelativeLayout>
+</LinearLayout>

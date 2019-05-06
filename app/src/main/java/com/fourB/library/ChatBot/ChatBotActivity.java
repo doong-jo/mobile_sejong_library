@@ -4,18 +4,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageButton;
 import android.view.MenuItem;
 import android.database.DataSetObserver;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.fourB.library.R;
-import com.fourB.library.async.RequestJavaV2Task;
+import com.fourB.library.ChatBot.async.RequestJavaV2Task;
 
 import java.util.Objects;
 
@@ -30,7 +30,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     private ChatArrayAdapter mChatArrayAdapter;
     private ListView mListView;
     private EditText mChatText;
-    private Button mButtonSend;
+    private AppCompatImageButton mButtonSend;
 
     private ChatBotService mThisInterface;
     private AIDataRequest mAIDataRequset;
@@ -73,6 +73,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
             }
         });
 
+        botSpeech(getString(R.string.chatbot_say_hello));
     }
 
     private void initAIConfigure() {
@@ -84,11 +85,11 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     }
 
     private void initView(){
-        mButtonSend = (Button) findViewById(R.id.buttonSend);
-        mListView = (ListView) findViewById(R.id.listView);
-        mChatText = (EditText) findViewById(R.id.chatText);
+        mButtonSend = findViewById(R.id.buttonSend);
+        mListView = findViewById(R.id.listView);
+        mChatText = findViewById(R.id.chatText);
 
-        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_msg);
+        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_bot_msg);
         mListView.setAdapter(mChatArrayAdapter);
 
         mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
@@ -140,8 +141,15 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     }
 
     @Override
+    public void preBotSpeech() {
+        mButtonSend.setEnabled(false);
+        mChatArrayAdapter.add(new ChatMessage(LEFT_SIDE, ""));
+    }
+
+    @Override
     public void botSpeech(String result) {
         mChatArrayAdapter.add(new ChatMessage(LEFT_SIDE, result));
+        mButtonSend.setEnabled(true);
     }
 
     @Override
