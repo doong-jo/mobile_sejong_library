@@ -14,12 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.fourB.library.GuideAll.GuideFloorUseActivity;
+import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
+import com.fourB.library.StudyRoom.StudyRoomActivity;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    // test
+
     CardView mEbookView;
     CardView mAnouncementView;
 
@@ -48,6 +51,24 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        CardView studyRoomCardView = (CardView) findViewById(R.id.studyroom_cardview);
+        studyRoomCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StudyRoomActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView guideCardView = (CardView) findViewById(R.id.guide_cardview);
+        guideCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GuideFloorUseActivity.class);
+                startActivity(intent);
+            }
+        });
+
         AllFindViewById();
 
         mEbookView.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +86,6 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

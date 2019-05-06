@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_pink"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text.AllGuideTitle"
+            android:text="시설 이용안내"
+            android:layout_marginTop="20dp"
+            />
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/radiuslayout"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="9F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="제 3자료실 (09:00 ~ 22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="8F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="자유 열람실/학술전산처장실 (09:00~22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="7F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="스터디룸/여학생 휴게실/화상회의실/중앙 서버룸 (09:00~22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="6F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="제 2자료실 (09:00 ~ 22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="5F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="제 1자료실 (09:00 ~ 22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="FF"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="교양영어 테스트 센터/전산 실습실/독서당/창의토론 라운지/스터디룸 (09:00~22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="3F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="자유 열람실/인터넷 라운지/노트북 전용석 (연중 무휴/인터넷 라운지X)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="2F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="멀티미디어/대출실/학술정보실/전산정보실 (09:00~22:00)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="1F"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="자유 열람실 A/B/C (연중 무휴)"
+                />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/barWidth"
+            android:layout_height="2dp"
+            style="@style/Bar.AllGuide"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                style="@style/Text.FloorUseGuideFloor"
+                android:text="B1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.GuideExplainText"
+                android:text="자유 열람실 D (연중 무휴)"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
