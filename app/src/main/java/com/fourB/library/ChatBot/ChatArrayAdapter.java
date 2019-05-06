@@ -1,7 +1,7 @@
 package com.fourB.library.ChatBot;
 
 import android.content.Context;
-import android.view.Gravity;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +18,7 @@ import java.util.ArrayList;
 public class ChatArrayAdapter extends ArrayAdapter {
 
     private TextView mChatTv;
-    private TextView mNameTv;
-    private ImageView mProfileImg;
-    private ArrayList<ChatMessage> mChatMessageList = new ArrayList<ChatMessage>();
-    private LinearLayout mSingleMessageContainer;
-    private ProgressBar mProgressBar;
+    private ArrayList<ChatMessage> mChatMessageList = new ArrayList<>();
 
     public void add(ChatMessage object) {
         super.add(object);
@@ -31,6 +27,12 @@ public class ChatArrayAdapter extends ArrayAdapter {
 
     public ChatArrayAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
+    }
+
+
+    public void remove(int pos) {
+        super.remove(getItem(pos));
+        mChatMessageList.remove(pos);
     }
 
     public int getCount() {
@@ -42,42 +44,25 @@ public class ChatArrayAdapter extends ArrayAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
-        if (row == null) {
-            LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.activity_chat_bot_msg, parent, false);
-        }
-
-        mSingleMessageContainer = row.findViewById(R.id.msg_container);
-        mChatTv = row.findViewById(R.id.msg_body);
-        mNameTv = row.findViewById(R.id.msg_name);
-        mProfileImg = row.findViewById(R.id.msg_profile);
-        mProgressBar = row.findViewById(R.id.msg_loading);
-
-        initChatData(position);
-
-        return row;
-    }
-
-    private void initChatData(int position) {
         ChatMessage chatMessageObj = getItem(position);
         final String msg = chatMessageObj.getMsg();
         final boolean side = chatMessageObj.getSide();
 
-        if( side ) {
-            mNameTv.setText(getContext().getString(R.string.chatbot_bot_name));
-            mProfileImg.setImageResource(R.mipmap.ic_launcher);
-        } else {
-            mNameTv.setText("");
-            mProfileImg.setImageResource(0);
-//            mNameTv.setText(getContext().getString(R.string.chatbot_bot_name));
-            // mNameTv.setVisibility(GONE);
+        LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View row = side ?
+                !msg.equals("") ?
+                        inflater.inflate(R.layout.layout_chat_bot_msg, parent, false) :
+                        inflater.inflate(R.layout.layout_chat_bot_loading_msg, parent, false) :
+            inflater.inflate(R.layout.layout_chat_user_msg, parent, false);
+
+        mChatTv = !side || !msg.equals("") ? (TextView)row.findViewById(R.id.msg_body) : null;
+        if( mChatTv != null ) {
+            mChatTv.setText(msg);
+            mChatTv.setBackgroundResource(side ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
         }
 
-
-        mChatTv.setText(msg);
-        mChatTv.setBackgroundResource(side ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
-        mSingleMessageContainer.setGravity(side ? Gravity.START : Gravity.END);
+        return row;
     }
 
 }

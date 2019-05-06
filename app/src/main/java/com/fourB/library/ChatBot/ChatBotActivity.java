@@ -24,8 +24,8 @@ import ai.api.android.AIDataService;
 import ai.api.model.AIRequest;
 
 public class ChatBotActivity extends AppCompatActivity implements ChatBotService {
-    static final boolean LEFT_SIDE = true;
-    static final boolean RIGHT_SIDE = false;
+    static final boolean BOT_SIDE = true;
+    static final boolean USER_SIDE = false;
 
     private ChatArrayAdapter mChatArrayAdapter;
     private ListView mListView;
@@ -89,7 +89,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
         mListView = findViewById(R.id.listView);
         mChatText = findViewById(R.id.chatText);
 
-        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.activity_chat_bot_msg);
+        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.layout_chat_bot_msg);
         mListView.setAdapter(mChatArrayAdapter);
 
         mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
@@ -116,6 +116,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
 
     private boolean sendChatMessage(){
         final String msg = mChatText.getText().toString();
+        if( msg.equals("") ) { return true; }
         userSpeech(msg);
 
         mChatText.setText("");
@@ -143,18 +144,24 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     @Override
     public void preBotSpeech() {
         mButtonSend.setEnabled(false);
-        mChatArrayAdapter.add(new ChatMessage(LEFT_SIDE, ""));
+        mChatArrayAdapter.add(new ChatMessage(BOT_SIDE, ""));
     }
 
     @Override
     public void botSpeech(String result) {
-        mChatArrayAdapter.add(new ChatMessage(LEFT_SIDE, result));
+        final int arrCount = mChatArrayAdapter.getCount();
+        if( arrCount != 0 ) {
+            mChatArrayAdapter.remove(arrCount - 1);
+        }
+        mChatArrayAdapter.notifyDataSetChanged();
+
+        mChatArrayAdapter.add(new ChatMessage(BOT_SIDE, result));
         mButtonSend.setEnabled(true);
     }
 
     @Override
     public void userSpeech(final String msg) {
-        mChatArrayAdapter.add(new ChatMessage(RIGHT_SIDE, mChatText.getText().toString()));
+        mChatArrayAdapter.add(new ChatMessage(USER_SIDE, mChatText.getText().toString()));
         mAIDataRequset.request(msg);
     }
 }

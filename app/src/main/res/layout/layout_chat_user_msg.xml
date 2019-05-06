@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Your Question Display Hear... ddddddddddddddddd dddddddddddddddddddd.Your Question Display Hear....Your Question Display Hear....Your Question Display Hear...."
-            app:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             style="@style/Text.chat_message" />
     </RelativeLayout>
 </LinearLayout>
