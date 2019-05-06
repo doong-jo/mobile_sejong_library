@@ -18,6 +18,15 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
+    <style name="Login_Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <!--Text Style-->
     <style name="Text">
 
@@ -49,6 +58,72 @@
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Text.StudyRoomTextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.StudyRoomRVTextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.AllGuideTitle">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="Text.BookBorrowGuideIndex">
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.BookBorrowGuideExplain">
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.FloorUseGuideFloor">
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/guideTextSize</item>
+    </style>
+
+    <style name="Text.GuideExplainText">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/guideTextSize</item>
+    </style>
+
+    <style name="Text.IpadBorrowGuideIndex">
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/guideTextSize</item>
+    </style>
+
+    <style name="Text.LoginEditTxt">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/border</item>
+        <item name="android:textColorHint">@color/hintColor</item>
     </style>
 
     <style name="Text.chat_message">
@@ -96,6 +171,31 @@
     <style name="Button.reading_room_see_seat">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/btnPink</item>
+    </style>
+
+    <style name="Button.StudyRoom">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+
+    <!--Bar Style-->
+    <style name="Bar">
+
+    </style>
+
+
+    <style name="Bar.StudyRoom">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@color/hintColor</item>
+    </style>
+
+    <style name="Bar.AllGuide">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@color/hintColor</item>
     </style>
 
 </resources>

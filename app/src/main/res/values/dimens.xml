@@ -6,6 +6,9 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="guideTextSize">15sp</dimen>
+    <dimen name="barWidth">340dp</dimen>
+
 
     <!--ReadingRoom-->
     <dimen name="reading_room_cardView_margin">15dp</dimen>
@@ -14,4 +17,5 @@
     <dimen name="reading_room_cardView_strokeWidth">2dp</dimen>
     <dimen name="reading_room_cardView_linear_margin">10dp</dimen>
     <dimen name="reading_room_progress_text_marginBottom">5dp</dimen>
+
 </resources>
