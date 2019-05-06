@@ -18,4 +18,8 @@
     <dimen name="reading_room_cardView_linear_margin">10dp</dimen>
     <dimen name="reading_room_progress_text_marginBottom">5dp</dimen>
 
+    <!--Anouncement-->
+    <dimen name="Anouncement_vertical_margin">16dp</dimen>
+    <dimen name="Anouncement_marginTop">16dp</dimen>
+    <dimen name="Anouncement_marginBottom">8dp</dimen>
 </resources>
