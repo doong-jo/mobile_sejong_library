@@ -63,12 +63,16 @@
         </activity>
 
         <activity
-            android:name=".ChatBotActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".ChatBot.ChatBotActivity"
+            android:label="@string/menu_chatbot"
+            android:theme="@style/AppTheme"
+            />
+
         <activity
             android:name=".EbookActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
         <activity
             android:name=".ReadingRoom.ReadingRoomActivity"
             android:theme="@style/AppTheme" />

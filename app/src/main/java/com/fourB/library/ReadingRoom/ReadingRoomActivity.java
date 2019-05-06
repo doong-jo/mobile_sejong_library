@@ -43,8 +43,8 @@ public class ReadingRoomActivity extends AppCompatActivity implements ReadingRoo
     @Override
     public void onCommand(int data) {
         if ( data != 0 ) {
-            readingRoomWVFragment.setRoomUrl(String.valueOf(data));
             getSupportFragmentManager().beginTransaction().replace(R.id.reading_room_container,readingRoomWVFragment).commit();
+            readingRoomWVFragment.setRoomUrl(String.valueOf(data));
         } else {
             getSupportFragmentManager().beginTransaction().replace(R.id.reading_room_container,readingRoomFragment).commit();
         }

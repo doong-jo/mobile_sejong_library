@@ -39,7 +39,7 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="Text.ReadingRoom">
+    <style name="Text.reading_room">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">28sp</item>
         <item name="android:layout_marginTop">10dp</item>
@@ -48,13 +48,13 @@
         <item name="android:gravity">center_horizontal</item>
     </style>
 
-    <style name="Text.ReadingRoomProgressBarNow">
+    <style name="Text.reading_room_progress_now">
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="Text.ReadingRoomProgressBarMax">
+    <style name="Text.reading_room_progress_max">
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">end</item>
         <item name="android:textColor">@android:color/black</item>
@@ -126,6 +126,12 @@
         <item name="android:textColorHint">@color/hintColor</item>
     </style>
 
+    <style name="Text.chat_message">
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:maxWidth">300dp</item>
+        <item name="android:breakStrategy">simple</item>
+    </style>
 
     <!--Image Style-->
     <style name="Image">
@@ -145,10 +151,10 @@
     </style>
 
     <style name="Image.ChatBot">
-        <item name="android:layout_width">32dp</item>
-        <item name="android:layout_height">32dp</item>
-        <item name="android:background">@mipmap/ic_launcher_round</item>
-        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <!--Button Style-->
@@ -156,13 +162,13 @@
 
     </style>
 
-    <style name="Button.ReadingRoomBack">
+    <style name="Button.reading_room_back">
         <item name="android:background">@color/btnPink</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20dp</item>
     </style>
 
-    <style name="Button.ReadingRoomSeeSeat">
+    <style name="Button.reading_room_see_seat">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/btnPink</item>
     </style>
@@ -174,10 +180,7 @@
     </style>
 
 
-
-
     <!--Bar Style-->
-
     <style name="Bar">
 
     </style>
@@ -194,7 +197,5 @@
         <item name="android:layout_centerInParent">true</item>
         <item name="android:background">@color/hintColor</item>
     </style>
-
-
 
 </resources>

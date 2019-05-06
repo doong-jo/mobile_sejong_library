@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
+import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 

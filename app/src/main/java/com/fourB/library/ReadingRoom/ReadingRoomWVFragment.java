@@ -1,6 +1,7 @@
 package com.fourB.library.ReadingRoom;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,14 +19,17 @@ import android.widget.Button;
 import com.fourB.library.R;
 
 public class ReadingRoomWVFragment extends Fragment {
-    ReadingRoomCallBack callBack;
+    static final String ROOM_URL = "http://210.107.226.14/seat/roomview5.asp?room_no=";
+
+    private ReadingRoomCallBack callBack;
     private WebView mWebView;
     private Button mBackBtn;
-    private String roomUrl = "";
+    private String mRoomUrl;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         if(context instanceof ReadingRoomCallBack){
             callBack = (ReadingRoomCallBack) context;
         }
@@ -53,7 +57,7 @@ public class ReadingRoomWVFragment extends Fragment {
 
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
-        mWebView.loadUrl(roomUrl);
+        mWebView.loadUrl(mRoomUrl);
 
         mBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +69,7 @@ public class ReadingRoomWVFragment extends Fragment {
     }
 
     public void setRoomUrl(String index) {
-        String roomUrl = getString(R.string.readingRoom_url);
-        this.roomUrl = roomUrl + index;
+        this.mRoomUrl = ROOM_URL + index;
     }
 
     private class WebViewClientClass extends WebViewClient {
