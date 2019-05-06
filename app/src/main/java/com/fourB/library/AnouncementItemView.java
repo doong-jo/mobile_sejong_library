@@ -44,4 +44,5 @@ public class AnouncementItemView extends LinearLayout {
     public void setmAnouncement_Update_Date(String anouncement_update_date){
         mAnouncement_Update_Date.setText(anouncement_update_date);
     }
+
 }

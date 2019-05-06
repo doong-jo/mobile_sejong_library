@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     // test
     CardView mEbookView;
-
+    CardView mAnouncementView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,16 @@ public class MainActivity extends AppCompatActivity
             }
          });
 
+        mAnouncementView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AnouncementActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -69,8 +79,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void AllFindViewById(){
+    private void AllFindViewById() {
         mEbookView = (CardView)findViewById(R.id.EbookView);
+        mAnouncementView = (CardView)findViewById(R.id.AnouncementView);
     }
 
     @Override

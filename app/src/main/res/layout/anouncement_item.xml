@@ -10,30 +10,32 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginVertical="@dimen/nav_header_vertical_spacing">
+        android:layout_marginTop="@dimen/Anouncement_marginTop"
+        android:layout_marginBottom="@dimen/Anouncement_marginBottom">
 
-    <TextView
-        android:id="@+id/Anouncement_Num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="895" />
+        <TextView
+            android:id="@+id/Anouncement_Num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:text="895" />
 
-    <TextView
-        android:id="@+id/Anouncement_Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_weight="1"
-        android:text="제 43회 독서경시대회 장소안내" />
+        <TextView
+            android:id="@+id/Anouncement_Title"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_weight="4"
+            android:singleLine="true"
+            android:text="제 43회 독서경시대회 장소안내" />
 
-    <TextView
-        android:id="@+id/Anouncement_Update_Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:textAlignment="textEnd"
-        android:text="2019-03-21" />
+        <TextView
+            android:id="@+id/Anouncement_Update_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:textAlignment="textEnd"
+            android:text="2019-03-21" />
 
     </LinearLayout>
 
