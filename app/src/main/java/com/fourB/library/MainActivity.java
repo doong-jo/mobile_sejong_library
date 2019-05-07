@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.fourB.library.Anouncement.AnouncementActivity;
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
@@ -65,6 +66,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GuideFloorUseActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView mobileCardView = (CardView) findViewById(R.id.MobileCardView);
+        mobileCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MobileCardActivity.class);
                 startActivity(intent);
             }
         });
