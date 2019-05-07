@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity
 
     CardView mEbookView;
     CardView mAnouncementView;
-    LinearLayout bac_dim_layout;
-    PopupWindow mPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
