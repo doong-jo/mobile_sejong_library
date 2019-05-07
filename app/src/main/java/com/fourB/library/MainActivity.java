@@ -1,9 +1,17 @@
 package com.fourB.library;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
+import android.text.Layout;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +21,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.fourB.library.Anouncement.AnouncementActivity;
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
@@ -26,6 +40,8 @@ public class MainActivity extends AppCompatActivity
 
     CardView mEbookView;
     CardView mAnouncementView;
+    LinearLayout bac_dim_layout;
+    PopupWindow mPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +49,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        AllFindViewById();
 
         CardView readingRoom = (CardView)findViewById(R.id.cardView_reading_room);
         readingRoom.setOnClickListener(new View.OnClickListener() {
@@ -74,12 +92,9 @@ public class MainActivity extends AppCompatActivity
         mobileCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MobileCardActivity.class);
-                startActivity(intent);
+                show();
             }
         });
-
-        AllFindViewById();
 
         mEbookView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +121,14 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+    }
+
+    void show() {
+
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_mobilecard);
+
+        dialog.show();
     }
 
     private void AllFindViewById() {
