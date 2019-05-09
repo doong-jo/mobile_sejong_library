@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
+import com.fourB.library.SearchBook.SearchBookActivity;
 
 
 public class MainActivity extends AppCompatActivity
@@ -35,6 +36,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ReadingRoomActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView searchBook = (CardView)findViewById(R.id.cardView_search_book);
+        searchBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SearchBookActivity.class);
                 startActivity(intent);
             }
         });

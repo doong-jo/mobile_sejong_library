@@ -36,8 +36,8 @@
     <string name="readingRoom_3_A_num">236</string>
     <string name="readingRoom_3_B_num">160</string>
 
-
-
+    <!--SearchBookActivity-->
+    <string name="search_book_search">검색</string>
 
     <!--Navigation Drawer-->
     <string name="nav_lend_book">대출현황</string>
