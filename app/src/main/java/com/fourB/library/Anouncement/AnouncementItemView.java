@@ -1,10 +1,12 @@
-package com.fourB.library;
+package com.fourB.library.Anouncement;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.fourB.library.R;
 
 import org.w3c.dom.Text;
 

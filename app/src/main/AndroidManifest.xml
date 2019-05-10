@@ -73,13 +73,13 @@
             android:configChanges="orientation|keyboardHidden|screenSize" />
 
         <activity
-            android:name=".AnouncementActivity"
+            android:name=".Anouncement.AnouncementActivity"
             android:theme="@style/AppTheme"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
         <activity
-            android:name=".AnoucementDetailActivity"
+            android:name=".Anouncement.AnoucementDetailActivity"
             android:theme="@style/AppTheme"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
@@ -87,6 +87,7 @@
         <activity
             android:name=".ReadingRoom.ReadingRoomActivity"
             android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>
