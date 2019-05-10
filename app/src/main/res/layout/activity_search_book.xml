@@ -67,7 +67,8 @@
                     android:id="@+id/btn_search_book"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    style="@style/Button.SearchBook"/>
+                    style="@style/Button.SearchBook"
+                    android:text="@string/search_book_search"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 

@@ -1,8 +1,30 @@
 <resources>
     <string name="app_name">세종대학교 학술정보원</string>
 
+    <string name="school_name">세종대학교</string>
+    <string name="school_engname">SEJONG UNIVERSITY</string>
+    <string name="login_bottom">학술정보원 모바일 앱</string>
+    <string name="login_pw">비밀번호</string>
+    <string name="login_stid">학번</string>
+    <string name="login_button">로그인</string>
+    <string name="login_checkbox">자동 로그인</string>
+    <string name="select">학부생</string>
+    <string name="todo">TODO</string>
+
+    <string name="studyroom_page_name">스터디룸 예약</string>
+    <string name="guide_borrow_page_name">책 대여 안내</string>
+    <string name="guide_ipad_page_name">아이패드 대여 안내</string>
+    <string name="guide_floor_page_name">층별 이용안내</string>
+    <string name="login_page">로그인</string>
+
+
+
     <!--DialogFlow-->
     <string name="korean_lang_code">ko</string>
+
+    <!--ChatBot-->
+    <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?</string>
+    <string name="chatbot_bot_name">동천이</string>
 
     <!--Menu-->
     <string name="menu_notice">공지사항</string>
@@ -17,27 +39,27 @@
     <string name="menu_chatbot">챗봇</string>
 
     <!--ReadingRoom-->
-    <string name="readingRoom_A">A 열람실</string>
-    <string name="readingRoom_B">B 열람실</string>
-    <string name="readingRoom_C">C 열람실</string>
-    <string name="readingRoom_D_A">D-A 열람실</string>
-    <string name="readingRoom_D_B">D-B 열람실</string>
-    <string name="readingRoom_3_A">3층 A 열람실</string>
-    <string name="readingRoom_3_B">3층 B 열람실</string>
-    <string name="readingRoom_see_seat">좌석보기</string>
-    <string name="readingRoom_back">이전</string>
-    <string name="readingRoom_url">http://210.107.226.14/seat/roomview5.asp?room_no=</string>
-    <string name="readingRoom_0_num">0</string>
-    <string name="readingRoom_A_num">188</string>
-    <string name="readingRoom_B_num">188</string>
-    <string name="readingRoom_C_num">208</string>
-    <string name="readingRoom_D_A_num">156</string>
-    <string name="readingRoom_D_B_num">174</string>
-    <string name="readingRoom_3_A_num">236</string>
-    <string name="readingRoom_3_B_num">160</string>
 
     <!--SearchBookActivity-->
     <string name="search_book_search">검색</string>
+    <string name="reading_room_A">A 열람실</string>
+    <string name="reading_room_B">B 열람실</string>
+    <string name="reading_room_C">C 열람실</string>
+    <string name="reading_room_D_A">D-A 열람실</string>
+    <string name="reading_room_D_B">D-B 열람실</string>
+    <string name="reading_room_3_A">3층 A 열람실</string>
+    <string name="reading_room_3_B">3층 B 열람실</string>
+    <string name="reading_room_see_seat">좌석보기</string>
+    <string name="reading_room_back">이전</string>
+    <string name="reading_room_url">http://210.107.226.14/seat/roomview5.asp?room_no=</string>
+    <string name="reading_room_0_num">0</string>
+    <string name="reading_room_A_num">188</string>
+    <string name="reading_room_B_num">188</string>
+    <string name="reading_room_C_num">208</string>
+    <string name="reading_room_D_A_num">156</string>
+    <string name="reading_room_D_B_num">174</string>
+    <string name="reading_room_3_A_num">236</string>
+    <string name="reading_room_3_B_num">160</string>
 
     <!--Navigation Drawer-->
     <string name="nav_lend_book">대출현황</string>

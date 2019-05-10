@@ -14,6 +14,6 @@
         android:id="@+id/btn_back_reading_room"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Button.ReadingRoomBack"/>
-
+        android:text="@string/reading_room_back"
+        style="@style/Button.reading_room_back"/>
 </LinearLayout>

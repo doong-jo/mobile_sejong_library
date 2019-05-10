@@ -27,8 +27,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_A"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_A"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_A"
@@ -47,12 +47,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_A_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -60,18 +60,19 @@
 
                     <TextView
                         android:id="@+id/text_A_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_A_num" />
+                        android:text="@string/reading_room_A_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_A"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
@@ -93,8 +94,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_B"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_B"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_B"
@@ -113,12 +114,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_B_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -126,18 +127,19 @@
 
                     <TextView
                         android:id="@+id/text_B_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_B_num" />
+                        android:text="@string/reading_room_B_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
@@ -159,8 +161,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_C"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_C"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_C"
@@ -179,12 +181,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_C_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -192,18 +194,19 @@
 
                     <TextView
                         android:id="@+id/text_C_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_C_num" />
+                        android:text="@string/reading_room_C_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
@@ -225,8 +228,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_D_A"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_D_A"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_D"
@@ -245,12 +248,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_D_A_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -258,18 +261,19 @@
 
                     <TextView
                         android:id="@+id/text_D_A_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_D_A_num" />
+                        android:text="@string/reading_room_D_A_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_D_A"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
@@ -291,8 +295,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_D_B"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_D_B"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_D_B"
@@ -311,12 +315,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_D_B_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -324,18 +328,19 @@
 
                     <TextView
                         android:id="@+id/text_D_B_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_D_B_num" />
+                        android:text="@string/reading_room_D_B_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_D_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
@@ -357,8 +362,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_3_A"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_3_A"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_3_A"
@@ -377,12 +382,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_3_A_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -390,18 +395,19 @@
 
                     <TextView
                         android:id="@+id/text_3_A_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_3_A_num" />
+                        android:text="@string/reading_room_3_A_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_3_A"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
@@ -423,8 +429,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Text.ReadingRoom"
-                    android:text="@string/readingRoom_3_B"/>
+                    style="@style/Text.reading_room"
+                    android:text="@string/reading_room_3_B"/>
 
                 <ProgressBar
                     android:id="@+id/bar_reading_room_3_B"
@@ -443,12 +449,12 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_0_num"
+                        android:text="@string/reading_room_0_num"
                         android:textColor="@android:color/black"/>
 
                     <TextView
                         android:id="@+id/text_3_B_now"
-                        style="@style/Text.ReadingRoomProgressBarNow"
+                        style="@style/Text.reading_room_progress_now"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
@@ -456,18 +462,19 @@
 
                     <TextView
                         android:id="@+id/text_3_B_max"
-                        style="@style/Text.ReadingRoomProgressBarMax"
+                        style="@style/Text.reading_room_progress_max"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="@string/readingRoom_3_B_num" />
+                        android:text="@string/reading_room_3_B_num" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/btn_reading_room_3_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Button.ReadingRoomSeeSeat"/>
+                    android:text="@string/reading_room_see_seat"
+                    style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
         </android.support.design.card.MaterialCardView>
 
