@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/cPreview">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:orientation="vertical"
+        android:background="@color/backPink">
+
+        <TextView
+            android:id="@+id/explainBarcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="5dp"
+            android:text="책 뒷면의 바코드를 사각형 안에 맞추고 1~2초간 기다려주세요"
+            android:textColor="@color/white"
+            android:background="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="391dp"
+                android:layout_height="144dp"
+                android:paddingHorizontal="156.5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="32dp"
+                    app:srcCompat="@drawable/ic_research" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/subExplainBarcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="18dp"
+                android:layout_marginBottom="32dp"
+                android:text="바코드 검색을 통해 도서 정보 및 리뷰 등을 보실 수 있습니다."
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

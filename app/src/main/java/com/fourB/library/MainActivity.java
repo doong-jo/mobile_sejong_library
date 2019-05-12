@@ -13,11 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 
 public class MainActivity extends AppCompatActivity
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity
 
     CardView mEbookView;
     CardView mAnouncementView;
+    CardView mBarcodeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +91,13 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        mBarcodeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startQRCode();
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -98,9 +109,28 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private void startQRCode() {
+        new IntentIntegrator(this).initiateScan();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == IntentIntegrator.REQUEST_CODE) {
+            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+            if (result == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
     private void AllFindViewById() {
         mEbookView = (CardView)findViewById(R.id.EbookView);
         mAnouncementView = (CardView)findViewById(R.id.AnouncementView);
+        mBarcodeView = (CardView) findViewById(R.id.barcode_cardView);
     }
 
     @Override
