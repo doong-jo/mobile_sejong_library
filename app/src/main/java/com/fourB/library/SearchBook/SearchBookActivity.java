@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import com.fourB.library.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchBookActivity extends AppCompatActivity {
@@ -104,18 +105,15 @@ public class SearchBookActivity extends AppCompatActivity {
 
     }
     public void spinnerDataSetting(){
-        List<String> mCategoryData = new ArrayList<>();
-        mCategoryData.add("전체");
-        mCategoryData.add("자료명");
-        mCategoryData.add("저자");
-        mCategoryData.add("출판사");
+
+        String[] mCategory = getResources().getStringArray(R.array.search_book_category);
+        String[] mArrayWay = getResources().getStringArray(R.array.search_book_array_way);
+
+        List<String> mCategoryData = new ArrayList<>(Arrays.asList(mCategory));
         mCategoryAdapter = new AdapterSpinner(this, mCategoryData);
         mSpinnerCategory.setAdapter(mCategoryAdapter);
 
-        List<String> mArrayWayData = new ArrayList<>();
-        mArrayWayData.add("순서");
-        mArrayWayData.add("오름차순");
-        mArrayWayData.add("내림차순");
+        List<String> mArrayWayData = new ArrayList<>(Arrays.asList(mArrayWay));
         mArrayWayAdapter = new AdapterSpinner(this, mArrayWayData);
         mSpinnerArrayWay.setAdapter(mArrayWayAdapter);
     }

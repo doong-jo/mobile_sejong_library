@@ -225,6 +225,8 @@
         <item name="android:background">@color/btnPink</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <style name="Button.reading_room_back">
@@ -272,5 +274,16 @@
         <item name="android:background">@color/hintColor</item>
     </style>
 
+
+    <!--Spinner Style-->
+    <style name="Spinner">
+
+    </style>
+
+    <style name="Spinner.SearchBook">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
 
 </resources>

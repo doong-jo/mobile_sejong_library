@@ -27,6 +27,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="2"
                 style="@style/Image.SearchBook"/>
+
             <GridLayout
                 android:id="@+id/gridLayout_detail_book"
                 android:layout_width="match_parent"

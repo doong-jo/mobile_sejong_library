@@ -97,9 +97,9 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
             mBookPublishYear.setText(item.getBookPublishYear());
             mBookCallNum.setText(item.getBookCallNum());
             if(item.getBookLend()){
-                mBookLend.setText("대출가능");
+                mBookLend.setText(R.string.search_book_lend_true);
             }else {
-                mBookLend.setText("대출불가");
+                mBookLend.setText(R.string.search_book_lend_false);
             }
 
         }
