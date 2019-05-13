@@ -18,7 +18,6 @@
     <string name="login_page">로그인</string>
 
 
-
     <!--DialogFlow-->
     <string name="korean_lang_code">ko</string>
 
@@ -37,6 +36,12 @@
     <string name="menu_usage">이용안내</string>
     <string name="menu_classic_book">고전독서인증</string>
     <string name="menu_chatbot">챗봇</string>
+
+    <!--SearchBookActivity-->
+    <string name="search_book_detail_title">도서 상세</string>
+    <string name="search_book_search">검색</string>
+    <string name="search_book_lend_true">대출가능</string>
+    <string name="search_book_lend_false">대출불가</string>
 
     <!--ReadingRoom-->
     <string name="reading_room_A">A 열람실</string>

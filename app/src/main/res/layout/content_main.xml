@@ -160,6 +160,7 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
+                android:id="@+id/cardView_search_book"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"

@@ -26,4 +26,10 @@
     <!--MobileCard-->
     <dimen name="MobileCard_Width_Size">320dp</dimen>
     <dimen name="MobileCard_Height_Size">450dp</dimen>
+
+    <!--SearchBook-->
+    <dimen name="search_book_button_layout_height">40dp</dimen>
+    <dimen name="search_book_cardView_stroke_width">2dp</dimen>
+    <dimen name="search_book_cardView_elevation">10dp</dimen>
+    <dimen name="search_book_cardView_layout_margin">15dp</dimen>
 </resources>
