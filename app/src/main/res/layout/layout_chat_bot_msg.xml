@@ -12,7 +12,7 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/msg_profile"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/dongcheon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             style="@style/Image.ChatBot" />
