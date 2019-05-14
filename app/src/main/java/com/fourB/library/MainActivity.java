@@ -32,6 +32,7 @@ import com.fourB.library.Anouncement.AnouncementActivity;
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
+import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 
 
@@ -55,6 +56,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ReadingRoomActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView searchBook = (CardView)findViewById(R.id.cardView_search_book);
+        searchBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SearchBookActivity.class);
                 startActivity(intent);
             }
         });
