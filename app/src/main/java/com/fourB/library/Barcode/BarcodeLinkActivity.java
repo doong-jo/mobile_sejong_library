@@ -27,7 +27,7 @@ public class BarcodeLinkActivity extends AppCompatActivity {
         mBorrowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "책 빌림!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.borrow_success, Toast.LENGTH_LONG).show();
                 finish();
             }
         });
@@ -36,7 +36,7 @@ public class BarcodeLinkActivity extends AppCompatActivity {
         mCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "대여 취소!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.borrow_cancle, Toast.LENGTH_LONG).show();
                 finish();
             }
         });

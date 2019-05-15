@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.fourB.library.R;
+
 public class BackPressCloseHandler {
 
     private long backKeyPressedTime = 0;
@@ -15,17 +17,17 @@ public class BackPressCloseHandler {
     }
 
     public void onBackPressed() {
-        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+        if (System.currentTimeMillis() > backKeyPressedTime + R.integer.barcode_Backable_second) {
             backKeyPressedTime = System.currentTimeMillis();
             showGuide();
             return;
         }
-        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+        if (System.currentTimeMillis() <= backKeyPressedTime + R.integer.barcode_Backable_second) {
             activity.finish();
             toast.cancel();
         }
     }
     public void showGuide() {
-        toast = Toast.makeText(activity, "\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT); toast.show();
+        toast = Toast.makeText(activity, R.string.backButton_comment, Toast.LENGTH_SHORT); toast.show();
     }
 }

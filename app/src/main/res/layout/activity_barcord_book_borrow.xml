@@ -20,7 +20,7 @@
         android:layout_gravity="center"
         android:textSize="@dimen/Barcode_BookTitle_TextSize"
         android:textColor="@color/black"
-        android:text="책 제목" />
+        android:text="@string/barcode_bookTitle" />
 
     <TextView
         android:id="@+id/barcode_subTitle"
