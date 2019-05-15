@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backPink"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeColor="@color/borderPink"
+        app:strokeWidth="2dp"
+        app:cardCornerRadius="10dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            
+            <ImageView
+                android:id="@+id/imageView_detail_book"
+                android:src="@drawable/book_example"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                style="@style/Image.SearchBook"/>
+
+            <GridLayout
+                android:id="@+id/gridLayout_detail_book"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:columnCount="2">
+                <TextView android:text="자료유형"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_type"
+                    android:text="동양서"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="서명"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_title"
+                    android:text="뼈 있는 아무 말 대잔치"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="저자"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_author"
+                    android:text="신영준, 고영성"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="발행사항"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_publish"
+                    android:text="서울: 로크미디어, 2018"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="형태사항"
+                    style="@style/Text.SearchBookDetailCategory" />
+                <TextView android:text="372 p.: 삽화; 19 cm"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="청구기호"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView android:text="811.3 현79운ㄷ"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+
+            </GridLayout>
+        </LinearLayout>
+    </android.support.design.card.MaterialCardView>
+</LinearLayout>

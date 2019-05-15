@@ -30,4 +30,33 @@
     <dimen name="Anouncement_vertical_margin">16dp</dimen>
     <dimen name="Anouncement_marginTop">16dp</dimen>
     <dimen name="Anouncement_marginBottom">8dp</dimen>
+
+    <!--Barcode-->
+    <dimen name="Barcode_BookTitle_TextSize">30dp</dimen>
+    <dimen name="Barcode_Horizontal_margin">25dp</dimen>
+    <dimen name="Barcode_Button_TextSize">16dp</dimen>
+    <dimen name="Barcode_Title_TextSize">20dp</dimen>
+    <dimen name="Barcode_SubDate_marginTop">55dp</dimen>
+    <dimen name="Barcode_SubDate_TextSize">18dp</dimen>
+
+    <dimen name="BarcodeView_marginBottom">200dp</dimen>
+    <dimen name="Barcode_frame_rect_height">100dp</dimen>
+    <dimen name="Barcode_frame_rect_widght">250dp</dimen>
+
+    <!--Camera-->
+    <dimen name="Camera_paddingHorizontal">15dp</dimen>
+    <dimen name="Camera_paddingVertical">5dp</dimen>
+    <dimen name="Camera_Icon_LinearLayout_height">130dp</dimen>
+    <dimen name="Camera_second_comment_marginTop">28dp</dimen>
+
+    <!--MobileCard-->
+    <dimen name="MobileCard_Width_Size">320dp</dimen>
+    <dimen name="MobileCard_Height_Size">450dp</dimen>
+
+    <!--SearchBook-->
+    <dimen name="search_book_button_layout_height">40dp</dimen>
+    <dimen name="search_book_cardView_stroke_width">2dp</dimen>
+    <dimen name="search_book_cardView_elevation">10dp</dimen>
+    <dimen name="search_book_cardView_layout_margin">15dp</dimen>
+
 </resources>

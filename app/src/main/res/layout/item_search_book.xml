@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView_search_book_recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/backPink">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView_search_book"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="100dp"
+                android:src="@drawable/book_example"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_search_book_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="제목"
+                    style="@style/Text.SearchBookItemTitle"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/textView_search_book_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="저자"
+                        style="@style/Text.SearchBookItemRest"/>
+                    <TextView
+                        android:id="@+id/textView_search_book_publisher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="출판사"
+                        style="@style/Text.SearchBookItemRest"/>
+                    <TextView
+                        android:id="@+id/textView_search_book_publish_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="년도"
+                        style="@style/Text.SearchBookItemRest"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView_search_book_callnum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="청구기호"
+                    style="@style/Text.SearchBookItemRest"/>
+
+                <TextView
+                    android:id="@+id/textView_search_book_lend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="대출가능"
+                    style="@style/Text.SearchBookItemRest"/>
+            </LinearLayout>
+        </LinearLayout>
+</android.support.v7.widget.CardView>
+</LinearLayout>
