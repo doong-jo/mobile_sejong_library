@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <com.journeyapps.barcodescanner.DecoratedBarcodeView
+        android:id="@+id/zxing_barcode_scanner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:id="@+id/cPreview">
-    </LinearLayout>
+        app:zxing_scanner_layout="@layout/custom_barcode_scanner">
+    </com.journeyapps.barcodescanner.DecoratedBarcodeView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom|center"
-        android:orientation="vertical"
-        android:background="@color/backPink">
+        android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
         <TextView
             android:id="@+id/explainBarcode"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingHorizontal="18dp"
-            android:paddingVertical="5dp"
-            android:text="책 뒷면의 바코드를 사각형 안에 맞추고 1~2초간 기다려주세요"
-            android:textColor="@color/white"
-            android:background="@color/black"/>
+            android:background="@color/black"
+            android:paddingVertical="@dimen/Camera_paddingVertical"
+            android:gravity="center"
+            android:text="@string/first_camera_comment"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@color/white">
 
             <LinearLayout
-                android:layout_width="391dp"
-                android:layout_height="144dp"
-                android:paddingHorizontal="156.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Camera_Icon_LinearLayout_height"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="32dp"
-                    app:srcCompat="@drawable/ic_research" />
+                    android:id="@+id/cameraIcon"
+                    style="@style/Image.CameraIcon"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_menu_camera" />
+
             </LinearLayout>
 
             <TextView
@@ -54,12 +59,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingHorizontal="18dp"
-                android:layout_marginBottom="32dp"
-                android:text="바코드 검색을 통해 도서 정보 및 리뷰 등을 보실 수 있습니다."
+                android:layout_marginBottom="@dimen/Camera_second_comment_marginTop"
+                android:text="@string/second_camera_comment"
                 android:textColor="@color/black" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,9 +1,11 @@
 package com.fourB.library;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.fourB.library.Barcode.BarcodeLinkActivity;
+import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
@@ -94,7 +98,11 @@ public class MainActivity extends AppCompatActivity
         mBarcodeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startQRCode();
+
+                    IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
+                    integrator.setCaptureActivity(CustomScannerActivity.class);
+                    integrator.setOrientationLocked(false);
+                    integrator.initiateScan();
             }
         });
 
@@ -109,21 +117,20 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void startQRCode() {
-        new IntentIntegrator(this).initiateScan();
-    }
-
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == IntentIntegrator.REQUEST_CODE) {
-            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-            if (result == null) {
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+
+        if (resultCode == Activity.RESULT_OK) {
+            IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+            if(scanResult == null){
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this, "Scanned: " + scanResult.getContents(), Toast.LENGTH_LONG).show();
+                Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
+                startActivity(newIntent);
             }
         } else {
-            super.onActivityResult(requestCode, resultCode, data);
+            super.onActivityResult(requestCode, resultCode, intent);
         }
     }
 

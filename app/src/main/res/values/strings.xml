@@ -70,5 +70,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <!--Ebook URL-->
     <string name="ebookUrl">https://ebook.sejong.ac.kr/m/main.asp</string>
+
+    <!--Camera View Comment-->
+    <string name="first_camera_comment">책 뒷면의 바코드를 사각형 안에 맞추고 1~2초간 기다려주세요</string>
+    <string name="second_camera_comment">바코드 검색을 통해 도서 정보 및 리뷰 등을 보실 수 있습니다.</string>
 </resources>
