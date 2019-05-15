@@ -310,6 +310,7 @@
         <item name="android:inputType">text</item>
         <item name="android:ems">@integer/chat_edittext_ems</item>
         <item name="android:imeOptions">actionSend</item>
+    </style>
 
     <!--Spinner Style-->
     <style name="Spinner">
