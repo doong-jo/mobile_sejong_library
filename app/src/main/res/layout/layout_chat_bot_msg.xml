@@ -12,7 +12,7 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/msg_profile"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/dongcheon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             style="@style/Image.ChatBot" />
@@ -24,9 +24,9 @@
                 android:id="@+id/msg_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
+                android:paddingTop="@dimen/normal_padding"
+                android:paddingStart="@dimen/normal_padding"
+                android:paddingEnd="@dimen/normal_padding"
                 android:text="@string/chatbot_bot_name"
                 app:layout_constraintLeft_toRightOf="@+id/msg_profile"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,16 +38,10 @@
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/msg_body"
                     android:background="@drawable/rounded_rectangle_orange"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Your Question Display Hear... ddddddddddddddddd dddddddddddddddddddd.Your Question Display Hear....Your Question Display Hear....Your Question Display Hear...."
                     app:layout_constraintTop_toBottomOf="@+id/msg_name"
                     app:layout_constraintLeft_toRightOf="@+id/msg_profile"
                     style="@style/Text.chat_message" />
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

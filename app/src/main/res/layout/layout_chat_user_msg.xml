@@ -12,11 +12,7 @@
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/msg_body"
-            android:background="@drawable/rounded_rectangle_orange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Your Question Display Hear... ddddddddddddddddd dddddddddddddddddddd.Your Question Display Hear....Your Question Display Hear....Your Question Display Hear...."
+            android:background="@drawable/rounded_rectangle_green"
             android:layout_alignParentEnd="true"
             style="@style/Text.chat_message" />
     </RelativeLayout>

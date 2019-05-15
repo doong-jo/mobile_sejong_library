@@ -171,8 +171,11 @@
     </style>
 
     <style name="Text.chat_message">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
         <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">10dp</item>
         <item name="android:maxWidth">300dp</item>
         <item name="android:breakStrategy">simple</item>
     </style>
@@ -269,6 +272,12 @@
         <item name="android:background">@color/colorAccent</item>
     </style>
 
+    <style name="Button.send">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:src">@drawable/ic_send_black_24dp</item>
+        <item name="android:background">@android:color/holo_red_dark</item>
+    </style>
 
     <!--Bar Style-->
     <style name="Bar">
@@ -288,6 +297,20 @@
         <item name="android:background">@color/hintColor</item>
     </style>
 
+    <!--EditText-->
+    <style name="EditText">
+
+    </style>
+
+    <style name="EditText.chat_edit">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/chat_edittext</item>
+        <item name="android:inputType">text</item>
+        <item name="android:ems">@integer/chat_edittext_ems</item>
+        <item name="android:imeOptions">actionSend</item>
+    </style>
 
     <!--Spinner Style-->
     <style name="Spinner">
