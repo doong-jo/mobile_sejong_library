@@ -3,6 +3,7 @@
     package="com.fourB.library">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -73,6 +74,18 @@
             android:name=".SearchBook.SearchBookActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateAlwaysHidden"></activity>
-    </application>
 
+        <activity
+            android:name=".Barcode.AnyOrientationCaptureActivity"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+        <activity android:name=".Barcode.CustomScannerActivity" ></activity>
+
+        <activity
+            android:name=".Barcode.BarcodeLinkActivity"
+            android:theme="@style/AppTheme" />
+
+    </application>
 </manifest>

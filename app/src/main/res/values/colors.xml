@@ -13,6 +13,7 @@
 
 
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="background_pink">#f7f1f1</color>
 
     <color name="backPink">#F9DDDD</color>
