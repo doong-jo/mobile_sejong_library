@@ -1,4 +1,4 @@
-package com.fourB.library;
+package com.fourB.library.Anouncement;
 
 public class AnouncementItem {
 

@@ -1,4 +1,4 @@
-package com.fourB.library;
+package com.fourB.library.Anouncement;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+
+import com.fourB.library.R;
+
 import java.util.ArrayList;
 
 public class AnouncementActivity extends AppCompatActivity {

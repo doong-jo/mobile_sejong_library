@@ -1,11 +1,11 @@
 package com.fourB.library;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.Bundle;;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,12 +16,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
+import com.fourB.library.Anouncement.AnouncementActivity;
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
+import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -41,11 +42,22 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        AllFindViewById();
+
         CardView readingRoom = (CardView)findViewById(R.id.cardView_reading_room);
         readingRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ReadingRoomActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        CardView searchBook = (CardView)findViewById(R.id.cardView_search_book);
+        searchBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SearchBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -77,7 +89,13 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        AllFindViewById();
+        CardView mobileCardView = (CardView) findViewById(R.id.MobileCardView);
+        mobileCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show();
+            }
+        });
 
         mEbookView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,14 +135,21 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private void show() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.activity_mobilecard);
+
+        dialog.show();
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         if (resultCode == Activity.RESULT_OK) {
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-            if(scanResult == null){
+            if (scanResult == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-            }else{
+            } else {
                 Toast.makeText(this, "Scanned: " + scanResult.getContents(), Toast.LENGTH_LONG).show();
                 Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
                 startActivity(newIntent);
@@ -132,7 +157,9 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onActivityResult(requestCode, resultCode, intent);
         }
+
     }
+
 
     private void AllFindViewById() {
         mEbookView = (CardView)findViewById(R.id.EbookView);

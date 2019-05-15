@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/MobileCard_Width_Size"
+    android:layout_height="@dimen/MobileCard_Height_Size"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/mobileCard"
+        android:layout_width="@dimen/MobileCard_Width_Size"
+        android:layout_height="@dimen/MobileCard_Height_Size"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/cut_mobile_card" />
+
+</RelativeLayout>

@@ -16,5 +16,4 @@
         android:layout_height="wrap_content"
         android:text="@string/reading_room_back"
         style="@style/Button.reading_room_back"/>
-
 </LinearLayout>
