@@ -43,9 +43,10 @@ public class ChatPayloadView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 Intent res = new Intent();
-                String _Package = "com.fourB.library.ReadingRoom";
-                String _Class = ".ReadingRoomActivity";
-                res.setClassName(_Package, _Class);
+                String _Package = getContext().getPackageName();
+                String _Class = mActivityName;
+                res.setClassName(_Package, _Package + _Class);
+                res.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().startActivity(res);
             }
         });
