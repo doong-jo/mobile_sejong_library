@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.fourB.library.R;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -70,10 +71,15 @@ public class ChatArrayAdapter extends ArrayAdapter {
         }
 
 
-        if( chatMessageObj.getPayload() == null ) {
+        JsonObject payloadJson = chatMessageObj.getPayload();
+        if( payloadJson == null ) {
             return row;
         } else {
-            View payload = inflater.inflate(R.layout.layout_chat_bot_payload, parent, false);
+            JsonObject message = payloadJson.getAsJsonObject("message");
+            final String type = message.get("type").getAsString();
+            final String text = message.get("text").getAsString();
+            final String activityName = message.get("activity").getAsString();
+            ChatPayloadView payload = new ChatPayloadView(getContext(), text, activityName);
 
             LinearLayout li = new LinearLayout(getContext());
             li.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
