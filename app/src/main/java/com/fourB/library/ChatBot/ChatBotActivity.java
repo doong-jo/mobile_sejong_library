@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.fourB.library.R;
 import com.fourB.library.ChatBot.async.RequestJavaV2Task;
+import com.google.gson.JsonObject;
 
 import java.util.Objects;
 
@@ -73,7 +74,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
             }
         });
 
-        botSpeech(getString(R.string.chatbot_say_hello));
+        botSpeech(getString(R.string.chatbot_say_hello), null);
     }
 
     private void initAIConfigure() {
@@ -144,24 +145,24 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     @Override
     public void preBotSpeech() {
         mButtonSend.setEnabled(false);
-        mChatArrayAdapter.add(new ChatMessage(BOT_SIDE, ""));
+        mChatArrayAdapter.add(new ChatMessage(BOT_SIDE, "", null));
     }
 
     @Override
-    public void botSpeech(String result) {
+    public void botSpeech(String result, JsonObject customPayload) {
         final int arrCount = mChatArrayAdapter.getCount();
         if( arrCount != 0 ) {
             mChatArrayAdapter.remove(arrCount - 1);
         }
-        mChatArrayAdapter.notifyDataSetChanged();
+        mChatArrayAdapter.add(new ChatMessage(BOT_SIDE, result, customPayload));
 
-        mChatArrayAdapter.add(new ChatMessage(BOT_SIDE, result));
+        mChatArrayAdapter.notifyDataSetChanged();
         mButtonSend.setEnabled(true);
     }
 
     @Override
     public void userSpeech(final String msg) {
-        mChatArrayAdapter.add(new ChatMessage(USER_SIDE, mChatText.getText().toString()));
+        mChatArrayAdapter.add(new ChatMessage(USER_SIDE, mChatText.getText().toString(), null));
         mAIDataRequset.request(msg);
     }
 }

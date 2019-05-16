@@ -50,19 +50,39 @@ public class ChatArrayAdapter extends ArrayAdapter {
 
         LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View row = side ?
-                !msg.equals("") ?
-                        inflater.inflate(R.layout.layout_chat_bot_msg, parent, false) :
-                        inflater.inflate(R.layout.layout_chat_bot_loading_msg, parent, false) :
-            inflater.inflate(R.layout.layout_chat_user_msg, parent, false);
+        View row;
+        mChatTv = null;
+        if( side ) { // BOT
+            if( msg.equals("") ) { // LOADING
+                row = inflater.inflate(R.layout.layout_chat_bot_loading_msg, parent, false);
+            } else {
+                row = inflater.inflate(R.layout.layout_chat_bot_msg, parent, false);
+                mChatTv = row.findViewById(R.id.msg_body);
+            }
+        } else { // USER
+            row = inflater.inflate(R.layout.layout_chat_user_msg, parent, false);
+            mChatTv = row.findViewById(R.id.msg_body);
+        }
 
-        mChatTv = !side || !msg.equals("") ? (TextView)row.findViewById(R.id.msg_body) : null;
         if( mChatTv != null ) {
             mChatTv.setText(msg);
             mChatTv.setBackgroundResource(side ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
         }
 
-        return row;
+
+        if( chatMessageObj.getPayload() == null ) {
+            return row;
+        } else {
+            View payload = inflater.inflate(R.layout.layout_chat_bot_payload, parent, false);
+
+            LinearLayout li = new LinearLayout(getContext());
+            li.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            li.setOrientation(LinearLayout.VERTICAL);
+            li.addView(row);
+            li.addView(payload);
+
+            return li;
+        }
     }
 
 }
