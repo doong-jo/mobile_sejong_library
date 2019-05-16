@@ -90,7 +90,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
         mListView = findViewById(R.id.listView);
         mChatText = findViewById(R.id.chatText);
 
-        mChatArrayAdapter = new ChatArrayAdapter(getApplicationContext(), R.layout.layout_chat_bot_msg);
+        mChatArrayAdapter = new ChatArrayAdapter(this, R.layout.layout_chat_bot_msg);
         mListView.setAdapter(mChatArrayAdapter);
 
         mListView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);

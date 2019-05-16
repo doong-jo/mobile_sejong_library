@@ -25,6 +25,13 @@
     <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?</string>
     <string name="chatbot_bot_name">동천이</string>
 
+    <string name="chatbot_report_dialog_title">열람실 불편 신고 접수</string>
+    <string name="chatbot_report_dialog_content">신고 내용을 접수하시겠습니까?\n신고 내용은 자동 저장되며, 지정 좌석 사용자에게 푸시 알림이 전송됩니다.\n허위 신고 시 불이익이 발생할 수 있습니다.</string>
+    <string name="chatbot_report_dialog_yes">예</string>
+    <string name="chatbot_report_dialog_no">아니오</string>
+    <string name="chatbot_report_dialog_toast_yes">열람실 불편 신고가 접수되었습니다.</string>
+    <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
+
     <!--Menu-->
     <string name="menu_notice">공지사항</string>
     <string name="menu_study_room">스터디룸</string>

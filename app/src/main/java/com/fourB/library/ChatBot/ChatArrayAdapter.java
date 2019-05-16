@@ -1,14 +1,11 @@
 package com.fourB.library.ChatBot;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.fourB.library.R;
@@ -21,13 +18,16 @@ public class ChatArrayAdapter extends ArrayAdapter {
     private TextView mChatTv;
     private ArrayList<ChatMessage> mChatMessageList = new ArrayList<>();
 
+    private ChatBotActivity parentContext;
+
     public void add(ChatMessage object) {
         super.add(object);
         mChatMessageList.add(object);
     }
 
-    public ChatArrayAdapter(Context context, int textViewResourceId) {
+    public ChatArrayAdapter(ChatBotActivity context, int textViewResourceId) {
         super(context, textViewResourceId);
+        parentContext = context;
     }
 
 
@@ -78,8 +78,8 @@ public class ChatArrayAdapter extends ArrayAdapter {
             JsonObject message = payloadJson.getAsJsonObject("message");
             final String type = message.get("type").getAsString();
             final String text = message.get("text").getAsString();
-            final String activityName = message.get("activity").getAsString();
-            ChatPayloadView payload = new ChatPayloadView(getContext(), text, activityName);
+            final String name = message.get("name").getAsString();
+            ChatPayloadView payload = new ChatPayloadView(parentContext, type, text, name);
 
             LinearLayout li = new LinearLayout(getContext());
             li.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
