@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:paddingStart="68dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/button_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:background="@drawable/rectangle_primary"
+        android:text="열람실 현황 보기"
+        android:textSize="16dp"/>
+
+</LinearLayout>

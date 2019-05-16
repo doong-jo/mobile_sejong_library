@@ -45,16 +45,18 @@
             android:name=".LoginActivity"
             android:label="@string/login_page"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ChatBot.ChatBotActivity"
+            android:label="@string/menu_chatbot"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ChatBot.ChatBotActivity"
-            android:label="@string/menu_chatbot"
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".EbookActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
