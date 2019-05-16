@@ -10,13 +10,15 @@
     <dimen name="normal_padding">10dp</dimen>
 
 
-
     <dimen name="guideTextSize">15sp</dimen>
     <dimen name="barWidth">340dp</dimen>
 
 
     <!--ChatBot-->
     <dimen name="chat_edit_height">48dp</dimen>
+    <dimen name="chat_payload_button_text">16dp</dimen>
+    <dimen name="chat_payload_button_width">300dp</dimen>
+    <dimen name="chat_payload_left_padding">68dp</dimen>
 
     <!--ReadingRoom-->
     <dimen name="reading_room_cardView_margin">15dp</dimen>
