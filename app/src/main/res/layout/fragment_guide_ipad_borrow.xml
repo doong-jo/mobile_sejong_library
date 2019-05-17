@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/guide_container_layout_margin_top"
-    android:background="@color/background_pink"
     >
 
     <LinearLayout
@@ -47,7 +46,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
                     android:text="1. 대상"
                     style="@style/Text.IpadBorrowGuideIndex" />
@@ -74,7 +73,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
                     style="@style/Text.IpadBorrowGuideIndex"
                     android:text="2. 대여"
@@ -102,7 +101,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
                     android:text="3. 기간"
                     style="@style/Text.IpadBorrowGuideIndex" />
@@ -131,7 +130,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
                     android:text="4. 방법"
                     style="@style/Text.IpadBorrowGuideIndex" />
@@ -199,7 +198,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
                     android:text="5. 조치"
                     style="@style/Text.IpadBorrowGuideIndex" />

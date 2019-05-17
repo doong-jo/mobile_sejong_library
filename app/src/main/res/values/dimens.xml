@@ -65,5 +65,7 @@
     <dimen name="guide_linear_layout_margin">10dp</dimen>
     <dimen name="guide_title_bar_width">200dp</dimen>
     <dimen name="guide_content_bar_width">340dp</dimen>
+    <dimen name="guide_content_long_bar_width">350dp</dimen>
     <dimen name="guide_all_bar_height">2dp</dimen>
+    <dimen name="guide_text_index_widht">50dp</dimen>
 </resources>

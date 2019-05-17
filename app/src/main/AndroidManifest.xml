@@ -22,15 +22,6 @@
             android:name=".StudyRoom.StudyRoomRVActivity"
             android:label="@string/studyroom_page_name" />
         <activity
-            android:name=".GuideAll.GuideFloorUseActivity"
-            android:label="@string/guide_floor_page_name" />
-        <activity
-            android:name=".GuideAll.GuideBorrowBookActivity"
-            android:label="@string/guide_borrow_page_name" />
-        <activity
-            android:name=".GuideAll.GuideBorrowIpadActivity"
-            android:label="@string/guide_ipad_page_name" />
-        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

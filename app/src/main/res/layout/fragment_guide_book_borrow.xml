@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/guide_container_layout_margin_top"
-    android:background="@color/background_pink"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -46,16 +45,13 @@
                 style="@style/Text.BookBorrowGuideIndex" />
 
             <View
-                android:layout_width="350dp"
+                android:layout_width="@dimen/guide_content_long_bar_width"
                 android:layout_height="@dimen/guide_all_bar_height"
                 style="@style/Bar.AllGuide"/>
 
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="360dp"
-                android:layout_height="280dp"
-                android:layout_gravity="center"
+                style="@style/Image.GuideTable"
                 app:srcCompat="@drawable/guidetable" />
 
 
@@ -66,7 +62,7 @@
                 style="@style/Text.BookBorrowGuideIndex" />
 
             <View
-                android:layout_width="350dp"
+                android:layout_width="@dimen/guide_content_long_bar_width"
                 android:layout_height="@dimen/guide_all_bar_height"
                 style="@style/Bar.AllGuide"/>
 
@@ -88,10 +84,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3. 연장 안내"
-                style="@style/Text.BookBorrowGuideIndex" /> />
-
+                style="@style/Text.BookBorrowGuideIndex" />
             <View
-                android:layout_width="350dp"
+                android:layout_width="@dimen/guide_content_long_bar_width"
                 android:layout_height="@dimen/guide_all_bar_height"
                 style="@style/Bar.AllGuide"/>
 
@@ -146,7 +141,7 @@
                 />
 
             <View
-                android:layout_width="350dp"
+                android:layout_width="@dimen/guide_content_long_bar_width"
                 android:layout_height="@dimen/guide_all_bar_height"
                 style="@style/Bar.AllGuide"/>
 

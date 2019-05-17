@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="@dimen/guide_container_layout_margin_top"
-    android:background="@color/background_pink">
+    android:layout_marginTop="@dimen/guide_container_layout_margin_top">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +34,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="9F"
@@ -63,7 +62,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="8F"
@@ -93,7 +92,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="7F"
@@ -121,7 +120,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="6F"
@@ -149,7 +148,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="5F"
@@ -177,7 +176,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="FF"
@@ -205,7 +204,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="3F"
@@ -233,7 +232,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="2F"
@@ -261,7 +260,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="1F"
@@ -289,7 +288,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="B1"
