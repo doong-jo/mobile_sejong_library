@@ -41,8 +41,8 @@
     <string name="menu_barcord">바코드 검색</string>
     <string name="menu_search_book">도서 검색</string>
     <string name="menu_usage">이용안내</string>
-    <string name="menu_classic_book">고전독서인증</string>
-    <string name="menu_chatbot">챗봇</string>
+    <string name="menu_classic_book">임시메뉴</string>
+    <string name="menu_chatbot">동천이와의 대화방</string>
 
     <!--SearchBookActivity-->
     <string name="search_book_detail_title">도서 상세</string>
