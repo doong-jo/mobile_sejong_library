@@ -25,6 +25,13 @@
     <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?</string>
     <string name="chatbot_bot_name">동천이</string>
 
+    <string name="chatbot_report_dialog_title">열람실 불편 신고 접수</string>
+    <string name="chatbot_report_dialog_content">신고 내용을 접수하시겠습니까?\n신고 내용은 자동 저장되며, 지정 좌석 사용자에게 푸시 알림이 전송됩니다.\n허위 신고 시 불이익이 발생할 수 있습니다.</string>
+    <string name="chatbot_report_dialog_yes">예</string>
+    <string name="chatbot_report_dialog_no">아니오</string>
+    <string name="chatbot_report_dialog_toast_yes">열람실 불편 신고가 접수되었습니다.</string>
+    <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
+
     <!--Menu-->
     <string name="menu_notice">공지사항</string>
     <string name="menu_study_room">스터디룸</string>
@@ -34,8 +41,8 @@
     <string name="menu_barcord">바코드 검색</string>
     <string name="menu_search_book">도서 검색</string>
     <string name="menu_usage">이용안내</string>
-    <string name="menu_classic_book">고전독서인증</string>
-    <string name="menu_chatbot">챗봇</string>
+    <string name="menu_classic_book">임시메뉴</string>
+    <string name="menu_chatbot">동천이와의 대화방</string>
 
     <!--SearchBookActivity-->
     <string name="search_book_detail_title">도서 상세</string>
@@ -75,5 +82,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <!--Ebook URL-->
     <string name="ebookUrl">https://ebook.sejong.ac.kr/m/main.asp</string>
+
+    <!--Camera View Comment-->
+    <string name="first_camera_comment">책 뒷면의 바코드를 사각형 안에 맞추고 1~2초간 기다려주세요</string>
+    <string name="second_camera_comment">바코드 검색을 통해 도서 정보 및 리뷰 등을 보실 수 있습니다.</string>
+    <string name="backButton_comment">\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.</string>
+    <string name="barcode_bookTitle">책 제목</string>
+    <string name="borrow_success">도서대출 완료!</string>
+    <string name="borrow_cancle">대여 취소</string>
 </resources>

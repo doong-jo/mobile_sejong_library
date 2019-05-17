@@ -3,12 +3,13 @@
     android:shape="rectangle" >
 
     <!-- View background color -->
-    <solid
-        android:color="@color/background_pink" >
-    </solid>
+    <stroke
+        android:color="@color/colorPrimaryDark"
+        android:width="2dp">
+    </stroke>
 
     <!-- The radius makes the corners rounded -->
     <corners
-        android:radius="20dp">
+        android:radius="2dp">
     </corners>
 </shape>

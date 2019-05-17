@@ -1,17 +1,11 @@
 package com.fourB.library;
 
+import android.app.Activity;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
+import android.os.Bundle;;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
-import android.text.Layout;
-import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,19 +15,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.Toast;
-
+import com.fourB.library.Barcode.BarcodeLinkActivity;
+import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.Anouncement.AnouncementActivity;
 import com.fourB.library.GuideAll.GuideFloorUseActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 
 public class MainActivity extends AppCompatActivity
@@ -41,6 +33,7 @@ public class MainActivity extends AppCompatActivity
 
     CardView mEbookView;
     CardView mAnouncementView;
+    CardView mBarcodeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,6 +113,17 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        mBarcodeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    IntentIntegrator integrator = new IntentIntegrator(MainActivity.this);
+                    integrator.setCaptureActivity(CustomScannerActivity.class);
+                    integrator.setOrientationLocked(false);
+                    integrator.initiateScan();
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -131,17 +135,36 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    void show() {
-
+    private void show() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.activity_mobilecard);
 
         dialog.show();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+
+        if (resultCode == Activity.RESULT_OK) {
+            IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+            if (scanResult == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Scanned: " + scanResult.getContents(), Toast.LENGTH_LONG).show();
+                Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
+                startActivity(newIntent);
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, intent);
+        }
+
+    }
+
+
     private void AllFindViewById() {
         mEbookView = (CardView)findViewById(R.id.EbookView);
         mAnouncementView = (CardView)findViewById(R.id.AnouncementView);
+        mBarcodeView = (CardView) findViewById(R.id.barcode_cardView);
     }
 
     @Override

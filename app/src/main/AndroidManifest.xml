@@ -3,6 +3,7 @@
     package="com.fourB.library">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -33,23 +34,16 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/login_page"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ChatBot.ChatBotActivity"
@@ -73,7 +67,19 @@
         <activity
             android:name=".SearchBook.SearchBookActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-    </application>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
 
+        <activity
+            android:name=".Barcode.AnyOrientationCaptureActivity"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+        <activity android:name=".Barcode.CustomScannerActivity" ></activity>
+
+        <activity
+            android:name=".Barcode.BarcodeLinkActivity"
+            android:theme="@style/AppTheme" />
+
+    </application>
 </manifest>

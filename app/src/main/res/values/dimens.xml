@@ -6,8 +6,18 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <!--Padding-->
+    <dimen name="normal_padding">10dp</dimen>
+
+
     <dimen name="guideTextSize">15sp</dimen>
 
+
+    <!--ChatBot-->
+    <dimen name="chat_edit_height">48dp</dimen>
+    <dimen name="chat_payload_button_text">16dp</dimen>
+    <dimen name="chat_payload_button_width">300dp</dimen>
+    <dimen name="chat_payload_left_padding">68dp</dimen>
 
     <!--ReadingRoom-->
     <dimen name="reading_room_cardView_margin">15dp</dimen>
@@ -21,6 +31,24 @@
     <dimen name="Anouncement_vertical_margin">16dp</dimen>
     <dimen name="Anouncement_marginTop">16dp</dimen>
     <dimen name="Anouncement_marginBottom">8dp</dimen>
+
+    <!--Barcode-->
+    <dimen name="Barcode_BookTitle_TextSize">30dp</dimen>
+    <dimen name="Barcode_Horizontal_margin">25dp</dimen>
+    <dimen name="Barcode_Button_TextSize">16dp</dimen>
+    <dimen name="Barcode_Title_TextSize">20dp</dimen>
+    <dimen name="Barcode_SubDate_marginTop">55dp</dimen>
+    <dimen name="Barcode_SubDate_TextSize">18dp</dimen>
+
+    <dimen name="BarcodeView_marginBottom">200dp</dimen>
+    <dimen name="Barcode_frame_rect_height">100dp</dimen>
+    <dimen name="Barcode_frame_rect_widght">250dp</dimen>
+
+    <!--Camera-->
+    <dimen name="Camera_paddingHorizontal">15dp</dimen>
+    <dimen name="Camera_paddingVertical">5dp</dimen>
+    <dimen name="Camera_Icon_LinearLayout_height">130dp</dimen>
+    <dimen name="Camera_second_comment_marginTop">28dp</dimen>
 
     <!--MobileCard-->
     <dimen name="MobileCard_Width_Size">320dp</dimen>
