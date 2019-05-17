@@ -7,7 +7,6 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="guideTextSize">15sp</dimen>
-    <dimen name="barWidth">340dp</dimen>
 
 
     <!--ReadingRoom-->
@@ -32,4 +31,11 @@
     <dimen name="search_book_cardView_stroke_width">2dp</dimen>
     <dimen name="search_book_cardView_elevation">10dp</dimen>
     <dimen name="search_book_cardView_layout_margin">15dp</dimen>
+
+    <!--GuidePage-->
+    <dimen name="guide_container_layout_margin_top">10dp</dimen>
+    <dimen name="guide_linear_layout_margin">10dp</dimen>
+    <dimen name="guide_title_bar_width">200dp</dimen>
+    <dimen name="guide_content_bar_width">340dp</dimen>
+    <dimen name="guide_all_bar_height">2dp</dimen>
 </resources>

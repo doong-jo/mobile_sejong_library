@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchBook.SearchBookDetailActivity"></activity>
+        <activity android:name=".GuideAll.GuideActivity"></activity>
+        <activity android:name=".SearchBook.SearchBookDetailActivity" />
         <activity
             android:name=".StudyRoom.StudyRoomActivity"
             android:label="@string/studyroom_page_name" />
@@ -61,18 +62,18 @@
         <activity
             android:name=".Anouncement.AnouncementActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Anouncement.AnoucementDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ReadingRoom.ReadingRoomActivity"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".SearchBook.SearchBookActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>

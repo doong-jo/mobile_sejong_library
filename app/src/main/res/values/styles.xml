@@ -122,7 +122,7 @@
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
@@ -150,7 +150,7 @@
 
     <style name="Text.GuideExplainText">
         <item name="android:layout_margin">10dp</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">left</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">@dimen/guideTextSize</item>
     </style>
@@ -270,8 +270,8 @@
 
     <style name="Bar.AllGuide">
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_centerInParent">true</item>
         <item name="android:background">@color/hintColor</item>
+        <item name="android:layout_marginBottom">10dp</item>
     </style>
 
 
