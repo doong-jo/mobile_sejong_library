@@ -34,7 +34,7 @@
 
     <style name="Text.Menu">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">16dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
