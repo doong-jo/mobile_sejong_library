@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/guide_container_layout_margin_top"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Text.AllGuideTitle"
+                android:text="@string/guide_ipad_borrow_title"
+                />
+
+            <View
+                android:layout_width="@dimen/guide_title_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radiuslayout"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/guide_linear_layout_margin">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/guide_text_index_widht"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guide_ipad_borrow_index_1"
+                    style="@style/Text.IpadBorrowGuideIndex" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guide_ipad_borrow_contents_1"
+                    style="@style/Text.GuideExplainText"
+                     />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="@dimen/guide_content_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/guide_text_index_widht"
+                    android:layout_height="wrap_content"
+                    style="@style/Text.IpadBorrowGuideIndex"
+                    android:text="@string/guide_ipad_borrow_index_2"
+                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guide_ipad_borrow_contents_2"
+                    style="@style/Text.GuideExplainText" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="@dimen/guide_content_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/guide_text_index_widht"
+                    android:layout_height="wrap_content"
+                    android:text="3. 기간"
+                    style="@style/Text.IpadBorrowGuideIndex" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="- 학생 : 대여일로부터 1개월 - 교강사 : 학기 단위"
+                    style="@style/Text.GuideExplainText" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="@dimen/guide_content_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/guide_text_index_widht"
+                    android:layout_height="wrap_content"
+                    android:text="4. 방법"
+                    style="@style/Text.IpadBorrowGuideIndex" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guide_ipad_borrow_contexts_4"
+                        style="@style/Text.GuideExplainText" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="@dimen/guide_content_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/guide_text_index_widht"
+                    android:layout_height="wrap_content"
+                    android:text="5. 조치"
+                    style="@style/Text.IpadBorrowGuideIndex" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="반납된 iPAD는 개인정보가 남아 있거나 악성코드가 설치될 수 있으므로 반드시 장치 초기화를 수행한후 대여 하여야 한다."
+                    style="@style/Text.GuideExplainText" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

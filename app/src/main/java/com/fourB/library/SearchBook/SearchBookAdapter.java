@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.card.MaterialCardView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,18 @@ import android.widget.Toast;
 import com.fourB.library.R;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.ViewHolder> {
     Context context;
+    LayoutInflater inflater;
     ArrayList<SearchBookItem> items = new ArrayList<SearchBookItem>();
+    ArrayList<SearchBookItem> mSearchItems = new ArrayList<SearchBookItem>();
 
     public SearchBookAdapter(Context context){
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
     }
 
 
@@ -60,7 +66,8 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
     }
 
     public void addItems(ArrayList<SearchBookItem> items){
-        this.items = items;
+        this.items.addAll(items);
+        this.mSearchItems.addAll(items);
     }
 
     public SearchBookItem getItem (int position){
@@ -96,6 +103,7 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
             mBookPublisher.setText(item.getBookPublisher());
             mBookPublishYear.setText(item.getBookPublishYear());
             mBookCallNum.setText(item.getBookCallNum());
+            mBookImageView.setImageResource(item.getBookImage());
             if(item.getBookLend()){
                 mBookLend.setText(R.string.search_book_lend_true);
             }else {
@@ -103,5 +111,23 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
             }
 
         }
+    }
+
+    public void SearchingBookItem(String text){
+        text = text.toLowerCase(Locale.getDefault());
+        items.clear();
+//        mSearchItems = ArrayList<SearchBookItem>(items.clone());
+        if(text.length() == 0) {
+            items.addAll(mSearchItems);
+        }else{
+            for(SearchBookItem book : mSearchItems){
+                String bookTitle = (String) book.getBookTitle();
+                if(bookTitle.toLowerCase().contains(text)){
+                    items.add(book);
+                }
+            }
+        }
+        notifyDataSetChanged();
+
     }
 }

@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_pink"
-    >
+    android:layout_marginTop="@dimen/guide_container_layout_margin_top">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Text.AllGuideTitle"
+            android:text="시설 이용안내" />
+        <View
+            android:layout_width="@dimen/guide_title_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
+            style="@style/Bar.AllGuide"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Text.AllGuideTitle"
-            android:text="시설 이용안내"
-            android:layout_marginTop="20dp"
-            />
-
-        <View
-            android:layout_width="200dp"
-            android:layout_height="2dp"
-            style="@style/Bar.AllGuide"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
         android:background="@drawable/radiuslayout"
-        >
+        android:layout_margin="@dimen/guide_linear_layout_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +34,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="9F"
@@ -62,8 +52,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -72,7 +62,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="8F"
@@ -90,8 +80,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
 
@@ -102,7 +92,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="7F"
@@ -120,8 +110,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -130,7 +120,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="6F"
@@ -148,8 +138,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -158,7 +148,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="5F"
@@ -176,8 +166,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -186,7 +176,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="FF"
@@ -204,8 +194,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -214,7 +204,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="3F"
@@ -232,8 +222,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -242,7 +232,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="2F"
@@ -260,8 +250,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -270,7 +260,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="1F"
@@ -288,8 +278,8 @@
 
 
         <View
-            android:layout_width="@dimen/barWidth"
-            android:layout_height="2dp"
+            android:layout_width="@dimen/guide_content_bar_width"
+            android:layout_height="@dimen/guide_all_bar_height"
             style="@style/Bar.AllGuide"/>
 
         <LinearLayout
@@ -298,7 +288,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="@dimen/guide_text_index_widht"
                 android:layout_height="wrap_content"
                 style="@style/Text.FloorUseGuideFloor"
                 android:text="B1"

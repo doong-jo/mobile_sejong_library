@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/guide_container_layout_margin_top"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/guide_book_borrow_title"
+                style="@style/Text.AllGuideTitle"
+                />
+
+            <View
+                android:layout_width="@dimen/guide_title_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radiuslayout"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/guide_linear_layout_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guide_book_borrow_index_1"
+                style="@style/Text.BookBorrowGuideIndex" />
+
+            <View
+                android:layout_width="@dimen/guide_content_long_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+
+            <ImageView
+                style="@style/Image.GuideTable"
+                app:srcCompat="@drawable/guidetable" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guide_book_borrow_index_2"
+                style="@style/Text.BookBorrowGuideIndex" />
+
+            <View
+                android:layout_width="@dimen/guide_content_long_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.BookBorrowGuideExplain"
+                android:text="@string/guide_book_borrow_contents_2"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guide_book_borrow_index_3"
+                style="@style/Text.BookBorrowGuideIndex" />
+            <View
+                android:layout_width="@dimen/guide_content_long_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.BookBorrowGuideExplain"
+                android:text="@string/guide_book_borrow_contents_3"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guide_book_borrow_index_4"
+                style="@style/Text.BookBorrowGuideIndex"
+                />
+
+            <View
+                android:layout_width="@dimen/guide_content_long_bar_width"
+                android:layout_height="@dimen/guide_all_bar_height"
+                style="@style/Bar.AllGuide"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Text.BookBorrowGuideExplain"
+                android:text="@string/guide_book_borrow_contents_4"
+                 />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
