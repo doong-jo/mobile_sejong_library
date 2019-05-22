@@ -14,6 +14,7 @@ public class SearchBookDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_book_detail);
         setTitle(R.string.search_book_detail_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
 

@@ -8,20 +8,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.fourB.library.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class SearchBookActivity extends AppCompatActivity {
     private Spinner mSpinnerCategory;
@@ -35,6 +39,8 @@ public class SearchBookActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SearchBookAdapter mSearchBookAdapter;
 
+    String mSearchText;
+
 
     final static int BOOK_NUM =5;
     @Override
@@ -47,50 +53,56 @@ public class SearchBookActivity extends AppCompatActivity {
 
         mSpinnerCategory = (Spinner)findViewById(R.id.spinner_search_book_category);
         mSpinnerArrayWay = (Spinner)findViewById(R.id.spinner_search_book_array_way);
+
         mEditTextSearch = (EditText)findViewById(R.id.editText_search_book);
+
+        mEditTextSearch.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //Enter key Action
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    //Enter키눌렀을떄 처리
+                    mSearchText = mEditTextSearch.getText().toString().toLowerCase(Locale.getDefault());
+                    mSearchBookAdapter.SearchingBookItem(mSearchText);
+
+
+                    mEditTextSearch.clearFocus();
+                    mInputManager.hideSoftInputFromWindow(v.getWindowToken(),0);
+
+                    return true;
+                }
+                return false;
+            }
+        });
+
         mBtnSearch = (Button)findViewById(R.id.btn_search_book);
-        mScrollView = (ScrollView)findViewById(R.id.scrollView_search_book);
         mInputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         spinnerDataSetting();
+
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView_search_book);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
         mSearchBookAdapter = new SearchBookAdapter(getApplicationContext());
-
-
         recycleViewDataSetting();
         recyclerView.setAdapter(mSearchBookAdapter);
-//        mScrollView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //mInputManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-//                //mInputManager.hideSoftInputFromWindow(mEditTextSearch.getWindowToken(), 0);
-//                //mEditTextSearch.clearFocus();
-//            }
-//        });
-//
-//        mEditTextSearch.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                mInputManager.showSoftInput(mEditTextSearch, InputMethodManager.SHOW_IMPLICIT);
-//            }
-//        });
-//
-//        mEditTextSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View view, boolean b) {
-//                if(b){
-//                    mInputManager.showSoftInput(mEditTextSearch, InputMethodManager.SHOW_IMPLICIT);
-//                }else {
-//                    mInputManager.hideSoftInputFromWindow(mEditTextSearch.getWindowToken(), 0);
-//                }
-//            }
-//        });
+
+
+        mBtnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mSearchText = mEditTextSearch.getText().toString().toLowerCase(Locale.getDefault());
+                mSearchBookAdapter.SearchingBookItem(mSearchText);
+            }
+        });
 
 
     }
 
     public void recycleViewDataSetting(){
+
+        //리사이클러뷰에 데이터를 넣는 함수
         ArrayList<SearchBookItem> items = new ArrayList<>();
         SearchBookItem[] item = new SearchBookItem[BOOK_NUM];
         item[0] = new SearchBookItem("운수 좋은날","홍길동","좋은나라",true,"2000","811.3 현79운ㄷ",R.drawable.book_example);
@@ -131,6 +143,7 @@ public class SearchBookActivity extends AppCompatActivity {
                     // Hide keyboard
                     //
 //                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    assert v != null;
                     mInputManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 }
             }
@@ -155,6 +168,8 @@ public class SearchBookActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
+
 
 
 

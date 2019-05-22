@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Text.AllGuideTitle"
-                android:text="i-Pad 대여 안내"
+                android:text="@string/guide_ipad_borrow_title"
                 />
 
             <View
@@ -48,13 +48,13 @@
                 <TextView
                     android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
-                    android:text="1. 대상"
+                    android:text="@string/guide_ipad_borrow_index_1"
                     style="@style/Text.IpadBorrowGuideIndex" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="학부 재학생 및 교강사"
+                    android:text="@string/guide_ipad_borrow_contents_1"
                     style="@style/Text.GuideExplainText"
                      />
 
@@ -76,15 +76,14 @@
                     android:layout_width="@dimen/guide_text_index_widht"
                     android:layout_height="wrap_content"
                     style="@style/Text.IpadBorrowGuideIndex"
-                    android:text="2. 대여"
+                    android:text="@string/guide_ipad_borrow_index_2"
                      />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New iPad, WiFi / 32GB"
+                    android:text="@string/guide_ipad_borrow_contents_2"
                     style="@style/Text.GuideExplainText" />
-
 
             </LinearLayout>
 
@@ -110,8 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
-                    android:text="- 학생 : 대여일로부터 1개월
-- 교강사 : 학기 단위"
+                    android:text="- 학생 : 대여일로부터 1개월 - 교강사 : 학기 단위"
                     style="@style/Text.GuideExplainText" />
 
 
@@ -143,44 +141,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="- 학생증/신분증 지참 → 학술정보원 2층 AV실 방문 → 비치된 iPAD 대여신청서를 작성"
+                        android:text="@string/guide_ipad_borrow_contexts_4"
                         style="@style/Text.GuideExplainText" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="- 대여된 iPAD는 교육용만으로 사용하시기 바랍니다."
-                        style="@style/Text.GuideExplainText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="- 대여된 iPAD에 보안설정시 반드시 메모하여 장치 초기화가 될 수 있도록 하여 주시기 바랍니다. (반납시 비밀번호 재설정을 위해 설정된 비밀번호 해제후 반납)"
-                        style="@style/Text.GuideExplainText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="- 반납시 저장된 데이터는 모두 다른 저장매체에 복사 또는 삭제후 반납하시기 바랍니다."
-                        style="@style/Text.GuideExplainText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="- 반납예정일을 경과하여 반납한 경우는 1달 동안 대여가 중지됩니다."
-                        style="@style/Text.GuideExplainText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="- 대여된 iPAD가 사용부주의로 인한 파손/훼손시는 고장수리비가 청구될 수 있습니다."
-                        style="@style/Text.GuideExplainText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="- 대여된 iPAD 분실시 해당 장치와 동일한 제품 또는 해당 제품 구입가로 변상하여야 합니다."
-                        style="@style/Text.GuideExplainText" />
                 </LinearLayout>
 
 
