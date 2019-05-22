@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_pink">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/declare_margin_vertical"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/declareRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/declare_margin_right"
+            android:padding="5dp"
+            android:text="열람실 선택  :"
+            android:textSize="@dimen/declare_textSize"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:id="@+id/declareRoomSp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            ></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/declare_margin_vertical"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/declareReason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/declare_margin_right"
+            android:padding="5dp"
+            android:text="신고 사유  :"
+            android:textSize="@dimen/declare_textSize"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:id="@+id/declareReasonSp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            ></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/declare_margin_vertical"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/declareNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/declare_margin_right"
+            android:padding="@dimen/declare_padding"
+            android:text="자리 번호  :"
+            android:textSize="@dimen/declare_textSize"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/declarePosition"
+            android:layout_width="@dimen/declare_position_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/declare_margin_right"
+            android:padding="@dimen/declare_padding"
+            android:text=" 번"
+            android:textSize="@dimen/declare_textSize"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/declareContent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/declare_content_height"
+        android:layout_margin="@dimen/declare_content_margin"
+        android:background="@drawable/border"
+        android:gravity="top"
+        android:padding ="@dimen/declare_content_padding"
+        android:hint="신고 내용" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/declareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/declare_margin_right"
+            android:background="@color/btnPink"
+            android:text="신 고"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/declareCancleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/btnPink"
+            android:text="취 소"
+            android:textColor="@color/white"
+            android:textSize="@dimen/declare_textSize"/>
+    </LinearLayout>
+
+</LinearLayout>
