@@ -2,6 +2,7 @@ package com.fourB.library;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;;
 import android.support.design.widget.FloatingActionButton;
@@ -15,17 +16,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.Anouncement.AnouncementActivity;
-import com.fourB.library.GuideAll.GuideFloorUseActivity;
+import com.fourB.library.GuideAll.GuideActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.squareup.picasso.Picasso;
+
+import ss.com.bannerslider.ImageLoadingService;
+import ss.com.bannerslider.Slider;
+import ss.com.bannerslider.adapters.SliderAdapter;
+import ss.com.bannerslider.viewholder.ImageSlideViewHolder;
 
 
 public class MainActivity extends AppCompatActivity
@@ -34,7 +42,10 @@ public class MainActivity extends AppCompatActivity
     CardView mEbookView;
     CardView mAnouncementView;
     CardView mBarcodeView;
+
     CardView mDeclareView;
+
+    Slider banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +96,7 @@ public class MainActivity extends AppCompatActivity
         guideCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), GuideFloorUseActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GuideActivity.class);
                 startActivity(intent);
             }
         });
@@ -124,6 +135,10 @@ public class MainActivity extends AppCompatActivity
                     integrator.initiateScan();
             }
         });
+
+        Slider.init(new PicassoImageLoadingService());
+        banner.setAdapter(new MainSliderAdapter());
+        banner.setSelectedSlide(2);
 
         mDeclareView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +187,7 @@ public class MainActivity extends AppCompatActivity
 
 
     private void AllFindViewById() {
+        banner = (Slider) findViewById(R.id.banner_main);
         mEbookView = (CardView)findViewById(R.id.EbookView);
         mAnouncementView = (CardView)findViewById(R.id.AnouncementView);
         mBarcodeView = (CardView) findViewById(R.id.barcode_cardView);
@@ -234,5 +250,46 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public class MainSliderAdapter extends SliderAdapter {
+
+        @Override
+        public int getItemCount() {
+            return 3;
+        }
+
+        @Override
+        public void onBindImageSlide(int position, ImageSlideViewHolder viewHolder) {
+            switch (position) {
+                case 0:
+                    viewHolder.bindImageSlide(R.drawable.banner_1);
+                    break;
+                case 1:
+                    viewHolder.bindImageSlide(R.drawable.banner_2);
+                    break;
+                case 2:
+                    viewHolder.bindImageSlide(R.drawable.banner_4);
+                    break;
+            }
+        }
+    }
+    public class PicassoImageLoadingService implements ImageLoadingService {
+
+        @Override
+        public void loadImage(String url, ImageView imageView) {
+            //Picasso.with(context).load(imageUrl).resize(30, 30).into(imageView); }
+            Picasso.get().load(url).into(imageView);
+        }
+
+        @Override
+        public void loadImage(int resource, ImageView imageView) {
+            Picasso.get().load(resource).into(imageView);
+        }
+
+        @Override
+        public void loadImage(String url, int placeHolder, int errorDrawable, ImageView imageView) {
+            Picasso.get().load(url).placeholder(placeHolder).error(errorDrawable).into(imageView);
+        }
     }
 }

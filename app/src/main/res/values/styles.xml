@@ -122,7 +122,8 @@
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">5dp</item>
     </style>
 
@@ -135,7 +136,8 @@
     </style>
 
     <style name="Text.BookBorrowGuideExplain">
-        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">14sp</item>
@@ -150,7 +152,7 @@
 
     <style name="Text.GuideExplainText">
         <item name="android:layout_margin">10dp</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">left</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">@dimen/guideTextSize</item>
     </style>
@@ -235,6 +237,14 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="Image.GuideTable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">280dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="Image.DetailBook">
         <item name="android:layout_marginTop">40dp</item>
         <item name="android:layout_marginBottom">40dp</item>
@@ -303,8 +313,8 @@
 
     <style name="Bar.AllGuide">
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_centerInParent">true</item>
         <item name="android:background">@color/hintColor</item>
+        <item name="android:layout_marginBottom">10dp</item>
     </style>
 
     <!--EditText-->

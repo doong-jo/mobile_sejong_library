@@ -40,6 +40,7 @@ public class DeclareDialogActivity  {
 
     dlg.setContentView(R.layout.activity_declare);
     params.width = WindowManager.LayoutParams.MATCH_PARENT;
+    params.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
     dlg.show();
 
