@@ -22,7 +22,6 @@ import java.util.Locale;
 
 public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.ViewHolder> {
     Context context;
-    List<SearchBookItem> currentItems = null;
     LayoutInflater inflater;
     ArrayList<SearchBookItem> items = new ArrayList<SearchBookItem>();
     ArrayList<SearchBookItem> mSearchItems = new ArrayList<SearchBookItem>();
@@ -104,6 +103,7 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
             mBookPublisher.setText(item.getBookPublisher());
             mBookPublishYear.setText(item.getBookPublishYear());
             mBookCallNum.setText(item.getBookCallNum());
+            mBookImageView.setImageResource(item.getBookImage());
             if(item.getBookLend()){
                 mBookLend.setText(R.string.search_book_lend_true);
             }else {
@@ -121,7 +121,6 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
             items.addAll(mSearchItems);
         }else{
             for(SearchBookItem book : mSearchItems){
-                Log.d("TT","TT");
                 String bookTitle = (String) book.getBookTitle();
                 if(bookTitle.toLowerCase().contains(text)){
                     items.add(book);
