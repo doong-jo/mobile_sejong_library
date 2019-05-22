@@ -1,13 +1,20 @@
 package com.fourB.library.SearchBook;
 
 public class SearchBookItem {
-    private String BookTitle;
-    private String BookAuthor;
-    private String BookPublisher;
-    private Boolean BookLend;
-    private String BookPublishYear;
-    private String BookCallNum; //청구기호
-    private int BookImage;
+    private String BookTitle;       //제목
+    private String BookAuthor;      //저자
+    private String BookPublisher;   //출판사
+    private Boolean BookLend;       //대출가능 여부
+    private String BookPublishYear; //발행년도
+    private String BookCallNum;     //청구기호
+    private int BookImage;          //책이미지
+    private String BookType;        //자료유형
+    private String BookPublishDetail;   //발행사항
+    private String BookShapeDetail;      //형태사항
+
+
+
+
 
     public SearchBookItem(String bookTitle, String bookAuthor, String bookPublisher, Boolean bookLend, String bookPublishYear, String bookCallNum, int bookImage) {
         this.BookTitle = bookTitle;
@@ -73,5 +80,29 @@ public class SearchBookItem {
 
     public void setBookImage(int bookImage) {
         BookImage = bookImage;
+    }
+
+    public String getBookType() {
+        return BookType;
+    }
+
+    public void setBookType(String bookType) {
+        BookType = bookType;
+    }
+
+    public String getBookPublishDetail() {
+        return BookPublishDetail;
+    }
+
+    public void setBookPublishDetail(String bookPublishDetail) {
+        BookPublishDetail = bookPublishDetail;
+    }
+
+    public String getBookShapeDetail() {
+        return BookShapeDetail;
+    }
+
+    public void setBookShapeDetail(String bookShapeDetail) {
+        BookShapeDetail = bookShapeDetail;
     }
 }

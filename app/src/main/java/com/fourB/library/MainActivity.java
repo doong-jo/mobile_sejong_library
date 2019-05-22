@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.Anouncement.AnouncementActivity;
-import com.fourB.library.GuideAll.GuideFloorUseActivity;
+import com.fourB.library.GuideAll.GuideActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         guideCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), GuideFloorUseActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GuideActivity.class);
                 startActivity(intent);
             }
         });

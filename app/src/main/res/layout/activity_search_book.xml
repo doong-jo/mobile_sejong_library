@@ -54,6 +54,8 @@
                     android:id="@+id/editText_search_book"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
                     android:layout_margin="10dp"
                     />
 
@@ -61,9 +63,10 @@
                     android:id="@+id/btn_search_book"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/search_book_button_layout_height"
-                    style="@style/Button.SearchBook"
-                    android:text="@string/search_book_search"/>
+                    android:text="@string/search_book_search"
+                    style="@style/Button.SearchBook"/>
             </LinearLayout>
+
         </android.support.design.card.MaterialCardView>
 
         <android.support.v7.widget.RecyclerView
