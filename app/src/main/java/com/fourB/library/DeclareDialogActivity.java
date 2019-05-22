@@ -65,15 +65,11 @@ public class DeclareDialogActivity  {
 
             getDeclareData();
 
-            if(!mPosition.equals("") && !declareMsg.equals("")){
+            if(!mPosition.equals("")){
                 declareDialog();
                 dlg.dismiss();
-            } else if(mPosition.equals("") && !declareMsg.equals("")){
+            } else if(mPosition.equals("")){
                 Toast.makeText(context, "자리 번호를 입력해주세요!", Toast.LENGTH_SHORT).show();
-            } else if(!mPosition.equals("") && declareMsg.equals("")){
-                Toast.makeText(context, "신고 내용을 입력해주세요!", Toast.LENGTH_SHORT).show();
-            }else if(mPosition.equals("") && declareMsg.equals("")){
-                Toast.makeText(context, "자리 번호와 신고 내용을 입력해주세요!", Toast.LENGTH_SHORT).show();
             }
         }
     });
