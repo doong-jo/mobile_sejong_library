@@ -1,13 +1,8 @@
 package com.fourB.library.ReadingRoom;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +10,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.fourB.library.R;
 
@@ -43,9 +40,8 @@ public class ReadingRoomWVFragment extends Fragment {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_reading_room_wv,container,false);
 
         mWebView = (WebView) rootView.findViewById(R.id.webView_reading_room);

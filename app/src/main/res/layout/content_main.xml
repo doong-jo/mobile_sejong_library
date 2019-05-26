@@ -36,7 +36,7 @@
             app:alignItems="stretch"
             app:alignContent="stretch" >
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/AnouncementView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,8 +58,8 @@
                         android:text="@string/menu_notice"/>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/studyroom_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,8 +80,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_study_room"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_reading_room"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,8 +104,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_reading_room"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/EbookView"
                 android:clickable="true"
                 android:layout_width="match_parent"
@@ -127,8 +127,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_ebook"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/MobileCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,8 +149,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_mobile"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/barcode_cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,8 +171,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_barcord"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_search_book"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,8 +194,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_search_book"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:id="@+id/guide_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -216,8 +216,8 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_usage"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
@@ -237,7 +237,7 @@
                         style="@style/Text.Menu"
                         android:text="@string/menu_classic_book"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
         </com.google.android.flexbox.FlexboxLayout>
     </LinearLayout>
 </ScrollView>

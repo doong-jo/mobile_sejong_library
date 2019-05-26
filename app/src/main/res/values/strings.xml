@@ -17,6 +17,9 @@
     <string name="guide_floor_page_name">층별 이용안내</string>
     <string name="login_page">로그인</string>
 
+    <!--Firebase-->
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="fcm_message">FCM Message</string>
 
     <!--DialogFlow-->
     <string name="korean_lang_code">ko</string>

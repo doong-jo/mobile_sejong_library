@@ -3,7 +3,6 @@ package com.fourB.library.ChatBot;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.app.AlertDialog;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -37,12 +36,12 @@ public class ChatPayloadView extends LinearLayout {
         initView();
     }
 
-    public ChatPayloadView(Context context, @Nullable AttributeSet attrs) {
+    public ChatPayloadView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView();
     }
 
-    public ChatPayloadView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ChatPayloadView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView();
     }

@@ -27,12 +27,18 @@ android {
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/INDEX.LIST'
     }
+    configurations {
+        all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
 }
+
+apply plugin: 'com.google.gms.google-services'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'android.arch.work:work-runtime:1.0.1'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.google.android:flexbox:1.0.0'
@@ -47,7 +53,10 @@ dependencies {
 
     // Java V2
     implementation 'com.google.cloud:google-cloud-dialogflow:0.67.0-alpha'
-    implementation 'io.grpc:grpc-okhttp:1.15.1'
+    implementation 'io.grpc:grpc-okhttp:1.13.1'
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-messaging:18.0.0'
 
     // Banner
     implementation 'com.ss.bannerslider:bannerslider:2.0.0'

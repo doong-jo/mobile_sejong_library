@@ -2,9 +2,6 @@ package com.fourB.library.ChatBot;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageButton;
 import android.view.MenuItem;
 import android.database.DataSetObserver;
 import android.view.KeyEvent;
@@ -13,6 +10,9 @@ import android.view.View.OnKeyListener;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.fourB.library.R;
 import com.fourB.library.ChatBot.async.RequestJavaV2Task;
@@ -55,7 +55,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatbot);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
