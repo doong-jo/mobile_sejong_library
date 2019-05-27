@@ -1,148 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:id="@+id/login_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
     android:orientation="vertical"
     android:background="@color/background_pink">
-
-    <ImageView
-        android:id="@+id/login_sejong_logo"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="160dp"
-        android:layout_marginBottom="15dp"
-        android:src="@drawable/logo"
-        />
-
-    <TextView
-        android:id="@+id/login_school_name_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/school_name"
-        android:textColor="@color/textColor"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/login_school_name_english_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/school_engname"
-        android:textColor="@color/textColor"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/login_student_id"
-            android:inputType="numberDecimal"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/login_stid"
-            android:layout_marginTop="25dp"
-            android:importantForAutofill="no"
-            style="@style/Text.LoginEditTxt"
-            />
-
-        <EditText
-            android:id="@+id/login_student_pw"
-            android:inputType="textPassword"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-1dp"
-            android:hint="@string/login_pw"
-            android:importantForAutofill="no"
-            style="@style/Text.LoginEditTxt"/>
-
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/login_button"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:background="@color/login_button_color"
-            >
-        </Button>
-
-
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
             <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="15dp">
+                android:layout_alignParentTop="true"
 
-                <CheckBox
-                    android:id="@+id/login_checkBox"
+                android:id="@+id/login_logo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/login_sejong_logo"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/logo"
+                    />
+
+                <TextView
+                    android:id="@+id/login_school_name_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="65dp"
-                    android:text="@string/login_checkbox"
-                    android:textSize="14sp"
-                    android:textColor="@color/checkbox_textcolor"
-                    android:buttonTint="@color/login_button_color"
-                    android:layout_marginStart="65dp" />
+                    android:layout_gravity="center"
+                    android:text= "@string/school_name"
+                    android:textColor="@color/textColor"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/login_school_name_english_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/school_engname"
+                    android:textColor="@color/textColor"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:textSize="15sp"
+
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_below="@+id/login_logo_layout"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
-                <Spinner
-                    android:id="@+id/login_user_spinner"
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/login_student_id"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="20dp"
-                    ></Spinner>
+                    android:layout_marginTop="35dp"
+                    android:hint="@string/login_stid"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    style="@style/Text.LoginEditTxt" />
+
+                <EditText
+                    android:id="@+id/login_student_pw"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-1dp"
+                    android:hint="@string/login_pw"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    style="@style/Text.LoginEditTxt" />
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/login_button"
+                            android:layout_width="240dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:background="@color/login_button_color"
+                            android:text="@string/login_button"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <CheckBox
+                            android:id="@+id/login_checkBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:buttonTint="@color/login_button_color"
+                            android:text="@string/login_checkbox"
+                            android:textColor="@color/checkbox_textcolor"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="@id/login_button"
+                            app:layout_constraintTop_toBottomOf="@id/login_button" />
+
+                        <Spinner
+                            android:id="@+id/login_user_spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintRight_toRightOf="@id/login_button"
+                            app:layout_constraintTop_toBottomOf="@id/login_button" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom|center">
-
-            <TextView
-                android:id="@+id/login_app_name_bottom"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login_bottom"
-                android:textAlignment="center"
-                android:textColor="@color/textColor"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true">
+                <TextView
+                    android:id="@+id/login_app_name_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_bottom"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center|bottom"/>
 
-        </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

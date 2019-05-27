@@ -1,4 +1,4 @@
-package com.fourB.library;
+package com.fourB.library.Ebook;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,6 +7,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.fourB.library.R;
 
 public class EbookActivity extends AppCompatActivity {
 

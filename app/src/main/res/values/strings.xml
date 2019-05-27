@@ -3,19 +3,11 @@
 
     <string name="school_name">세종대학교</string>
     <string name="school_engname">SEJONG UNIVERSITY</string>
-    <string name="login_bottom">학술정보원 모바일 앱</string>
-    <string name="login_pw">비밀번호</string>
-    <string name="login_stid">학번</string>
-    <string name="login_button">로그인</string>
-    <string name="login_checkbox">자동 로그인</string>
-    <string name="select">학부생</string>
-    <string name="todo">TODO</string>
 
     <string name="studyroom_page_name">스터디룸 예약</string>
     <string name="guide_borrow_page_name">책 대여 안내</string>
     <string name="guide_ipad_page_name">아이패드 대여 안내</string>
     <string name="guide_floor_page_name">층별 이용안내</string>
-    <string name="login_page">로그인</string>
 
     <!--Firebase-->
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
@@ -36,6 +28,7 @@
     <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
 
     <!--Menu-->
+    <string name="menu_login">로그인</string>
     <string name="menu_notice">공지사항</string>
     <string name="menu_study_room">스터디룸</string>
     <string name="menu_reading_room">열람실</string>
@@ -47,7 +40,17 @@
     <string name="menu_classic_book">임시메뉴</string>
     <string name="menu_chatbot">동천이와의 대화방</string>
 
-    <!--SearchBookActivity-->
+    <!--Login-->
+    <string name="login_bottom">학술정보원 모바일 앱</string>
+    <string name="login_pw">비밀번호</string>
+    <string name="login_stid">학번</string>
+    <string name="login_button">로그인</string>
+    <string name="login_checkbox">자동 로그인</string>
+    <string name="login_type_student">학부생</string>
+    <string name="login_type_staff">교직원</string>
+    <string name="todo">TODO</string>
+
+    <!--SearchBook-->
     <string name="search_book_detail_title">도서 상세</string>
     <string name="search_book_search">검색</string>
     <string name="search_book_lend_true">대출가능</string>
