@@ -1,12 +1,13 @@
 package com.fourB.library.GuideAll;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.fourB.library.R;
 
@@ -38,7 +39,7 @@ public class GuideActivity extends AppCompatActivity {
         mGuidePager.setAdapter(mGuideAdapter);
     }
 
-    class GuideViewPagerAdapter extends FragmentStatePagerAdapter{
+    class GuideViewPagerAdapter extends FragmentStatePagerAdapter {
         ArrayList<Fragment> pages = new ArrayList<>();
 
         public GuideViewPagerAdapter(FragmentManager fm) {

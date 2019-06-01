@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "657425061167",
+    "firebase_url": "https://sejong-library-f47c2.firebaseio.com",
+    "project_id": "sejong-library-f47c2",
+    "storage_bucket": "sejong-library-f47c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657425061167:android:93fd9f15142dac4e",
+        "android_client_info": {
+          "package_name": "com.fourB.library"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657425061167-o0r8dr9m85in6roca2a69mnjus518hrf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRbqHS3oo2lBT9anMXgXD2ECfnjZeIviU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657425061167-dafg76pnrbqs7uoa83tdh037uhppvjtj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

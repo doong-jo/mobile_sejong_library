@@ -2,22 +2,18 @@ package com.fourB.library.SearchBook;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.card.MaterialCardView;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourB.library.R;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.ViewHolder> {
@@ -38,16 +34,15 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
     }
 
 
-    @NonNull
     @Override
-    public SearchBookAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public SearchBookAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_search_book, viewGroup, false);
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final SearchBookAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(final SearchBookAdapter.ViewHolder viewHolder, int i) {
         final SearchBookItem item = items.get(i);
         viewHolder.setItem(item);
 
@@ -85,7 +80,7 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
         CardView mCardView;
         ImageView mBookImageView;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             mBookImageView = (ImageView)itemView.findViewById(R.id.imageView_search_book);
             mCardView = (CardView)itemView.findViewById(R.id.cardView_search_book_recycleView);

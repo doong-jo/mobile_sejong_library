@@ -1,8 +1,9 @@
 package com.fourB.library.ReadingRoom;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.fourB.library.R;
 
@@ -19,7 +20,7 @@ public class ReadingRoomActivity extends AppCompatActivity implements ReadingRoo
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         readingRoomFragment = new ReadingRoomFragment();
         readingRoomWVFragment = new ReadingRoomWVFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.reading_room_container,readingRoomFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.reading_room_container, readingRoomFragment).commit();
 
 
     }
