@@ -11,4 +11,22 @@
         <item>오름차순</item>
         <item>내림차순</item>
     </string-array>
+
+    <!--Declare Spinner-->
+    <string-array name="Declare_array">
+        <item>열람실 A</item>
+        <item>열람실 B</item>
+        <item>열람실 C</item>
+        <item>열람실 D-A</item>
+        <item>열람실 D-B</item>
+        <item>3층 열람실 A</item>
+        <item>3층 열람실 B</item>
+    </string-array>
+
+    <string-array name="declare_reason_array">
+        <item>소음</item>
+        <item>음식물</item>
+        <item>노트북</item>
+        <item>기타</item>
+    </string-array>
 </resources>

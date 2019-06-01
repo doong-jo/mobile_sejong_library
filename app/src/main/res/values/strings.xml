@@ -37,7 +37,7 @@
     <string name="menu_barcord">바코드 검색</string>
     <string name="menu_search_book">도서 검색</string>
     <string name="menu_usage">이용안내</string>
-    <string name="menu_classic_book">임시메뉴</string>
+    <string name="menu_declare">간편신고</string>
     <string name="menu_chatbot">동천이와의 대화방</string>
 
     <!--Login-->

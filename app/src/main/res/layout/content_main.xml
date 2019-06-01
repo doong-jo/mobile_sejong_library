@@ -218,6 +218,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/declare_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
@@ -235,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Text.Menu"
-                        android:text="@string/menu_classic_book"/>
+                        android:text="@string/menu_declare"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </com.google.android.flexbox.FlexboxLayout>

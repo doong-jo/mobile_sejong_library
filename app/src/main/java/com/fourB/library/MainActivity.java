@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity
     CardView mEbookView;
     CardView mAnouncementView;
     CardView mBarcodeView;
+
+    CardView mDeclareView;
+
     Slider banner;
 
     @Override
@@ -134,9 +137,19 @@ public class MainActivity extends AppCompatActivity
                     integrator.initiateScan();
             }
         });
+
         Slider.init(new PicassoImageLoadingService());
         banner.setAdapter(new MainSliderAdapter());
         banner.setSelectedSlide(2);
+
+        mDeclareView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeclareDialogActivity DeclareDialog = new DeclareDialogActivity(MainActivity.this);
+
+                DeclareDialog.callFunction();
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -180,6 +193,7 @@ public class MainActivity extends AppCompatActivity
         mEbookView = (CardView)findViewById(R.id.EbookView);
         mAnouncementView = (CardView)findViewById(R.id.AnouncementView);
         mBarcodeView = (CardView) findViewById(R.id.barcode_cardView);
+        mDeclareView = (CardView) findViewById(R.id.declare_cardview);
     }
 
     @Override
