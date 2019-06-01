@@ -49,6 +49,7 @@
     <string name="login_type_student">학부생</string>
     <string name="login_type_staff">교직원</string>
     <string name="todo">TODO</string>
+    <string name="fail_login_access">아이디 혹은 비밀번호가 올바르지 않습니다.</string>
 
     <!--SearchBook-->
     <string name="search_book_detail_title">도서 상세</string>

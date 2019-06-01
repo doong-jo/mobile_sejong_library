@@ -1,5 +1,6 @@
 package com.fourB.library.Login;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fourB.library.HttpManager;
+import com.fourB.library.MainActivity;
 import com.fourB.library.R;
 
 import java.io.IOException;
@@ -78,7 +81,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     void onKeyboardShown(int height) {
-        mScroll.fullScroll(ScrollView.FOCUS_DOWN);
+        mScroll.post(new Runnable() {
+            @Override
+            public void run() {
+                mScroll.scrollTo(0, mScroll.getBottom());
+            }
+        });
+        // fullScroll 사용 시 EditText의 포커스를 잃음
+        //  mScroll.fullScroll(ScrollView.FOCUS_DOWN);
     }
 
     private void initView() {
@@ -86,6 +96,9 @@ public class LoginActivity extends AppCompatActivity {
         mLoginBtn = findViewById(R.id.login_button);
         mInputId = findViewById(R.id.login_student_id);
         mInputPw = findViewById(R.id.login_student_pw);
+
+        mInputId.clearFocus();
+        mInputPw.clearFocus();
 
         loginUserArrayList = new ArrayList<>();
         loginUserArrayList.add(getString(R.string.login_type_student));
@@ -110,20 +123,35 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void resultLogin(boolean res) {
+        if( res ) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        } else {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(), getString(R.string.fail_login_access), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+    }
+
     private void accessLogin(final String id, final String pw) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    String[] query = {"id=" + id, "pw=" + pw };
-
-                    Log.d(TAG, HttpManager.httpRun("user", query));
+                    final String[] query = {"id=" + id, "pw=" + pw };
+                    final String result = HttpManager.httpRun("user", query);
+                    Log.d("query", result);
+                    resultLogin(!result.equals("[]"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }).start();
-
     }
 }
 
