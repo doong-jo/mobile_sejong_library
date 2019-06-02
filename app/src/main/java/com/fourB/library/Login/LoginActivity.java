@@ -39,11 +39,18 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
 
-        initView();
-        initKeyboardUtils();
-        initListener();
+        if( !SharedPrefManager.getUserID(this).equals("") ) {
+            finish();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else {
+            setContentView(R.layout.activity_login);
+
+            initView();
+            initKeyboardUtils();
+            initListener();
+        }
     }
 
     private void initKeyboardUtils() {
@@ -137,6 +144,8 @@ public class LoginActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            finish();
 
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);

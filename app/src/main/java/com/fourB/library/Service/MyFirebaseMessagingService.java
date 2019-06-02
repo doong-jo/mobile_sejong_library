@@ -44,13 +44,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-            sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody());
+            sendNotification(remoteMessage.getNotification().getTitle(),
+                    remoteMessage.getNotification().getBody(),
+                    remoteMessage.getData().get("type"),
+                    remoteMessage.getData().get("content"),
+                    remoteMessage.getData().get("date")
+            );
         }
     }
     @Override
     public void onNewToken(String token) {
-        Log.d(TAG, "Refreshed token: " + token);
         sendRegistrationToServer(token);
         SharedPrefManager.writeToken(getApplicationContext(), token);
     }
@@ -61,19 +64,21 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         WorkManager.getInstance().beginWith(work).enqueue();
     }
 
-    private void handleNow() {
-        Log.d(TAG, "Short lived task is done.");
-    }
+    private void handleNow() { }
 
     private void sendRegistrationToServer(String token) {
-        Log.d(TAG, "sendRegistrationToServer: " + token);
         SharedPrefManager.writeToken(getApplicationContext(), token);
-        // TODO: Implement this method to send token to your app server.
     }
 
-    private void sendNotification(String messageTitle, String messageBody) {
+    private void sendNotification(String messageTitle, String messageBody, String messageType, String messageContent, String messageDate) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        intent.putExtra("title", messageTitle);
+        intent.putExtra("body", messageBody);
+        intent.putExtra("type", messageType);
+        intent.putExtra("content", messageContent);
+        intent.putExtra("date", messageDate);
+
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
@@ -87,7 +92,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setAutoCancel(true)
                         .setSound(defaultSoundUri)
                         .setContentIntent(pendingIntent);
-        
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

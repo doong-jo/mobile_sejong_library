@@ -3,9 +3,7 @@ package com.fourB.library.Report;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.os.AsyncTask;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,10 +13,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.fourB.library.HttpManager;
 import com.fourB.library.R;
+import com.fourB.library.ReportManager;
 
-import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class ReportDialogActivity {
 
@@ -39,57 +39,55 @@ public class ReportDialogActivity {
     }
 
     public void callFunction() {
-
         final Dialog dlg = new Dialog(mActivity);
 
-    dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    WindowManager.LayoutParams params = dlg.getWindow().getAttributes();
+        dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        WindowManager.LayoutParams params = dlg.getWindow().getAttributes();
 
-    dlg.setContentView(R.layout.activity_report);
-    params.width = WindowManager.LayoutParams.MATCH_PARENT;
-    params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dlg.setContentView(R.layout.activity_report);
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
-    dlg.show();
+        dlg.show();
 
-    mdeclareSpinner = (Spinner) dlg.findViewById(R.id.declareRoomSp);
-    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(mActivity, R.array.Declare_array, R.layout.declare_spinner_item);
-    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    mdeclareSpinner.setAdapter(adapter);
+        mdeclareSpinner = (Spinner) dlg.findViewById(R.id.declareRoomSp);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(mActivity, R.array.Declare_array, R.layout.declare_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mdeclareSpinner.setAdapter(adapter);
 
-    mReasonSpinner = (Spinner) dlg.findViewById(R.id.declareReasonSp);
-    ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(mActivity, R.array.declare_reason_array, R.layout.declare_spinner_item);
-    adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    mReasonSpinner.setAdapter(adapter1);
+        mReasonSpinner = (Spinner) dlg.findViewById(R.id.declareReasonSp);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(mActivity, R.array.declare_reason_array, R.layout.declare_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mReasonSpinner.setAdapter(adapter1);
 
-    mdeclarePostion = (EditText)dlg.findViewById(R.id.declarePosition);
+        mdeclarePostion = (EditText)dlg.findViewById(R.id.declarePosition);
 
-    mdeclareContent = (EditText)dlg.findViewById(R.id.declareContent);
+        mdeclareContent = (EditText)dlg.findViewById(R.id.declareContent);
 
-    mbuttonSend = (Button) dlg.findViewById(R.id.declareButton);
-    mbuttonSend.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+        mbuttonSend = (Button) dlg.findViewById(R.id.declareButton);
+        mbuttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            getDeclareData();
+                getDeclareData();
 
-            if(!mPosition.equals("")){
-                declareDialog();
-                dlg.dismiss();
-            } else if(mPosition.equals("")){
-                Toast.makeText(mActivity, "자리 번호를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                if(!mPosition.equals("")){
+                    declareDialog();
+                    dlg.dismiss();
+                } else if(mPosition.equals("")){
+                    Toast.makeText(mActivity, "자리 번호를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-    });
+        });
 
-    mbuttonCancle = (Button) dlg.findViewById(R.id.declareCancleButton);
-    mbuttonCancle.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(mActivity, "취소되었습니다.", Toast.LENGTH_SHORT).show();
-
-            dlg.dismiss();
-        }
-    });
+        mbuttonCancle = (Button) dlg.findViewById(R.id.declareCancleButton);
+        mbuttonCancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mActivity, "취소되었습니다.", Toast.LENGTH_SHORT).show();
+                dlg.dismiss();
+            }
+        });
     }
 
     private void getDeclareData(){
@@ -101,14 +99,11 @@ public class ReportDialogActivity {
 
     private void declareDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-
-
             builder.setTitle(mActivity.getString(R.string.chatbot_report_dialog_title));
             builder.setMessage(mActivity.getString(R.string.chatbot_report_dialog_content));
             builder.setPositiveButton(mActivity.getString(R.string.chatbot_report_dialog_yes),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                             getDeclareData();
                             mActivity.runOnUiThread(new Runnable() {
                                 @Override
@@ -121,8 +116,9 @@ public class ReportDialogActivity {
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-
-                                    ReportManager.report(mRoomNum, mPosition, mReason, declareMsg);
+                                    Date now = new Date();
+                                    SimpleDateFormat format = new SimpleDateFormat("MM월 dd일 E요일 HH:mm:ss", Locale.KOREA);
+                                    ReportManager.report(mRoomNum, mPosition, mReason, declareMsg, format.format(now));
                                 }
                             }).start();
 

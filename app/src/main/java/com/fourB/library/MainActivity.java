@@ -1,7 +1,9 @@
 package com.fourB.library;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;;
 import android.view.View;
@@ -171,8 +173,30 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    protected void onResume() {
+        super.onResume();
 
+        final String title = getIntent().getStringExtra("title");
+        if( title != null ) {
+            final String body = getIntent().getStringExtra("body");
+            final String type = getIntent().getStringExtra("type");
+            final String content = getIntent().getStringExtra("content");
+            final String date = getIntent().getStringExtra("date");
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(title);
+            builder.setMessage(body + '\n' + "시간 : " + date + '\n' + "사유 : " + type + '\n' + "접수내용 : " + content);
+            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) { }
+            });
+            builder.setCancelable(true);
+            builder.show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (resultCode == Activity.RESULT_OK) {
             IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
             if (scanResult == null) {
