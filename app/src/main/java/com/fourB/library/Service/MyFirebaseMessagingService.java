@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.util.Log;
 
 import com.fourB.library.MainActivity;
 import com.fourB.library.R;
+import com.fourB.library.SharedPrefManager;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -50,6 +52,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onNewToken(String token) {
         Log.d(TAG, "Refreshed token: " + token);
         sendRegistrationToServer(token);
+        SharedPrefManager.writeToken(getApplicationContext(), token);
     }
 
     private void scheduleJob() {
@@ -63,6 +66,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void sendRegistrationToServer(String token) {
+        Log.d(TAG, "sendRegistrationToServer: " + token);
+        SharedPrefManager.writeToken(getApplicationContext(), token);
         // TODO: Implement this method to send token to your app server.
     }
 

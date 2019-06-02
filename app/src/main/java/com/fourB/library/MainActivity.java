@@ -20,6 +20,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.Anouncement.AnouncementActivity;
+import com.fourB.library.Report.ReportDialogActivity;
 import com.fourB.library.Ebook.EbookActivity;
 import com.fourB.library.GuideAll.GuideActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity
         mDeclareView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DeclareDialogActivity DeclareDialog = new DeclareDialogActivity(MainActivity.this);
+                ReportDialogActivity DeclareDialog = new ReportDialogActivity(MainActivity.this);
 
                 DeclareDialog.callFunction();
             }

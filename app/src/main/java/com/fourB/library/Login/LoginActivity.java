@@ -1,6 +1,7 @@
 package com.fourB.library.Login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.fourB.library.HttpManager;
 import com.fourB.library.MainActivity;
 import com.fourB.library.R;
+import com.fourB.library.SharedPrefManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -123,8 +125,19 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void resultLogin(boolean res) {
+    private void resultLogin(final boolean res, final String id, final String pw) {
         if( res ) {
+            SharedPrefManager.writeUserInfo(getApplicationContext(), id);
+            final String token = SharedPrefManager.getFCMToken(this);
+
+            // id를 통해 해당 사용자의 레코드를 찾고 토큰을 업데이트
+            final String[] query = {"token=" + token };
+            try {
+                HttpManager.httpRun("user/"+id, query, "", "PUT");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         } else {
@@ -139,19 +152,24 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void accessLogin(final String id, final String pw) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    final String[] query = {"id=" + id, "pw=" + pw };
-                    final String result = HttpManager.httpRun("user", query);
-                    Log.d("query", result);
-                    resultLogin(!result.equals("[]"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+        if( id.equals("") || pw.equals("")) {
+            Toast.makeText(getApplicationContext(), getString(R.string.fail_login_access), Toast.LENGTH_SHORT).show();
+        } else {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        final String[] query = {"id=" + id, "pw=" + pw };
+                        final String serverRes = HttpManager.httpRun("user", query, "", "GET");
+
+                        final boolean loginResult = !serverRes.equals("[]");
+                        resultLogin(loginResult, id, pw);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        }).start();
+            }).start();
+        }
     }
 }
 
