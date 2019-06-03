@@ -44,10 +44,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -61,7 +58,12 @@
         <activity android:name=".SearchBook.SearchBookDetailActivity" />
         <activity
             android:name=".StudyRoom.StudyRoomActivity"
-            android:label="@string/studyroom_page_name" />
+            android:label="@string/studyroom_page_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".StudyRoom.StudyRoomRVActivity"
             android:label="@string/studyroom_page_name" />

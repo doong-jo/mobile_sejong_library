@@ -27,6 +27,16 @@
     <string name="chatbot_report_dialog_toast_yes">열람실 불편 신고가 접수되었습니다.</string>
     <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
 
+    <!--StudyRoom-->
+    <string name="study_room_search_date">날짜</string>
+    <string name="study_room_search_time">시간</string>
+    <string name="study_room_person">사용인원</string>
+    <string name="study_room_select_btn">수정</string>
+    <string name="study_room_time_amount">이용시간</string>
+    <string name="study_room_search">조회하기</string>
+    <string name="study_room_reserve_view">예약현황</string>
+    <string name="study_room_reserve_start">예약하기</string>
+
     <!--Menu-->
     <string name="menu_login">로그인</string>
     <string name="menu_notice">공지사항</string>

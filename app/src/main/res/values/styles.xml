@@ -35,15 +35,15 @@
     <style name="Text.Menu">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginBottom">@dimen/normal_margin</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="Text.reading_room">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">28sp</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
+        <item name="android:layout_marginBottom">@dimen/normal_margin</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
@@ -69,24 +69,24 @@
     <style name="Text.SearchBookItemRest">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingRight">@dimen/small_padding</item>
     </style>
 
     <style name="Text.SearchBookSpinner">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingTop">@dimen/small_padding</item>
+        <item name="android:paddingBottom">@dimen/small_padding</item>
     </style>
 
     <style name="Text.SearchBookDetailCategory">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">@dimen/small_padding</item>
+        <item name="android:paddingBottom">@dimen/small_padding</item>
+        <item name="android:paddingRight">@dimen/small_padding</item>
         <item name="android:gravity">right</item>
         <item name="android:layout_gravity">fill_horizontal</item>
         <item name="android:layout_columnWeight">1</item>
@@ -95,9 +95,9 @@
     <style name="Text.SearchBookDetailContent">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">@dimen/small_padding</item>
+        <item name="android:paddingBottom">@dimen/small_padding</item>
+        <item name="android:paddingLeft">@dimen/small_padding</item>
         <item name="android:gravity">left</item>
         <item name="android:layout_gravity">fill_horizontal</item>
         <item name="android:layout_columnWeight">2</item>
@@ -107,7 +107,8 @@
     <style name="Text.StudyRoomTextView">
         <item name="android:textSize">14sp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -123,22 +124,22 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
 
     <style name="Text.BookBorrowGuideIndex">
-        <item name="android:layout_marginLeft">15dp</item>
-        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
+        <item name="android:layout_marginTop">@dimen/large_margin</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Text.BookBorrowGuideExplain">
-        <item name="android:layout_marginLeft">5dp</item>
-        <item name="android:layout_marginRight">5dp</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">@dimen/small_margin</item>
+        <item name="android:layout_marginRight">@dimen/small_margin</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">14sp</item>
     </style>
@@ -151,15 +152,15 @@
     </style>
 
     <style name="Text.GuideExplainText">
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_margin">@dimen/normal_margin</item>
         <item name="android:gravity">left</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">@dimen/guideTextSize</item>
     </style>
 
     <style name="Text.IpadBorrowGuideIndex">
-        <item name="android:layout_marginLeft">30dp</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">32dp</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">@dimen/guideTextSize</item>
     </style>
@@ -176,8 +177,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:padding">@dimen/normal_padding</item>
+        <item name="android:layout_margin">@dimen/normal_margin</item>
         <item name="android:maxWidth">300dp</item>
         <item name="android:breakStrategy">simple</item>
     </style>
@@ -199,10 +200,10 @@
     </style>
 
     <style name="Image.Main">
-        <item name="android:layout_marginLeft">30dp</item>
-        <item name="android:layout_marginRight">30dp</item>
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">32dp</item>
+        <item name="android:layout_marginRight">32dp</item>
+        <item name="android:layout_marginTop">@dimen/large_margin</item>
+        <item name="android:layout_marginBottom">@dimen/normal_margin</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -213,8 +214,8 @@
     <style name="Image.ChatBot">
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
     </style>
 
     <style name="Image.BookImage">
@@ -231,7 +232,7 @@
 
     <style name="Image.SearchBook">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_margin">20dp</item>
+        <item name="android:layout_margin">@dimen/large_margin</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="android:scaleType">fitCenter</item>
@@ -240,16 +241,16 @@
     <style name="Image.GuideTable">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">280dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
+        <item name="android:layout_marginRight">@dimen/normal_margin</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="Image.DetailBook">
-        <item name="android:layout_marginTop">40dp</item>
-        <item name="android:layout_marginBottom">40dp</item>
-        <item name="android:layout_marginLeft">80dp</item>
-        <item name="android:layout_marginRight">80dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
+        <item name="android:layout_marginLeft">64dp</item>
+        <item name="android:layout_marginRight">64dp</item>
     </style>
 
 
@@ -262,14 +263,14 @@
         <item name="android:background">@color/btnPink</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:layout_marginRight">10dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">@dimen/normal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
     </style>
 
     <style name="Button.reading_room_back">
         <item name="android:background">@color/btnPink</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:text">@string/reading_room_back</item>
     </style>
 
@@ -282,14 +283,25 @@
     <style name="Button.reading_room_see_seat">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/btnPink</item>
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:text">@string/search_book_search</item>
     </style>
 
     <style name="Button.StudyRoom">
         <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="Button.StudyRoomInfo">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:background">@drawable/rectangle_info</item>
     </style>
 
     <style name="Button.send">
@@ -314,7 +326,7 @@
     <style name="Bar.AllGuide">
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@color/hintColor</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginBottom">@dimen/normal_margin</item>
     </style>
 
     <!--EditText-->
@@ -325,7 +337,7 @@
     <style name="EditText.chat_edit">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">48dp</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:padding">@dimen/normal_padding</item>
         <item name="android:background">@drawable/chat_edittext</item>
         <item name="android:inputType">text</item>
         <item name="android:ems">@integer/chat_edittext_ems</item>
@@ -339,8 +351,8 @@
 
     <style name="Spinner.SearchBook">
         <item name="android:background">@android:color/white</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">@dimen/normal_margin</item>
+        <item name="android:layout_marginRight">@dimen/normal_margin</item>
     </style>
 
 </resources>
