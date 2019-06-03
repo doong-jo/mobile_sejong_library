@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Study Room-->
+    <string-array name="study_room_available_hour">
+        <item>1시간</item>
+        <item>2시간</item>
+    </string-array>
+
     <string-array name="search_book_category">
         <item>자료명</item>
         <item>저자</item>

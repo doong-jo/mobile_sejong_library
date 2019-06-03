@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Study Room-->
+    <integer name="study_room_capacity_min">2</integer>
+    <integer name="study_room_capacity_max">32</integer>
+
     <integer name="chat_edittext_ems">10</integer>
     <integer name="barcode_Backable_second">2000</integer>
 </resources>

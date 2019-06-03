@@ -11,13 +11,9 @@
     <color name="login_button_color">#c30e2e</color>
     <color name="border_gray">#d7d7d7</color>
 
-
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="background_pink">#f7f1f1</color>
 
-    <color name="backPink">#F9DDDD</color>
-    <color name="btnPink">#D86165</color>
-    <color name="borderPink">#E09294</color>
-    <color name="searchBookBackPink">#E69DA0</color>
+    <color name="light_gray">#F4F4F4</color>
 </resources>

@@ -1,116 +1,128 @@
 package com.fourB.library.StudyRoom;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fourB.library.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class StudyRoomActivity extends AppCompatActivity {
 
-    private Spinner mUsingTimeSpinner, mUserCountSpinner;
-    private ArrayList<String> mUsingTimeArrayList = new ArrayList<>();
-    private ArrayList<String> mUserCountArrayList = new ArrayList<>();
-    private ArrayAdapter<String> mUsingTimeArrayAdapter, mUserCountArrayAdapter;
-
-
+    private Spinner mUseTimeSpinner, mUserNumSpinner;
     private EditText mUsingDayText, mUsingTimeText;
-    private Button mUsingDayButton, mUsingTimeButton;
+    private DatePickerDialog mDatePickerDlg;
+    private TimePickerDialog mTimePickerDlg;
 
-    Calendar mCalendar;
-    DatePickerDialog mStudyRoomdpd;
-    TimePickerDialog mStudytpd;
+    private ArrayList<String> mUseTimeArrayList = new ArrayList<>();
+    private ArrayList<String> mUserNumArrayList = new ArrayList<>();
+    private ArrayAdapter<String> mUseTimeArrayAdapter, mUserNumArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_room_check);
 
-        mUsingTimeArrayList.add("1시간");
-        mUsingTimeArrayList.add("2시간");
-
-        for(int i=2; i<11; i++) { mUserCountArrayList.add(i+"명 "); }
-
         initView();
         initListener();
 
+        // set time -> time spinner
+        String[] availableHours = getResources().getStringArray(R.array.study_room_available_hour);
+        mUseTimeArrayList.addAll(Arrays.asList(availableHours));
 
-        mUsingTimeArrayAdapter= new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item,
-                mUsingTimeArrayList);
+        mUseTimeArrayAdapter = new ArrayAdapter<>(getApplicationContext(),
+                R.layout.layout_study_room_spinner,
+                mUseTimeArrayList);
 
-        mUsingTimeSpinner = findViewById(R.id.usingtimespinner);
-        mUsingTimeSpinner.setAdapter(mUsingTimeArrayAdapter);
+        // set person -> person spinner
+        final int capacityMin = getResources().getInteger(R.integer.study_room_capacity_min);
+        final int capacityMax = getResources().getInteger(R.integer.study_room_capacity_max);
+        for(int i=capacityMin; i<=capacityMax; ++i) { mUserNumArrayList.add(i+"명 "); }
 
-        mUserCountArrayList = new ArrayList<>();
+        mUserNumArrayAdapter = new ArrayAdapter<>(getApplicationContext(),
+                R.layout.layout_study_room_spinner,
+                mUserNumArrayList);
 
-
-
-
-        mUserCountArrayAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item,
-                mUserCountArrayList);
-
-        mUserCountSpinner = findViewById(R.id.usercountspinner);
-        mUserCountSpinner.setAdapter(mUserCountArrayAdapter);
+        mUseTimeSpinner.setAdapter(mUseTimeArrayAdapter);
+        mUserNumSpinner.setAdapter(mUserNumArrayAdapter);
     }
 
     private void initView() {
-        mUsingDayButton = findViewById(R.id.studyroom_btndate);
-        mUsingTimeButton = findViewById(R.id.studyroom_btntime);
-
         mUsingDayText = findViewById(R.id.studyroom_txtusingday);
         mUsingTimeText = findViewById(R.id.studyroom_txtusingtime);
         mUsingDayText.setKeyListener(null);
         mUsingTimeText.setKeyListener(null);
+
+        mUseTimeSpinner = findViewById(R.id.usingtimespinner);
+        mUserNumSpinner = findViewById(R.id.usercountspinner);
+
+        final Calendar cal = Calendar.getInstance();
+        final int min = cal.get(Calendar.MINUTE);
+        final int hour = cal.get(Calendar.HOUR_OF_DAY);
+        final int day = cal.get(Calendar.DAY_OF_MONTH);
+        final int month = cal.get(Calendar.MONTH);
+        final int year = cal.get(Calendar.YEAR);
+
+        mUsingDayText.setText(getReserveDate(year, month, day));
+        mUsingTimeText.setText(getReserveTime(hour));
+
+        mDatePickerDlg = new DatePickerDialog(mUsingDayText.getContext(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
+                mUsingDayText.setText(getReserveDate(year, month, day));
+            }
+        }, year, month, day);
+        mDatePickerDlg.updateDate(year, month, day);
+
+        mTimePickerDlg = new TimePickerDialog(mUsingTimeText.getContext(), new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute ){
+                mUsingTimeText.setText(getReserveTime(hour));
+            }
+        }, hour, 0,false);
+        mTimePickerDlg.updateTime(hour, min);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initListener() {
-        mUsingDayText.setOnClickListener(new View.OnClickListener() {
+        mUsingDayText.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                final int day = cal.get(Calendar.DAY_OF_MONTH);
-                final int month = cal.get(Calendar.MONTH);
-                final int year = cal.get(Calendar.YEAR);
-
-                mStudyRoomdpd = new DatePickerDialog(mUsingDayButton.getContext(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        mUsingDayText.setText(mYear + "/" + (mMonth + 1) + "/" + mDay);
-                    }
-                }, year, month, day);
-                mStudyRoomdpd.show();
+            public boolean onTouch(View v, MotionEvent event) {
+                mDatePickerDlg.show();
+                return true;
             }
         });
 
-        mUsingTimeText.setOnClickListener(new View.OnClickListener() {
+        mUsingTimeText.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                final int hour = cal.get(Calendar.HOUR_OF_DAY);
-
-                mStudytpd = new TimePickerDialog(mUsingTimeButton.getContext(), new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute ){
-                        mUsingTimeText.setText(hourOfDay + ": 00");
-                    }
-                }, hour, 0,false);
-                mStudytpd.show();
+            public boolean onTouch(View v, MotionEvent event) {
+                mTimePickerDlg.show();
+                return true;
             }
         });
+    }
+
+    private String getReserveDate(final int year, final int month, final int day) {
+        StringBuilder builder = new StringBuilder(16);
+        builder.append(year).append("년 ").append(month + 1).append("월 ").append(day).append("일");
+        return builder.toString();
+    }
+
+    private String getReserveTime(final int hourOfDay) {
+        StringBuilder builder = new StringBuilder(32);
+        builder.append(hourOfDay).append("시 (시간 단위로 예약 가능)");
+        return builder.toString();
     }
 }

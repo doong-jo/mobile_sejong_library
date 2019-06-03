@@ -58,6 +58,7 @@
         <activity android:name=".SearchBook.SearchBookDetailActivity" />
         <activity
             android:name=".StudyRoom.StudyRoomActivity"
+            android:screenOrientation="portrait"
             android:label="@string/studyroom_page_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

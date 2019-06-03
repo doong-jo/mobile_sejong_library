@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backPink"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <ImageView
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="@dimen/Barcode_BookTitle_TextSize"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="@string/barcode_bookTitle" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_marginVertical="@dimen/activity_vertical_margin"
         android:gravity="center"
         android:text="대출하시겠습니까?"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/Barcode_Title_TextSize"/>
 
     <LinearLayout
@@ -49,7 +49,7 @@
             android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
-            android:background="@color/btnPink"/>
+            android:background="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/barcode_cancelBtn"
@@ -60,17 +60,8 @@
             android:textColor="@color/white"
             android:layout_weight="1"
             android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
-            android:background="@color/btnPink"/>
+            android:background="@color/colorPrimary"/>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/barcode_subInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
-        android:layout_marginTop="@dimen/Barcode_SubDate_marginTop"
-        android:text="학술정보원모바일"
-        android:textSize="@dimen/Barcode_SubDate_TextSize"/>
 
 </LinearLayout>

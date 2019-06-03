@@ -2,17 +2,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backPink"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -74,12 +74,12 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -141,12 +141,12 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -208,12 +208,12 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -275,12 +275,12 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -342,12 +342,12 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -409,12 +409,12 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <android.support.design.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeColor="@color/borderPink"
+            app:strokeColor="@color/colorPrimaryDark"
             app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
             app:cardElevation="@dimen/reading_room_cardView_elevation"
             app:cardCornerRadius="@dimen/reading_room_cardView_corner"
@@ -476,7 +476,7 @@
                     android:text="@string/reading_room_see_seat"
                     style="@style/Button.reading_room_see_seat"/>
             </LinearLayout>
-        </android.support.design.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

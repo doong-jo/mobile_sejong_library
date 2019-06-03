@@ -28,14 +28,18 @@
     <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
 
     <!--StudyRoom-->
-    <string name="study_room_search_date">날짜</string>
-    <string name="study_room_search_time">시간</string>
+    <string name="study_room_search_date">예약날짜</string>
+    <string name="study_room_search_date_tint">날짜를 선택해주세요.</string>
+    <string name="study_room_search_time">예약시간</string>
+    <string name="study_room_search_time_tint">시간을 선택해주세요.</string>
     <string name="study_room_person">사용인원</string>
     <string name="study_room_select_btn">수정</string>
     <string name="study_room_time_amount">이용시간</string>
+    <string name="study_room_location">예약장소</string>
     <string name="study_room_search">조회하기</string>
     <string name="study_room_reserve_view">예약현황</string>
     <string name="study_room_reserve_start">예약하기</string>
+    <string name="study_room_guide_line">- 학기중 토요일 및 방학 중 개방 시간 : 10:00 ~ 16:00 \n- 방학 중 토요일은 휴실입니다. \n- 당일예약 스터디룸을 제외하고 7일 이내 예약이 가능합니다. \n- 예약 후 미사용 시 예약이 취소해야 합니다. 위반 시 예약자는 1개월간 예약할 수 없습니다. (예약시간 기준 20분 경과 시 사용제한)</string>
 
     <!--Menu-->
     <string name="menu_login">로그인</string>

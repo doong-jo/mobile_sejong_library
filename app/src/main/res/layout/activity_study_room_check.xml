@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -17,11 +13,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_padding"
                     android:orientation="horizontal">
 
                     <TextView
@@ -29,34 +27,24 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:id="@+id/date_sel_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="@string/study_room_search_date"
                         style="@style/Text.StudyRoomTextView"/>
 
                     <EditText
-                        app:layout_constraintRight_toLeftOf="@id/studyroom_btndate"
+                        app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/date_sel_tv"
                         app:layout_constraintTop_toTopOf="parent"
                         android:id="@+id/studyroom_txtusingday"
-                        android:layout_marginStart="@dimen/normal_margin"
-                        android:background="@drawable/rectangle_info"
-                        android:layout_width="0dp"
-                        android:layout_height="32dp"
-                        android:hint="날짜를 입력해주세요."/>
-
-                    <Button
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:id="@+id/studyroom_btndate"
-                        android:text="@string/study_room_select_btn"
-                        style="@style/Button.StudyRoomInfo"/>
+                        android:hint="@string/study_room_search_date_tint"
+                        style="@style/EditText.StudyRoomSearch"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_padding"
+                    android:focusableInTouchMode="true"
                     android:orientation="horizontal">
 
                     <TextView
@@ -64,120 +52,102 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:id="@+id/time_sel_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="@string/study_room_search_time"
                         style="@style/Text.StudyRoomTextView"/>
 
                     <EditText
-                        app:layout_constraintRight_toLeftOf="@id/studyroom_btntime"
+                        app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/time_sel_tv"
                         app:layout_constraintTop_toTopOf="parent"
                         android:id="@+id/studyroom_txtusingtime"
-                        android:layout_marginStart="@dimen/normal_margin"
-                        android:background="@drawable/rectangle_info"
-                        android:layout_width="0dp"
-                        android:layout_height="32dp"
-                        android:inputType="time"
-                        android:hint="시간을 입력해주세요."/>
+                        android:hint="@string/study_room_search_time_tint"
+                        style="@style/EditText.StudyRoomSearch" />
 
-                    <Button
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:id="@+id/studyroom_btntime"
-                        android:text="@string/study_room_select_btn"
-                        style="@style/Button.StudyRoomInfo"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="64dp"
+                    android:padding="@dimen/normal_padding"
                     android:orientation="horizontal">
                     <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/study_room_person"
-                    style="@style/Text.StudyRoomTextView" />
+                        android:text="@string/study_room_person"
+                        style="@style/Text.StudyRoomTextView" />
 
                     <Spinner
                         android:id="@+id/usercountspinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        style="@style/Spinner.StudyRoomSearch"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="64dp"
+                    android:padding="@dimen/normal_padding"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/study_room_search_time"
+                        android:text="@string/study_room_time_amount"
                         style="@style/Text.StudyRoomTextView" />
 
                     <Spinner
                         android:id="@+id/usingtimespinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        style="@style/Spinner.StudyRoomSearch" />
                 </LinearLayout>
-
-                <LinearLayout
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/normal_padding">
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/study_room_search"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:background="@color/colorAccent" />
-
-                </LinearLayout>
+                    android:padding="@dimen/large_padding"
+                    android:textAlignment="textStart"
+                    android:breakStrategy="high_quality"
+                    app:lineHeight="30dp"
+                    android:text="@string/study_room_guide_line"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="@dimen/normal_padding"
-                android:orientation="horizontal"
-                android:background="#FFFFFF">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginStart="@dimen/normal_padding"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:background="#FFFFFF">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스터디룸 (7층)"
-                    style="@style/Text.StudyRoomRVTextView" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="스터디룸 (7층)"-->
+                    <!--style="@style/Text.StudyRoomRVTextView" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="end"
-                    android:layout_marginRight="@dimen/normal_padding">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:gravity="end"-->
+                    <!--android:layout_marginRight="@dimen/normal_padding">-->
 
-                    <Button
-                        android:id="@+id/reserve_view"
-                        android:text="@string/study_room_reserve_view"
-                        style="@style/Button.StudyRoom" />
+                    <!--<Button-->
+                        <!--android:id="@+id/reserve_view"-->
+                        <!--android:text="@string/study_room_reserve_view"-->
+                        <!--style="@style/Button.StudyRoom" />-->
 
-                    <Button
-                        android:id="@+id/reserve_start"
-                        android:text="@string/study_room_reserve_start"
-                        style="@style/Button.StudyRoom" />
+                    <!--<Button-->
+                        <!--android:id="@+id/reserve_start"-->
+                        <!--android:text="@string/study_room_reserve_start"-->
+                        <!--style="@style/Button.StudyRoom" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
-    </ScrollView>
-
-</LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/study_room_search"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@color/colorAccent" />
+</RelativeLayout>

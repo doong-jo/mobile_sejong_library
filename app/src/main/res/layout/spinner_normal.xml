@@ -14,7 +14,7 @@
 
     <ImageView
         android:src="@android:drawable/arrow_down_float"
-        android:background="@color/btnPink"
+        android:background="@color/white"
         android:scaleType="centerInside"
         android:layout_width="0dp"
         android:layout_weight="1"

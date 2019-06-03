@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/backPink"
+    android:background="@color/colorPrimaryDark"
     android:padding="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardElevation="10dp"
         app:cardBackgroundColor="@color/white"
-        app:strokeColor="@color/borderPink"
+        app:strokeColor="@color/colorPrimaryDark"
         app:strokeWidth="2dp"
         app:cardCornerRadius="10dp">
         
@@ -75,5 +75,5 @@
 
             </GridLayout>
         </LinearLayout>
-    </android.support.design.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
