@@ -1,13 +1,12 @@
 package com.fourB.library;
 
+
 import com.fourB.library.SearchBook.SearchBookItem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -61,12 +60,18 @@ public class HttpManager {
         String data = searchResult.toString();
         String[] dataArr = data.split("\"");
         SearchBookItem[] bookItems = new SearchBookItem[display];
-
+        for(int i=0; i<bookItems.length; i++ ) { bookItems[i] = new SearchBookItem(); }
         int k = 0;
         for (int i = 0; i < dataArr.length - 2; i++) {
             final String pivot = dataArr[i];
             final String value = dataArr[i + 2];
-            if (pivot.equals("title")) bookItems[k].setTitle(value);
+            if(pivot == null || value == null) {
+                int a = 1;
+            }
+//            Log.d("searchBookNaverApi", "k: " + k);
+            if (pivot.equals("title")) {
+                bookItems[k].setTitle(value);
+            }
             if (pivot.equals("image")) bookItems[k].setImageURL(value);
             if (pivot.equals("author")) bookItems[k].setAuthor(value);
             if (pivot.equals("publisher")) bookItems[k].setPublisher(value);

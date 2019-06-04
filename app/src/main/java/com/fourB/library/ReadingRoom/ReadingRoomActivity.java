@@ -15,14 +15,11 @@ public class ReadingRoomActivity extends AppCompatActivity implements ReadingRoo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading_room);
-
-        setTitle(getString(R.string.menu_reading_room));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         readingRoomFragment = new ReadingRoomFragment();
         readingRoomWVFragment = new ReadingRoomWVFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.reading_room_container, readingRoomFragment).commit();
-
-
     }
 
     @Override

@@ -98,24 +98,24 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/declareCancleButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/light_gray"
-            android:text="@string/report_cancel"
-            android:textColor="@color/black"
-            android:textSize="@dimen/normal_font_size"/>
-
-        <Button
             android:id="@+id/declareButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/large_margin"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:text="@string/report_accept"
             android:textColor="@color/white"
+            android:textSize="@dimen/normal_font_size"/>
+
+        <Button
+            android:id="@+id/declareCancleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_weight="1"
+            android:background="@color/light_gray"
+            android:text="@string/report_cancel"
+            android:textColor="@color/black"
             android:textSize="@dimen/normal_font_size"/>
     </LinearLayout>
 

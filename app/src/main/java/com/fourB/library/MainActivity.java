@@ -31,7 +31,6 @@ import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 import com.fourB.library.Widgets.MovableFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AllFindViewById();
+        initView();
 
         CardView readingRoom = (CardView)findViewById(R.id.cardView_reading_room);
         readingRoom.setOnClickListener(new View.OnClickListener() {
@@ -217,7 +216,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void AllFindViewById() {
+    private void initView() {
         banner = (Slider) findViewById(R.id.banner_main);
         mEbookView = (CardView)findViewById(R.id.EbookView);
         mAnouncementView = (CardView)findViewById(R.id.AnouncementView);

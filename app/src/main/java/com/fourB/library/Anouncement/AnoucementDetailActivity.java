@@ -21,7 +21,6 @@ public class AnoucementDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ebook);
 
-        setTitle(getString(R.string.menu_notice));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();

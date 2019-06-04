@@ -52,6 +52,7 @@
     <!--Menu-->
     <string name="menu_login">로그인</string>
     <string name="menu_notice">공지사항</string>
+    <string name="menu_notice_detail">공지사항 상세</string>
     <string name="menu_study_room">스터디룸</string>
     <string name="menu_reading_room">열람실</string>
     <string name="menu_ebook">E - book</string>
@@ -62,6 +63,7 @@
     <string name="menu_declare">간편신고</string>
     <string name="menu_chatbot">동천이와의 대화방</string>
     <string name="menu_study_room_reserve">예약조회</string>
+    <string name="menu_search_book_detail">도서 상세</string>
 
     <!--Login-->
     <string name="login_bottom">학술정보원 모바일 앱</string>

@@ -2,6 +2,9 @@ package com.fourB.library.SearchBook;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,99 +15,73 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourB.library.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.ViewHolder> {
-    Context context;
-    LayoutInflater inflater;
-    ArrayList<SearchBookItem> items = new ArrayList<SearchBookItem>();
-    ArrayList<SearchBookItem> mSearchItems = new ArrayList<SearchBookItem>();
+    Context mContext;
+    ArrayList<SearchBookItem> mItemData = new ArrayList<SearchBookItem>();
 
     public SearchBookAdapter(Context context){
-        this.context = context;
-        this.inflater = LayoutInflater.from(context);
+        this.mContext = context;
     }
-
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return mItemData.size();
     }
-
 
     @Override
     public SearchBookAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_search_book, viewGroup, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final SearchBookAdapter.ViewHolder viewHolder, int i) {
-        final SearchBookItem item = items.get(i);
+        final SearchBookItem item = mItemData.get(i);
         viewHolder.setItem(item);
-
-        viewHolder.mCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), SearchBookDetailActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            }
-        });
     }
 
     public void addItem(SearchBookItem item){
-        items.add(item);
+        mItemData.add(item);
     }
 
     public void addItems(ArrayList<SearchBookItem> items){
-        this.items.addAll(items);
-        this.mSearchItems.addAll(items);
+        this.mItemData.addAll(items);
     }
 
     public SearchBookItem getItem (int position){
-        return items.get(position);
+        return mItemData.get(position);
     }
 
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView mBookTitle;
-        TextView mBookAuthor;
-        TextView mBookPublisher;
-        TextView mBookLend;
-        TextView mBookPublishYear;
-        TextView mBookCallNum;
-        CardView mCardView;
-        ImageView mBookImageView;
+        private CardView mCardView;
+        private ImageView mBookImg;
+        private TextView mBookTitle;
+        private TextView mBookAuthor;
+        private TextView mBookPublisher;
+        private TextView mBookPubDate;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mBookImageView = (ImageView)itemView.findViewById(R.id.imageView_search_book);
-            mCardView = (CardView)itemView.findViewById(R.id.cardView_search_book_recycleView);
-            mBookTitle = (TextView)itemView.findViewById(R.id.textView_search_book_title);
-            mBookAuthor = (TextView)itemView.findViewById(R.id.textView_search_book_author);
-            mBookPublisher = (TextView)itemView.findViewById(R.id.textView_search_book_publisher);
-            mBookLend = (TextView)itemView.findViewById(R.id.textView_search_book_lend);
-            mBookPublishYear = (TextView)itemView.findViewById(R.id.textView_search_book_publish_year);
-            mBookCallNum = (TextView)itemView.findViewById(R.id.textView_search_book_callnum);
+            mCardView = itemView.findViewById(R.id.search_book_card);
+            mBookImg = itemView.findViewById(R.id.search_book_img);
+            mBookTitle = itemView.findViewById(R.id.search_book_title);
+            mBookAuthor = itemView.findViewById(R.id.search_book_author);
+            mBookPublisher = itemView.findViewById(R.id.search_book_publisher);
+            mBookPubDate = itemView.findViewById(R.id.search_book_publish_date);
         }
 
         public void setItem(SearchBookItem item){
-//            mBookTitle.setText(item.getBookTitle());
-//            mBookAuthor.setText(item.getBookAuthor());
-//            mBookPublisher.setText(item.getBookPublisher());
-//            mBookPublishYear.setText(item.getBookPublishYear());
-//            mBookCallNum.setText(item.getBookCallNum());
-//            mBookImageView.setImageResource(item.getBookImage());
-//            if(item.getBookLend()){
-//                mBookLend.setText(R.string.search_book_lend_true);
-//            }else {
-//                mBookLend.setText(R.string.search_book_lend_false);
-//            }
-
+            Picasso.get().load(item.getImageURL()).into(mBookImg);
+            mBookTitle.setText(Html.fromHtml(item.getTitle()));
+            mBookAuthor.setText(item.getAuthor());
+            mBookPublisher.setText(item.getPublisher());
+            mBookPubDate.setText(item.getPubdate());
         }
     }
 }
