@@ -271,15 +271,15 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_lend_book) {
 
-            Intent intent = new Intent(getApplicationContext(), AppointmentBookActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LendBookActivity.class);
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_lend_book_record) {
-            Intent intent = new Intent(getApplicationContext(), LendBookActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LendBookRecordActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_appointment_book) {
-            Intent intent = new Intent(getApplicationContext(), LendBookRecordActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AppointmentBookActivity.class);
             startActivity(intent);
         }
 
