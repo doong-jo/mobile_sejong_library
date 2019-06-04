@@ -1,9 +1,8 @@
 package com.fourB.library.ChatBot.async;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.fourB.library.ChatBot.ChatBotService;
+import com.fourB.library.ChatBot.ChatBotInterface;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -18,9 +17,9 @@ import ai.api.model.Result;
 
 public class RequestJavaV2Task extends AsyncTask<AIRequest, Void, AIResponse> {
     private AIDataService mAiDataService;
-    private ChatBotService mTargetActivity;
+    private ChatBotInterface mTargetActivity;
 
-    public RequestJavaV2Task(AIDataService aiDataService, ChatBotService serviceActivity) {
+    public RequestJavaV2Task(AIDataService aiDataService, ChatBotInterface serviceActivity) {
         mAiDataService = aiDataService;
         mTargetActivity = serviceActivity;
     }

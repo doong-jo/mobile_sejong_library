@@ -30,7 +30,6 @@ public class ChatArrayAdapter extends ArrayAdapter {
         parentContext = context;
     }
 
-
     public void remove(int pos) {
         super.remove(getItem(pos));
         mChatMessageList.remove(pos);
