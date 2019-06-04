@@ -118,13 +118,6 @@
             android:name=".Barcode.BarcodeLinkActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ParkActivity" /> <!-- <service -->
-        <!-- android:name=".kotlin.MyFirebaseMessagingService" -->
-        <!-- android:exported="false"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
-        <!-- </intent-filter> -->
-        <!-- </service> -->
 
         <activity android:name=".ParkActivity"
             android:screenOrientation="portrait" />
@@ -135,6 +128,7 @@
                 <!--<action android:name="com.google.firebase.MESSAGING_EVENT" />-->
             <!--</intent-filter>-->
         <!--</service>-->
+
         <service
             android:name=".Service.MyFirebaseMessagingService"
             android:exported="false">
