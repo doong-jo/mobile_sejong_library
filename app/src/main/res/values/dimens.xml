@@ -5,6 +5,7 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="elevation">8dp</dimen>
 
     <dimen name="small_padding">4dp</dimen>
     <dimen name="normal_padding">8dp</dimen>
@@ -41,7 +42,7 @@
 
     <!--Barcode-->
     <dimen name="Barcode_BookTitle_TextSize">30dp</dimen>
-    <dimen name="Barcode_Horizontal_margin">25dp</dimen>
+    <dimen name="Barcode_Horizontal_margin">15dp</dimen>
     <dimen name="Barcode_Button_TextSize">16dp</dimen>
     <dimen name="Barcode_Title_TextSize">20dp</dimen>
     <dimen name="Barcode_SubDate_marginTop">55dp</dimen>

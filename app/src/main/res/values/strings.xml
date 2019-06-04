@@ -20,11 +20,11 @@
     <string name="chatbot_bot_name">동천이</string>
 
     <string name="chatbot_report_dialog_title">열람실 불편 신고 접수</string>
-    <string name="chatbot_report_dialog_content">신고 내용을 접수하시겠습니까?\n신고 내용은 자동 저장되며, 지정 좌석 사용자에게 푸시 알림이 전송됩니다.\n허위 신고 시 불이익이 발생할 수 있습니다.</string>
+    <string name="chatbot_report_dialog_content">신고 내용을 접수하시겠습니까?\n\n신고 내용은 자동 저장되며, 지정 좌석 사용자에게 푸시 알림이 전송됩니다.\n\n허위 신고 시 불이익이 발생할 수 있습니다.</string>
     <string name="chatbot_report_dialog_yes">예</string>
     <string name="chatbot_report_dialog_no">아니오</string>
     <string name="chatbot_report_dialog_toast_yes">열람실 불편 신고가 접수되었습니다.</string>
-    <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
+    <string name="chatbot_report_dialog_toast_no">취소되었습니다.</string>
 
     <!--StudyRoom-->
     <string name="study_room_search_date">예약날짜</string>
@@ -52,6 +52,7 @@
     <!--Menu-->
     <string name="menu_login">로그인</string>
     <string name="menu_notice">공지사항</string>
+    <string name="menu_notice_detail">공지사항 상세</string>
     <string name="menu_study_room">스터디룸</string>
     <string name="menu_reading_room">열람실</string>
     <string name="menu_ebook">E - book</string>
@@ -62,6 +63,7 @@
     <string name="menu_declare">간편신고</string>
     <string name="menu_chatbot">동천이와의 대화방</string>
     <string name="menu_study_room_reserve">예약조회</string>
+    <string name="menu_search_book_detail">도서 상세</string>
 
     <!--Login-->
     <string name="login_bottom">학술정보원 모바일 앱</string>
@@ -89,7 +91,7 @@
     <string name="reading_room_3_A">3층 A 열람실</string>
     <string name="reading_room_3_B">3층 B 열람실</string>
     <string name="reading_room_see_seat">좌석보기</string>
-    <string name="reading_room_back">이전</string>
+    <string name="reading_room_fullscreen">크게보기</string>
     <string name="reading_room_url">http://210.107.226.14/seat/roomview5.asp?room_no=</string>
     <string name="reading_room_0_num">0</string>
     <string name="reading_room_A_num">188</string>
@@ -120,6 +122,8 @@
     <string name="second_camera_comment">바코드 검색을 통해 도서 대출을 할 수 있습니다.</string>
     <string name="backButton_comment">\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.</string>
     <string name="barcode_bookTitle">책 제목</string>
+    <string name="barcode_bookAuthor">작가</string>
+    <string name="barcode_bookBorrow_Comment">대출하시겠습니까?</string>
     <string name="borrow_success">도서대출 완료!</string>
     <string name="borrow_cancle">대여 취소</string>
 
@@ -149,6 +153,15 @@
     <string name="guide_ipad_borrow_contents_1">학부 재학생 및 교강사</string>
     <string name="guide_ipad_borrow_index_2">2. 대여</string>
     <string name="guide_ipad_borrow_contents_2">New iPad, WiFi / 32GB</string>
+
+    <!--Barcode-->
+    <string name="barcode_bookTitle_01">데이터베이스 배움터</string>
+    <string name="barcode_bookAuthor_01">홍의경 저</string>
+    <string name="barcode_bookTitle_02">Java의 정석</string>
+    <string name="barcode_bookAuthor_02">남궁 성 저</string>
+    <string name="barcode_bookBarcode_01">9788970503417</string>
+    <string name="barcode_bookBarcode_02">9788994492032</string>
+
 
 
 </resources>

@@ -1,9 +1,12 @@
 package com.fourB.library.Barcode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,12 @@ public class BarcodeLinkActivity extends AppCompatActivity {
 
     private Button mBorrowBtn;
     private Button mCancelBtn;
+    private ImageView mBookImage;
+    private TextView mBookTitle;
+    private TextView mBookAuthor;
+    private String mBarcodeScarNumber;
+    private Intent mIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,30 @@ public class BarcodeLinkActivity extends AppCompatActivity {
 
         setTitle("책 대여");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mIntent = getIntent();
+        mBarcodeScarNumber = mIntent.getExtras().getString("BarcodeScanNumber");
+
+        if(mBarcodeScarNumber.equals(getString(R.string.barcode_bookBarcode_01))) {
+            mBookImage = (ImageView) findViewById(R.id.barcode_bookImage);
+            mBookImage.setImageResource(R.drawable.barcode_book);
+
+            mBookTitle = (TextView) findViewById(R.id.barcode_bookTitle);
+            mBookTitle.setText(R.string.barcode_bookTitle_01);
+
+            mBookAuthor = (TextView) findViewById(R.id.barcode_author);
+            mBookAuthor.setText(R.string.barcode_bookAuthor_01);
+
+        }else if(mBarcodeScarNumber.equals(getString(R.string.barcode_bookBarcode_02))){
+            mBookImage = (ImageView) findViewById(R.id.barcode_bookImage);
+            mBookImage.setImageResource(R.drawable.barcode_book_02);
+
+            mBookTitle = (TextView) findViewById(R.id.barcode_bookTitle);
+            mBookTitle.setText(R.string.barcode_bookTitle_02);
+
+            mBookAuthor = (TextView) findViewById(R.id.barcode_author);
+            mBookAuthor.setText(R.string.barcode_bookAuthor_02);
+        }
 
         mBorrowBtn = (Button)findViewById(R.id.barcode_borrowBtn);
         mBorrowBtn.setOnClickListener(new View.OnClickListener() {

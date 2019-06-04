@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/barcode_bookImage"
         style="@style/Image.BookImage"
         android:layout_margin="@dimen/activity_vertical_margin"
-        app:srcCompat="@drawable/bookimage_01" />
+        app:srcCompat="@drawable/barcode_book" />
 
     <TextView
         android:id="@+id/barcode_bookTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="@dimen/Barcode_BookTitle_TextSize"
-        android:textColor="@color/white"
-        android:text="@string/barcode_bookTitle" />
+        android:text="@string/barcode_bookTitle"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Barcode_BookTitle_TextSize" />
+
+    <TextView
+        android:id="@+id/barcode_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/barcode_bookAuthor"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Barcode_Title_TextSize" />
 
     <TextView
         android:id="@+id/barcode_subTitle"
@@ -29,38 +38,38 @@
         android:layout_gravity="center"
         android:layout_marginVertical="@dimen/activity_vertical_margin"
         android:gravity="center"
-        android:text="대출하시겠습니까?"
-        android:textColor="@color/white"
-        android:textSize="@dimen/Barcode_Title_TextSize"/>
+        android:text="@string/barcode_bookBorrow_Comment"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Barcode_Title_TextSize" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
         android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/barcode_borrowBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="네"
-            android:textSize="@dimen/Barcode_Button_TextSize"
-            android:textColor="@color/white"
-            android:layout_weight="1"
-            android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
-            android:background="@color/colorPrimary"/>
 
         <Button
             android:id="@+id/barcode_cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="아니요"
-            android:textSize="@dimen/Barcode_Button_TextSize"
-            android:textColor="@color/white"
-            android:layout_weight="1"
             android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
-            android:background="@color/colorPrimary"/>
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="아니요"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Barcode_Button_TextSize" />
+
+        <Button
+            android:id="@+id/barcode_borrowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="네"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Barcode_Button_TextSize" />
 
     </LinearLayout>
 

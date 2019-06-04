@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AllFindViewById();
+        initView();
 
         CardView readingRoom = (CardView)findViewById(R.id.cardView_reading_room);
         readingRoom.setOnClickListener(new View.OnClickListener() {
@@ -208,9 +208,13 @@ public class MainActivity extends AppCompatActivity
             if (scanResult == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Scanned: " + scanResult.getContents(), Toast.LENGTH_LONG).show();
-                Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
-                startActivity(newIntent);
+                if(scanResult.getContents().equals(getString(R.string.barcode_bookBarcode_01)) || scanResult.getContents().equals(getString(R.string.barcode_bookBarcode_02))){
+                    Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
+                    newIntent.putExtra("BarcodeScanNumber", scanResult.getContents());
+                    startActivity(newIntent);
+                }else {
+                    Toast.makeText(this, "등록되지 않은 도서입니다!", Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, intent);
@@ -219,7 +223,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void AllFindViewById() {
+    private void initView() {
         banner = (Slider) findViewById(R.id.banner_main);
         mEbookView = (CardView)findViewById(R.id.EbookView);
         mAnouncementView = (CardView)findViewById(R.id.AnouncementView);

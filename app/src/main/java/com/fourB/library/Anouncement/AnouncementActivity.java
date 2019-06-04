@@ -2,7 +2,6 @@ package com.fourB.library.Anouncement;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,16 +17,15 @@ import java.util.ArrayList;
 
 public class AnouncementActivity extends AppCompatActivity {
 
-    AnouncementAdapter mAdapter;
-    ListView mlistview;
-    ArrayList<AnouncementItem> mitems;
+    private AnouncementAdapter mAdapter;
+    private ListView mlistview;
+    private ArrayList<AnouncementItem> mitems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anouncement_all);
 
-        setTitle(R.string.menu_notice);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         AllFindViewById();
@@ -43,9 +41,6 @@ public class AnouncementActivity extends AppCompatActivity {
         mAdapter.addItem(new AnouncementItem("제 43회 독서경시대회 개최", "2019-03-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
         mAdapter.addItem(new AnouncementItem("학부신입생 온라인이용자교육 이수", "2019-03-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
         mAdapter.addItem(new AnouncementItem("전자책 서비스 일시 중지 안내", "2019-02-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem("[종료]2019신입생을 위한 학술정보원 스탬프", "2019-02-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem("[속보] 조성동 고추 6.9cm로 밝혀져 충격!", "2019-02-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem("화니성 불알이 3개인거로 밝혀져 충격!", "2019-02-15", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
 
         mlistview.setAdapter(mAdapter);
 
@@ -56,7 +51,6 @@ public class AnouncementActivity extends AppCompatActivity {
                 AnouncementItem item = (AnouncementItem) mAdapter.getItem(position);
                 intent.putExtra("Url", item.getAnouncement_Detail_Url());
                 startActivity(intent);
-                Log.d("AnouncementActivity : ", String.valueOf(position));
             }
         });
     }
@@ -73,7 +67,7 @@ public class AnouncementActivity extends AppCompatActivity {
 
     private void AllFindViewById(){
 
-        mlistview = (ListView)findViewById(R.id.listView);
+        mlistview = findViewById(R.id.listView);
         mAdapter = new AnouncementAdapter();
         mitems = mAdapter.getItems();
     }
@@ -81,10 +75,6 @@ public class AnouncementActivity extends AppCompatActivity {
     class AnouncementAdapter extends BaseAdapter {
 
         ArrayList<AnouncementItem> items = new ArrayList<AnouncementItem>();
-
-        public void setAnouncementList(ArrayList<AnouncementItem> lists){
-            items.addAll(lists);
-        }
 
         public ArrayList<AnouncementItem> getItems() {
             return items;

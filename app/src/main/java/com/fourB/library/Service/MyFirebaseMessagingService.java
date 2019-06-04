@@ -58,6 +58,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         SharedPrefManager.writeToken(getApplicationContext(), token);
     }
 
+
     private void scheduleJob() {
         OneTimeWorkRequest work = new OneTimeWorkRequest.Builder(MyWorker.class)
                 .build();

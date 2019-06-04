@@ -11,7 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fourB.library.HttpManager;
 import com.fourB.library.R;
+import com.fourB.library.ReportManager;
 
 public class ChatPayloadView extends LinearLayout {
 
@@ -78,6 +80,13 @@ public class ChatPayloadView extends LinearLayout {
             builder.setPositiveButton(parentContext.getString(R.string.chatbot_report_dialog_yes),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+//                                    ReportManager.report();
+                                }
+                            }).start();
+
                             Toast.makeText(parentContext,
                                     parentContext.getString(R.string.chatbot_report_dialog_toast_yes),
                                     Toast.LENGTH_LONG).show();

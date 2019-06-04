@@ -7,6 +7,10 @@ public class SearchBookItem {
     private String mPublisher;
     private String mPubdate;
 
+    public SearchBookItem() {
+
+    }
+
     public SearchBookItem(String mTitle, String mImageURL, String mAuthor, String mPublisher, String mPubdate) {
         this.mTitle = mTitle;
         this.mImageURL = mImageURL;

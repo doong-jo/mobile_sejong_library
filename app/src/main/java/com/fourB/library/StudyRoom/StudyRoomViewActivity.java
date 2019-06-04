@@ -3,6 +3,7 @@ package com.fourB.library.StudyRoom;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -26,6 +27,8 @@ public class StudyRoomViewActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_room_view);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initView();
         initIntent(getIntent());
@@ -98,5 +101,21 @@ public class StudyRoomViewActivity extends AppCompatActivity {
         }
 
         mStudyRoomAdapter.addItems(items);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
