@@ -3,10 +3,12 @@ package com.fourB.library.StudyRoom;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,11 +22,13 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 public class StudyRoomActivity extends AppCompatActivity {
+    public static int REQUEST_CODE_RESERVE_INFO = 0;
 
     private Spinner mUseTimeSpinner, mUserNumSpinner;
     private EditText mUsingDayText, mUsingTimeText;
     private DatePickerDialog mDatePickerDlg;
     private TimePickerDialog mTimePickerDlg;
+    private Button mSearchBtn;
 
     private ArrayList<String> mUseTimeArrayList = new ArrayList<>();
     private ArrayList<String> mUserNumArrayList = new ArrayList<>();
@@ -35,6 +39,8 @@ public class StudyRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_room_check);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         initView();
         initListener();
 
@@ -43,7 +49,7 @@ public class StudyRoomActivity extends AppCompatActivity {
         mUseTimeArrayList.addAll(Arrays.asList(availableHours));
 
         mUseTimeArrayAdapter = new ArrayAdapter<>(getApplicationContext(),
-                R.layout.layout_study_room_spinner,
+                R.layout.item_basic_spinner,
                 mUseTimeArrayList);
 
         // set person -> person spinner
@@ -52,7 +58,7 @@ public class StudyRoomActivity extends AppCompatActivity {
         for(int i=capacityMin; i<=capacityMax; ++i) { mUserNumArrayList.add(i+"명 "); }
 
         mUserNumArrayAdapter = new ArrayAdapter<>(getApplicationContext(),
-                R.layout.layout_study_room_spinner,
+                R.layout.item_basic_spinner,
                 mUserNumArrayList);
 
         mUseTimeSpinner.setAdapter(mUseTimeArrayAdapter);
@@ -67,6 +73,7 @@ public class StudyRoomActivity extends AppCompatActivity {
 
         mUseTimeSpinner = findViewById(R.id.usingtimespinner);
         mUserNumSpinner = findViewById(R.id.usercountspinner);
+        mSearchBtn = findViewById(R.id.study_room_button_search);
 
         final Calendar cal = Calendar.getInstance();
         final int min = cal.get(Calendar.MINUTE);
@@ -88,8 +95,8 @@ public class StudyRoomActivity extends AppCompatActivity {
 
         mTimePickerDlg = new TimePickerDialog(mUsingTimeText.getContext(), new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute ){
-                mUsingTimeText.setText(getReserveTime(hour));
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute ) {
+                mUsingTimeText.setText(getReserveTime(hourOfDay));
             }
         }, hour, 0,false);
         mTimePickerDlg.updateTime(hour, min);
@@ -110,6 +117,19 @@ public class StudyRoomActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 mTimePickerDlg.show();
                 return true;
+            }
+        });
+
+        mSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mSearchBtn.getContext(), StudyRoomViewActivity.class);
+                intent.putExtra("date", mUsingDayText.getText().toString());
+                intent.putExtra("time", mUsingTimeText.getText().toString().split(" ")[0]);
+                intent.putExtra("person", mUserNumSpinner.getSelectedItem().toString());
+                intent.putExtra("use", mUseTimeSpinner.getSelectedItem().toString());
+
+                startActivityForResult(intent, REQUEST_CODE_RESERVE_INFO);
             }
         });
     }

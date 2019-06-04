@@ -1,8 +1,5 @@
 package com.fourB.library;
 
-import android.util.Log;
-
-import com.fourB.library.HttpManager;
 import com.fourB.library.Report.User;
 import com.google.gson.Gson;
 
@@ -32,7 +29,7 @@ public class ReportManager {
 
         final String[] findIdQuery = {"seat_room=" + seatRoom, "seat=" + seatNumber };
         try {
-            String idFindRes = HttpManager.httpRun("user", findIdQuery, "", "GET");
+            String idFindRes = HttpManager.internalServerAPI("user", findIdQuery, "", "GET");
 
             Gson gson = new Gson();
             idFindRes = idFindRes.substring(1, idFindRes.length() -1);
@@ -41,7 +38,7 @@ public class ReportManager {
 
             final String[] fcmQuery = {"token=" + token, "type=" + type, "content=" + content, "date=" + date };
 
-            HttpManager.httpRun("fcm", fcmQuery, "", "GET");
+            HttpManager.internalServerAPI("fcm", fcmQuery, "", "GET");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -32,20 +32,20 @@ public class AnouncementActivity extends AppCompatActivity {
 
         AllFindViewById();
 
-        mAdapter.addItem(new AnouncementItem(895, "제 43회 독서경시대회 장소 안내", "2019-03-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(894, "[종료]2019신입생을 위한 학술정보원 스탬프", "2019-03-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(893, "EndNote X9 사용자 온라인 교육", "2019-03-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(892, "KER18 대학 라이선스 선정 기념, 이벤트 안내", "2019-03-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(891, "[학술 정보원]조교 모집", "2019-03-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(890, "제 6회 전국대학생 퀴즈 응시 안내", "2019-03-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(889, "2018년 대학민국학습원 우수 학술도서 목록", "2019-03-14", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(888, "학술정보원 정기 이용 교육", "2019-03-13", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(887, "제 43회 독서경시대회 개최", "2019-03-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(886, "학부신입생 온라인이용자교육 이수", "2019-03-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(885, "전자책 서비스 일시 중지 안내", "2019-02-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(884, "[종료]2019신입생을 위한 학술정보원 스탬프", "2019-02-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(883, "[속보] 조성동 고추 6.9cm로 밝혀져 충격!", "2019-02-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
-        mAdapter.addItem(new AnouncementItem(882, "화니성 불알이 3개인거로 밝혀져 충격!", "2019-02-15", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("제 43회 독서경시대회 장소 안내", "2019-03-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("[종료]2019신입생을 위한 학술정보원 스탬프", "2019-03-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("EndNote X9 사용자 온라인 교육", "2019-03-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("KER18 대학 라이선스 선정 기념, 이벤트 안내", "2019-03-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("[학술 정보원]조교 모집", "2019-03-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("제 6회 전국대학생 퀴즈 응시 안내", "2019-03-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("2018년 대학민국학습원 우수 학술도서 목록", "2019-03-14", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("학술정보원 정기 이용 교육", "2019-03-13", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("제 43회 독서경시대회 개최", "2019-03-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("학부신입생 온라인이용자교육 이수", "2019-03-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("전자책 서비스 일시 중지 안내", "2019-02-21", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("[종료]2019신입생을 위한 학술정보원 스탬프", "2019-02-20", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("[속보] 조성동 고추 6.9cm로 밝혀져 충격!", "2019-02-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
+        mAdapter.addItem(new AnouncementItem("화니성 불알이 3개인거로 밝혀져 충격!", "2019-02-15", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917&mode=&type=&page=&currentPage=1&pageSize=10&isSearch=&searchTarget=&searchKeyword=&isMine="));
 
         mlistview.setAdapter(mAdapter);
 
@@ -115,7 +115,6 @@ public class AnouncementActivity extends AppCompatActivity {
             AnouncementItemView view = new AnouncementItemView(getApplicationContext());
 
             AnouncementItem item = items.get(position);
-            view.setmAnouncement_Num(item.getAnouncement_Num());
             view.setmAnouncement_Title(item.getAnouncement_Title());
             view.setmAnouncement_Update_Date(item.getAnouncement_Update_Date());
 

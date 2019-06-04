@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:focusableInTouchMode="true"
-    android:clickable="true"
-    android:focusable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:orientation="vertical"
@@ -35,18 +33,14 @@
                     android:orientation="horizontal">
                     <Spinner
                         android:id="@+id/spinner_search_book_category"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        style="@style/Spinner.SearchBook">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
                     </Spinner>
 
                     <Spinner
                         android:id="@+id/spinner_search_book_array_way"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        style="@style/Spinner.SearchBook">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
                     </Spinner>
                 </LinearLayout>
 
@@ -76,10 +70,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:overScrollMode="never"
-            android:scrollbars="none">
-
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:scrollbars="none" />
     </LinearLayout>
 
 

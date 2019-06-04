@@ -35,9 +35,8 @@ public class StudyRoomRVActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_room_rv);
 
-        mUsingTimeRVButton = (Button) findViewById(R.id.studyroomRV_btntime);
-
-        mUsingTimeTextRv = (TextView) findViewById(R.id.studyroomRV_timetext);
+        mUsingTimeRVButton = findViewById(R.id.studyroomRV_btntime);
+        mUsingTimeTextRv = findViewById(R.id.studyroomRV_timetext);
 
 
         mUsingTimeRVButton.setOnClickListener(this);
@@ -86,3 +85,7 @@ public class StudyRoomRVActivity extends AppCompatActivity implements View.OnCli
 
     }
 }
+
+/*
+
+ */

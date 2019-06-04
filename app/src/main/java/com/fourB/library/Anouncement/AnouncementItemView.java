@@ -8,11 +8,7 @@ import android.widget.TextView;
 
 import com.fourB.library.R;
 
-import org.w3c.dom.Text;
-
 public class AnouncementItemView extends LinearLayout {
-
-    TextView mAnouncement_Num;
     TextView mAnouncement_Title;
     TextView mAnouncement_Update_Date;
 
@@ -30,16 +26,11 @@ public class AnouncementItemView extends LinearLayout {
 
     private void init(Context context){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.anouncement_item, this, true);
-
-        mAnouncement_Num = (TextView) findViewById(R.id.Anouncement_Num);
-        mAnouncement_Title = (TextView) findViewById(R.id.Anouncement_Title);
+        inflater.inflate(R.layout.item_anouncement, this, true);
+        mAnouncement_Title = (TextView) findViewById(R.id.anouncement_title);
         mAnouncement_Update_Date = (TextView)findViewById(R.id.Anouncement_Update_Date);
     }
 
-    public void setmAnouncement_Num(int anouncement_num){
-        mAnouncement_Num.setText(String.valueOf(anouncement_num));
-    }
     public void setmAnouncement_Title(String anouncement_title){
         mAnouncement_Title.setText(anouncement_title);
     }

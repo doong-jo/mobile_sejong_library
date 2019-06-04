@@ -93,36 +93,18 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
         }
 
         public void setItem(SearchBookItem item){
-            mBookTitle.setText(item.getBookTitle());
-            mBookAuthor.setText(item.getBookAuthor());
-            mBookPublisher.setText(item.getBookPublisher());
-            mBookPublishYear.setText(item.getBookPublishYear());
-            mBookCallNum.setText(item.getBookCallNum());
-            mBookImageView.setImageResource(item.getBookImage());
-            if(item.getBookLend()){
-                mBookLend.setText(R.string.search_book_lend_true);
-            }else {
-                mBookLend.setText(R.string.search_book_lend_false);
-            }
+//            mBookTitle.setText(item.getBookTitle());
+//            mBookAuthor.setText(item.getBookAuthor());
+//            mBookPublisher.setText(item.getBookPublisher());
+//            mBookPublishYear.setText(item.getBookPublishYear());
+//            mBookCallNum.setText(item.getBookCallNum());
+//            mBookImageView.setImageResource(item.getBookImage());
+//            if(item.getBookLend()){
+//                mBookLend.setText(R.string.search_book_lend_true);
+//            }else {
+//                mBookLend.setText(R.string.search_book_lend_false);
+//            }
 
         }
-    }
-
-    public void SearchingBookItem(String text){
-        text = text.toLowerCase(Locale.getDefault());
-        items.clear();
-//        mSearchItems = ArrayList<SearchBookItem>(items.clone());
-        if(text.length() == 0) {
-            items.addAll(mSearchItems);
-        }else{
-            for(SearchBookItem book : mSearchItems){
-                String bookTitle = (String) book.getBookTitle();
-                if(bookTitle.toLowerCase().contains(text)){
-                    items.add(book);
-                }
-            }
-        }
-        notifyDataSetChanged();
-
     }
 }

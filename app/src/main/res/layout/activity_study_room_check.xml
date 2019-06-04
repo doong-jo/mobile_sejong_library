@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/large_padding"
                     android:textAlignment="textStart"
-                    android:breakStrategy="high_quality"
+                    android:breakStrategy="simple"
                     app:lineHeight="30dp"
                     android:text="@string/study_room_guide_line"/>
             </LinearLayout>
@@ -142,12 +142,13 @@
         </LinearLayout>
 
     <Button
+        android:id="@+id/study_room_button_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/study_room_search"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/large_font_size"
         android:textStyle="bold"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

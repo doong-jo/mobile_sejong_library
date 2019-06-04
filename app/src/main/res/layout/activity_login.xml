@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:orientation="vertical"
-    android:background="@color/background_pink">
+    android:background="@color/white">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

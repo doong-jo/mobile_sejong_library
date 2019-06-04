@@ -1,99 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/declare_height"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/background_pink">
+    android:background="@color/white">
 
-    <LinearLayout
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/declare_margin_vertical"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal">
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textSize="@dimen/large_font_size"
+        android:text="@string/report_dialog_title"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding" >
 
         <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/declareRoom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/declare_margin_right"
-            android:padding="5dp"
-            android:text="열람실 선택  :"
-            android:textSize="@dimen/declare_textSize"
-            android:textColor="@color/black"/>
-
-        <Spinner
-            android:id="@+id/declareRoomSp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            ></Spinner>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/declare_margin_vertical"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal">
-
+            android:text="@string/report_room_title"
+            style="@style/Text.ReportContentTitle"/>
 
         <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/declareRoom"
+            android:layout_below="@id/declareRoom"
             android:id="@+id/declareReason"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/declare_margin_right"
-            android:padding="5dp"
-            android:text="신고 사유  :"
-            android:textSize="@dimen/declare_textSize"
-            android:textColor="@color/black"/>
-
-        <Spinner
-            android:id="@+id/declareReasonSp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            ></Spinner>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/declare_margin_vertical"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal">
-
+            android:text="@string/report_reason_title"
+            style="@style/Text.ReportContentTitle"/>
 
         <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/declareReason"
+            android:layout_below="@id/declareReason"
             android:id="@+id/declareNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/declare_margin_right"
-            android:padding="@dimen/declare_padding"
-            android:text="자리 번호  :"
-            android:textSize="@dimen/declare_textSize"
-            android:textColor="@color/black"/>
+            android:text="@string/report_seat_title"
+            style="@style/Text.ReportContentTitle"/>
+
+        <Spinner
+            app:layout_constraintTop_toTopOf="@id/declareRoom"
+            app:layout_constraintBottom_toBottomOf="@id/declareRoom"
+            app:layout_constraintLeft_toRightOf="@id/declareNum"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/declareRoomSp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            app:layout_constraintTop_toTopOf="@id/declareReason"
+            app:layout_constraintBottom_toBottomOf="@id/declareReason"
+            app:layout_constraintLeft_toRightOf="@id/declareNum"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/declareReasonSp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
         <EditText
+            app:layout_constraintTop_toTopOf="@id/declareNum"
+            app:layout_constraintBottom_toBottomOf="@id/declareNum"
+            app:layout_constraintLeft_toRightOf="@id/declareNum"
+            app:layout_constraintRight_toRightOf="parent"
             android:id="@+id/declarePosition"
-            android:layout_width="@dimen/declare_position_width"
-            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:inputType="number"
-            android:background="@drawable/border"/>
+            android:maxLength="@integer/report_seat_num_length"
+            android:hint="@string/report_seat_edit_hint"
+            android:textSize="@dimen/normal_font_size"
+            android:background="@drawable/rectangle_info"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/declare_margin_right"
-            android:padding="@dimen/declare_padding"
-            android:text=" 번"
-            android:textSize="@dimen/declare_textSize"
-            android:textColor="@color/black"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </LinearLayout>
 
     <EditText
         android:id="@+id/declareContent"
@@ -103,35 +88,35 @@
         android:background="@drawable/border"
         android:gravity="top"
         android:padding ="@dimen/declare_content_padding"
-        android:hint="신고 내용" />
+        android:maxLength="@integer/report_reason_area_length"
+        android:textSize="@dimen/normal_font_size"
+        android:hint="@string/report_reason_area" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal">
-
-
-        <Button
-            android:id="@+id/declareButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="@dimen/declare_margin_right"
-            android:background="@color/colorPrimary"
-            android:text="신 고"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/declareCancleButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/light_gray"
+            android:text="@string/report_cancel"
+            android:textColor="@color/black"
+            android:textSize="@dimen/normal_font_size"/>
+
+        <Button
+            android:id="@+id/declareButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_weight="1"
             android:background="@color/colorPrimary"
-            android:text="취 소"
+            android:text="@string/report_accept"
             android:textColor="@color/white"
-            android:textSize="@dimen/declare_textSize"/>
+            android:textSize="@dimen/normal_font_size"/>
     </LinearLayout>
 
 </LinearLayout>

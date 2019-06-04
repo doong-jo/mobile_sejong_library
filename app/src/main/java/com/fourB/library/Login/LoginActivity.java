@@ -1,10 +1,8 @@
 package com.fourB.library.Login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
@@ -140,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
             // id를 통해 해당 사용자의 레코드를 찾고 토큰을 업데이트
             final String[] query = {"token=" + token };
             try {
-                HttpManager.httpRun("user/"+id, query, "", "PUT");
+                HttpManager.internalServerAPI("user/"+id, query, "", "PUT");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -169,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void run() {
                     try {
                         final String[] query = {"id=" + id, "pw=" + pw };
-                        final String serverRes = HttpManager.httpRun("user", query, "", "GET");
+                        final String serverRes = HttpManager.internalServerAPI("user", query, "", "GET");
 
                         final boolean loginResult = !serverRes.equals("[]");
                         resultLogin(loginResult, id, pw);

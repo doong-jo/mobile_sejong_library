@@ -6,4 +6,9 @@
 
     <integer name="chat_edittext_ems">10</integer>
     <integer name="barcode_Backable_second">2000</integer>
+
+
+    <!--Report-->
+    <integer name="report_seat_num_length">3</integer>
+    <integer name="report_reason_area_length">50</integer>
 </resources>

@@ -35,7 +35,7 @@ public class AdapterSpinner extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
-            convertView = inflater.inflate(R.layout.spinner_normal, parent, false);
+            convertView = inflater.inflate(R.layout.item_basic_spinner, parent, false);
         }
 
         if(data != null){

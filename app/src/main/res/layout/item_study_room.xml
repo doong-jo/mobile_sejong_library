@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/normal_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/study_room_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
+
+        <Button
+            app:layout_constraintRight_toLeftOf="@id/study_room_reserve_start"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/study_room_reserve_table"
+            android:text="@string/study_room_reserve_table"
+            android:layout_marginEnd="@dimen/small_margin"
+            style="@style/Button.StudyRoom"/>
+
+        <Button
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/study_room_reserve_start"
+            android:text="@string/study_room_reserve_start"
+            android:layout_marginEnd="@dimen/small_margin"
+            style="@style/Button.StudyRoom"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

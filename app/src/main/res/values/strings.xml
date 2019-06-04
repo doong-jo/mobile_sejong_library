@@ -4,7 +4,6 @@
     <string name="school_name">세종대학교</string>
     <string name="school_engname">SEJONG UNIVERSITY</string>
 
-    <string name="studyroom_page_name">스터디룸 예약</string>
     <string name="guide_borrow_page_name">책 대여 안내</string>
     <string name="guide_ipad_page_name">아이패드 대여 안내</string>
     <string name="guide_floor_page_name">층별 이용안내</string>
@@ -37,9 +36,18 @@
     <string name="study_room_time_amount">이용시간</string>
     <string name="study_room_location">예약장소</string>
     <string name="study_room_search">조회하기</string>
-    <string name="study_room_reserve_view">예약현황</string>
-    <string name="study_room_reserve_start">예약하기</string>
     <string name="study_room_guide_line">- 학기중 토요일 및 방학 중 개방 시간 : 10:00 ~ 16:00 \n- 방학 중 토요일은 휴실입니다. \n- 당일예약 스터디룸을 제외하고 7일 이내 예약이 가능합니다. \n- 예약 후 미사용 시 예약이 취소해야 합니다. 위반 시 예약자는 1개월간 예약할 수 없습니다. (예약시간 기준 20분 경과 시 사용제한)</string>
+
+    <string name="study_room_reserve_day">예약날짜</string>
+    <string name="study_room_reserve_person">예약인원</string>
+    <string name="study_room_reserve_time">예약시간</string>
+    <string name="study_room_reserve_use_time">이용시간</string>
+
+    <string name="study_room_reserve_table">예약현황</string>
+    <string name="study_room_reserve_start">예약하기</string>
+
+    <string name="study_room_reserve_dlg_title">스터디룸 예약</string>
+    <string name="study_room_reserve_dlg_content">위의 사항으로 스터디룸을 예약하시겠습니까? \n\n예약 후 미사용 시 예약을 취소해야 합니다. 위반 시 예약자는 1개월간 예약할 수 없습니다. \n(예약시간 기준 20분 경과 시 사용제한)</string>
 
     <!--Menu-->
     <string name="menu_login">로그인</string>
@@ -53,6 +61,7 @@
     <string name="menu_usage">이용안내</string>
     <string name="menu_declare">간편신고</string>
     <string name="menu_chatbot">동천이와의 대화방</string>
+    <string name="menu_study_room_reserve">예약조회</string>
 
     <!--Login-->
     <string name="login_bottom">학술정보원 모바일 앱</string>
@@ -108,11 +117,22 @@
 
     <!--Camera View Comment-->
     <string name="first_camera_comment">책 뒷면의 바코드를 사각형 안에 맞추고 1~2초간 기다려주세요</string>
-    <string name="second_camera_comment">바코드 검색을 통해 도서 정보 및 리뷰 등을 보실 수 있습니다.</string>
+    <string name="second_camera_comment">바코드 검색을 통해 도서 대출을 할 수 있습니다.</string>
     <string name="backButton_comment">\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.</string>
     <string name="barcode_bookTitle">책 제목</string>
     <string name="borrow_success">도서대출 완료!</string>
     <string name="borrow_cancle">대여 취소</string>
+
+    <!--Report-->
+    <string name="report_dialog_title">열람실 불편신고 접수</string>
+    <string name="report_room_title">열람실</string>
+    <string name="report_reason_title">신고사유</string>
+    <string name="report_seat_title">좌석번호</string>
+    <string name="report_seat_edit_hint">세자리 이내의 좌석번호</string>
+    <string name="report_reason_area">신고 내용 (50자 이내)</string>
+    <string name="report_cancel">취소하기</string>
+    <string name="report_accept">접수하기</string>
+    <string name="report_request_type_seat">자리 번호를 입력해주세요.</string>
 
     <!--Guide-->
     <string name="guide_book_borrow_title">대출/연장/예약 안내</string>
