@@ -122,6 +122,8 @@
     <string name="second_camera_comment">바코드 검색을 통해 도서 대출을 할 수 있습니다.</string>
     <string name="backButton_comment">\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.</string>
     <string name="barcode_bookTitle">책 제목</string>
+    <string name="barcode_bookAuthor">작가</string>
+    <string name="barcode_bookBorrow_Comment">대출하시겠습니까?</string>
     <string name="borrow_success">도서대출 완료!</string>
     <string name="borrow_cancle">대여 취소</string>
 
@@ -151,6 +153,15 @@
     <string name="guide_ipad_borrow_contents_1">학부 재학생 및 교강사</string>
     <string name="guide_ipad_borrow_index_2">2. 대여</string>
     <string name="guide_ipad_borrow_contents_2">New iPad, WiFi / 32GB</string>
+
+    <!--Barcode-->
+    <string name="barcode_bookTitle_01">데이터베이스 배움터</string>
+    <string name="barcode_bookAuthor_01">홍의경 저</string>
+    <string name="barcode_bookTitle_02">Java의 정석</string>
+    <string name="barcode_bookAuthor_02">남궁 성 저</string>
+    <string name="barcode_bookBarcode_01">9788970503417</string>
+    <string name="barcode_bookBarcode_02">9788994492032</string>
+
 
 
 </resources>

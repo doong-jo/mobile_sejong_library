@@ -205,9 +205,13 @@ public class MainActivity extends AppCompatActivity
             if (scanResult == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Scanned: " + scanResult.getContents(), Toast.LENGTH_LONG).show();
-                Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
-                startActivity(newIntent);
+                if(scanResult.getContents().equals(getString(R.string.barcode_bookBarcode_01)) || scanResult.getContents().equals(getString(R.string.barcode_bookBarcode_02))){
+                    Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
+                    newIntent.putExtra("BarcodeScanNumber", scanResult.getContents());
+                    startActivity(newIntent);
+                }else {
+                    Toast.makeText(this, "등록되지 않은 도서입니다!", Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, intent);

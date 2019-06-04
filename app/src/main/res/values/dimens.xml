@@ -42,7 +42,7 @@
 
     <!--Barcode-->
     <dimen name="Barcode_BookTitle_TextSize">30dp</dimen>
-    <dimen name="Barcode_Horizontal_margin">25dp</dimen>
+    <dimen name="Barcode_Horizontal_margin">15dp</dimen>
     <dimen name="Barcode_Button_TextSize">16dp</dimen>
     <dimen name="Barcode_Title_TextSize">20dp</dimen>
     <dimen name="Barcode_SubDate_marginTop">55dp</dimen>
