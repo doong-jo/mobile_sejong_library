@@ -8,12 +8,10 @@
     <WebView
         android:id="@+id/webView_reading_room"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </WebView>
+        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_back_reading_room"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reading_room_back"
         style="@style/Button.reading_room_back"/>
 </LinearLayout>

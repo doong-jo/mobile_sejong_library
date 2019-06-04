@@ -24,7 +24,7 @@ import ai.api.android.AIConfiguration;
 import ai.api.android.AIDataService;
 import ai.api.model.AIRequest;
 
-public class ChatBotActivity extends AppCompatActivity implements ChatBotService {
+public class ChatBotActivity extends AppCompatActivity implements ChatBotInterface {
     static final boolean BOT_SIDE = true;
     static final boolean USER_SIDE = false;
 
@@ -33,7 +33,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotService
     private EditText mChatText;
     private AppCompatImageButton mButtonSend;
 
-    private ChatBotService mThisInterface;
+    private ChatBotInterface mThisInterface;
     private AIDataRequest mAIDataRequset;
 
     class AIDataRequest {

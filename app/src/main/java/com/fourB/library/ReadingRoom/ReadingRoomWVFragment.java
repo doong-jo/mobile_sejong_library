@@ -2,6 +2,7 @@ package com.fourB.library.ReadingRoom;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.fourB.library.R;
 
 public class ReadingRoomWVFragment extends Fragment {
     static final String ROOM_URL = "http://210.107.226.14/seat/roomview5.asp?room_no=";
+    static final public int REQUSET_CODE_FULLSCREEN = 0;
 
     private ReadingRoomCallBack callBack;
     private WebView mWebView;
@@ -44,12 +46,12 @@ public class ReadingRoomWVFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_reading_room_wv,container,false);
 
-        mWebView = (WebView) rootView.findViewById(R.id.webView_reading_room);
-        mBackBtn = (Button) rootView.findViewById(R.id.btn_back_reading_room);
+        mWebView = rootView.findViewById(R.id.webView_reading_room);
+        mBackBtn = rootView.findViewById(R.id.btn_back_reading_room);
+
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebChromeClient(new WebChromeClient());
         mWebView.setWebViewClient(new WebViewClientClass());
-
 
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
@@ -59,6 +61,9 @@ public class ReadingRoomWVFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 callBack.onCommand(0);
+                Intent intent = new Intent(getActivity(), ReadingRoomFullScreenActivity.class);
+                intent.putExtra("url", mRoomUrl);
+                startActivityForResult(intent, REQUSET_CODE_FULLSCREEN);
             }
         });
         return rootView;

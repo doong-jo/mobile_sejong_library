@@ -20,11 +20,11 @@
     <string name="chatbot_bot_name">동천이</string>
 
     <string name="chatbot_report_dialog_title">열람실 불편 신고 접수</string>
-    <string name="chatbot_report_dialog_content">신고 내용을 접수하시겠습니까?\n신고 내용은 자동 저장되며, 지정 좌석 사용자에게 푸시 알림이 전송됩니다.\n허위 신고 시 불이익이 발생할 수 있습니다.</string>
+    <string name="chatbot_report_dialog_content">신고 내용을 접수하시겠습니까?\n\n신고 내용은 자동 저장되며, 지정 좌석 사용자에게 푸시 알림이 전송됩니다.\n\n허위 신고 시 불이익이 발생할 수 있습니다.</string>
     <string name="chatbot_report_dialog_yes">예</string>
     <string name="chatbot_report_dialog_no">아니오</string>
     <string name="chatbot_report_dialog_toast_yes">열람실 불편 신고가 접수되었습니다.</string>
-    <string name="chatbot_report_dialog_toast_no">열람실 불편 신고가 취소되었습니다.</string>
+    <string name="chatbot_report_dialog_toast_no">취소되었습니다.</string>
 
     <!--StudyRoom-->
     <string name="study_room_search_date">예약날짜</string>
@@ -91,7 +91,7 @@
     <string name="reading_room_3_A">3층 A 열람실</string>
     <string name="reading_room_3_B">3층 B 열람실</string>
     <string name="reading_room_see_seat">좌석보기</string>
-    <string name="reading_room_back">이전</string>
+    <string name="reading_room_fullscreen">크게보기</string>
     <string name="reading_room_url">http://210.107.226.14/seat/roomview5.asp?room_no=</string>
     <string name="reading_room_0_num">0</string>
     <string name="reading_room_A_num">188</string>
