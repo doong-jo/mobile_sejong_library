@@ -208,6 +208,21 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="Text.MyPageTitle">
+        <item name="android:textSize">@dimen/large_font_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
+    </style>
+
+    <style name="Text.MyPageIndex">
+        <item name="android:textSize">@dimen/normal_font_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
+    </style>
+
 
     <!--Image Style-->
     <style name="Image">
