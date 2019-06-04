@@ -23,6 +23,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.Anouncement.AnouncementActivity;
+import com.fourB.library.MyPage.AppointmentBookActivity;
+import com.fourB.library.MyPage.LendBookActivity;
+import com.fourB.library.MyPage.LendBookRecordActivity;
 import com.fourB.library.Report.ReportDialogActivity;
 import com.fourB.library.Ebook.EbookActivity;
 import com.fourB.library.GuideAll.GuideActivity;
@@ -31,7 +34,6 @@ import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 import com.fourB.library.Widgets.MovableFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -263,20 +265,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_lend_book) {
+
+            Intent intent = new Intent(getApplicationContext(), AppointmentBookActivity.class);
+            startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_lend_book_record) {
+            Intent intent = new Intent(getApplicationContext(), LendBookActivity.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_appointment_book) {
+            Intent intent = new Intent(getApplicationContext(), LendBookRecordActivity.class);
+            startActivity(intent);
         }
-//        else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

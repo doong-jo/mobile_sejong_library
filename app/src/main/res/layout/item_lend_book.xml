@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/normal_padding">
+
+    <TextView
+        android:id="@+id/lend_book_record_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Text.MyPageTitle"/>
+
+    <TextView
+        android:id="@+id/lend_book_record_start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lend_book_record_title"
+        style="@style/Text.MyPageIndex"/>
+
+    <TextView
+        android:id="@+id/lend_book_record_end_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/lend_book_record_start_date"
+        app:layout_constraintTop_toBottomOf="@+id/lend_book_record_title"
+        android:layout_marginStart="@dimen/normal_margin"
+        style="@style/Text.MyPageIndex" />
+</androidx.constraintlayout.widget.ConstraintLayout>

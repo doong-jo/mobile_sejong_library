@@ -4,107 +4,98 @@
     package="com.fourB.library">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-
-
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:screenOrientation="portrait"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MyPage.LendBookActivity"
+            android:label="@string/nav_lend_book">
+        </activity>
 
-        <!-- [START fcm_default_icon] -->
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-             See README(https://goo.gl/l4GJaQ) for more. -->
+        <activity android:name=".MyPage.LendBookRecordActivity"
+            android:label="@string/nav_lend_book_record">
+        </activity>
+        <activity
+            android:name=".MyPage.AppointmentBookActivity"
+            android:label="@string/nav_appointment_book" /> <!-- [START fcm_default_icon] -->
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_stat_ic_notification" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorPrimary" />
-        <!-- [END fcm_default_icon] -->
+            android:resource="@color/colorPrimary" /> <!-- [END fcm_default_icon] -->
         <!-- [START fcm_default_channel] -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id" />
-        <!-- [END fcm_default_channel] -->
-
+            android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_channel] -->
         <activity
             android:name=".Login.LoginActivity"
             android:label="@string/app_name"
             android:noHistory="true"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name" />
-
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GuideAll.GuideActivity" />
-
         <activity android:name=".SearchBook.SearchBookDetailActivity" />
-
         <activity
             android:name=".StudyRoom.StudyRoomActivity"
-            android:label="@string/menu_study_room">
-        </activity>
-
+            android:label="@string/menu_study_room" />
         <activity
             android:name=".StudyRoom.StudyRoomViewActivity"
             android:label="@string/menu_study_room_reserve" />
-
         <activity
             android:name=".ChatBot.ChatBotActivity"
             android:label="@string/menu_chatbot" />
-
         <activity android:name=".Ebook.EbookActivity" />
-
         <activity android:name=".Anouncement.AnouncementActivity" />
-
         <activity android:name=".Anouncement.AnoucementDetailActivity" />
-
         <activity android:name=".ReadingRoom.ReadingRoomActivity" />
-
-        <activity android:name=".SearchBook.SearchBookActivity"
+        <activity
+            android:name=".SearchBook.SearchBookActivity"
             android:label="@string/menu_search_book" />
-
         <activity
             android:name=".Barcode.AnyOrientationCaptureActivity"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
-
         <activity android:name=".Barcode.CustomScannerActivity" />
-
         <activity
             android:name=".Barcode.BarcodeLinkActivity"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".ParkActivity" />
-        <!--<service-->
-            <!--android:name=".kotlin.MyFirebaseMessagingService"-->
-            <!--android:exported="false">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-            <!--</intent-filter>-->
-        <!--</service>-->
-
+        <activity android:name=".ParkActivity" /> <!-- <service -->
+        <!-- android:name=".kotlin.MyFirebaseMessagingService" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
         <service
             android:name=".Service.MyFirebaseMessagingService"
             android:exported="false">
@@ -113,4 +104,5 @@
             </intent-filter>
         </service>
     </application>
+
 </manifest>
