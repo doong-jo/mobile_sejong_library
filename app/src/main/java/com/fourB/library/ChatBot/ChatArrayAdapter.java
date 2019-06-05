@@ -17,6 +17,7 @@ public class ChatArrayAdapter extends ArrayAdapter {
 
     private TextView mChatTv;
     private ArrayList<ChatMessage> mChatMessageList = new ArrayList<>();
+    private String mUserLastMsg;
 
     private ChatBotActivity parentContext;
 
@@ -62,6 +63,7 @@ public class ChatArrayAdapter extends ArrayAdapter {
         } else { // USER
             row = inflater.inflate(R.layout.layout_chat_user_msg, parent, false);
             mChatTv = row.findViewById(R.id.msg_body);
+            mUserLastMsg = msg;
         }
 
         if( mChatTv != null ) {
@@ -78,7 +80,7 @@ public class ChatArrayAdapter extends ArrayAdapter {
             final String type = message.get("type").getAsString();
             final String text = message.get("text").getAsString();
             final String name = message.get("name").getAsString();
-            ChatPayloadView payload = new ChatPayloadView(parentContext, type, text, name);
+            ChatPayloadView payload = new ChatPayloadView(parentContext, type, text, name, mUserLastMsg);
 
             LinearLayout li = new LinearLayout(getContext());
             li.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));

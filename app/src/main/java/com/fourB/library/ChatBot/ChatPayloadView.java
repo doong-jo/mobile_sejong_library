@@ -20,6 +20,7 @@ public class ChatPayloadView extends LinearLayout {
     private String mType;
     private String mText;
     private String mName;
+    private String mUserLastMsg;
 
     private ChatBotActivity parentContext;
 
@@ -27,11 +28,12 @@ public class ChatPayloadView extends LinearLayout {
     static final String ACTIVITY = "activity";
     static final String DIALOG_REPORT = "report";
 
-    public ChatPayloadView(ChatBotActivity context, String type, String text, String name) {
+    public ChatPayloadView(ChatBotActivity context, String type, String text, String name, String userLastMsg) {
         super(context);
         mType = type;
         mText = text;
         mName = name;
+        mUserLastMsg = userLastMsg;
 
         parentContext = context;
 
