@@ -45,26 +45,7 @@ public class RequestJavaV2Task extends AsyncTask<AIRequest, Void, AIResponse> {
     @Override
     protected void onPostExecute(AIResponse response) {
         if (response != null) {
-            final Result result = response.getResult();
-            final String resultString = response.getResult().getFulfillment().getSpeech();
-
-            List<ResponseMessage> responseMessageList = response.getResult().getFulfillment().getMessages();
-            JsonObject customPayload = null;
-
-            if( responseMessageList.size() >= 2 ) {
-                ResponseMessage.ResponsePayload payloadMsg = (ResponseMessage.ResponsePayload)responseMessageList.get(1);
-                customPayload = payloadMsg.getPayload();
-            }
-
-//            ResponseMessage.ResponsePayload payloadMsg = (ResponseMessage.ResponsePayload) responseMessageList.get(0);
-//            JsonObject json = payloadMsg.getPayload();
-
-//            Log.d("DialogFlow 4", json.getAsString());
-//            Log.i("DialogFlow", "Resolved query: " + result.getResolvedQuery());
-//            Log.d("DialogFlow", "Result : " + resultString);
-
-            mTargetActivity.botSpeech(resultString, customPayload);
+            mTargetActivity.botSpeech(response.getResult());
         }
     }
-
 }

@@ -5,6 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -17,34 +19,19 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MyPage.LendBookActivity"
-            android:label="@string/nav_lend_book">
-        </activity>
 
-        <activity android:name=".MyPage.LendBookRecordActivity"
-            android:label="@string/nav_lend_book_record">
-        </activity>
-        <activity
-            android:name=".MyPage.AppointmentBookActivity"
-            android:label="@string/nav_appointment_book" /> <!-- [START fcm_default_icon] -->
-        <!--
- Set custom default icon. This is used when no icon is set for incoming notification messages.
-             See README(https://goo.gl/l4GJaQ) for more.
-        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_stat_ic_notification" />
-        <!--
- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more.
-        -->
+            android:resource="@drawable/logo" />
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorPrimary" /> <!-- [END fcm_default_icon] -->
-        <!-- [START fcm_default_channel] -->
+            android:resource="@color/colorPrimary" />
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id" /> <!-- [END fcm_default_channel] -->
+            android:value="@string/default_notification_channel_id" />
+
         <activity
             android:name=".Login.LoginActivity"
             android:label="@string/app_name"
@@ -62,7 +49,12 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
-            android:label="@string/app_name" />
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name=".MainActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
 
         <activity android:name=".GuideAll.GuideActivity"
             android:screenOrientation="portrait"/>
@@ -118,6 +110,20 @@
             android:name=".Barcode.BarcodeLinkActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
+        <activity android:name=".MyPage.LendBookActivity"
+            android:label="@string/nav_lend_book">
+        </activity>
+
+        <activity android:name=".MyPage.LendBookRecordActivity"
+            android:label="@string/nav_lend_book_record">
+        </activity>
+
+
+        <activity
+            android:name=".MyPage.AppointmentBookActivity"
+            android:label="@string/nav_appointment_book" />
+
 
         <activity android:name=".ParkActivity"
             android:screenOrientation="portrait" />

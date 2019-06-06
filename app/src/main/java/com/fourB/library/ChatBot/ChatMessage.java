@@ -1,27 +1,27 @@
 package com.fourB.library.ChatBot;
 
-import com.google.gson.JsonObject;
+import ai.api.model.Result;
 
 public class ChatMessage {
 
     private boolean mLeft;
+    private Result msgResult;
     private String mMsg;
-    private JsonObject mPayload;
 
-    public ChatMessage(boolean left, String message, JsonObject customPayload) {
+    public ChatMessage(boolean left, String defaultMsg, Result result) {
         super();
         this.mLeft = left;
-        this.mMsg = message;
-        this.mPayload = customPayload;
+        this.msgResult = result;
+        this.mMsg = defaultMsg;
     }
 
     public boolean getSide() {
         return mLeft;
     }
 
-    public String getMsg() {
-        return mMsg;
+    public Result getMsgResult() {
+        return msgResult;
     }
 
-    public JsonObject getPayload() { return mPayload; }
+    public String getMsg() { return mMsg; }
 }

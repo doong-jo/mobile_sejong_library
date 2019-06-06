@@ -23,10 +23,8 @@
         <item>열람실 A</item>
         <item>열람실 B</item>
         <item>열람실 C</item>
-        <item>열람실 D-A</item>
-        <item>열람실 D-B</item>
-        <item>3층 열람실 A</item>
-        <item>3층 열람실 B</item>
+        <item>열람실 D</item>
+        <item>3층 열람실</item>
     </string-array>
 
     <string-array name="report_reasons">

@@ -182,8 +182,9 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        final String title = getIntent().getStringExtra("title");
-        if( title != null ) {
+        String title = getIntent().hasExtra("title") ? getIntent().getStringExtra("title") : "";
+
+        if( !title.equals("") ) {
             final String body = getIntent().getStringExtra("body");
             final String type = getIntent().getStringExtra("type");
             final String content = getIntent().getStringExtra("content");
@@ -191,13 +192,20 @@ public class MainActivity extends AppCompatActivity
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(title);
-            builder.setMessage(body + '\n' + "시간 : " + date + '\n' + "사유 : " + type + '\n' + "접수내용 : " + content);
+            StringBuilder stringBuilder = new StringBuilder(64);
+            stringBuilder
+                    .append(body).append("\n\n").append("시간 : ").append(date).append('\n')
+                    .append("사유 : ").append(type).append('\n')
+                    .append("접수내용 : ").append(content);
+            builder.setMessage(stringBuilder.toString());
             builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) { }
             });
             builder.setCancelable(true);
             builder.show();
+
+            getIntent().putExtra("title", "");
         }
     }
 

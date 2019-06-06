@@ -1,6 +1,8 @@
 package com.fourB.library.ChatBot;
 
+import android.app.Activity;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import com.fourB.library.R;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import ai.api.model.ResponseMessage;
 
 public class ChatArrayAdapter extends ArrayAdapter {
 
@@ -19,14 +24,14 @@ public class ChatArrayAdapter extends ArrayAdapter {
     private ArrayList<ChatMessage> mChatMessageList = new ArrayList<>();
     private String mUserLastMsg;
 
-    private ChatBotActivity parentContext;
+    private Activity parentContext;
 
     public void add(ChatMessage object) {
         super.add(object);
         mChatMessageList.add(object);
     }
 
-    public ChatArrayAdapter(ChatBotActivity context, int textViewResourceId) {
+    public ChatArrayAdapter(Activity context, int textViewResourceId) {
         super(context, textViewResourceId);
         parentContext = context;
     }
@@ -46,7 +51,8 @@ public class ChatArrayAdapter extends ArrayAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         ChatMessage chatMessageObj = getItem(position);
-        final String msg = chatMessageObj.getMsg();
+        String msg = chatMessageObj.getMsg();
+        if( msg.equals("") && chatMessageObj.getMsgResult() != null ) { msg = chatMessageObj.getMsgResult().getFulfillment().getSpeech(); }
         final boolean side = chatMessageObj.getSide();
 
         LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -67,20 +73,27 @@ public class ChatArrayAdapter extends ArrayAdapter {
         }
 
         if( mChatTv != null ) {
-            mChatTv.setText(msg);
+            mChatTv.setText(Html.fromHtml(msg));
             mChatTv.setBackgroundResource(side ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
         }
 
+        JsonObject customPayload = null;
+        if ( chatMessageObj.getMsgResult() != null ) {
+            List<ResponseMessage> responseMessageList = chatMessageObj.getMsgResult().getFulfillment().getMessages();
 
-        JsonObject payloadJson = chatMessageObj.getPayload();
+            if (responseMessageList.size() >= 2) {
+                ResponseMessage.ResponsePayload payloadMsg = (ResponseMessage.ResponsePayload) responseMessageList.get(1);
+                customPayload = payloadMsg.getPayload();
+            }
+        }
+
+        JsonObject payloadJson = customPayload;
         if( payloadJson == null ) {
             return row;
         } else {
             JsonObject message = payloadJson.getAsJsonObject("message");
-            final String type = message.get("type").getAsString();
-            final String text = message.get("text").getAsString();
-            final String name = message.get("name").getAsString();
-            ChatPayloadView payload = new ChatPayloadView(parentContext, type, text, name, mUserLastMsg);
+
+            ChatPayloadView payload = new ChatPayloadView(parentContext, message, chatMessageObj.getMsgResult());
 
             LinearLayout li = new LinearLayout(getContext());
             li.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));

@@ -17,9 +17,18 @@ public class ReadingRoomActivity extends AppCompatActivity implements ReadingRoo
         setContentView(R.layout.activity_reading_room);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         readingRoomFragment = new ReadingRoomFragment();
         readingRoomWVFragment = new ReadingRoomWVFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.reading_room_container, readingRoomFragment).commit();
+
+        if( getIntent().hasExtra("room") ) {
+            final String room = getIntent().getStringExtra("room").split("열람실")[0];
+            onCommand(room.charAt(0) - 65 + 1);
+        } else {
+            onCommand(0);
+        }
+//        getSupportFragmentManager().beginTransaction().add(R.id.reading_room_container, readingRoomFragment).commit();
     }
 
     @Override
