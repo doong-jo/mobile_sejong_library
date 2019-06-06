@@ -89,7 +89,7 @@ public class StudyRoomActivity extends AppCompatActivity {
         mDatePickerDlg = new DatePickerDialog(mUsingDayText.getContext(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                mUsingDayText.setText(getReserveDate(year, month, day));
+                mUsingDayText.setText(getReserveDate(mYear, mMonth, mDay));
             }
         }, year, month, day);
         mDatePickerDlg.updateDate(year, month, day);
