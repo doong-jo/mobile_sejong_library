@@ -12,10 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.HttpManager;
+import com.fourB.library.MainActivity;
 import com.fourB.library.R;
 import com.fourB.library.ReportManager;
 import com.google.gson.JsonObject;
+import com.google.zxing.integration.android.IntentIntegrator;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -69,6 +72,11 @@ public class ChatPayloadView extends LinearLayout {
                     payloadDialog(mName);
                 } else if(mType.equals(ACTIVITY)) {
                     Intent res = new Intent();
+                    String _Package = getContext().getPackageName();
+                    String _Class = mName;
+                    res.setClassName(_Package, _Package + _Class);
+                    res.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                     if(mName.equals(".StudyRoom.StudyRoomViewActivity")) {
                         res.putExtra("person", mResponseData.getStringParameter("user"));
                         final String theTime = mResponseData.getStringParameter("TheTime");
@@ -78,21 +86,28 @@ public class ChatPayloadView extends LinearLayout {
                         } else {
                             time = Integer.valueOf(theTime.split(" ")[1].split("시")[0]) + 12;
                         }
-                        res.putExtra("time", String.valueOf(time));
+                        res.putExtra("time", String.valueOf(time) + "시");
                         res.putExtra("use", "1시간");
 
                         final Date today = new Date();
                         final SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
                         res.putExtra("date", sdf.format(today));
+                        getContext().startActivity(res);
                     }
                     else if( mName.equals(".ReadingRoom.ReadingRoomActivity")) {
-                        res.putExtra("room", mResponseData.getStringParameter("StudyRoom"));
+                        final String room = mResponseData.getStringParameter("StudyRoom");
+                        res.putExtra("room", room);
+                        getContext().startActivity(res);
+                    } else if ( mName.equals(".Barcode.CustomScannerActivity")) {
+                        IntentIntegrator integrator = new IntentIntegrator(parentContext);
+                        integrator.setCaptureActivity(CustomScannerActivity.class);
+                        integrator.setOrientationLocked(false);
+                        integrator.initiateScan();
+                    } else {
+                        getContext().startActivity(res);
                     }
-                    String _Package = getContext().getPackageName();
-                    String _Class = mName;
-                    res.setClassName(_Package, _Package + _Class);
-                    res.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getContext().startActivity(res);
+
+
                 }
             }
         });

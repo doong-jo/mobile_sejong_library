@@ -24,7 +24,11 @@ public class ReadingRoomActivity extends AppCompatActivity implements ReadingRoo
 
         if( getIntent().hasExtra("room") ) {
             final String room = getIntent().getStringExtra("room").split("열람실")[0];
-            onCommand(room.charAt(0) - 65 + 1);
+            if( room.equals("") ) {
+                onCommand(0);
+            } else {
+                onCommand(room.charAt(0) - 65 + 1);
+            }
         } else {
             onCommand(0);
         }

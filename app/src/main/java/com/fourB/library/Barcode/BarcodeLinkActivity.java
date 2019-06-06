@@ -33,7 +33,7 @@ public class BarcodeLinkActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mIntent = getIntent();
-        mBarcodeScarNumber = mIntent.getExtras().getString("BarcodeScanNumber");
+        mBarcodeScarNumber = mIntent.getStringExtra("BarcodeScanNumber");
 
         if(mBarcodeScarNumber.equals(getString(R.string.barcode_bookBarcode_01))) {
             mBookImage = (ImageView) findViewById(R.id.barcode_bookImage);

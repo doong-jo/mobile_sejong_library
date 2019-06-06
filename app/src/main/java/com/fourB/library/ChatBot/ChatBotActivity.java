@@ -1,6 +1,8 @@
 package com.fourB.library.ChatBot;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.database.DataSetObserver;
@@ -10,13 +12,17 @@ import android.view.View.OnKeyListener;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 
+import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.R;
 import com.fourB.library.ChatBot.async.RequestJavaV2Task;
 import com.google.gson.JsonObject;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.List;
 import java.util.Objects;
@@ -162,6 +168,27 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotInterfa
 
         mChatArrayAdapter.notifyDataSetChanged();
         mButtonSend.setEnabled(true);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (resultCode == Activity.RESULT_OK) {
+            IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+            if (scanResult == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                if(scanResult.getContents().equals(getString(R.string.barcode_bookBarcode_01)) || scanResult.getContents().equals(getString(R.string.barcode_bookBarcode_02))){
+                    Intent newIntent = new Intent(getApplicationContext(), BarcodeLinkActivity.class);
+                    newIntent.putExtra("BarcodeScanNumber", scanResult.getContents());
+                    startActivity(newIntent);
+                }else {
+                    Toast.makeText(this, "등록되지 않은 도서입니다!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, intent);
+        }
+
     }
 
     @Override
