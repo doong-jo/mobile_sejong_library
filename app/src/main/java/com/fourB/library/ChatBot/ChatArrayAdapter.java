@@ -73,7 +73,7 @@ public class ChatArrayAdapter extends ArrayAdapter {
         }
 
         if( mChatTv != null ) {
-            mChatTv.setText(Html.fromHtml(msg));
+            mChatTv.setText(msg);
             mChatTv.setBackgroundResource(side ? R.drawable.rounded_rectangle_green : R.drawable.rounded_rectangle_orange);
         }
 

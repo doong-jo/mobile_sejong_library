@@ -3,7 +3,11 @@ package com.fourB.library.ChatBot;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.Spanned;
 import android.view.MenuItem;
 import android.database.DataSetObserver;
 import android.view.KeyEvent;
@@ -83,7 +87,20 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotInterfa
             }
         });
 
-        botSpeechOfString(getString(R.string.chatbot_say_hello));
+//        String content = Html.fromHtml().toString();
+
+        final String helloContent = getString(R.string.chatbot_say_hello);
+//        Spanned content;
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//
+//            content = Html.fromHtml(helloContent, Html.FROM_HTML_MODE_COMPACT);
+//
+//        } else {
+//
+//            content = Html.fromHtml(helloContent);
+//        }
+
+        botSpeechOfString(helloContent);
     }
 
     private void initAIConfigure() {

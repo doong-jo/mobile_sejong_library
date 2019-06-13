@@ -16,7 +16,7 @@
     <string name="korean_lang_code">ko</string>
 
     <!--ChatBot-->
-    <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?</string>
+    <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?\n\n* 학술정보원 정보가 알고싶으면?\nex) 일요일에 도서관 열어?, 공지사항, 이용 안내(층별, 대출, 아이패드 이용 안내)\n\n* 모바일 바코드로 책 대출은 어떻게 해?\nex) 책은 어떻게 빌려?\n\n\* 스터디룸 예약은?\nex) 15시 4명이 스터디룸 알려줘.\n\n* 열람실 현황은?\nex) A열람실 자리 있어?\n\n* 열람실 불편신고는?\n=> ‘신고’ 라고 말씀해주세요.</string>
     <string name="chatbot_bot_name">동천이</string>
 
     <string name="chatbot_report_dialog_title">열람실 불편 신고 접수</string>
