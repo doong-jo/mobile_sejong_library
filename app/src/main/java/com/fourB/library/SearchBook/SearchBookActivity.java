@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SearchBookActivity extends AppCompatActivity {
+    private Spinner mCategorySpinner;
     private Spinner mSortSpinner;
     private EditText mEditTextSearch;
     private Button mBtnSearch;
@@ -43,7 +44,10 @@ public class SearchBookActivity extends AppCompatActivity {
 
         ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(this, R.array.search_book_sort, R.layout.item_basic_spinner);
         sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(this, R.array.search_book_category, R.layout.item_basic_spinner);
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSortSpinner.setAdapter(sortAdapter);
+        mCategorySpinner.setAdapter(categoryAdapter);
 
         mInputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
@@ -55,6 +59,7 @@ public class SearchBookActivity extends AppCompatActivity {
 
     private void initView() {
         mSortSpinner = findViewById(R.id.spinner_search_book_sort);
+        mCategorySpinner = findViewById(R.id.spinner_search_book_category);
         mEditTextSearch = findViewById(R.id.editText_search_book);
         mBtnSearch = findViewById(R.id.btn_search_book);
         mRecyclerView = findViewById(R.id.recyclerView_search_book);
@@ -74,8 +79,26 @@ public class SearchBookActivity extends AppCompatActivity {
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String curCategory = mCategorySpinner.getSelectedItem().toString();
                 String curSort = mSortSpinner.getSelectedItem().toString();
+                final String[] categoryArr = getResources().getStringArray(R.array.search_book_category);
                 final String[] sortArr = getResources().getStringArray(R.array.search_book_sort);
+
+
+                for(int i=0; i<categoryArr.length; i++) {
+                    if( curCategory.equals(categoryArr[i]) ) {
+                        switch(i) {
+                            case 0: curCategory = HttpManager.BOOK_SORT_SIM; break;
+                            case 1: curCategory = HttpManager.BOOK_SORT_DATE; break;
+                            case 2: curCategory = HttpManager.BOOK_SORT_COUNT; break;
+                            case 3: curCategory = HttpManager.BOOK_SORT_DATE; break;
+                            case 4: curCategory = HttpManager.BOOK_SORT_COUNT; break;
+                            default: break;
+                        }
+                    }
+                }
+
+
                 for(int i=0; i<sortArr.length; i++) {
                     if( curSort.equals(sortArr[i]) ) {
                         switch(i) {
