@@ -2,7 +2,6 @@ package com.fourB.library.RequestBook;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +42,7 @@ public class SearchRequestBookFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private SearchRequestBookAdapter mSearchRequestBookAdapter;
     private ViewGroup rootView;
-    private NestedScrollView mNewstedView;
+    private NestedScrollView mNestedView;
     private ProgressBar mLoadingProgress;
 
     private int mStartNum = 1;
@@ -76,8 +75,8 @@ public class SearchRequestBookFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
-        if(mNewstedView != null) {
-            mNewstedView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+        if(mNestedView != null) {
+            mNestedView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
@@ -118,7 +117,7 @@ public class SearchRequestBookFragment extends Fragment {
         mEditTextSearch = (EditText) rootView.findViewById(R.id.editText_search_book);
         mBtnSearch = (Button) rootView.findViewById(R.id.btn_search_book);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView_search_book);
-        mNewstedView = (NestedScrollView) rootView.findViewById(R.id.scrollView_search_book);
+        mNestedView = (NestedScrollView) rootView.findViewById(R.id.scrollView_search_book);
         mLoadingProgress = (ProgressBar) rootView.findViewById(R.id.loading_progress);
     }
 
@@ -248,21 +247,7 @@ public class SearchRequestBookFragment extends Fragment {
         });
     }
 
-    private void recycleViewDataAdding(SearchBookItem[] data){
-        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
-        mSearchRequestBookAdapter.addItems(dataArrList);
-
-        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mSearchRequestBookAdapter.notifyDataSetChanged();
-            }
-        });
-    }
-
     private void recylcleThread(){
-        String test = mEditTextSearch.getText().toString();
-        int end = 1;
         new Thread(new Runnable() {
             @Override
             public void run() {
