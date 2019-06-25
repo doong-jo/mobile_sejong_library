@@ -57,6 +57,12 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="Text.SearchBookStart">
+        <item name="android:layout_margin">@dimen/large_margin</item>
+        <item name="android:textSize">@dimen/large_font_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="Text.SearchBookItemTitle">
         <item name="android:layout_margin">@dimen/normal_margin</item>
         <item name="android:textSize">@dimen/large_font_size</item>

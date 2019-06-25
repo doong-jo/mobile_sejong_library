@@ -59,7 +59,19 @@
         <activity android:name=".GuideAll.GuideActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".SearchBook.SearchBookActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/menu_search_book" />
+        
         <activity android:name=".SearchBook.SearchBookDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/menu_search_book_detail"/>
+
+        <activity android:name=".SearchBook.RealSearchBookActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/menu_search_book" />
+
+        <activity android:name=".SearchBook.RealSearchBookDetailActivity"
             android:screenOrientation="portrait"
             android:label="@string/menu_search_book_detail"/>
 
@@ -96,9 +108,6 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:screenOrientation="landscape" />
 
-        <activity android:name=".SearchBook.SearchBookActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/menu_search_book" />
         <activity
             android:name=".Barcode.AnyOrientationCaptureActivity"
             android:screenOrientation="fullSensor"

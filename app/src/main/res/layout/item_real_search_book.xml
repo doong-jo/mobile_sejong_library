@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/normal_margin"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_book_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/rectangle_primary" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/search_book_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="제목"
+                    style="@style/Text.SearchBookItemTitle"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/search_book_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="저자"
+                        style="@style/Text.SearchBookItemRest"/>
+                    <TextView
+                        android:id="@+id/search_book_publisher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="출판사"
+                        style="@style/Text.SearchBookItemRest"/>
+                    <TextView
+                        android:id="@+id/search_book_publish_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="년도"
+                        style="@style/Text.SearchBookItemRest"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
