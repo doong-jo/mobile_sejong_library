@@ -31,10 +31,11 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:src="@drawable/dongcheon"
+        android:src="@drawable/ic_kitty_line"
         app:fabSize="normal"
         app:maxImageSize="48dp"
         app:layout_anchorGravity="bottom|right|end"
+        app:backgroundTint="@color/colorPrimaryDark"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

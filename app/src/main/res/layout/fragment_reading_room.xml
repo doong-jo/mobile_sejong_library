@@ -34,7 +34,7 @@
                     android:id="@+id/bar_reading_room_A"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="90"
+                    android:progress="0"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 
@@ -102,7 +102,7 @@
                     android:id="@+id/bar_reading_room_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="80"
+                    android:progress="4"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 
@@ -170,7 +170,7 @@
                     android:id="@+id/bar_reading_room_C"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="75"
+                    android:progress="0"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 
@@ -238,7 +238,7 @@
                     android:id="@+id/bar_reading_room_D"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="40"
+                    android:progress="0"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 
@@ -306,7 +306,7 @@
                     android:id="@+id/bar_reading_room_D_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="20"
+                    android:progress="0"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 
@@ -374,7 +374,7 @@
                     android:id="@+id/bar_reading_room_3_A"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="70"
+                    android:progress="4"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 
@@ -442,7 +442,7 @@
                     android:id="@+id/bar_reading_room_3_B"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="60"
+                    android:progress="6"
                     style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                     android:indeterminate="false"/>
 

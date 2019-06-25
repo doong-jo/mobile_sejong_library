@@ -13,7 +13,7 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/msg_profile"
-            android:src="@drawable/dongcheon"
+            android:src="@drawable/ic_kitty_line"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             style="@style/Image.ChatBot" />
