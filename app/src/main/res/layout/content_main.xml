@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/main_flexboxlayout_margin_top"
+            android:layout_marginBottom="10dp"
             app:flexDirection="row"
             app:justifyContent="space_evenly"
             app:flexWrap="wrap"
@@ -244,8 +245,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp">
+            android:layout_margin="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -253,6 +253,12 @@
                 android:layout_gravity="center"
                 style="@style/Text.Menu"
                 android:text="@string/menu_notice"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/border_gray"
+                />
 
             <ListView
                 android:id="@+id/listView"
