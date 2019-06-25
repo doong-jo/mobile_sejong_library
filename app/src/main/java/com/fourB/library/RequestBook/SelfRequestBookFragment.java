@@ -27,7 +27,6 @@ public class SelfRequestBookFragment extends Fragment {
     private ArrayList<String> mBookKindsArrayList = new ArrayList<>();
     private ArrayAdapter<String> mBookKindsArrayAdapter;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
