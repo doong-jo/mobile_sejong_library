@@ -7,7 +7,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -18,7 +17,7 @@ import android.util.Log;
 
 import com.fourB.library.MainActivity;
 import com.fourB.library.R;
-import com.fourB.library.SharedPrefManager;
+import com.fourB.library.Util.SharedPrefManager;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

@@ -239,7 +239,30 @@
                         android:text="@string/menu_declare"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
         </com.google.android.flexbox.FlexboxLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/Text.Menu"
+                android:text="@string/menu_notice"/>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:divider="@null">
+            </ListView>
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
-

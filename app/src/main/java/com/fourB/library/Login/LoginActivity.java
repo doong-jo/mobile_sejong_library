@@ -14,11 +14,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.fourB.library.HttpManager;
+import com.fourB.library.Util.HttpManager;
 import com.fourB.library.MainActivity;
 import com.fourB.library.R;
-import com.fourB.library.SearchBook.SearchBookItem;
-import com.fourB.library.SharedPrefManager;
+import com.fourB.library.Util.SharedPrefManager;
 
 import java.io.IOException;
 import java.util.ArrayList;

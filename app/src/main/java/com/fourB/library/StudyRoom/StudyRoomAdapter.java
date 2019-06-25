@@ -15,12 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourB.library.ParkActivity;
 import com.fourB.library.R;
-import com.fourB.library.ReportManager;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 public class StudyRoomAdapter extends RecyclerView.Adapter<StudyRoomAdapter.ViewHolder> {
     private Context mContext;
