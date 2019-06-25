@@ -84,17 +84,17 @@ public class MainActivity extends AppCompatActivity
 
         AllFindViewById();
 
-        mAdapter.addItem(new AnouncementItem("하계방학 중 학술정보원 이용안내", "2019-06-19", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=924"));
-        mAdapter.addItem(new AnouncementItem("2019년 1학기 학위논문 제출안내", "2019-06-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=923"));
-        mAdapter.addItem(new AnouncementItem("학술정보원 전층 대청소 일정공지", "2019-06-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=922"));
-        mAdapter.addItem(new AnouncementItem("[공모전] RISS 영상 · 카드뉴스 공모전 안내", "2019-05-13", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=921"));
-        mAdapter.addItem(new AnouncementItem("전세계 신문 & 매거진 PressReader 2019 퀴즈 이벤트 안내", "2019-05-09", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=920"));
-        mAdapter.addItem(new AnouncementItem("KSDC DB(통계정보 조사/분석 시스템) 및 ICPSR DB 이용 교육 안내", "2019-05-09", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=919"));
-        mAdapter.addItem(new AnouncementItem("제44회 독서경시대회 장소안내", "2019-04-25", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918"));
-        mAdapter.addItem(new AnouncementItem("학술정보원 휴원 안내(5월)", "2019-04-23", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917"));
-        mAdapter.addItem(new AnouncementItem("국내학회지 DBpia 서비스 일시 중지 안내 4.21(일)", "2019-04-16", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=916"));
-        mAdapter.addItem(new AnouncementItem("중간고사 기간중 자유열람실 이용방법 변경안내", "2019-04-12", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=915"));
-        mAdapter.addItem(new AnouncementItem("제44회 독서경시대회 개최", "2019-04-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=914"));
+        mAdapter.addItem(new AnouncementItem("[대인관계 집단상담 프로그램] '소통하기' 프로그램 신청자 모집 공고", "2019.06.25", "http://board.sejong.ac.kr/boardview.do?pkid=116045&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("2019년도 하계(제51차) 대학생을 위한 외교 워크숍 안내", "2019.06.24", "http://board.sejong.ac.kr/boardview.do?pkid=116008&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("† 세종 주일예배 안내 (6월 23일) †", "2019.06.21", "http://board.sejong.ac.kr/viewcount.do?rtnUrl=/boardview.do?pkid=115967^currentPage=1^searchField=ALL^siteGubun=19^menuGubun=1^bbsConfigFK=333^searchLowItem=ALL&searchValue=&gubun=&tableName=SJU_BBSDATA&fieldName=VIEWCOUNT&viewNum=27&whereCon=PKID=115967"));
+        mAdapter.addItem(new AnouncementItem("블랙보드 서비스 중단안내(7/20~7/24)", "2019.06.20", "http://board.sejong.ac.kr/boardview.do?pkid=115924&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("국제교육원 여름 해외봉사단 UNIK 모집", "2019.06.18", "http://board.sejong.ac.kr/boardview.do?pkid=115844&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("[세종대학교 학생생활상담소 계약직 전문상담원 채용공고]", "2019.06.17", "http://board.sejong.ac.kr/boardview.do?pkid=115813&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("[장학공지] 2019-1학기 학생회관복지장학금 장학생 선발결과 안내", "2019.06.14", "http://board.sejong.ac.kr/boardview.do?pkid=115813&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("† 세종 주일예배 안내 (6월 16일) †", "2019.06.14", "http://board.sejong.ac.kr/boardview.do?pkid=115786&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("경영대학 학 ·석사 연계과정", "2019.06.13", "http://board.sejong.ac.kr/boardview.do?pkid=115763&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("2019학년도 세종핵심역량진단평가 시행", "2019.06.12", "http://board.sejong.ac.kr/boardview.do?pkid=115718&currentPage=1&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
+        mAdapter.addItem(new AnouncementItem("[장학공지] 2019-1학기 특기장학금 선발결과 안내", "2019.06.12", "http://board.sejong.ac.kr/boardview.do?pkid=115714&currentPage=2&searchField=ALL&siteGubun=19&menuGubun=1&bbsConfigFK=333&searchLowItem=ALL&searchValue="));
 
         mlistview.setAdapter(mAdapter);
 

@@ -34,7 +34,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/selfRequestBookTitle"
                     android:text="@string/self_request_book_name"
                     style="@style/Text.RequestBookTextView" />
 
@@ -62,6 +61,7 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/selfRequestBookTitle"
                     style="@style/EditText.RequestBook" />
 
                 <EditText
