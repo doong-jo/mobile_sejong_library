@@ -35,7 +35,7 @@ public class SearchRequestBookFragment extends Fragment {
     private EditText mEditTextSearch;
     private Button mBtnSearch;
     private RecyclerView mRecyclerView;
-    private SearchBookAdapter mSearchBookAdapter;
+    private SearchRequestBookAdapter mSearchRequestBookAdapter;
     private ViewGroup rootView;
 
 
@@ -56,8 +56,8 @@ public class SearchRequestBookFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
-        mSearchBookAdapter = new SearchBookAdapter(getContext());
-        mRecyclerView.setAdapter(mSearchBookAdapter);
+        mSearchRequestBookAdapter = new SearchRequestBookAdapter(getContext());
+        mRecyclerView.setAdapter(mSearchRequestBookAdapter);
 
         return rootView;
     }
@@ -115,8 +115,8 @@ public class SearchRequestBookFragment extends Fragment {
                 final String searchSort = curSort;
                 final String searchCategory = curCategory;
 
-                mSearchBookAdapter.clear();
-                mSearchBookAdapter.notifyDataSetChanged();
+                mSearchRequestBookAdapter.clear();
+                mSearchRequestBookAdapter.notifyDataSetChanged();
 
                 new Thread(new Runnable() {
                     @Override
@@ -140,12 +140,12 @@ public class SearchRequestBookFragment extends Fragment {
 
     private void recycleViewDataSetting(SearchBookItem[] data){
         ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
-        mSearchBookAdapter.addItems(dataArrList);
+        mSearchRequestBookAdapter.addItems(dataArrList);
 
         Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mSearchBookAdapter.notifyDataSetChanged();
+                mSearchRequestBookAdapter.notifyDataSetChanged();
             }
         });
     }
