@@ -2,16 +2,19 @@ package com.fourB.library.Util;
 
 
 import com.fourB.library.SearchBook.SearchBookItem;
-import com.fourB.library.SearchBook.SearchBookRealItem;
+import com.fourB.library.SearchBook.RealSearchBookItem;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -26,7 +29,9 @@ import okhttp3.Response;
 
 public class HttpManager {
     final static private String SERVER_URL = "https://sejong-library.run.goorm.io/";
+    final static private String NO_IMAGE_URL = "images/noimage.gif";
     final static private String NAVER_BOOK_API_URL = "https://openapi.naver.com/v1/search/book.json?query=";
+    final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.com/v1/search/book_adv.xml?query=";
     final static private String NAVER_CLIENT_ID = "s9Q1eIGcTHVFQCFXNv22";
     final static private String NAVER_CLIENT_SECRET = "rpx4xcAiUt";
 
@@ -36,18 +41,32 @@ public class HttpManager {
     final static private String RS_BOOK_SEARCH_DETAIL_LIST_URL = "http://mlib.sejong.ac.kr/search/ItemDetail.axa?";
 
     final static private String RS_STUDYROOM_SEARCH_URL =  "";
-
     final static private String RS_READINGROOM_SEARCH_URL =  "";
 
     final static public String BOOK_SORT_SIM = "sim";
     final static public String BOOK_SORT_DATE = "date";
     final static public String BOOK_SORT_COUNT = "count";
 
+    final static public String BOOK_CATEGORY_TITLE = "d_titl";
+    final static public String BOOK_CATEGORY_AUTOR = "d_auth";
+    final static public String BOOK_CATEGORY_PUBL = "d_publ";
+    final static public String BOOK_CATEGORY_ISBN = "d_isbn";
+
+    final static int STEP_NONE = 0;
+    final static int STEP_TITLE = 1;
+    final static int STEP_IMAGE = 2;
+    final static int STEP_AUTHOR = 3;
+    final static int STEP_PUBLISHER = 4;
+    final static int STEP_PUBDATE = 5;
+    final static int STEP_ISBN = 6;
+
+    static public int mStep = STEP_NONE;
+
     private static  OkHttpClient client = new OkHttpClient();
 
-    public static SearchBookRealItem searchBookDetailRealServer(final String id) throws IOException {
+    public static RealSearchBookItem searchBookDetailRealServer(final String id) throws IOException {
         //////////////////////////////////////// Detail List ////////////////////////////////////////
-        SearchBookRealItem item = new SearchBookRealItem();
+        RealSearchBookItem item = new RealSearchBookItem();
 
         StringBuilder URLbuilder = new StringBuilder(RS_BOOK_SEARCH_DETAIL_URL);
         URLbuilder.append("cid=").append(id);
@@ -80,16 +99,19 @@ public class HttpManager {
         List<String> listImgURL = elements.eachAttr("src");
         int a = 1;
         for (int i = 0; i < listImgURL.size(); i++) {
-            listImgURL.set(i, RS_URL + listImgURL.get(i).split("\\.\\./")[1]);
+            if( listImgURL.get(i).split("\\.\\./").length == 1 ) {
+                continue;
+            } else {
+                listImgURL.set(i, RS_URL + listImgURL.get(i).split("\\.\\./")[1]);
+            }
+
         }
 
         // Title
-        //.borrow_d > h2
         elements = doc.select(".borrow_d > h2");
         List<String> listTitle = elements.eachText();
 
         // Author
-        //.borrow_d > h3
         elements = doc.select(".borrow_d > h3");
         List<String> listAuthor = elements.eachText();
         for (int i = 0; i < listAuthor.size(); i++) {
@@ -153,12 +175,19 @@ public class HttpManager {
         br.close();
         con.disconnect();
 
+        item.setmImgURL(listImgURL.get(0));
+        item.setmCategory(listCategory.get(0));
+        item.setmAuthor(listAuthor.get(0));
+        item.setmTitle(listTitle.get(0));
+        item.setmLocation(listLocation.get(0));
+        item.setmLocationNum(listNumber.get(0));
+        item.setmStatus(listStatus.get(0));
+        item.setmPublisher(listPublisher.get(0));
+
         return item;
     }
 
-    public static SearchBookRealItem[] searchBookRealServer(final String searchObject, final int category, final int page, final int pageSize) throws IOException {
-        SearchBookRealItem[] searchBookRealItems = new SearchBookRealItem[pageSize];
-
+    public static RealSearchBookItem[] searchBookRealServer(final String searchObject, final int category, final int page, final int pageSize) throws IOException {
         final String searchStr = URLEncoder.encode(searchObject, "UTF-8");
 
         StringBuilder URLbuilder = new StringBuilder(RS_BOOK_SEARCH_URL);
@@ -195,6 +224,9 @@ public class HttpManager {
         for (int i = 0; i < listId.size(); i++) {
             listId.set(i, listId.get(i).split("cid=")[1]);
         }
+
+        final int dataSize = listId.size();
+        RealSearchBookItem[] realSearchBookRealItems = new RealSearchBookItem[dataSize];
 
         // Category
         elements = doc.select(".padding_btn_searchClass");
@@ -249,9 +281,21 @@ public class HttpManager {
         br.close();
         con.disconnect();
 
-        for (int i = 0; i < pageSize; i++) {
-            searchBookRealItems[i] = new SearchBookRealItem(
+        addNullItemIntoListFromLength(listId, dataSize);
+        addNullItemIntoListFromLength(listStatus, dataSize);
+        addNullItemIntoListFromLength(listCategory, dataSize);
+        addNullItemIntoListFromLength(listTitle, dataSize);
+        addNullItemIntoListFromLength(listAuthor, dataSize);
+        addNullItemIntoListFromLength(listPublisher, dataSize);
+        addNullItemIntoListFromLength(listPublishDate, dataSize);
+        addNullItemIntoListFromLength(listLocation, dataSize);
+        addNullItemIntoListFromLength(listLocationNum, dataSize);
+
+        for (int i = 0; i < dataSize; i++) {
+            realSearchBookRealItems[i] = new RealSearchBookItem(
                     listId.get(i),
+                    listStatus.get(i),
+                    listCategory.get(i),
                     listTitle.get(i),
                     listAuthor.get(i),
                     listPublisher.get(i),
@@ -261,15 +305,21 @@ public class HttpManager {
             );
         }
 
-        return searchBookRealItems;
+        return realSearchBookRealItems;
     }
 
-    public static SearchBookItem[] searchBookNaverApi(final String searchObject, final int display, final String sort) throws IOException {
+    private static void addNullItemIntoListFromLength(List<String> list, int size) {
+        if( list.size() != size ) {
+            list.add("");
+        }
+    }
+
+    public static SearchBookItem[] searchBookNaverXMLApi(final String searchObject, final int display, final String category, final String sort) throws IOException, XmlPullParserException {
         String text = URLEncoder.encode(searchObject, "UTF-8");
 
-        String apiURL = NAVER_BOOK_API_URL + text + "&display=" + display + "&" + "sort=" + sort; // json 결과
-
+        String apiURL = NAVER_BOOK_DETAIL_API_URL + text + "&display=" + display + "&sort=" + sort + "&start=1" + "&" + category + "=" + text; // xml 결과
         URL url = new URL(apiURL);
+
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("X-Naver-Client-Id", NAVER_CLIENT_ID);
@@ -290,30 +340,87 @@ public class HttpManager {
         String inputLine;
         while ((inputLine = br.readLine()) != null) { searchResult.append(inputLine + "\n"); }
 
+        String result = searchResult.toString();
+
+        XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
+        XmlPullParser parser = parserFactory.newPullParser();
+
+        parser.setInput(new StringReader(result));
+
         br.close();
         con.disconnect();
 
-        String data = searchResult.toString();
-        String[] dataArr = data.split("\"");
-        SearchBookItem[] bookItems = new SearchBookItem[display];
-        for(int i=0; i<bookItems.length; i++ ) { bookItems[i] = new SearchBookItem(); }
+
+        int eventType = parser.getEventType() ;
         int k = 0;
-        for (int i = 0; i < dataArr.length - 2; i++) {
-            final String pivot = dataArr[i];
-            final String value = dataArr[i + 2];
-            if(pivot == null || value == null) {
-                int a = 1;
+
+        ArrayList<String> titleList = new ArrayList<>();
+        ArrayList<String> imgURLList = new ArrayList<>();
+        ArrayList<String> authorList = new ArrayList<>();
+        ArrayList<String> publisherList = new ArrayList<>();
+        ArrayList<String> pubdateList = new ArrayList<>();
+        ArrayList<String> ISBNList = new ArrayList<>();
+
+        int headTitleChk = 0;
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            if (eventType == XmlPullParser.START_DOCUMENT) {
+                // XML 데이터 시작
+            } else if (eventType == XmlPullParser.START_TAG) {
+                String startTag = parser.getName();
+                if (startTag.equals("title") ) {
+                    mStep = STEP_TITLE;
+                } else if (startTag.equals("image")) {
+                    mStep = STEP_IMAGE;
+                    imgURLList.add(RS_URL + NO_IMAGE_URL);
+                } else if (startTag.equals("author")) {
+                    mStep = STEP_AUTHOR;
+                } else if (startTag.equals("publisher")) {
+                    mStep = STEP_PUBLISHER;
+                } else if(startTag.equals("pubdate")) {
+                    mStep = STEP_PUBDATE;
+                } else if(startTag.equals("isbn")) {
+                    mStep = STEP_ISBN;
+                }
+            } else if (eventType == XmlPullParser.END_TAG) {
+                String endTag = parser.getName();
+                if ((endTag.equals("item")))
+                {
+                    k++;
+                }
+                mStep = STEP_NONE;
+            } else if (eventType == XmlPullParser.TEXT) {
+                String parText = parser.getText();
+                if (mStep == STEP_TITLE) {
+                    if( headTitleChk != 0 ) { titleList.add(parText); }
+                    headTitleChk++;
+                } else if (mStep == STEP_IMAGE) {
+                    if(parText != null){
+                        imgURLList.set(k, parText);
+                    }
+                } else if (mStep == STEP_AUTHOR) {
+                    authorList.add(parText);
+                } else if (mStep == STEP_PUBLISHER) {
+                    publisherList.add(parText);
+                } else if (mStep == STEP_PUBDATE){
+                    pubdateList.add(parText);
+                } else if (mStep == STEP_ISBN){
+                    ISBNList.add(parText);
+                }
             }
-//            Log.d("searchBookNaverApi", "k: " + k);
-            if (pivot.equals("title")) {
-                bookItems[k].setTitle(value);
-            }
-            if (pivot.equals("image")) bookItems[k].setImageURL(value);
-            if (pivot.equals("author")) bookItems[k].setAuthor(value);
-            if (pivot.equals("publisher")) bookItems[k].setPublisher(value);
-            if (pivot.equals("pubdate")) { bookItems[k].setPubdate(value);
-                k++;
-            }
+
+            eventType = parser.next();
+        }
+        final int size = k;
+        SearchBookItem[] bookItems = new SearchBookItem[size];
+        for(int i=0; i<bookItems.length; i++ ) {
+            bookItems[i] = new SearchBookItem(
+                    titleList.get(i),
+                    imgURLList.get(i),
+                    authorList.get(i),
+                    publisherList.get(i),
+                    pubdateList.get(i),
+                    ISBNList.get(i)
+            );
         }
 
         return bookItems;
@@ -356,4 +463,59 @@ public class HttpManager {
             return response.body().string();
         }
     }
+
+//    public static SearchBookItem[] searchBookNaverApi(final String searchObject, final int display, final String sort) throws IOException {
+//        String text = URLEncoder.encode(searchObject, "UTF-8");
+//
+//        String apiURL = NAVER_BOOK_API_URL + text + "&display=" + display + "&" + "sort=" + sort; // json 결과
+//
+//        URL url = new URL(apiURL);
+//        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//        con.setRequestMethod("GET");
+//        con.setRequestProperty("X-Naver-Client-Id", NAVER_CLIENT_ID);
+//        con.setRequestProperty("X-Naver-Client-Secret", NAVER_CLIENT_SECRET);
+//        con.connect();
+//
+//        int responseCode = con.getResponseCode();
+//
+//        BufferedReader br;
+//        if(responseCode == 200) { // 정상 호출
+//            br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//
+//        } else {  // 에러 발생
+//            br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+//        }
+//
+//        StringBuilder searchResult = new StringBuilder();
+//        String inputLine;
+//        while ((inputLine = br.readLine()) != null) { searchResult.append(inputLine + "\n"); }
+//
+//        br.close();
+//        con.disconnect();
+//
+//        String data = searchResult.toString();
+//        String[] dataArr = data.split("\"");
+//        SearchBookItem[] bookItems = new SearchBookItem[display];
+//        for(int i=0; i<bookItems.length; i++ ) { bookItems[i] = new SearchBookItem(); }
+//        int k = 0;
+//        for (int i = 0; i < dataArr.length - 2; i++) {
+//            final String pivot = dataArr[i];
+//            final String value = dataArr[i + 2];
+//            if(pivot == null || value == null) {
+//                int a = 1;
+//            }
+////            Log.d("searchBookNaverApi", "k: " + k);
+//            if (pivot.equals("title")) {
+//                bookItems[k].setTitle(value);
+//            }
+//            if (pivot.equals("image")) bookItems[k].setImageURL(value);
+//            if (pivot.equals("author")) bookItems[k].setAuthor(value);
+//            if (pivot.equals("publisher")) bookItems[k].setPublisher(value);
+//            if (pivot.equals("pubdate")) { bookItems[k].setPubdate(value);
+//                k++;
+//            }
+//        }
+//
+//        return bookItems;
+//    }
 }

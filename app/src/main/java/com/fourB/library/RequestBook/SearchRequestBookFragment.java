@@ -1,80 +1,105 @@
-package com.fourB.library.SearchBook;
+package com.fourB.library.RequestBook;
 
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.fourB.library.R;
 import com.fourB.library.Util.HttpManager;
+import com.fourB.library.R;
+import com.fourB.library.SearchBook.SearchBookAdapter;
+import com.fourB.library.SearchBook.SearchBookItem;
 
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
-public class SearchBookActivity extends AppCompatActivity {
+public class SearchRequestBookFragment extends Fragment {
+
     private Spinner mCategorySpinner;
     private Spinner mSortSpinner;
     private EditText mEditTextSearch;
     private Button mBtnSearch;
-    private InputMethodManager mInputManager;
     private RecyclerView mRecyclerView;
-    private SearchBookAdapter mSearchBookAdapter;
+    private SearchRequestBookAdapter mSearchRequestBookAdapter;
+    private ViewGroup rootView;
+    private NestedScrollView mNewstedView;
+    private ProgressBar mLoadingProgress;
 
+    private int display = 10;
+
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_book);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        rootView = (ViewGroup) inflater.inflate(R.layout.activity_search_book, container, false);
 
         initView();
         initListener();
-        ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(this, R.array.search_book_sort, R.layout.item_basic_spinner);
+        ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()), R.array.search_book_sort, R.layout.item_basic_spinner);
         sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(this, R.array.search_book_category, R.layout.item_basic_spinner);
+        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()), R.array.search_book_category, R.layout.item_basic_spinner);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSortSpinner.setAdapter(sortAdapter);
         mCategorySpinner.setAdapter(categoryAdapter);
 
-        mInputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL,false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
-        mSearchBookAdapter = new SearchBookAdapter(getApplicationContext());
-        mRecyclerView.setAdapter(mSearchBookAdapter);
+        if(mNewstedView != null) {
+            mNewstedView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                        mLoadingProgress.setVisibility(View.VISIBLE);
+                        display++;
+                        Log.i("BOTTOM", "BOTTOM SCROLL");
+                        //여기에 데이터를 열개 더하는 걸 보여주자!
+                    }
+                }
+            });
+        }
+
+        mSearchRequestBookAdapter = new SearchRequestBookAdapter(getContext());
+        mRecyclerView.setAdapter(mSearchRequestBookAdapter);
+
+        return rootView;
     }
 
     private void initView() {
-        mSortSpinner = findViewById(R.id.spinner_search_book_sort);
-        mCategorySpinner = findViewById(R.id.spinner_search_book_category);
-        mEditTextSearch = findViewById(R.id.editText_search_book);
-        mBtnSearch = findViewById(R.id.btn_search_book);
-        mRecyclerView = findViewById(R.id.recyclerView_search_book);
+        mSortSpinner = (Spinner) rootView.findViewById(R.id.spinner_search_book_sort);
+        mCategorySpinner = (Spinner) rootView.findViewById(R.id.spinner_search_book_category);
+        mEditTextSearch = (EditText) rootView.findViewById(R.id.editText_search_book);
+        mBtnSearch = (Button) rootView.findViewById(R.id.btn_search_book);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView_search_book);
+        mNewstedView = (NestedScrollView) rootView.findViewById(R.id.scrollView_search_book);
+        mLoadingProgress = (ProgressBar) rootView.findViewById(R.id.loading_progress);
     }
 
     private void initListener() {
         mEditTextSearch.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    return true;
-                }
-                return false;
+                return (event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER);
             }
         });
 
@@ -93,7 +118,7 @@ public class SearchBookActivity extends AppCompatActivity {
                             case 0: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
                             case 1: curCategory = HttpManager.BOOK_CATEGORY_AUTOR; break;
                             case 2: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
-                            case 3: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                            case 3: curCategory = HttpManager.BOOK_CATEGORY_ISBN; break;
                             case 4: curCategory = HttpManager.BOOK_CATEGORY_PUBL; break;
                             default: break;
                         }
@@ -114,6 +139,10 @@ public class SearchBookActivity extends AppCompatActivity {
 
                 final String searchSort = curSort;
                 final String searchCategory = curCategory;
+
+                mSearchRequestBookAdapter.clear();
+                mSearchRequestBookAdapter.notifyDataSetChanged();
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -121,7 +150,7 @@ public class SearchBookActivity extends AppCompatActivity {
 //                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
 //                                    10, searchSort));
                             recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                                    10, searchCategory, searchSort));
+                                    display, searchCategory, searchSort));
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (XmlPullParserException e) {
@@ -133,49 +162,16 @@ public class SearchBookActivity extends AppCompatActivity {
         });
     }
 
-    public void recycleViewDataSetting(SearchBookItem[] data){
-        ArrayList<SearchBookItem> dataArrList = new ArrayList<>();
-        dataArrList.addAll(Arrays.asList(data));
-        mSearchBookAdapter.addItems(dataArrList);
+    private void recycleViewDataSetting(SearchBookItem[] data){
+        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
+        mSearchRequestBookAdapter.addItems(dataArrList);
 
-        runOnUiThread(new Runnable() {
+        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mSearchBookAdapter.notifyDataSetChanged();
+                mSearchRequestBookAdapter.notifyDataSetChanged();
             }
         });
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            View v = getCurrentFocus();
-            if (mEditTextSearch.isFocused()) {
-                Rect outRect = new Rect();
-                mEditTextSearch.getGlobalVisibleRect(outRect);
-                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
-                    mEditTextSearch.clearFocus();
-                    assert v != null;
-                    mInputManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                }
-            }
-        }
-        return super.dispatchTouchEvent(event);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 }

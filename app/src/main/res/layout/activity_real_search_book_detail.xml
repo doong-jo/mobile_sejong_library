@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="2dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView_detail_book"
+                android:src="@drawable/book_example"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                style="@style/Image.SearchBook"/>
+
+            <GridLayout
+                android:id="@+id/gridLayout_detail_book"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:columnCount="2">
+                <TextView android:text="자료유형"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_type"
+                    android:text="카테코리값"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="제목"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_title"
+                    android:text="제목값"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="출판사"
+                    style="@style/Text.SearchBookDetailCategory"/>
+
+                <TextView
+                    android:id="@+id/textView_detail_book_publish"
+                    android:text="출판사값"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="저자"
+                    style="@style/Text.SearchBookDetailCategory"/>
+
+                <TextView
+                    android:id="@+id/textView_detail_book_author"
+                    android:text="신영준, 고영성"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="소장위치"
+                    style="@style/Text.SearchBookDetailCategory"/>
+                <TextView
+                    android:id="@+id/textView_detail_book_location"
+                    android:text="서울: 로크미디어, 2018"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="청구기호"
+                    style="@style/Text.SearchBookDetailCategory"/>
+
+                <TextView android:text="811.3 현79운ㄷ"
+                    android:id="@+id/textView_detail_book_location_num"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+                <TextView android:text="대출상태"
+                    style="@style/Text.SearchBookDetailCategory"/>
+
+                <TextView android:text="대출값"
+                    android:id="@+id/textView_detail_book_status"
+                    style="@style/Text.SearchBookDetailContent"/>
+
+
+            </GridLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

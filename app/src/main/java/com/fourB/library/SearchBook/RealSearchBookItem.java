@@ -1,8 +1,10 @@
 package com.fourB.library.SearchBook;
 
-public class SearchBookRealItem {
+public class RealSearchBookItem {
     private String mId;
     private String mTitle;
+
+    private String mCategory;
     private String mAuthor;
     private String mPublisher;
     private String mPubdate;
@@ -10,18 +12,38 @@ public class SearchBookRealItem {
     private String mLocationNum;
     private String mImgURL;
 
-    public SearchBookRealItem() {
+    private String mStatus;
+
+    public RealSearchBookItem() {
 
     }
 
-    public SearchBookRealItem(String mId, String mTitle, String mAuthor, String mPublisher, String mPubdate, String mLocation, String mLocationNum) {
+    public RealSearchBookItem(String mId, String mStatus, String mCategory, String mTitle, String mAuthor, String mPublisher, String mPubdate, String mLocation, String mLocationNum) {
         this.mId = mId;
+        this.mStatus = mStatus;
         this.mTitle = mTitle;
+        this.mCategory = mCategory;
         this.mAuthor = mAuthor;
         this.mPublisher = mPublisher;
         this.mPubdate = mPubdate;
         this.mLocation = mLocation;
         this.mLocationNum = mLocationNum;
+    }
+
+    public String getmStatus() {
+        return mStatus;
+    }
+
+    public void setmStatus(String mStatus) {
+        this.mStatus = mStatus;
+    }
+
+    public String getmCategory() {
+        return mCategory;
+    }
+
+    public void setmCategory(String mCategory) {
+        this.mCategory = mCategory;
     }
 
     public String getmImgURL() {

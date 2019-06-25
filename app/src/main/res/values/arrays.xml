@@ -7,14 +7,16 @@
     </string-array>
 
     <string-array name="search_book_category">
-        <item>자료명</item>
+        <item>책제목</item>
         <item>저자</item>
+        <item>목차</item>
+        <item>ISBN</item>
         <item>출판사</item>
     </string-array>
 
     <string-array name="search_book_sort">
         <item>유사도순</item>
-        <item>출간일</item>
+        <item>출간일순</item>
         <item>판매량순</item>
     </string-array>
 
@@ -32,5 +34,13 @@
         <item>음식물</item>
         <item>노트북</item>
         <item>기타</item>
+    </string-array>
+
+    <string-array name="book_kinds">
+        <item>학위 논문</item>
+        <item>국내서</item>
+        <item>비도서</item>
+        <item>동양서</item>
+        <item>서양서</item>
     </string-array>
 </resources>

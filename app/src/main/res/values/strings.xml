@@ -59,6 +59,7 @@
     <string name="menu_mobile">모바일이용증</string>
     <string name="menu_barcord">바코드 검색</string>
     <string name="menu_search_book">도서 검색</string>
+    <string name="menu_request_book">희망 도서</string>
     <string name="menu_usage">이용안내</string>
     <string name="menu_declare">간편신고</string>
     <string name="menu_chatbot">동천이와의 대화방</string>
@@ -82,6 +83,8 @@
     <string name="search_book_search">검색</string>
     <string name="search_book_lend_true">대출가능</string>
     <string name="search_book_lend_false">대출불가</string>
+
+    <string name="real_search_book_text">자료검색</string>
 
     <!--ReadingRoom-->
     <string name="reading_room_A">A 열람실</string>
@@ -163,6 +166,18 @@
     <string name="barcode_bookBarcode_01">9788970503417</string>
     <string name="barcode_bookBarcode_02">9788994492032</string>
 
+    <!--Request Book-->
+    <string name="self_request_book_kinds">도서 구분</string>
+    <string name="self_request_book_name">자료명</string>
+    <string name="self_request_book_Author">저자</string>
+    <string name="self_request_book_company">출판사</string>
+    <string name="self_request_book_publishYear">출판연도</string>
+    <string name="self_request_book_ISBN">ISBN</string>
+    <string name="self_request_guide_line">- 학술정보원 소장자료 중 원하는 자료가 없을 경우, 이용자가 직접 원하는 자료를 신청할 수 있는 서비스입니다. \n- 신청한도는 1회 3책, 연간 10책(30만원)이내입니다. (예산삭감으로 한시적 조치) \n- 신청한 도서는 보통 국내서는 2-3주, 국외서는 4-5주 정도 소요되며, 출판상황에 따라 입수일에 차이가 있을 수 있습니다. \n - 신청된 도서 중 대학 도서관 소장자료로 부적합하다고 판단되는 도서는 아래와 같은 경우 신청이 취소됩니다. \n - 기 소장도서(복본) : 학술정보원에 이미 있는 자료를 신청한 경우 \n - 만화류 : 만화애니메이션학과에서 필요한 경우 외의 교양만화류, 카툰 류 등 \n - 문제집류(기출문제집, 모의고사, 워크북 등) 및 최신성이 떨어지는 자료(인쇄연도가 5년 이상 지난 자료) \n - 소장 형태 부적합 도서 : 8절 이상의 도서형태, 문고판(포켓용도서), 제본형태 도서(바인더, 스프링) 등 \n - 서지사항 부정확 : 구입에 필요한 기본적인 정보를 기입하지 않았거나 잘못된 정보기입, 또는 국제표준도서번호(ISBN)로 확인이 어려운 경우 \n - 아동/청소년 도서 : 학술적인 목적이 확인되지 않은 아동용, 청소년용 수준의 도서 및 중고등용 학습도서 \n - 소장 주체 부적합 도서 : 사이비 종교서적, 외설물, 무협지, 판타지 소설, 인터넷 소설, 성인 소설 등 \n - 기타 대학도서관 장서로써 부적절하다고 학술전산처장이 판단하는 경우</string>
+    <string name="self_request_button">희망 도서 신청</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
