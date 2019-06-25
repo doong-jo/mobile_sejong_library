@@ -68,4 +68,6 @@ public class SearchBookItem {
     public void setIsbn(int mIsbn) {
         this.mIsbn = mIsbn;
     }
+
+
 }

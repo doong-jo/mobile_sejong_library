@@ -1,7 +1,15 @@
 package com.fourB.library.RequestBook;
 
+import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +24,8 @@ public class RequestBookActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_book);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("검색 신청"));
@@ -43,6 +53,8 @@ public class RequestBookActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     @Override
