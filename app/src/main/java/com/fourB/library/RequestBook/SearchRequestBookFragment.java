@@ -1,73 +1,73 @@
-package com.fourB.library.SearchBook;
+package com.fourB.library.RequestBook;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.fourB.library.R;
 import com.fourB.library.Util.HttpManager;
+import com.fourB.library.R;
+import com.fourB.library.SearchBook.SearchBookAdapter;
+import com.fourB.library.SearchBook.SearchBookItem;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
-public class SearchBookActivity extends AppCompatActivity {
+public class SearchRequestBookFragment extends Fragment {
+
     private Spinner mSortSpinner;
     private EditText mEditTextSearch;
     private Button mBtnSearch;
-    private InputMethodManager mInputManager;
     private RecyclerView mRecyclerView;
     private SearchBookAdapter mSearchBookAdapter;
+    private ViewGroup rootView;
 
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_book);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        rootView = (ViewGroup) inflater.inflate(R.layout.activity_search_book, container, false);
 
         initView();
         initListener();
-        ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(this, R.array.search_book_sort, R.layout.item_basic_spinner);
+        ArrayAdapter<CharSequence> sortAdapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()), R.array.search_book_sort, R.layout.item_basic_spinner);
         sortAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSortSpinner.setAdapter(sortAdapter);
 
-        mInputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL,false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
-        mSearchBookAdapter = new SearchBookAdapter(getApplicationContext());
+        mSearchBookAdapter = new SearchBookAdapter(getContext());
         mRecyclerView.setAdapter(mSearchBookAdapter);
+
+        return rootView;
     }
 
     private void initView() {
-        mSortSpinner = findViewById(R.id.spinner_search_book_sort);
-        mEditTextSearch = findViewById(R.id.editText_search_book);
-        mBtnSearch = findViewById(R.id.btn_search_book);
-        mRecyclerView = findViewById(R.id.recyclerView_search_book);
+        mSortSpinner = (Spinner) rootView.findViewById(R.id.spinner_search_book_sort);
+        mEditTextSearch = (EditText) rootView.findViewById(R.id.editText_search_book);
+        mBtnSearch = (Button) rootView.findViewById(R.id.btn_search_book);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView_search_book);
     }
 
     private void initListener() {
         mEditTextSearch.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    return true;
-                }
-                return false;
+                return (event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER);
             }
         });
 
@@ -103,12 +103,11 @@ public class SearchBookActivity extends AppCompatActivity {
         });
     }
 
-    public void recycleViewDataSetting(SearchBookItem[] data){
-        ArrayList<SearchBookItem> dataArrList = new ArrayList<>();
-        dataArrList.addAll(Arrays.asList(data));
+    private void recycleViewDataSetting(SearchBookItem[] data){
+        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
         mSearchBookAdapter.addItems(dataArrList);
 
-        runOnUiThread(new Runnable() {
+        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 mSearchBookAdapter.notifyDataSetChanged();
@@ -116,36 +115,4 @@ public class SearchBookActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            View v = getCurrentFocus();
-            if (mEditTextSearch.isFocused()) {
-                Rect outRect = new Rect();
-                mEditTextSearch.getGlobalVisibleRect(outRect);
-                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
-                    mEditTextSearch.clearFocus();
-                    assert v != null;
-                    mInputManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                }
-            }
-        }
-        return super.dispatchTouchEvent(event);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 }

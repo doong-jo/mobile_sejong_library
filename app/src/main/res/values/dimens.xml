@@ -94,4 +94,7 @@
     <dimen name="guide_all_bar_height">2dp</dimen>
     <dimen name="guide_text_index_widht">50dp</dimen>
 
+    <!--Requst Book-->
+    <dimen name="self_request_layout_height">44dp</dimen>
+
 </resources>
