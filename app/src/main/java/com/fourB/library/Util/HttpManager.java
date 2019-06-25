@@ -314,10 +314,10 @@ public class HttpManager {
         }
     }
 
-    public static SearchBookItem[] searchBookNaverXMLApi(final String searchObject, final int display, final String category, final String sort) throws IOException, XmlPullParserException {
+    public static SearchBookItem[] searchBookNaverXMLApi(final String searchObject, final int display, final String category, final String sort, final int start) throws IOException, XmlPullParserException {
         String text = URLEncoder.encode(searchObject, "UTF-8");
 
-        String apiURL = NAVER_BOOK_DETAIL_API_URL + text + "&display=" + display + "&sort=" + sort + "&start=1" + "&" + category + "=" + text; // xml 결과
+        String apiURL = NAVER_BOOK_DETAIL_API_URL + text + "&display=" + display + "&sort=" + sort + "&start="+ start + "&" + category + "=" + text; // xml 결과
         URL url = new URL(apiURL);
 
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -380,6 +380,7 @@ public class HttpManager {
                     mStep = STEP_PUBDATE;
                 } else if(startTag.equals("isbn")) {
                     mStep = STEP_ISBN;
+                    ISBNList.add("");
                 }
             } else if (eventType == XmlPullParser.END_TAG) {
                 String endTag = parser.getName();
@@ -404,7 +405,7 @@ public class HttpManager {
                 } else if (mStep == STEP_PUBDATE){
                     pubdateList.add(parText);
                 } else if (mStep == STEP_ISBN){
-                    ISBNList.add(parText);
+                    ISBNList.set(k,parText);
                 }
             }
 

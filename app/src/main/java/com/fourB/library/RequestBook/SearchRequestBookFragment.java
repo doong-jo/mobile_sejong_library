@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +21,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourB.library.Util.HttpManager;
 import com.fourB.library.R;
-import com.fourB.library.SearchBook.SearchBookAdapter;
 import com.fourB.library.SearchBook.SearchBookItem;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -44,7 +42,14 @@ public class SearchRequestBookFragment extends Fragment {
     private NestedScrollView mNewstedView;
     private ProgressBar mLoadingProgress;
 
-    private int display = 10;
+    private int mStartNum = 1;
+    final static private int DISPLAY_NUM = 10;
+
+    private int mCurBookArraySize = 0;
+
+    private String searchSort;
+    private String searchCategory;
+
 
 
     @Nullable
@@ -70,10 +75,14 @@ public class SearchRequestBookFragment extends Fragment {
                 @Override
                 public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
-                        mLoadingProgress.setVisibility(View.VISIBLE);
-                        display++;
-                        Log.i("BOTTOM", "BOTTOM SCROLL");
-                        //여기에 데이터를 열개 더하는 걸 보여주자!
+                        if(mCurBookArraySize < DISPLAY_NUM) {
+                            mLoadingProgress.setVisibility(View.INVISIBLE);
+                        } else if (mCurBookArraySize == DISPLAY_NUM){
+                            mStartNum = mStartNum + DISPLAY_NUM;
+                            mLoadingProgress.setVisibility(View.VISIBLE);
+                            recylcleThread();
+                        }
+
                     }
                 }
             });
@@ -81,6 +90,8 @@ public class SearchRequestBookFragment extends Fragment {
 
         mSearchRequestBookAdapter = new SearchRequestBookAdapter(getContext());
         mRecyclerView.setAdapter(mSearchRequestBookAdapter);
+
+
 
         return rootView;
     }
@@ -137,32 +148,33 @@ public class SearchRequestBookFragment extends Fragment {
                     }
                 }
 
-                final String searchSort = curSort;
-                final String searchCategory = curCategory;
+                searchSort = curSort;
+                searchCategory = curCategory;
 
                 mSearchRequestBookAdapter.clear();
                 mSearchRequestBookAdapter.notifyDataSetChanged();
+                mLoadingProgress.setVisibility(View.INVISIBLE);
+                mStartNum = 1;
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-//                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
-//                                    10, searchSort));
-                            recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                                    display, searchCategory, searchSort));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (XmlPullParserException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+                recylcleThread();
             }
         });
     }
 
     private void recycleViewDataSetting(SearchBookItem[] data){
+        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
+        mSearchRequestBookAdapter.addItems(dataArrList);
+        mCurBookArraySize = dataArrList.size();
+
+        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mSearchRequestBookAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void recycleViewDataAdding(SearchBookItem[] data){
         ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
         mSearchRequestBookAdapter.addItems(dataArrList);
 
@@ -172,6 +184,22 @@ public class SearchRequestBookFragment extends Fragment {
                 mSearchRequestBookAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    private void recylcleThread(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
+                            DISPLAY_NUM, searchCategory, searchSort, mStartNum));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
 }
