@@ -39,6 +39,7 @@ import com.fourB.library.GuideAll.GuideActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.RequestBook.RequestBookActivity;
+import com.fourB.library.SearchBook.RealSearchBookActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 import com.fourB.library.Util.HttpManager;
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity
         searchBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SearchBookActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RealSearchBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -251,17 +252,6 @@ public class MainActivity extends AppCompatActivity
 
             getIntent().putExtra("title", "");
         }
-
-        new Thread() {
-            public void run() {
-                try {
-                    HttpManager.searchBookDetailRealServer("394460");
-//                    HttpManager.searchBookRealServer("이순신", 1, 1, 5);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
     }
 
     @Override

@@ -2,11 +2,10 @@ package com.fourB.library.Util;
 
 
 import com.fourB.library.SearchBook.SearchBookItem;
-import com.fourB.library.SearchBook.SearchBookRealItem;
+import com.fourB.library.SearchBook.RealSearchBookItem;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
@@ -45,9 +44,9 @@ public class HttpManager {
 
     private static  OkHttpClient client = new OkHttpClient();
 
-    public static SearchBookRealItem searchBookDetailRealServer(final String id) throws IOException {
+    public static RealSearchBookItem searchBookDetailRealServer(final String id) throws IOException {
         //////////////////////////////////////// Detail List ////////////////////////////////////////
-        SearchBookRealItem item = new SearchBookRealItem();
+        RealSearchBookItem item = new RealSearchBookItem();
 
         StringBuilder URLbuilder = new StringBuilder(RS_BOOK_SEARCH_DETAIL_URL);
         URLbuilder.append("cid=").append(id);
@@ -80,16 +79,19 @@ public class HttpManager {
         List<String> listImgURL = elements.eachAttr("src");
         int a = 1;
         for (int i = 0; i < listImgURL.size(); i++) {
-            listImgURL.set(i, RS_URL + listImgURL.get(i).split("\\.\\./")[1]);
+            if( listImgURL.get(i).split("\\.\\./").length == 1 ) {
+                continue;
+            } else {
+                listImgURL.set(i, RS_URL + listImgURL.get(i).split("\\.\\./")[1]);
+            }
+
         }
 
         // Title
-        //.borrow_d > h2
         elements = doc.select(".borrow_d > h2");
         List<String> listTitle = elements.eachText();
 
         // Author
-        //.borrow_d > h3
         elements = doc.select(".borrow_d > h3");
         List<String> listAuthor = elements.eachText();
         for (int i = 0; i < listAuthor.size(); i++) {
@@ -153,12 +155,19 @@ public class HttpManager {
         br.close();
         con.disconnect();
 
+        item.setmImgURL(listImgURL.get(0));
+        item.setmCategory(listCategory.get(0));
+        item.setmAuthor(listAuthor.get(0));
+        item.setmTitle(listTitle.get(0));
+        item.setmLocation(listLocation.get(0));
+        item.setmLocationNum(listNumber.get(0));
+        item.setmStatus(listStatus.get(0));
+        item.setmPublisher(listPublisher.get(0));
+
         return item;
     }
 
-    public static SearchBookRealItem[] searchBookRealServer(final String searchObject, final int category, final int page, final int pageSize) throws IOException {
-        SearchBookRealItem[] searchBookRealItems = new SearchBookRealItem[pageSize];
-
+    public static RealSearchBookItem[] searchBookRealServer(final String searchObject, final int category, final int page, final int pageSize) throws IOException {
         final String searchStr = URLEncoder.encode(searchObject, "UTF-8");
 
         StringBuilder URLbuilder = new StringBuilder(RS_BOOK_SEARCH_URL);
@@ -195,6 +204,9 @@ public class HttpManager {
         for (int i = 0; i < listId.size(); i++) {
             listId.set(i, listId.get(i).split("cid=")[1]);
         }
+
+        final int dataSize = listId.size();
+        RealSearchBookItem[] realSearchBookRealItems = new RealSearchBookItem[dataSize];
 
         // Category
         elements = doc.select(".padding_btn_searchClass");
@@ -249,9 +261,21 @@ public class HttpManager {
         br.close();
         con.disconnect();
 
-        for (int i = 0; i < pageSize; i++) {
-            searchBookRealItems[i] = new SearchBookRealItem(
+        addNullItemIntoListFromLength(listId, dataSize);
+        addNullItemIntoListFromLength(listStatus, dataSize);
+        addNullItemIntoListFromLength(listCategory, dataSize);
+        addNullItemIntoListFromLength(listTitle, dataSize);
+        addNullItemIntoListFromLength(listAuthor, dataSize);
+        addNullItemIntoListFromLength(listPublisher, dataSize);
+        addNullItemIntoListFromLength(listPublishDate, dataSize);
+        addNullItemIntoListFromLength(listLocation, dataSize);
+        addNullItemIntoListFromLength(listLocationNum, dataSize);
+
+        for (int i = 0; i < dataSize; i++) {
+            realSearchBookRealItems[i] = new RealSearchBookItem(
                     listId.get(i),
+                    listStatus.get(i),
+                    listCategory.get(i),
                     listTitle.get(i),
                     listAuthor.get(i),
                     listPublisher.get(i),
@@ -261,7 +285,13 @@ public class HttpManager {
             );
         }
 
-        return searchBookRealItems;
+        return realSearchBookRealItems;
+    }
+
+    private static void addNullItemIntoListFromLength(List<String> list, int size) {
+        if( list.size() != size ) {
+            list.add("");
+        }
     }
 
     public static SearchBookItem[] searchBookNaverApi(final String searchObject, final int display, final String sort) throws IOException {

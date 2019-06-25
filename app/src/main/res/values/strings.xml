@@ -84,6 +84,8 @@
     <string name="search_book_lend_true">대출가능</string>
     <string name="search_book_lend_false">대출불가</string>
 
+    <string name="real_search_book_text">자료검색</string>
+
     <!--ReadingRoom-->
     <string name="reading_room_A">A 열람실</string>
     <string name="reading_room_B">B 열람실</string>
