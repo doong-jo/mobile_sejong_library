@@ -65,6 +65,7 @@
     <string name="menu_study_room_reserve">예약조회</string>
     <string name="menu_search_book_detail">도서 상세</string>
 
+
     <!--Login-->
     <string name="login_bottom">학술정보원 모바일 앱</string>
     <string name="login_pw">비밀번호</string>

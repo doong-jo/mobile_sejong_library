@@ -9,7 +9,11 @@ import android.os.Bundle;;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,6 +24,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.fourB.library.Anouncement.AnoucementDetailActivity;
+import com.fourB.library.Anouncement.AnouncementItem;
+import com.fourB.library.Anouncement.AnouncementItemView;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
 import com.fourB.library.Anouncement.AnouncementActivity;
@@ -42,6 +49,7 @@ import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import ss.com.bannerslider.ImageLoadingService;
 import ss.com.bannerslider.Slider;
@@ -51,6 +59,11 @@ import ss.com.bannerslider.viewholder.ImageSlideViewHolder;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private AnouncementAdapter mAdapter;
+    private ListView mlistview;
+    private ArrayList<AnouncementItem> mitems;
+
 
     CardView mEbookView;
     CardView mAnouncementView;
@@ -66,6 +79,32 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        AllFindViewById();
+
+        mAdapter.addItem(new AnouncementItem("하계방학 중 학술정보원 이용안내", "2019-06-19", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=924"));
+        mAdapter.addItem(new AnouncementItem("2019년 1학기 학위논문 제출안내", "2019-06-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=923"));
+        mAdapter.addItem(new AnouncementItem("학술정보원 전층 대청소 일정공지", "2019-06-18", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=922"));
+        mAdapter.addItem(new AnouncementItem("[공모전] RISS 영상 · 카드뉴스 공모전 안내", "2019-05-13", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=921"));
+        mAdapter.addItem(new AnouncementItem("전세계 신문 & 매거진 PressReader 2019 퀴즈 이벤트 안내", "2019-05-09", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=920"));
+        mAdapter.addItem(new AnouncementItem("KSDC DB(통계정보 조사/분석 시스템) 및 ICPSR DB 이용 교육 안내", "2019-05-09", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=919"));
+        mAdapter.addItem(new AnouncementItem("제44회 독서경시대회 장소안내", "2019-04-25", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=918"));
+        mAdapter.addItem(new AnouncementItem("학술정보원 휴원 안내(5월)", "2019-04-23", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=917"));
+        mAdapter.addItem(new AnouncementItem("국내학회지 DBpia 서비스 일시 중지 안내 4.21(일)", "2019-04-16", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=916"));
+        mAdapter.addItem(new AnouncementItem("중간고사 기간중 자유열람실 이용방법 변경안내", "2019-04-12", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=915"));
+        mAdapter.addItem(new AnouncementItem("제44회 독서경시대회 개최", "2019-04-05", "http://library.sejong.ac.kr/bbs/Detail.ax?bbsID=1&articleID=914"));
+
+        mlistview.setAdapter(mAdapter);
+
+        mlistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), AnoucementDetailActivity.class);
+                AnouncementItem item = (AnouncementItem) mAdapter.getItem(position);
+                intent.putExtra("Url", item.getAnouncement_Detail_Url());
+                startActivity(intent);
+            }
+        });
 
         initView();
 
@@ -351,4 +390,52 @@ public class MainActivity extends AppCompatActivity
             Picasso.get().load(url).placeholder(placeHolder).error(errorDrawable).into(imageView);
         }
     }
+
+    private void AllFindViewById(){
+
+        mlistview = findViewById(R.id.listView);
+        mAdapter = new AnouncementAdapter();
+        mitems = mAdapter.getItems();
+    }
+
+    class AnouncementAdapter extends BaseAdapter {
+
+        ArrayList<AnouncementItem> items = new ArrayList<AnouncementItem>();
+
+        public ArrayList<AnouncementItem> getItems() {
+            return items;
+        }
+
+        @Override
+        public int getCount() {
+            return items.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return items.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        public void addItem(AnouncementItem item){
+            items.add(item);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            AnouncementItemView view = new AnouncementItemView(getApplicationContext());
+
+            AnouncementItem item = items.get(position);
+            view.setmAnouncement_Title(item.getAnouncement_Title());
+            view.setmAnouncement_Update_Date(item.getAnouncement_Update_Date());
+
+            return view;
+        }
+    }
+
 }
