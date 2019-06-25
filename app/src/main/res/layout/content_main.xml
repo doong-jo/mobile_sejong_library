@@ -185,14 +185,14 @@
                     app:layout_flexBasisPercent="30%">
                     <ImageView
                         style="@style/Image.Main"
-                        android:src="@drawable/ic_research" />
+                        android:src="@drawable/ic_menu_request" />
 
                     <TextView
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/Text.Menu"
-                        android:text="@string/menu_search_book"/>
+                        android:text="@string/menu_request_book"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView

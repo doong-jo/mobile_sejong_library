@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/normal_padding"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:text="@string/self_request_book_kinds"
+                style="@style/Text.RequestBookTextView" />
+
+            <Spinner
+                android:id="@+id/book_kinds_spinner"
+                style="@style/Spinner.RequestBookSearch"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="@string/self_request_book_name"
+                    style="@style/Text.RequestBookTextView" />
+
+                <TextView
+                    android:text="@string/self_request_book_Author"
+                    style="@style/Text.RequestBookTextView" />
+
+                <TextView
+                    android:text="@string/self_request_book_company"
+                    style="@style/Text.RequestBookTextView" />
+
+                <TextView
+                    android:text="@string/self_request_book_publishYear"
+                    style="@style/Text.RequestBookTextView" />
+
+                <TextView
+                    android:text="@string/self_request_book_ISBN"
+                    style="@style/Text.RequestBookTextView" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    style="@style/EditText.RequestBook" />
+
+                <EditText
+                    style="@style/EditText.RequestBook"/>
+
+                <EditText
+                    style="@style/EditText.RequestBook"/>
+
+                <EditText
+                    style="@style/EditText.RequestBook"/>
+
+                <EditText
+                    style="@style/EditText.RequestBook"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:breakStrategy="simple"
+                android:padding="@dimen/large_padding"
+                android:text="@string/self_request_guide_line"
+                android:textAlignment="textStart" 
+                app:lineHeight="30dp" />
+        </ScrollView>
+
+        <Button
+            android:id="@+id/self_book_request_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/self_request_button"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_font_size"
+            android:textStyle="bold"
+            android:background="@color/colorPrimary" />
+
+    </LinearLayout>
+</RelativeLayout>

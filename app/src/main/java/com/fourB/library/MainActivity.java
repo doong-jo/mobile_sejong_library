@@ -31,6 +31,7 @@ import com.fourB.library.Ebook.EbookActivity;
 import com.fourB.library.GuideAll.GuideActivity;
 import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
+import com.fourB.library.RequestBook.RequestBookActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
 import com.fourB.library.Widgets.MovableFloatingActionButton;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         searchBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SearchBookActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RequestBookActivity.class);
                 startActivity(intent);
             }
         });
