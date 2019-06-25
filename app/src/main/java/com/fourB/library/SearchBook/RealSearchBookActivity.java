@@ -14,11 +14,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,6 +42,13 @@ public class RealSearchBookActivity extends AppCompatActivity {
     private ArrayList<RealSearchBookItem> mDataArrList = new ArrayList<>();
     private CardView[] mCategoryCardViews;
     private boolean[] mIsSelectedCategory;
+    private NestedScrollView mNestedView;
+    private ProgressBar mLoadingProgress;
+
+
+    private int mStartPageNum = 1;
+    private int PAGE_NUM = 10;
+    private int mCurBookArraySize = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +70,24 @@ public class RealSearchBookActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(layoutManager);
         mSearchBookAdapter = new RealSearchBookAdapter(getApplicationContext());
         mRecyclerView.setAdapter(mSearchBookAdapter);
+
+        if(mNestedView != null) {
+            mNestedView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                        if(mCurBookArraySize < PAGE_NUM) {
+                            mLoadingProgress.setVisibility(View.INVISIBLE);
+                        } else if (mCurBookArraySize == PAGE_NUM){
+                            mStartPageNum = mStartPageNum + PAGE_NUM;
+                            mLoadingProgress.setVisibility(View.VISIBLE);
+                            recycleThread();
+                        }
+
+                    }
+                }
+            });
+        }
 
         final String getChatBotAny = getIntent().getStringExtra("text");
         if( getChatBotAny != null && !getChatBotAny.equals("")) {
@@ -142,6 +169,9 @@ public class RealSearchBookActivity extends AppCompatActivity {
         mEditTextSearch = findViewById(R.id.editText_search_book);
         mBtnSearch = findViewById(R.id.btn_search_book);
         mRecyclerView = findViewById(R.id.recyclerView_search_book);
+        mNestedView = (NestedScrollView)findViewById(R.id.scrollView_search_book);
+        mLoadingProgress = (ProgressBar)findViewById(R.id.loading_progress);
+
 
         mCategoryCardViews = new CardView[] {
                 findViewById(R.id.search_category_all),
@@ -184,6 +214,7 @@ public class RealSearchBookActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    mStartPageNum = 1;
                     dataSetStart();
                     return true;
                 }
@@ -194,6 +225,7 @@ public class RealSearchBookActivity extends AppCompatActivity {
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mStartPageNum = 1;
                 dataSetStart();
             }
         });
@@ -212,30 +244,17 @@ public class RealSearchBookActivity extends AppCompatActivity {
         mDataArrList.clear();
         mSearchBookAdapter.clear();
         mSearchBookAdapter.notifyDataSetChanged();
+        recycleThread();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    for (int i = 0; i < mIsSelectedCategory.length; i++) {
-                        if( mIsSelectedCategory[i] && i == 0 ) {
-                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
-                                    i + 1, 1, 10));
-                        } else if( mIsSelectedCategory[i] ) {
-                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
-                                    i + 1, 1, 10));
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
     }
 
     private void recycleViewDataSetting(RealSearchBookItem[] data){
-        mDataArrList.addAll(Arrays.asList(data));
-        mSearchBookAdapter.addItems(mDataArrList);
+
+        ArrayList<RealSearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
+//        mDataArrList.addAll(Arrays.asList(data));
+        mSearchBookAdapter.addItems(dataArrList);
+
+        mCurBookArraySize = dataArrList.size();
 
         runOnUiThread(new Runnable() {
             @Override
@@ -276,5 +295,27 @@ public class RealSearchBookActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    private void recycleThread(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (int i = 0; i < mIsSelectedCategory.length; i++) {
+                        if( mIsSelectedCategory[i] && i == 0 ) {
+                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
+                                    i + 1, mStartPageNum, PAGE_NUM));
+                            break;
+                        } else if( mIsSelectedCategory[i] ) {
+                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
+                                    i + 1, mStartPageNum, PAGE_NUM));
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }
