@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/search_book_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/elevation"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/search_book_img"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_margin="5dp"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/search_book_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="제목"
+                                style="@style/Text.SearchBookItemTitle"/>
+
+                            <TextView
+                                android:id="@+id/search_book_author"
+                                style="@style/Text.SearchBookItemRest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:singleLine="true"
+                                android:text="저자" />
+
+                            <TextView
+                                android:id="@+id/search_book_publisher"
+                                style="@style/Text.SearchBookItemRest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:singleLine="true"
+                                android:text="출판사" />
+
+                            <TextView
+                                android:id="@+id/search_book_publish_date"
+                                style="@style/Text.SearchBookItemRest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:singleLine="true"
+                                android:text="년도" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/request_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimary"
+                            android:text="신청"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>

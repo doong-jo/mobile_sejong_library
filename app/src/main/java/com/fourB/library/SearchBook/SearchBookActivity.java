@@ -121,7 +121,7 @@ public class SearchBookActivity extends AppCompatActivity {
 //                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
 //                                    10, searchSort));
                             recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                                    10, searchCategory));
+                                    10, searchCategory, searchSort,1));
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (XmlPullParserException e) {

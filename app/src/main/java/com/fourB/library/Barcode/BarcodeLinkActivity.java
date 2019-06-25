@@ -37,7 +37,7 @@ public class BarcodeLinkActivity extends AppCompatActivity {
 
         if(mBarcodeScarNumber.equals(getString(R.string.barcode_bookBarcode_01))) {
             mBookImage = (ImageView) findViewById(R.id.barcode_bookImage);
-            mBookImage.setImageResource(R.drawable.barcode_book);
+            mBookImage.setImageResource(R.drawable.barcode_book_03);
 
             mBookTitle = (TextView) findViewById(R.id.barcode_bookTitle);
             mBookTitle.setText(R.string.barcode_bookTitle_01);
@@ -47,7 +47,7 @@ public class BarcodeLinkActivity extends AppCompatActivity {
 
         }else if(mBarcodeScarNumber.equals(getString(R.string.barcode_bookBarcode_02))){
             mBookImage = (ImageView) findViewById(R.id.barcode_bookImage);
-            mBookImage.setImageResource(R.drawable.barcode_book_02);
+            mBookImage.setImageResource(R.drawable.barcode_book_04);
 
             mBookTitle = (TextView) findViewById(R.id.barcode_bookTitle);
             mBookTitle.setText(R.string.barcode_bookTitle_02);

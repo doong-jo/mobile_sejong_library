@@ -1,24 +1,30 @@
 package com.fourB.library.RequestBook;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourB.library.Util.HttpManager;
 import com.fourB.library.R;
-import com.fourB.library.SearchBook.SearchBookAdapter;
 import com.fourB.library.SearchBook.SearchBookItem;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -35,8 +41,19 @@ public class SearchRequestBookFragment extends Fragment {
     private EditText mEditTextSearch;
     private Button mBtnSearch;
     private RecyclerView mRecyclerView;
-    private SearchBookAdapter mSearchBookAdapter;
+    private SearchRequestBookAdapter mSearchRequestBookAdapter;
     private ViewGroup rootView;
+    private NestedScrollView mNewstedView;
+    private ProgressBar mLoadingProgress;
+
+    private int mStartNum = 1;
+    final static private int DISPLAY_NUM = 10;
+
+    private int mCurBookArraySize = 0;
+
+    private String searchSort;
+    private String searchCategory;
+
 
     private String mBotRequestText;
 
@@ -56,14 +73,36 @@ public class SearchRequestBookFragment extends Fragment {
         mSortSpinner.setAdapter(sortAdapter);
         mCategorySpinner.setAdapter(categoryAdapter);
 
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
-        mSearchBookAdapter = new SearchBookAdapter(getContext());
-        mRecyclerView.setAdapter(mSearchBookAdapter);
+        if(mNewstedView != null) {
+            mNewstedView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                        if(mCurBookArraySize < DISPLAY_NUM) {
+                            mLoadingProgress.setVisibility(View.INVISIBLE);
+                        } else if (mCurBookArraySize == DISPLAY_NUM){
+                            mStartNum = mStartNum + DISPLAY_NUM;
+                            mLoadingProgress.setVisibility(View.VISIBLE);
+                            recylcleThread();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        mSearchRequestBookAdapter = new SearchRequestBookAdapter(getContext());
+        mRecyclerView.setAdapter(mSearchRequestBookAdapter);
+
+        searchSort = HttpManager.BOOK_SORT_SIM;
+        searchCategory = HttpManager.BOOK_CATEGORY_TITLE;
 
         if( mBotRequestText != null && !mBotRequestText.equals("") ) {
             mEditTextSearch.setText(mBotRequestText);
-            dataSetStart();
+            recylcleThread();
         }
 
         return rootView;
@@ -79,6 +118,8 @@ public class SearchRequestBookFragment extends Fragment {
         mEditTextSearch = (EditText) rootView.findViewById(R.id.editText_search_book);
         mBtnSearch = (Button) rootView.findViewById(R.id.btn_search_book);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView_search_book);
+        mNewstedView = (NestedScrollView) rootView.findViewById(R.id.scrollView_search_book);
+        mLoadingProgress = (ProgressBar) rootView.findViewById(R.id.loading_progress);
     }
 
     private void initListener() {
@@ -86,6 +127,64 @@ public class SearchRequestBookFragment extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 return (event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER);
+            }
+        });
+
+        mEditTextSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    //Find the currently focused view, so we can grab the correct window token from it.
+                    View view = getActivity().getCurrentFocus();
+                    //If no view currently has focus, create a new one, just so we can grab a window token from it
+                    if (view == null) {
+                        view = new View(getActivity());
+                    }
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    String curCategory = mCategorySpinner.getSelectedItem().toString();
+                    String curSort = mSortSpinner.getSelectedItem().toString();
+                    final String[] categoryArr = getResources().getStringArray(R.array.search_book_category);
+                    final String[] sortArr = getResources().getStringArray(R.array.search_book_sort);
+
+
+                    for(int i=0; i<categoryArr.length; i++) {
+                        if( curCategory.equals(categoryArr[i]) ) {
+                            switch(i) {
+                                case 0: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                                case 1: curCategory = HttpManager.BOOK_CATEGORY_AUTOR; break;
+                                case 2: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                                case 3: curCategory = HttpManager.BOOK_CATEGORY_ISBN; break;
+                                case 4: curCategory = HttpManager.BOOK_CATEGORY_PUBL; break;
+                                default: break;
+                            }
+                        }
+                    }
+
+
+                    for(int i=0; i<sortArr.length; i++) {
+                        if( curSort.equals(sortArr[i]) ) {
+                            switch(i) {
+                                case 0: curSort = HttpManager.BOOK_SORT_SIM; break;
+                                case 1: curSort = HttpManager.BOOK_SORT_DATE; break;
+                                case 2: curSort = HttpManager.BOOK_SORT_COUNT; break;
+                                default: break;
+                            }
+                        }
+                    }
+
+                    searchSort = curSort;
+                    searchCategory = curCategory;
+
+                    mSearchRequestBookAdapter.clear();
+                    mSearchRequestBookAdapter.notifyDataSetChanged();
+                    mLoadingProgress.setVisibility(View.INVISIBLE);
+                    mStartNum = 1;
+
+                    recylcleThread();
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -104,7 +203,7 @@ public class SearchRequestBookFragment extends Fragment {
                             case 0: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
                             case 1: curCategory = HttpManager.BOOK_CATEGORY_AUTOR; break;
                             case 2: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
-                            case 3: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                            case 3: curCategory = HttpManager.BOOK_CATEGORY_ISBN; break;
                             case 4: curCategory = HttpManager.BOOK_CATEGORY_PUBL; break;
                             default: break;
                         }
@@ -123,27 +222,53 @@ public class SearchRequestBookFragment extends Fragment {
                     }
                 }
 
-                final String searchSort = curSort;
-                final String searchCategory = curCategory;
+                searchSort = curSort;
+                searchCategory = curCategory;
 
-                dataSetStart();
+                mSearchRequestBookAdapter.clear();
+                mSearchRequestBookAdapter.notifyDataSetChanged();
+                mLoadingProgress.setVisibility(View.INVISIBLE);
+                mStartNum = 1;
+
+                recylcleThread();
             }
         });
     }
 
-    private void dataSetStart() {
-        mSearchBookAdapter.clear();
-        mSearchBookAdapter.notifyDataSetChanged();
+    private void recycleViewDataSetting(SearchBookItem[] data){
+        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
+        mSearchRequestBookAdapter.addItems(dataArrList);
+        mCurBookArraySize = dataArrList.size();
 
+        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mSearchRequestBookAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void recycleViewDataAdding(SearchBookItem[] data){
+        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
+        mSearchRequestBookAdapter.addItems(dataArrList);
+
+        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mSearchRequestBookAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void recylcleThread(){
+        String test = mEditTextSearch.getText().toString();
+        int end = 1;
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-
-//                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
-//                                    10, searchSort));
                     recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                            10, HttpManager.BOOK_CATEGORY_TITLE));
+                            DISPLAY_NUM, searchCategory, searchSort, mStartNum));
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (XmlPullParserException e) {
@@ -151,18 +276,6 @@ public class SearchRequestBookFragment extends Fragment {
                 }
             }
         }).start();
-    }
-
-    private void recycleViewDataSetting(SearchBookItem[] data){
-        ArrayList<SearchBookItem> dataArrList = new ArrayList<>(Arrays.asList(data));
-        mSearchBookAdapter.addItems(dataArrList);
-
-        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mSearchBookAdapter.notifyDataSetChanged();
-            }
-        });
     }
 
 }

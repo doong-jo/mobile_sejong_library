@@ -65,6 +65,7 @@
     <string name="menu_chatbot">동천이와의 대화방</string>
     <string name="menu_study_room_reserve">예약조회</string>
     <string name="menu_search_book_detail">도서 상세</string>
+    <string name="menu_search_book_hope">희망도서</string>
 
 
     <!--Login-->
@@ -171,12 +172,12 @@
     <string name="guide_ipad_borrow_contents_2">New iPad, WiFi / 32GB</string>
 
     <!--Barcode-->
-    <string name="barcode_bookTitle_01">데이터베이스 배움터</string>
-    <string name="barcode_bookAuthor_01">홍의경 저</string>
-    <string name="barcode_bookTitle_02">Java의 정석</string>
-    <string name="barcode_bookAuthor_02">남궁 성 저</string>
-    <string name="barcode_bookBarcode_01">9788970503417</string>
-    <string name="barcode_bookBarcode_02">9788994492032</string>
+    <string name="barcode_bookTitle_01">Google 구글 웹로그 분석</string>
+    <string name="barcode_bookAuthor_01">미나가와 아키히로 저</string>
+    <string name="barcode_bookTitle_02">J주홍글씨</string>
+    <string name="barcode_bookAuthor_02">N.호돈 저</string>
+    <string name="barcode_bookBarcode_01">9788968482410</string>
+    <string name="barcode_bookBarcode_02">9788934400165</string>
 
     <!--Request Book-->
     <string name="self_request_book_kinds">도서 구분</string>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    android:layout_margin="@dimen/small_margin"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimary"
+        android:text="#자유론"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:layout_margin="@dimen/small_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/search_book_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="자유론(현대 지성의 클래식 20)"
+                style="@style/Text.SearchBookItemTitle"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/search_book_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="존 스튜어트 밀"
+                    style="@style/Text.SearchBookItemRest"/>
+                <TextView
+                    android:id="@+id/search_book_publisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="2019.06.26"
+                    style="@style/Text.SearchBookItemRest"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="#CAC6C6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:layout_margin="@dimen/small_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/search_book_title_02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="자유론(책 세상 문고 고전의 세상)"
+                style="@style/Text.SearchBookItemTitle"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/search_book_author_02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="존 스튜어트 밀"
+                    style="@style/Text.SearchBookItemRest"/>
+                <TextView
+                    android:id="@+id/search_book_publisher_02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="2019.06.24"
+                    style="@style/Text.SearchBookItemRest"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
