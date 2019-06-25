@@ -79,9 +79,9 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
         public void setItem(SearchBookItem item){
             Picasso.get().load(item.getImageURL()).into(mBookImg);
             mBookTitle.setText(Html.fromHtml(item.getTitle()));
-            mBookAuthor.setText(item.getAuthor());
-            mBookPublisher.setText(item.getPublisher());
-            mBookPubDate.setText(item.getPubdate());
+            mBookAuthor.setText(Html.fromHtml(item.getAuthor()));
+            mBookPublisher.setText(Html.fromHtml(item.getPublisher()));
+            mBookPubDate.setText(Html.fromHtml(item.getPubdate()));
         }
     }
 }

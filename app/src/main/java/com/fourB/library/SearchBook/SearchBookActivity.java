@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fourB.library.HttpManager;
 import com.fourB.library.R;
 
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -88,11 +90,11 @@ public class SearchBookActivity extends AppCompatActivity {
                 for(int i=0; i<categoryArr.length; i++) {
                     if( curCategory.equals(categoryArr[i]) ) {
                         switch(i) {
-                            case 0: curCategory = HttpManager.BOOK_SORT_SIM; break;
-                            case 1: curCategory = HttpManager.BOOK_SORT_DATE; break;
-                            case 2: curCategory = HttpManager.BOOK_SORT_COUNT; break;
-                            case 3: curCategory = HttpManager.BOOK_SORT_DATE; break;
-                            case 4: curCategory = HttpManager.BOOK_SORT_COUNT; break;
+                            case 0: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                            case 1: curCategory = HttpManager.BOOK_CATEGORY_AUTOR; break;
+                            case 2: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                            case 3: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                            case 4: curCategory = HttpManager.BOOK_CATEGORY_PUBL; break;
                             default: break;
                         }
                     }
@@ -111,13 +113,18 @@ public class SearchBookActivity extends AppCompatActivity {
                 }
 
                 final String searchSort = curSort;
+                final String searchCategory = curCategory;
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
-                                    10, searchSort));
+//                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
+//                                    10, searchSort));
+                            recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
+                                    10, searchCategory));
                         } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (XmlPullParserException e) {
                             e.printStackTrace();
                         }
                     }

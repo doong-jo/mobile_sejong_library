@@ -6,17 +6,19 @@ public class SearchBookItem {
     private String mAuthor;
     private String mPublisher;
     private String mPubdate;
+    private int mIsbn;
 
     public SearchBookItem() {
 
     }
 
-    public SearchBookItem(String mTitle, String mImageURL, String mAuthor, String mPublisher, String mPubdate) {
+    public SearchBookItem(String mTitle, String mImageURL, String mAuthor, String mPublisher, String mPubdate, int mIsbn) {
         this.mTitle = mTitle;
         this.mImageURL = mImageURL;
         this.mAuthor = mAuthor;
         this.mPublisher = mPublisher;
         this.mPubdate = mPubdate;
+        this.mIsbn = mIsbn;
     }
 
     public String getTitle() {
@@ -57,5 +59,13 @@ public class SearchBookItem {
 
     public void setPubdate(String pubdate) {
         this.mPubdate = pubdate;
+    }
+
+    public int getIsbn() {
+        return mIsbn;
+    }
+
+    public void setIsbn(int mIsbn) {
+        this.mIsbn = mIsbn;
     }
 }
