@@ -122,7 +122,6 @@ public class SearchRequestBookFragment extends Fragment {
                     @Override
                     public void run() {
                         try {
-
 //                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
 //                                    10, searchSort));
                             recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),

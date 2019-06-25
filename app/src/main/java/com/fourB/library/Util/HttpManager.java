@@ -312,61 +312,6 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
         }
     }
 
-    public static SearchBookItem[] searchBookNaverApi(final String searchObject, final int display, final String sort) throws IOException {
-        String text = URLEncoder.encode(searchObject, "UTF-8");
-
-        String apiURL = NAVER_BOOK_API_URL + text + "&display=" + display + "&" + "sort=" + sort; // json 결과
-
-        URL url = new URL(apiURL);
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("X-Naver-Client-Id", NAVER_CLIENT_ID);
-        con.setRequestProperty("X-Naver-Client-Secret", NAVER_CLIENT_SECRET);
-        con.connect();
-
-        int responseCode = con.getResponseCode();
-
-        BufferedReader br;
-        if(responseCode == 200) { // 정상 호출
-            br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-
-        } else {  // 에러 발생
-            br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-        }
-
-        StringBuilder searchResult = new StringBuilder();
-        String inputLine;
-        while ((inputLine = br.readLine()) != null) { searchResult.append(inputLine + "\n"); }
-
-        br.close();
-        con.disconnect();
-
-        String data = searchResult.toString();
-        String[] dataArr = data.split("\"");
-        SearchBookItem[] bookItems = new SearchBookItem[display];
-        for(int i=0; i<bookItems.length; i++ ) { bookItems[i] = new SearchBookItem(); }
-        int k = 0;
-        for (int i = 0; i < dataArr.length - 2; i++) {
-            final String pivot = dataArr[i];
-            final String value = dataArr[i + 2];
-            if(pivot == null || value == null) {
-                int a = 1;
-            }
-//            Log.d("searchBookNaverApi", "k: " + k);
-            if (pivot.equals("title")) {
-                bookItems[k].setTitle(value);
-            }
-            if (pivot.equals("image")) bookItems[k].setImageURL(value);
-            if (pivot.equals("author")) bookItems[k].setAuthor(value);
-            if (pivot.equals("publisher")) bookItems[k].setPublisher(value);
-            if (pivot.equals("pubdate")) { bookItems[k].setPubdate(value);
-                k++;
-            }
-        }
-
-        return bookItems;
-    }
-
     public static SearchBookItem[] searchBookNaverXMLApi(final String searchObject, final int display, final String category) throws IOException, XmlPullParserException {
         String text = URLEncoder.encode(searchObject, "UTF-8");
 
@@ -404,28 +349,33 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
         con.disconnect();
 
 
-        SearchBookItem[] bookItems = new SearchBookItem[display];
-        for(int i=0; i<bookItems.length; i++ ) { bookItems[i] = new SearchBookItem(); }
-
         int eventType = parser.getEventType() ;
         int k = 0;
 
+        ArrayList<String> titleList = new ArrayList<>();
+        ArrayList<String> imgURLList = new ArrayList<>();
+        ArrayList<String> authorList = new ArrayList<>();
+        ArrayList<String> publisherList = new ArrayList<>();
+        ArrayList<String> pubdateList = new ArrayList<>();
+        ArrayList<String> ISBNList = new ArrayList<>();
+
+        int headTitleChk = 0;
         while (eventType != XmlPullParser.END_DOCUMENT) {
             if (eventType == XmlPullParser.START_DOCUMENT) {
                 // XML 데이터 시작
             } else if (eventType == XmlPullParser.START_TAG) {
                 String startTag = parser.getName();
-                if (startTag.equals("title")) {
+                if (startTag.equals("title") ) {
                     mStep = STEP_TITLE;
                 } else if (startTag.equals("image")) {
                     mStep = STEP_IMAGE;
                 } else if (startTag.equals("author")) {
                     mStep = STEP_AUTHOR;
-                } else if (startTag.equals("publisher")){
+                } else if (startTag.equals("publisher")) {
                     mStep = STEP_PUBLISHER;
-                } else if(startTag.equals("pubdate")){
+                } else if(startTag.equals("pubdate")) {
                     mStep = STEP_PUBDATE;
-                } else if(startTag.equals("isbn")){
+                } else if(startTag.equals("isbn")) {
                     mStep = STEP_ISBN;
                 }
             } else if (eventType == XmlPullParser.END_TAG) {
@@ -438,19 +388,36 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
             } else if (eventType == XmlPullParser.TEXT) {
                 String parText = parser.getText();
                 if (mStep == STEP_TITLE) {
-                    bookItems[k].setTitle(parText);
+                    if( headTitleChk != 0 ) { titleList.add(parText); }
+                    headTitleChk++;
                 } else if (mStep == STEP_IMAGE) {
-                    bookItems[k].setImageURL(parText);
+                    imgURLList.add(parText);
                 } else if (mStep == STEP_AUTHOR) {
-                    bookItems[k].setAuthor(parText);
+                    authorList.add(parText);
                 } else if (mStep == STEP_PUBLISHER) {
-                    bookItems[k].setPublisher(parText);
+                    publisherList.add(parText);
                 } else if (mStep == STEP_PUBDATE){
-                    bookItems[k].setPubdate(parText);
+                    pubdateList.add(parText);
+                } else if (mStep == STEP_ISBN){
+                    ISBNList.add(parText);
                 }
             }
+
             eventType = parser.next();
         }
+        final int size = k;
+        SearchBookItem[] bookItems = new SearchBookItem[size];
+        for(int i=0; i<bookItems.length; i++ ) {
+            bookItems[i] = new SearchBookItem(
+                    titleList.get(i),
+                    imgURLList.get(i),
+                    authorList.get(i),
+                    publisherList.get(i),
+                    pubdateList.get(i),
+                    ISBNList.get(i)
+            );
+        }
+
         return bookItems;
     }
 
@@ -491,4 +458,59 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
             return response.body().string();
         }
     }
+
+//    public static SearchBookItem[] searchBookNaverApi(final String searchObject, final int display, final String sort) throws IOException {
+//        String text = URLEncoder.encode(searchObject, "UTF-8");
+//
+//        String apiURL = NAVER_BOOK_API_URL + text + "&display=" + display + "&" + "sort=" + sort; // json 결과
+//
+//        URL url = new URL(apiURL);
+//        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//        con.setRequestMethod("GET");
+//        con.setRequestProperty("X-Naver-Client-Id", NAVER_CLIENT_ID);
+//        con.setRequestProperty("X-Naver-Client-Secret", NAVER_CLIENT_SECRET);
+//        con.connect();
+//
+//        int responseCode = con.getResponseCode();
+//
+//        BufferedReader br;
+//        if(responseCode == 200) { // 정상 호출
+//            br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//
+//        } else {  // 에러 발생
+//            br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+//        }
+//
+//        StringBuilder searchResult = new StringBuilder();
+//        String inputLine;
+//        while ((inputLine = br.readLine()) != null) { searchResult.append(inputLine + "\n"); }
+//
+//        br.close();
+//        con.disconnect();
+//
+//        String data = searchResult.toString();
+//        String[] dataArr = data.split("\"");
+//        SearchBookItem[] bookItems = new SearchBookItem[display];
+//        for(int i=0; i<bookItems.length; i++ ) { bookItems[i] = new SearchBookItem(); }
+//        int k = 0;
+//        for (int i = 0; i < dataArr.length - 2; i++) {
+//            final String pivot = dataArr[i];
+//            final String value = dataArr[i + 2];
+//            if(pivot == null || value == null) {
+//                int a = 1;
+//            }
+////            Log.d("searchBookNaverApi", "k: " + k);
+//            if (pivot.equals("title")) {
+//                bookItems[k].setTitle(value);
+//            }
+//            if (pivot.equals("image")) bookItems[k].setImageURL(value);
+//            if (pivot.equals("author")) bookItems[k].setAuthor(value);
+//            if (pivot.equals("publisher")) bookItems[k].setPublisher(value);
+//            if (pivot.equals("pubdate")) { bookItems[k].setPubdate(value);
+//                k++;
+//            }
+//        }
+//
+//        return bookItems;
+//    }
 }
