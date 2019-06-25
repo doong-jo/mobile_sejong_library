@@ -29,8 +29,9 @@ import okhttp3.Response;
 
 public class HttpManager {
     final static private String SERVER_URL = "https://sejong-library.run.goorm.io/";
+    final static private String NO_IMAGE_URL = "images/noimage.gif";
     final static private String NAVER_BOOK_API_URL = "https://openapi.naver.com/v1/search/book.json?query=";
-final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.com/v1/search/book_adv.xml?query=";
+    final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.com/v1/search/book_adv.xml?query=";
     final static private String NAVER_CLIENT_ID = "s9Q1eIGcTHVFQCFXNv22";
     final static private String NAVER_CLIENT_SECRET = "rpx4xcAiUt";
 
@@ -49,6 +50,7 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
     final static public String BOOK_CATEGORY_TITLE = "d_titl";
     final static public String BOOK_CATEGORY_AUTOR = "d_auth";
     final static public String BOOK_CATEGORY_PUBL = "d_publ";
+    final static public String BOOK_CATEGORY_ISBN = "d_isbn";
 
     final static int STEP_NONE = 0;
     final static int STEP_TITLE = 1;
@@ -312,10 +314,10 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
         }
     }
 
-    public static SearchBookItem[] searchBookNaverXMLApi(final String searchObject, final int display, final String category) throws IOException, XmlPullParserException {
+    public static SearchBookItem[] searchBookNaverXMLApi(final String searchObject, final int display, final String category, final String sort) throws IOException, XmlPullParserException {
         String text = URLEncoder.encode(searchObject, "UTF-8");
 
-        String apiURL = NAVER_BOOK_DETAIL_API_URL + text + "&display=" + display + "&start=1" + "&" + category + "=" + text; // xml 결과
+        String apiURL = NAVER_BOOK_DETAIL_API_URL + text + "&display=" + display + "&sort=" + sort + "&start=1" + "&" + category + "=" + text; // xml 결과
         URL url = new URL(apiURL);
 
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -369,6 +371,7 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
                     mStep = STEP_TITLE;
                 } else if (startTag.equals("image")) {
                     mStep = STEP_IMAGE;
+                    imgURLList.add(RS_URL + NO_IMAGE_URL);
                 } else if (startTag.equals("author")) {
                     mStep = STEP_AUTHOR;
                 } else if (startTag.equals("publisher")) {
@@ -391,7 +394,9 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
                     if( headTitleChk != 0 ) { titleList.add(parText); }
                     headTitleChk++;
                 } else if (mStep == STEP_IMAGE) {
-                    imgURLList.add(parText);
+                    if(parText != null){
+                        imgURLList.set(k, parText);
+                    }
                 } else if (mStep == STEP_AUTHOR) {
                     authorList.add(parText);
                 } else if (mStep == STEP_PUBLISHER) {

@@ -1,6 +1,7 @@
 package com.fourB.library.RequestBook;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +40,7 @@ public class SearchRequestBookFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private SearchBookAdapter mSearchBookAdapter;
     private ViewGroup rootView;
+    private NestedScrollView mNewstedView;
 
 
     @Nullable
@@ -54,8 +58,22 @@ public class SearchRequestBookFragment extends Fragment {
         mSortSpinner.setAdapter(sortAdapter);
         mCategorySpinner.setAdapter(categoryAdapter);
 
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
+
+        if(mNewstedView != null) {
+            mNewstedView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                        Log.i("BOTTOM", "BOTTOM SCROLL");
+                        //여기에 데이터를 열개 더하는 걸 보여주자!
+                    }
+                }
+            });
+        }
+
         mSearchBookAdapter = new SearchBookAdapter(getContext());
         mRecyclerView.setAdapter(mSearchBookAdapter);
 
@@ -68,6 +86,7 @@ public class SearchRequestBookFragment extends Fragment {
         mEditTextSearch = (EditText) rootView.findViewById(R.id.editText_search_book);
         mBtnSearch = (Button) rootView.findViewById(R.id.btn_search_book);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView_search_book);
+        mNewstedView = (NestedScrollView) rootView.findViewById(R.id.scrollView_search_book);
     }
 
     private void initListener() {
@@ -93,7 +112,7 @@ public class SearchRequestBookFragment extends Fragment {
                             case 0: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
                             case 1: curCategory = HttpManager.BOOK_CATEGORY_AUTOR; break;
                             case 2: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
-                            case 3: curCategory = HttpManager.BOOK_CATEGORY_TITLE; break;
+                            case 3: curCategory = HttpManager.BOOK_CATEGORY_ISBN; break;
                             case 4: curCategory = HttpManager.BOOK_CATEGORY_PUBL; break;
                             default: break;
                         }
@@ -125,7 +144,7 @@ public class SearchRequestBookFragment extends Fragment {
 //                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
 //                                    10, searchSort));
                             recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                                    10, searchCategory));
+                                    10, searchCategory, searchSort));
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (XmlPullParserException e) {

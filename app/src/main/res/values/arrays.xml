@@ -16,7 +16,7 @@
 
     <string-array name="search_book_sort">
         <item>유사도순</item>
-        <item>출간일</item>
+        <item>출간일순</item>
         <item>판매량순</item>
     </string-array>
 
