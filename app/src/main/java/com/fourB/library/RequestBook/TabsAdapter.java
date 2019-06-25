@@ -7,10 +7,15 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class TabsAdapter extends FragmentStatePagerAdapter{
 
     int nNumOfTabs;
+    private SearchRequestBookFragment mSearchRequestBookFragment;
+    private SelfRequestBookFragment mSelfRequestBookFragment;
 
     TabsAdapter(FragmentManager fm, int NoofTabs){
         super(fm);
         this.nNumOfTabs = NoofTabs;
+
+        mSearchRequestBookFragment = new SearchRequestBookFragment();
+        mSelfRequestBookFragment = new SelfRequestBookFragment();
     }
 
     @Override
@@ -22,9 +27,9 @@ public class TabsAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new SearchRequestBookFragment();
+                return mSearchRequestBookFragment;
             case 1:
-                return new SelfRequestBookFragment();
+                return mSelfRequestBookFragment;
             default:
                 return null;
         }

@@ -13,7 +13,8 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -41,6 +42,285 @@
                         android:text="@string/real_search_book_text"
                         style="@style/Text.SearchBookStart"/>
                 </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/spinner_search_book_category"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </Spinner>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/main_flexboxlayout_margin_top"
+                    app:flexDirection="row"
+                    app:justifyContent="space_around"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch" >
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="96%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_all"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_essay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="96%">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_hak"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_dan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_dan_dong"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_gan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <TextView
+                                style="@style/Text.book_category"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@string/real_search_book_category_gan"
+                                android:textAlignment="center" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_multi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:background="@drawable/rectangle_primary"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_mul"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_dan_dong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_dan_dong"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_ej_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_ej_in"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_ej_out"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_ej_out"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_eb_ej"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:orientation="vertical"
+                            android:background="@drawable/rectangle_primary"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_eb_ej"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/search_category_eb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/large_margin"
+                        app:layout_flexBasisPercent="21%">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingBottom="@dimen/small_padding"
+                            android:background="@drawable/rectangle_primary"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                style="@style/Text.book_category"
+                                android:text="@string/real_search_book_category_eb"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </com.google.android.flexbox.FlexboxLayout>
 
                 <EditText
                     android:id="@+id/editText_search_book"

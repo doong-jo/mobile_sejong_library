@@ -16,7 +16,7 @@
     <string name="korean_lang_code">ko</string>
 
     <!--ChatBot-->
-    <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?\n\n* 학술정보원 정보가 알고싶으면?\nex) 일요일에 도서관 열어?, 공지사항, 이용 안내(층별, 대출, 아이패드 이용 안내)\n\n* 모바일 바코드로 책 대출은 어떻게 해?\nex) 책은 어떻게 빌려?\n\n\* 스터디룸 예약은?\nex) 15시 4명이 스터디룸 알려줘.\n\n* 열람실 현황은?\nex) A열람실 자리 있어?\n\n* 열람실 불편신고는?\n=> ‘신고’ 라고 말씀해주세요.</string>
+    <string name="chatbot_say_hello">안녕하세요! 챗봇 동천이입니다.\n무엇을 도와드릴까요?\n\n* 학술정보원 정보가 알고싶으면?\nex) 일요일에 도서관 열어?, 공지사항, 이용 안내(층별, 대출, 아이패드 이용 안내)\n\n* 모바일 바코드로 책 대출은 어떻게 해?\nex) 책은 어떻게 빌려?\n\n\* 스터디룸 예약은?\nex) 15시 4명이 스터디룸 알려줘.\n\n* 열람실 현황은?\nex) A열람실 자리 있어?\n\n* 열람실 불편신고는?\n=> ‘신고’ 라고 말씀해주세요.\n\n* 도서 검색 어떻게?\nex) 파우스트 찾아줘\n\n* 희망 도서 추천 어떻게?\nex) 자유론 신청해줘</string>
     <string name="chatbot_bot_name">동천이</string>
 
     <string name="chatbot_report_dialog_title">열람실 불편 신고 접수</string>
@@ -85,6 +85,18 @@
     <string name="search_book_lend_false">대출불가</string>
 
     <string name="real_search_book_text">자료검색</string>
+
+    <string name="real_search_book_category_all">전체</string>
+    <string name="real_search_book_category_dan_dongseo">단행본/동서양</string>
+    <string name="real_search_book_category_gan">연속간행물</string>
+    <string name="real_search_book_category_mul">멀티미디어</string>
+    <string name="real_search_book_category_hak">학위논문</string>
+    <string name="real_search_book_category_dan_dong">단행본/동양서</string>
+    <string name="real_search_book_category_ej_in">eJournal/국내</string>
+    <string name="real_search_book_category_ej_out">eJournal/국외</string>
+    <string name="real_search_book_category_eb_ej">eBook/eJournal</string>
+    <string name="real_search_book_category_eb">eBook</string>
+
 
     <!--ReadingRoom-->
     <string name="reading_room_A">A 열람실</string>

@@ -36,6 +36,11 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="Text.book_category">
+        <item name="android:textSize">@dimen/xsmall_font_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="Text.reading_room">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">28sp</item>
@@ -85,26 +90,28 @@
     </style>
 
     <style name="Text.SearchBookDetailCategory">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/normal_font_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:paddingTop">@dimen/small_padding</item>
         <item name="android:paddingBottom">@dimen/small_padding</item>
         <item name="android:paddingRight">@dimen/small_padding</item>
-        <item name="android:gravity">right</item>
+        <item name="android:gravity">left</item>
         <item name="android:layout_gravity">fill_horizontal</item>
         <item name="android:layout_columnWeight">1</item>
     </style>
 
     <style name="Text.SearchBookDetailContent">
+        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:breakStrategy">simple</item>
+        <item name="android:singleLine">true</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:paddingTop">@dimen/small_padding</item>
-        <item name="android:paddingBottom">@dimen/small_padding</item>
-        <item name="android:paddingLeft">@dimen/small_padding</item>
         <item name="android:gravity">left</item>
-        <item name="android:layout_gravity">fill_horizontal</item>
-        <item name="android:layout_columnWeight">2</item>
+        <item name="android:layout_columnWeight">8</item>
     </style>
 
 

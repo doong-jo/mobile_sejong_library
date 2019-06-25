@@ -95,6 +95,9 @@ public class RealSearchBookAdapter extends RecyclerView.Adapter<RealSearchBookAd
             mBookPublisher.setText("출판사 : " + item.getmPublisher());
             mBookPubDate.setText("출판년도 : " + item.getmPubdate());
             mBookCategory.setText(item.getmCategory());
+
+
+            mBookCategory.bringToFront();
         }
     }
 }

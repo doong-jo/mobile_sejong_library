@@ -5,67 +5,98 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/normal_margin"
     >
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/search_book_card"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/search_book_card"
+            android:id="@+id/search_book_category"
+            style="@style/Text.SearchBookItemTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="@drawable/rectangle_primary" >
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/large_padding"
+            android:text="단행본/동서양"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_font_size"
+            android:elevation="4dp"/>
+
+        <androidx.cardview.widget.CardView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:id="@+id/search_book_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/search_book_category"
-                    android:padding="@dimen/large_padding"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/rounded_rectangle_black"
-                    android:textAlignment="center"
-                    android:text="단행본/동서양"
-                    android:textSize="@dimen/normal_font_size"
-                    style="@style/Text.SearchBookItemTitle"/>
-
-                <TextView
-                    android:id="@+id/search_book_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="제목"
-                    style="@style/Text.SearchBookItemTitle"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_primary" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="5"
                     android:orientation="vertical">
+
+
                     <TextView
-                        android:id="@+id/search_book_author"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="저자"
-                        style="@style/Text.SearchBookItemRest"/>
-                    <TextView
-                        android:id="@+id/search_book_publisher"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="출판사"
-                        style="@style/Text.SearchBookItemRest"/>
-                    <TextView
-                        android:id="@+id/search_book_publish_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="년도"
-                        style="@style/Text.SearchBookItemRest"/>
+                        android:id="@+id/search_book_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="제목"
+
+                        style="@style/Text.SearchBookItemTitle"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/search_book_author"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="저자"
+                            style="@style/Text.SearchBookItemRest"/>
+                        <TextView
+                            android:id="@+id/search_book_publisher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="출판사"
+                            style="@style/Text.SearchBookItemRest"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/search_book_publish_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="년도"
+                                style="@style/Text.SearchBookItemRest"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </LinearLayout>

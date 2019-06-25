@@ -15,6 +15,8 @@
     <dimen name="normal_margin">8dp</dimen>
     <dimen name="large_margin">12dp</dimen>
 
+    <dimen name="xsmall_font_size">12sp</dimen>
+    <dimen name="small_font_size">14sp</dimen>
     <dimen name="normal_font_size">16sp</dimen>
     <dimen name="large_font_size">20sp</dimen>
     <dimen name="xlarge_font_size">32sp</dimen>

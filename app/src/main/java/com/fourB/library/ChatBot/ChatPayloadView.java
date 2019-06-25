@@ -101,11 +101,15 @@ public class ChatPayloadView extends LinearLayout {
                         integrator.setCaptureActivity(CustomScannerActivity.class);
                         integrator.setOrientationLocked(false);
                         integrator.initiateScan();
+                    } else if ( mName.equals(".SearchBook.RealSearchBookActivity") ) {
+                        res.putExtra("text", mResponseData.getStringParameter("any"));
+                        getContext().startActivity(res);
+                    } else if ( mName.equals(".RequestBook.RequestBookActivity") ) {
+                        res.putExtra("text", mResponseData.getStringParameter("any"));
+                        getContext().startActivity(res);
                     } else {
                         getContext().startActivity(res);
                     }
-
-
                 }
             }
         });

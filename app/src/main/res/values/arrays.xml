@@ -20,6 +20,19 @@
         <item>판매량순</item>
     </string-array>
 
+    <string-array name="real_search_book_sort">
+        <item>전체</item>
+        <item>단행본/동서양</item>
+        <item>연속간행물</item>
+        <item>멀티미디어</item>
+        <item>학위논문</item>
+        <item>단행본/동양서</item>
+        <item>eJournal/국내</item>
+        <item>eJournal/국외</item>
+        <item>eBook/eJournal</item>
+        <item>eBook</item>
+    </string-array>
+
     <!--Declare Spinner-->
     <string-array name="report_rooms">
         <item>열람실 A</item>

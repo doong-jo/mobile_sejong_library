@@ -1,16 +1,24 @@
 package com.fourB.library.SearchBook;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,12 +31,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RealSearchBookActivity extends AppCompatActivity {
+    private Spinner mCategorySpinner;
     private EditText mEditTextSearch;
     private Button mBtnSearch;
     private InputMethodManager mInputManager;
     private RecyclerView mRecyclerView;
     private RealSearchBookAdapter mSearchBookAdapter;
     private ArrayList<RealSearchBookItem> mDataArrList = new ArrayList<>();
+    private CardView[] mCategoryCardViews;
+    private boolean[] mIsSelectedCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +53,120 @@ public class RealSearchBookActivity extends AppCompatActivity {
 
         mInputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL,false);
+        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(this, R.array.real_search_book_sort, R.layout.item_basic_spinner);
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mCategorySpinner.setAdapter(categoryAdapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
         mSearchBookAdapter = new RealSearchBookAdapter(getApplicationContext());
         mRecyclerView.setAdapter(mSearchBookAdapter);
+
+        final String getChatBotAny = getIntent().getStringExtra("text");
+        if( getChatBotAny != null && !getChatBotAny.equals("")) {
+            mEditTextSearch.setText(getChatBotAny);
+            dataSetStart();
+        }
+
+
+        changeCategoryFace();
     }
 
+    private void changeCategoryFace() {
+            for (int i = 0; i < mCategoryCardViews.length; i++) {
+                final int index = i;
+                mCategoryCardViews[i].setOnClickListener(new View.OnClickListener() {
+                    @SuppressLint("ResourceAsColor")
+                    @Override
+                    public void onClick(View v) {
+                        mIsSelectedCategory[index] = !mIsSelectedCategory[index];
+
+                        if( mIsSelectedCategory[index] ) {
+                            LinearLayout linearLayout = (LinearLayout)mCategoryCardViews[index].getChildAt(0);
+                            linearLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+                            TextView tv = (TextView) linearLayout.getChildAt(0);
+                            tv.setTextColor(getResources().getColor(R.color.white));
+
+                            if( index == 0 ) {
+                                for (int j = 1; j < mCategoryCardViews.length; j++) {
+                                    LinearLayout _linearLayout = (LinearLayout)mCategoryCardViews[j].getChildAt(0);
+                                    _linearLayout.setBackground(getResources().getDrawable(R.drawable.rectangle_primary));
+
+                                    TextView _tv = (TextView) _linearLayout.getChildAt(0);
+                                    _tv.setTextColor(getResources().getColor(R.color.black));
+
+                                    mIsSelectedCategory[j] = false;
+                                }
+                            } else {
+                                if( mIsSelectedCategory[0] ) {
+                                    LinearLayout _linearLayout = (LinearLayout)mCategoryCardViews[0].getChildAt(0);
+                                    _linearLayout.setBackground(getResources().getDrawable(R.drawable.rectangle_primary));
+
+                                    TextView _tv = (TextView) _linearLayout.getChildAt(0);
+                                    _tv.setTextColor(getResources().getColor(R.color.black));
+
+                                    mIsSelectedCategory[0] = false;
+                                }
+                            }
+                        } else {
+                            LinearLayout linearLayout = (LinearLayout)mCategoryCardViews[index].getChildAt(0);
+                            linearLayout.setBackground(getResources().getDrawable(R.drawable.rectangle_primary));
+
+                            TextView tv = (TextView) linearLayout.getChildAt(0);
+                            tv.setTextColor(getResources().getColor(R.color.black));
+                        }
+                        boolean allFalse = true;
+                        for (int j = 0; j < mIsSelectedCategory.length; j++) {
+                            if( mIsSelectedCategory[j] ) {
+                                allFalse = false;
+                                break;
+                            }
+                        }
+                        if( allFalse ) {
+                            LinearLayout linearLayout = (LinearLayout)mCategoryCardViews[0].getChildAt(0);
+                            linearLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+                            TextView tv = (TextView) linearLayout.getChildAt(0);
+                            tv.setTextColor(getResources().getColor(R.color.white));
+
+                            mIsSelectedCategory[0] = true;
+                        }
+                    }
+                });
+            }
+        }
+
     private void initView() {
+        mCategorySpinner = findViewById(R.id.spinner_search_book_category);
         mEditTextSearch = findViewById(R.id.editText_search_book);
         mBtnSearch = findViewById(R.id.btn_search_book);
         mRecyclerView = findViewById(R.id.recyclerView_search_book);
+
+        mCategoryCardViews = new CardView[] {
+                findViewById(R.id.search_category_all),
+                findViewById(R.id.search_category_dan),
+                findViewById(R.id.search_category_gan),
+                findViewById(R.id.search_category_multi),
+                findViewById(R.id.search_category_essay),
+                findViewById(R.id.search_category_dan_dong),
+                findViewById(R.id.search_category_ej_in),
+                findViewById(R.id.search_category_ej_out),
+                findViewById(R.id.search_category_eb_ej),
+                findViewById(R.id.search_category_eb),
+        };
+
+        mIsSelectedCategory = new boolean[mCategoryCardViews.length];
+        for (int i=0; i<mIsSelectedCategory.length; i++) {
+            mIsSelectedCategory[i] = false;
+        }
+
+        mIsSelectedCategory[0] = true;
+        LinearLayout linearLayout = (LinearLayout)mCategoryCardViews[0].getChildAt(0);
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
+        TextView tv = (TextView) linearLayout.getChildAt(0);
+        tv.setTextColor(getResources().getColor(R.color.white));
     }
 
     private void initListener() {
@@ -65,29 +180,60 @@ public class RealSearchBookActivity extends AppCompatActivity {
             }
         });
 
+        mEditTextSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    dataSetStart();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDataArrList.clear();
-                mSearchBookAdapter.clear();
-                mSearchBookAdapter.notifyDataSetChanged();
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
-                                    1, 1, 10));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+                dataSetStart();
             }
         });
     }
 
-    public void recycleViewDataSetting(RealSearchBookItem[] data){
+    private void dataSetStart() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(this);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+        mDataArrList.clear();
+        mSearchBookAdapter.clear();
+        mSearchBookAdapter.notifyDataSetChanged();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    for (int i = 0; i < mIsSelectedCategory.length; i++) {
+                        if( mIsSelectedCategory[i] && i == 0 ) {
+                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
+                                    i + 1, 1, 10));
+                        } else if( mIsSelectedCategory[i] ) {
+                            recycleViewDataSetting(HttpManager.searchBookRealServer(mEditTextSearch.getText().toString(),
+                                    i + 1, 1, 10));
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void recycleViewDataSetting(RealSearchBookItem[] data){
         mDataArrList.addAll(Arrays.asList(data));
         mSearchBookAdapter.addItems(mDataArrList);
 

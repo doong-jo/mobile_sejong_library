@@ -43,6 +43,10 @@ public class RequestBookActivity extends AppCompatActivity {
 
             }
         });
+
+        final String getChatBotAny = getIntent().getStringExtra("text");
+        SearchRequestBookFragment searchBookFragment = (SearchRequestBookFragment)tabsAdapter.getItem(0);
+        searchBookFragment.setChatBotRequestText(getChatBotAny);
     }
 
     @Override

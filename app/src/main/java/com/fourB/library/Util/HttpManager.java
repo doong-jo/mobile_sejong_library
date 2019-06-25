@@ -213,103 +213,75 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
         String inputLine;
         while ((inputLine = br.readLine()) != null) { searchResult.append(inputLine + "\n"); }
 
-        Document doc = Jsoup.parse(searchResult.toString());
-        Elements elements;
-
-        // ID
-        elements = doc.select(".search_brief_title");
-        List<String> listId = elements.eachAttr("href");
-        for (int i = 0; i < listId.size(); i++) {
-            listId.set(i, listId.get(i).split("cid=")[1]);
-        }
-
-        final int dataSize = listId.size();
-        RealSearchBookItem[] realSearchBookRealItems = new RealSearchBookItem[dataSize];
-
-        // Category
-        elements = doc.select(".padding_btn_searchClass");
-        List<String> listCategory = elements.eachText();
-
-        elements = doc.select(".search_brief_title > span");
-        List<String> contentEachTexts = elements.eachText();
-        // title
-        List<String> listTitle = new ArrayList<>();
-        // author
-        List<String> listAuthor = new ArrayList<>();
-        for (int i = 0; i < contentEachTexts.size(); i++) {
-            listTitle.add(contentEachTexts.get(i).split(" / ")[0]);
-            listAuthor.add(contentEachTexts.get(i).split(" / ")[1]);
-        }
-
-
-        elements = doc.select(".f_left > p");
-        contentEachTexts = elements.eachText();
-        // publisher
-        List<String> listPublisher = new ArrayList<>();
-        for (int i = 0; i < contentEachTexts.size(); i++) {
-            if( contentEachTexts.get(i).split("출판사 : ").length == 1 ) { continue; }
-            listPublisher.add(contentEachTexts.get(i).split("출판사 : ")[1].split(" / ")[0]);
-        }
-
-        // publisher date
-        List<String> listPublishDate = new ArrayList<>();
-        for (int i = 0; i < contentEachTexts.size(); i++) {
-            if( contentEachTexts.get(i).split("출판년도 : ").length == 1 ) { continue; }
-            listPublishDate.add(contentEachTexts.get(i).split("출판년도 : ")[1]);
-        }
-
-        elements = doc.select(".black");
-        contentEachTexts = elements.eachText();
-        // location
-        List<String> listLocation = new ArrayList<>();
-        for (int i = 0; i < contentEachTexts.size(); i++) {
-            listLocation.add(contentEachTexts.get(i).split("\\[")[1].split("]")[0]);
-        }
-
-        // location number
-        List<String> listLocationNum = new ArrayList<>();
-        for (int i = 0; i < contentEachTexts.size(); i++) {
-            listLocationNum.add(contentEachTexts.get(i).split("]")[1].split(" /")[0]);
-        }
-
-        // status
-        elements = doc.select(".status");
-        List<String> listStatus = elements.eachText();
-
         br.close();
         con.disconnect();
 
-        addNullItemIntoListFromLength(listId, dataSize);
-        addNullItemIntoListFromLength(listStatus, dataSize);
-        addNullItemIntoListFromLength(listCategory, dataSize);
-        addNullItemIntoListFromLength(listTitle, dataSize);
-        addNullItemIntoListFromLength(listAuthor, dataSize);
-        addNullItemIntoListFromLength(listPublisher, dataSize);
-        addNullItemIntoListFromLength(listPublishDate, dataSize);
-        addNullItemIntoListFromLength(listLocation, dataSize);
-        addNullItemIntoListFromLength(listLocationNum, dataSize);
+        Document doc = Jsoup.parse(searchResult.toString());
+
+        // elements
+        Elements rootElement = doc.select(".f_left");
+        Elements elements;
+        final int dataSize = rootElement.size();
+        RealSearchBookItem[] realSearchBookRealItems = new RealSearchBookItem[dataSize];
+
+        String dataId, dataCategory, dataTitle,
+                dataAuthor, dataPublisher, dataPublishDate,
+                dataLocation, dataLocatinNum, dataStatus;
 
         for (int i = 0; i < dataSize; i++) {
+            // id
+            elements = rootElement.get(i).select(".search_brief_title");
+            dataId = elements.attr("href");
+            dataId = dataId.split("cid=")[1];
+
+            // category
+            elements = rootElement.get(i).select(".padding_btn_searchClass");
+            dataCategory = elements.text();
+
+            // title, author
+            elements = rootElement.get(i).select(".search_brief_title > span");
+
+            if ( elements.text().split(" / ").length == 1 ) {
+                dataTitle = elements.text().split(" / ")[0];
+                dataAuthor = "";
+            } else {
+                dataTitle = elements.text().split(" / ")[0];
+                dataAuthor = elements.text().split(" / ")[1];
+            }
+
+            // publisher, publish date
+            elements = rootElement.get(i).select(".f_left > p");
+            if( elements.text().split("출판사 : ").length == 1 ) { dataPublisher = ""; }
+            else { dataPublisher = elements.text().split("출판사 : ")[1].split(" / ")[0]; }
+
+            if( elements.text().split("출판년도 : ").length == 1 ) { dataPublishDate = ""; }
+            else { dataPublishDate = elements.text().split("출판년도 : ")[1].split(" ")[0]; }
+
+            // location, location number
+            elements = rootElement.get(i).select(".black");
+            if( elements.text().split("\\[").length == 1 ) {
+                dataLocation = "";
+            } else {
+                dataLocation = elements.text().split("\\[")[1].split("]")[0];
+            }
+
+            if( elements.text().split("]").length == 1 ) {
+                dataLocatinNum = "";
+            } else {
+                dataLocatinNum = elements.text().split("]")[1].split(" /")[0];
+            }
+
+            // status
+            elements = rootElement.get(i).select(".status");
+            dataStatus = elements.text();
+
             realSearchBookRealItems[i] = new RealSearchBookItem(
-                    listId.get(i),
-                    listStatus.get(i),
-                    listCategory.get(i),
-                    listTitle.get(i),
-                    listAuthor.get(i),
-                    listPublisher.get(i),
-                    listPublishDate.get(i),
-                    listLocation.get(i),
-                    listLocationNum.get(i)
+                    dataId, dataStatus, dataCategory, dataTitle,
+                    dataAuthor, dataPublisher, dataPublishDate, dataLocation, dataLocatinNum
             );
         }
 
         return realSearchBookRealItems;
-    }
-
-    private static void addNullItemIntoListFromLength(List<String> list, int size) {
-        if( list.size() != size ) {
-            list.add("");
-        }
     }
 
     public static SearchBookItem[] searchBookNaverApi(final String searchObject, final int display, final String sort) throws IOException {

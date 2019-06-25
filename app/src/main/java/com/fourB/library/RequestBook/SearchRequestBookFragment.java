@@ -38,6 +38,8 @@ public class SearchRequestBookFragment extends Fragment {
     private SearchBookAdapter mSearchBookAdapter;
     private ViewGroup rootView;
 
+    private String mBotRequestText;
+
 
     @Nullable
     @Override
@@ -59,7 +61,16 @@ public class SearchRequestBookFragment extends Fragment {
         mSearchBookAdapter = new SearchBookAdapter(getContext());
         mRecyclerView.setAdapter(mSearchBookAdapter);
 
+        if( mBotRequestText != null && !mBotRequestText.equals("") ) {
+            mEditTextSearch.setText(mBotRequestText);
+            dataSetStart();
+        }
+
         return rootView;
+    }
+
+    public void setChatBotRequestText(String text) {
+        mBotRequestText = text;
     }
 
     private void initView() {
@@ -115,27 +126,31 @@ public class SearchRequestBookFragment extends Fragment {
                 final String searchSort = curSort;
                 final String searchCategory = curCategory;
 
-                mSearchBookAdapter.clear();
-                mSearchBookAdapter.notifyDataSetChanged();
+                dataSetStart();
+            }
+        });
+    }
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
+    private void dataSetStart() {
+        mSearchBookAdapter.clear();
+        mSearchBookAdapter.notifyDataSetChanged();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
 
 //                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
 //                                    10, searchSort));
-                            recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                                    10, searchCategory));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (XmlPullParserException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+                    recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
+                            10, HttpManager.BOOK_CATEGORY_TITLE));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
+                }
             }
-        });
+        }).start();
     }
 
     private void recycleViewDataSetting(SearchBookItem[] data){
