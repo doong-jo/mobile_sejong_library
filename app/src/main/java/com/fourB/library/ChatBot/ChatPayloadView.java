@@ -13,10 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fourB.library.Barcode.CustomScannerActivity;
-import com.fourB.library.HttpManager;
-import com.fourB.library.MainActivity;
 import com.fourB.library.R;
-import com.fourB.library.ReportManager;
+import com.fourB.library.Util.ReportManager;
 import com.google.gson.JsonObject;
 import com.google.zxing.integration.android.IntentIntegrator;
 

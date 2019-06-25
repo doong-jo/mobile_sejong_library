@@ -33,11 +33,15 @@ import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
+import com.fourB.library.Util.HttpManager;
 import com.fourB.library.Widgets.MovableFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.api.Http;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
 
 import ss.com.bannerslider.ImageLoadingService;
 import ss.com.bannerslider.Slider;
@@ -207,6 +211,17 @@ public class MainActivity extends AppCompatActivity
 
             getIntent().putExtra("title", "");
         }
+
+        new Thread() {
+            public void run() {
+                try {
+                    HttpManager.searchBookDetailRealServer("394460");
+//                    HttpManager.searchBookRealServer("이순신", 1, 1, 5);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
 
     @Override

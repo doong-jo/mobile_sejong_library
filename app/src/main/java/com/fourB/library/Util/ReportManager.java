@@ -1,6 +1,7 @@
-package com.fourB.library;
+package com.fourB.library.Util;
 
 import com.fourB.library.Report.User;
+import com.fourB.library.Util.HttpManager;
 import com.google.gson.Gson;
 
 import java.io.IOException;

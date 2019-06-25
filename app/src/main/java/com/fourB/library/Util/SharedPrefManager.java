@@ -1,4 +1,4 @@
-package com.fourB.library;
+package com.fourB.library.Util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
