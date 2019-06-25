@@ -68,6 +68,7 @@ public class RealSearchBookAdapter extends RecyclerView.Adapter<RealSearchBookAd
         private TextView mBookAuthor;
         private TextView mBookPublisher;
         private TextView mBookPubDate;
+        private TextView mBookCategory;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -76,6 +77,7 @@ public class RealSearchBookAdapter extends RecyclerView.Adapter<RealSearchBookAd
             mBookAuthor = itemView.findViewById(R.id.search_book_author);
             mBookPublisher = itemView.findViewById(R.id.search_book_publisher);
             mBookPubDate = itemView.findViewById(R.id.search_book_publish_date);
+            mBookCategory = itemView.findViewById(R.id.search_book_category);
         }
 
         public void setItem(final RealSearchBookItem item){
@@ -92,6 +94,7 @@ public class RealSearchBookAdapter extends RecyclerView.Adapter<RealSearchBookAd
             mBookAuthor.setText("저자 : " + item.getmAuthor());
             mBookPublisher.setText("출판사 : " + item.getmPublisher());
             mBookPubDate.setText("출판년도 : " + item.getmPubdate());
+            mBookCategory.setText(item.getmCategory());
         }
     }
 }
