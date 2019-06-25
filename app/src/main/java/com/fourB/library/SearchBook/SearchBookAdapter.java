@@ -57,6 +57,9 @@ public class SearchBookAdapter extends RecyclerView.Adapter<SearchBookAdapter.Vi
         return mItemData.get(position);
     }
 
+    public void clear() {
+        mItemData.clear();
+    }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView mCardView;

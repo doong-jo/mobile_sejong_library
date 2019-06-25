@@ -40,7 +40,6 @@ final static private String NAVER_BOOK_DETAIL_API_URL = "https://openapi.naver.c
     final static private String RS_BOOK_SEARCH_DETAIL_LIST_URL = "http://mlib.sejong.ac.kr/search/ItemDetail.axa?";
 
     final static private String RS_STUDYROOM_SEARCH_URL =  "";
-
     final static private String RS_READINGROOM_SEARCH_URL =  "";
 
     final static public String BOOK_SORT_SIM = "sim";
