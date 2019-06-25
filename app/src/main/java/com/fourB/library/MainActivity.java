@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         searchBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RequestBookActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SearchBookActivity.class);
                 startActivity(intent);
             }
         });
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity
         mAnouncementView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AnouncementActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RequestBookActivity.class);
                 startActivity(intent);
             }
         });
