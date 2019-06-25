@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -41,6 +42,9 @@ public class SearchRequestBookFragment extends Fragment {
     private SearchBookAdapter mSearchBookAdapter;
     private ViewGroup rootView;
     private NestedScrollView mNewstedView;
+    private ProgressBar mLoadingProgress;
+
+    private int display = 10;
 
 
     @Nullable
@@ -67,6 +71,8 @@ public class SearchRequestBookFragment extends Fragment {
                 @Override
                 public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                        mLoadingProgress.setVisibility(View.VISIBLE);
+                        display++;
                         Log.i("BOTTOM", "BOTTOM SCROLL");
                         //여기에 데이터를 열개 더하는 걸 보여주자!
                     }
@@ -87,6 +93,7 @@ public class SearchRequestBookFragment extends Fragment {
         mBtnSearch = (Button) rootView.findViewById(R.id.btn_search_book);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView_search_book);
         mNewstedView = (NestedScrollView) rootView.findViewById(R.id.scrollView_search_book);
+        mLoadingProgress = (ProgressBar) rootView.findViewById(R.id.loading_progress);
     }
 
     private void initListener() {
@@ -144,7 +151,7 @@ public class SearchRequestBookFragment extends Fragment {
 //                            recycleViewDataSetting(HttpManager.searchBookNaverApi(mEditTextSearch.getText().toString(),
 //                                    10, searchSort));
                             recycleViewDataSetting(HttpManager.searchBookNaverXMLApi(mEditTextSearch.getText().toString(),
-                                    10, searchCategory, searchSort));
+                                    display, searchCategory, searchSort));
                         } catch (IOException e) {
                             e.printStackTrace();
                         } catch (XmlPullParserException e) {
