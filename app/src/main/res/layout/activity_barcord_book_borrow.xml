@@ -9,17 +9,14 @@
     <ImageView
         android:id="@+id/barcode_bookImage"
         style="@style/Image.BookImage"
-        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_margin="@dimen/large_margin"
         app:srcCompat="@drawable/barcode_book" />
 
     <TextView
         android:id="@+id/barcode_bookTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/barcode_bookTitle"
-        android:textColor="@color/black"
-        android:textSize="@dimen/Barcode_BookTitle_TextSize" />
+        style="@style/Text.BarcodeBookTitle"/>
 
     <TextView
         android:id="@+id/barcode_author"
@@ -29,47 +26,47 @@
         android:gravity="center"
         android:text="@string/barcode_bookAuthor"
         android:textColor="@color/black"
-        android:textSize="@dimen/Barcode_Title_TextSize" />
+        android:textSize="@dimen/large_font_size" />
 
     <TextView
         android:id="@+id/barcode_subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:layout_marginVertical="@dimen/large_margin"
         android:gravity="center"
         android:text="@string/barcode_bookBorrow_Comment"
         android:textColor="@color/black"
-        android:textSize="@dimen/Barcode_Title_TextSize" />
+        android:textSize="@dimen/large_font_size" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:layout_marginHorizontal="@dimen/large_margin"
+        android:layout_marginVertical="@dimen/large_margin"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/barcode_cancelBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
+            android:layout_marginHorizontal="@dimen/large_margin"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:text="아니요"
             android:textColor="@color/white"
-            android:textSize="@dimen/Barcode_Button_TextSize" />
+            android:textSize="@dimen/normal_font_size" />
 
         <Button
             android:id="@+id/barcode_borrowBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/Barcode_Horizontal_margin"
+            android:layout_marginHorizontal="@dimen/large_margin"
             android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:text="네"
             android:textColor="@color/white"
-            android:textSize="@dimen/Barcode_Button_TextSize" />
+            android:textSize="@dimen/normal_font_size" />
 
     </LinearLayout>
 

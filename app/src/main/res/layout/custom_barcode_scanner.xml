@@ -5,11 +5,12 @@
 
     <com.journeyapps.barcodescanner.BarcodeView
         android:id="@+id/zxing_barcode_surface"
-        android:layout_marginBottom="@dimen/BarcodeView_marginBottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:zxing_framing_rect_height="@dimen/Barcode_frame_rect_height"
-        app:zxing_framing_rect_width="@dimen/Barcode_frame_rect_widght" />
+        app:zxing_framing_rect_width="@dimen/Barcode_frame_rect_widght"
+        android:layout_marginBottom="@dimen/BarcodeView_marginBottom"
+        />
 
     <com.journeyapps.barcodescanner.ViewfinderView
         android:id="@+id/zxing_viewfinder_view"

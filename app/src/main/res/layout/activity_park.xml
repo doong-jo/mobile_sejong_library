@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:textSize="28sp"
+        android:textSize="@dimen/xlarge_font_size"
         android:textColor="@color/black"
         android:text="해당 페이지는 준비중입니다."/>
 </LinearLayout>

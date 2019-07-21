@@ -3,11 +3,7 @@ package com.fourB.library.ChatBot;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.Spanned;
 import android.view.MenuItem;
 import android.database.DataSetObserver;
 import android.view.KeyEvent;
@@ -24,17 +20,14 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.R;
 import com.fourB.library.ChatBot.async.RequestJavaV2Task;
-import com.google.gson.JsonObject;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import java.util.List;
 import java.util.Objects;
 
 import ai.api.android.AIConfiguration;
 import ai.api.android.AIDataService;
 import ai.api.model.AIRequest;
-import ai.api.model.ResponseMessage;
 import ai.api.model.Result;
 
 public class ChatBotActivity extends AppCompatActivity implements ChatBotInterface {
@@ -113,7 +106,7 @@ public class ChatBotActivity extends AppCompatActivity implements ChatBotInterfa
 
     private void initView(){
         mButtonSend = findViewById(R.id.buttonSend);
-        mListView = findViewById(R.id.listView);
+        mListView = findViewById(R.id.announcementList);
         mChatText = findViewById(R.id.chatText);
 
         mChatArrayAdapter = new ChatArrayAdapter(this, R.layout.layout_chat_bot_msg);

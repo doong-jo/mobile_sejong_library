@@ -67,7 +67,7 @@ public class AnouncementActivity extends AppCompatActivity {
 
     private void AllFindViewById(){
 
-        mlistview = findViewById(R.id.listView);
+        mlistview = findViewById(R.id.announcementList);
         mAdapter = new AnouncementAdapter();
         mitems = mAdapter.getItems();
     }

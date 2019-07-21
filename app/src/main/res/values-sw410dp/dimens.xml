@@ -1,0 +1,49 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="small_padding">4.56dp</dimen>
+    <dimen name="normal_padding">9.12dp</dimen>
+    <dimen name="large_padding">13.68dp</dimen>
+    <dimen name="xlarge_padding">18.24dp</dimen>
+
+    <dimen name="small_margin">4.56dp</dimen>
+    <dimen name="normal_margin">9.12dp</dimen>
+    <dimen name="large_margin">13.68dp</dimen>
+    <dimen name="xlarge_margin">18.24dp</dimen>
+    <dimen name="xxlarge_margin">22.8dp</dimen>
+    <dimen name="huge_margin">36.48dp</dimen>
+
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="corner_radius">10dp</dimen>
+
+    <dimen name="title_bar_width">228dp</dimen>
+    <dimen name="content_bar_width">387.6dp</dimen>
+    <dimen name="content_long_bar_width">399dp</dimen>
+
+    <dimen name="guide_text_index_width">57dp</dimen>
+
+    <dimen name="elevation">8dp</dimen>
+
+    <dimen name="xsmall_font_size">13.68sp</dimen>
+    <dimen name="small_font_size">15.96sp</dimen>
+    <dimen name="normal_font_size">18.24sp</dimen>
+    <dimen name="large_font_size">22.8sp</dimen>
+    <dimen name="xlarge_font_size">31.92sp</dimen>
+    <dimen name="xxlarge_font_size">36.48sp</dimen>
+
+    <dimen name="small_widget_size">36.48dp</dimen>
+    <dimen name="normal_widget_size">54.72dp</dimen>
+    <dimen name="large_widget_size">72.96dp</dimen>
+    <dimen name="xlarge_widget_size">91.2dp</dimen>
+
+
+    <!--Barcode-->
+    <dimen name="BarcodeView_marginBottom">228dp</dimen>
+    <dimen name="Barcode_frame_rect_height">114dp</dimen>
+    <dimen name="Barcode_frame_rect_widght">285dp</dimen>
+
+    <!--MainBanner-->
+    <dimen name="banner_page_layout_hegiht">205.2dp</dimen>
+    <dimen name="banner_indicator_size">11.4dp</dimen>
+
+</resources>

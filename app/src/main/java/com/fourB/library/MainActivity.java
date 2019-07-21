@@ -29,7 +29,6 @@ import com.fourB.library.Anouncement.AnouncementItem;
 import com.fourB.library.Anouncement.AnouncementItemView;
 import com.fourB.library.Barcode.BarcodeLinkActivity;
 import com.fourB.library.Barcode.CustomScannerActivity;
-import com.fourB.library.Anouncement.AnouncementActivity;
 import com.fourB.library.MyPage.AppointmentBookActivity;
 import com.fourB.library.MyPage.LendBookActivity;
 import com.fourB.library.MyPage.LendBookRecordActivity;
@@ -40,17 +39,13 @@ import com.fourB.library.ChatBot.ChatBotActivity;
 import com.fourB.library.ReadingRoom.ReadingRoomActivity;
 import com.fourB.library.RequestBook.RequestBookActivity;
 import com.fourB.library.SearchBook.RealSearchBookActivity;
-import com.fourB.library.SearchBook.SearchBookActivity;
 import com.fourB.library.StudyRoom.StudyRoomActivity;
-import com.fourB.library.Util.HttpManager;
 import com.fourB.library.Widgets.MovableFloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.api.Http;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import ss.com.bannerslider.ImageLoadingService;
@@ -384,7 +379,7 @@ public class MainActivity extends AppCompatActivity
 
     private void AllFindViewById(){
 
-        mlistview = findViewById(R.id.listView);
+        mlistview = findViewById(R.id.announcementList);
         mAdapter = new AnouncementAdapter();
         mitems = mAdapter.getItems();
     }

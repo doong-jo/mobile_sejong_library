@@ -21,17 +21,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/explainBarcode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:paddingVertical="@dimen/Camera_paddingVertical"
-            android:gravity="center"
             android:text="@string/first_camera_comment"
-            android:textColor="@color/white" />
+            style="@style/Text.explainBarcode" />
     </LinearLayout>
 
         <LinearLayout
@@ -41,14 +35,11 @@
             android:background="@color/white">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/Camera_Icon_LinearLayout_height"
-                android:orientation="horizontal">
+                style="@style/Layout.BarcodeCameraView">
 
                 <ImageView
                     android:id="@+id/cameraIcon"
                     style="@style/Image.CameraIcon"
-                    android:layout_weight="1"
                     android:visibility="visible"
                     app:srcCompat="@drawable/ic_menu_camera" />
 
@@ -56,13 +47,7 @@
 
             <TextView
                 android:id="@+id/subExplainBarcode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/Camera_second_comment_marginTop"
-                android:text="@string/second_camera_comment"
-                android:textColor="@color/black" />
-
+                style="@style/Text.SubExplainBarcode"/>
         </LinearLayout>
 
     </LinearLayout>
