@@ -1,52 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/large_padding">
+
         <TextView
             android:id="@+id/reserve_day"
-            android:text="@string/study_room_reserve_day"
-            style="@style/Text.StudyRoomViewTitle"/>
+            style="@style/Text.StudyRoomViewTitle"
+            android:text="@string/study_room_reserve_day" />
+
         <TextView
             android:id="@+id/reserve_start"
+            style="@style/Text.StudyRoomViewTitle"
             android:layout_below="@id/reserve_day"
-            android:text="@string/study_room_reserve_time"
-            style="@style/Text.StudyRoomViewTitle" />
+            android:text="@string/study_room_reserve_time" />
+
         <TextView
             android:id="@+id/reserve_person"
+            style="@style/Text.StudyRoomViewTitle"
             android:layout_below="@id/reserve_start"
-            android:text="@string/study_room_reserve_person"
-            style="@style/Text.StudyRoomViewTitle" />
+            android:text="@string/study_room_reserve_person" />
+
         <TextView
+            style="@style/Text.StudyRoomViewTitle"
             android:layout_below="@id/reserve_person"
-            android:text="@string/study_room_reserve_use_time"
-            style="@style/Text.StudyRoomViewTitle" />
+            android:text="@string/study_room_reserve_use_time" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/study_room_reserve_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            app:lineHeight="32dp"
+            android:textColor="@color/black"
             android:textSize="@dimen/large_font_size"
-            android:textColor="@color/black" />
+            app:lineHeight="@dimen/small_widget_size" />
     </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/stroke_width"
         android:background="@color/border_gray" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/study_room_reserve_result_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/large_padding"
         android:overScrollMode="never"
+        android:padding="@dimen/large_padding"
         android:scrollbars="none" />
 </LinearLayout>

@@ -1,107 +1,49 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">176dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="elevation">8dp</dimen>
 
     <dimen name="small_padding">4dp</dimen>
     <dimen name="normal_padding">8dp</dimen>
     <dimen name="large_padding">12dp</dimen>
+    <dimen name="xlarge_padding">16dp</dimen>
 
     <dimen name="small_margin">4dp</dimen>
     <dimen name="normal_margin">8dp</dimen>
     <dimen name="large_margin">12dp</dimen>
+    <dimen name="xlarge_margin">16dp</dimen>
+    <dimen name="xxlarge_margin">20dp</dimen>
+    <dimen name="huge_margin">32dp</dimen>
+
+    <dimen name="stroke_width">2dp</dimen>
+    <dimen name="corner_radius">10dp</dimen>
+
+    <dimen name="title_bar_width">200dp</dimen>
+    <dimen name="content_bar_width">340dp</dimen>
+    <dimen name="content_long_bar_width">350dp</dimen>
+
+    <dimen name="guide_text_index_width">50dp</dimen>
+
+    <dimen name="elevation">8dp</dimen>
 
     <dimen name="xsmall_font_size">12sp</dimen>
     <dimen name="small_font_size">14sp</dimen>
     <dimen name="normal_font_size">16sp</dimen>
     <dimen name="large_font_size">20sp</dimen>
-    <dimen name="xlarge_font_size">32sp</dimen>
+    <dimen name="xlarge_font_size">28sp</dimen>
+    <dimen name="xxlarge_font_size">32sp</dimen>
+    
+    <dimen name="small_widget_size">32dp</dimen>
+    <dimen name="normal_widget_size">48dp</dimen>
+    <dimen name="large_widget_size">64dp</dimen>
+    <dimen name="xlarge_widget_size">80dp</dimen>
 
-
-    <!--TODO : Recatoring (remove below codes)-->
-    <!--ChatBot-->
-    <dimen name="chat_edit_height">48dp</dimen>
-    <dimen name="chat_payload_button_text">16dp</dimen>
-    <dimen name="chat_payload_button_width">300dp</dimen>
-    <dimen name="chat_payload_left_padding">68dp</dimen>
-
-    <!--ReadingRoom-->
-    <dimen name="reading_room_cardView_margin">15dp</dimen>
-    <dimen name="reading_room_cardView_corner">10dp</dimen>
-    <dimen name="reading_room_cardView_elevation">10dp</dimen>
-    <dimen name="reading_room_cardView_strokeWidth">2dp</dimen>
-    <dimen name="reading_room_cardView_linear_margin">10dp</dimen>
-    <dimen name="reading_room_progress_text_marginBottom">5dp</dimen>
-
-    <!--Anouncement-->
-    <dimen name="Anouncement_vertical_margin">16dp</dimen>
-    <dimen name="Anouncement_marginTop">16dp</dimen>
-    <dimen name="Anouncement_marginBottom">8dp</dimen>
 
     <!--Barcode-->
-    <dimen name="Barcode_BookTitle_TextSize">30dp</dimen>
-    <dimen name="Barcode_Horizontal_margin">15dp</dimen>
-    <dimen name="Barcode_Button_TextSize">16dp</dimen>
-    <dimen name="Barcode_Title_TextSize">20dp</dimen>
-    <dimen name="Barcode_SubDate_marginTop">55dp</dimen>
-    <dimen name="Barcode_SubDate_TextSize">18dp</dimen>
-
     <dimen name="BarcodeView_marginBottom">200dp</dimen>
     <dimen name="Barcode_frame_rect_height">100dp</dimen>
     <dimen name="Barcode_frame_rect_widght">250dp</dimen>
 
-    <!--Camera-->
-    <dimen name="Camera_paddingHorizontal">15dp</dimen>
-    <dimen name="Camera_paddingVertical">5dp</dimen>
-    <dimen name="Camera_Icon_LinearLayout_height">130dp</dimen>
-    <dimen name="Camera_second_comment_marginTop">28dp</dimen>
-
-    <!--MobileCard-->
-    <dimen name="MobileCard_Width_Size">320dp</dimen>
-    <dimen name="MobileCard_Height_Size">450dp</dimen>
-
-    <!--SearchBook-->
-    <dimen name="search_book_button_layout_height">40dp</dimen>
-    <dimen name="search_book_cardView_stroke_width">2dp</dimen>
-    <dimen name="search_book_cardView_elevation">10dp</dimen>
-    <dimen name="search_book_cardView_layout_margin">15dp</dimen>
-
-    <!--Declare-->
-    <dimen name="declare_height">540dp</dimen>
-    <dimen name="declare_margin_vertical">8dp</dimen>
-    <dimen name="declare_margin_right">20dp</dimen>
-    <dimen name="declare_padding">5dp</dimen>
-    <dimen name="declare_position_width">60dp</dimen>
-    <dimen name="declare_content_height">100dp</dimen>
-    <dimen name="declare_content_margin">10dp</dimen>
-    <dimen name="declare_content_padding">10dp</dimen>
-    <dimen name="declare_spinner_width">200dp</dimen>
-
     <!--MainBanner-->
     <dimen name="banner_page_layout_hegiht">180dp</dimen>
     <dimen name="banner_indicator_size">10dp</dimen>
-    <dimen name="main_flexboxlayout_margin_top">10dp</dimen>
-    <dimen name="main_card_margin_bottom">5dp</dimen>
-
-    <!--GuidePage-->
-    <dimen name="guide_container_layout_margin_top">10dp</dimen>
-    <dimen name="guide_linear_layout_margin">10dp</dimen>
-    <dimen name="guide_title_bar_width">200dp</dimen>
-    <dimen name="guide_content_bar_width">340dp</dimen>
-    <dimen name="guide_content_long_bar_width">350dp</dimen>
-    <dimen name="guide_all_bar_height">2dp</dimen>
-    <dimen name="guide_text_index_widht">50dp</dimen>
-
-    <!--Requst Book-->
-    <dimen name="self_request_layout_height">44dp</dimen>
-
-    <!--ChatBotSearchBook-->
-    <dimen name="chatbot_search_book_layout_width">300dp</dimen>
-    <dimen name="chatbot_search_book_title_height">45dp</dimen>
-    <dimen name="chatbot_search_book_title_textSize">20sp</dimen>
 
 </resources>

@@ -16,7 +16,7 @@
             android:id="@+id/banner_main"
             android:layout_width="match_parent"
             android:layout_height="@dimen/banner_page_layout_hegiht"
-            app:slider_interval="5000"
+            app:slider_interval="@integer/banner_slider_interval"
             app:slider_animateIndicators="true"
             app:slider_loopSlides="true"
             app:slider_indicatorSize="@dimen/banner_indicator_size"
@@ -27,8 +27,8 @@
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/main_flexboxlayout_margin_top"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginBottom="@dimen/large_margin"
             app:flexDirection="row"
             app:justifyContent="space_evenly"
             app:flexWrap="wrap"
@@ -39,7 +39,7 @@
                 android:id="@+id/AnouncementView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom"
+                android:layout_marginBottom="@dimen/small_margin"
                 app:layout_flexBasisPercent="30%">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_flexBasisPercent="30%"
-                android:layout_marginBottom="@dimen/main_card_margin_bottom">
+                android:layout_marginBottom="@dimen/small_margin">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -245,7 +245,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_margin="@dimen/normal_margin">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -256,16 +256,13 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="@dimen/stroke_width"
                 android:background="@color/border_gray"
                 />
 
             <ListView
-                android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:divider="@null"
-                android:nestedScrollingEnabled="true"></ListView>
+                android:id="@+id/announcementList"
+                style="@style/Layout.AnnouncementList"></ListView>
 
         </LinearLayout>
     </LinearLayout>

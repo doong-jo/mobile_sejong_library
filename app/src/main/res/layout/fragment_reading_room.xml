@@ -13,16 +13,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/large_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"
@@ -81,16 +81,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/large_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"
@@ -149,16 +149,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/large_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"
@@ -217,16 +217,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/large_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -246,7 +246,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"
@@ -285,16 +285,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/large_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -314,7 +314,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"
@@ -353,16 +353,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/large_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -382,7 +382,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"
@@ -421,16 +421,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="@dimen/reading_room_cardView_strokeWidth"
-            app:cardElevation="@dimen/reading_room_cardView_elevation"
-            app:cardCornerRadius="@dimen/reading_room_cardView_corner"
-            android:layout_margin="@dimen/reading_room_cardView_margin">
+            app:strokeWidth="@dimen/stroke_width"
+            app:cardElevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_margin="@dimen/large_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/reading_room_cardView_linear_margin">
+                android:layout_margin="@dimen/normal_margin">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -450,7 +450,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="@dimen/reading_room_progress_text_marginBottom">
+                    android:layout_marginBottom="@dimen/small_margin">
 
                     <TextView
                         android:layout_width="0dp"

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/MobileCard_Width_Size"
-    android:layout_height="@dimen/MobileCard_Height_Size"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    style="@style/Layout.MobileCard">
 
     <ImageView
         android:id="@+id/mobileCard"
-        android:layout_width="@dimen/MobileCard_Width_Size"
-        android:layout_height="@dimen/MobileCard_Height_Size"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/cut_mobile_card" />
 

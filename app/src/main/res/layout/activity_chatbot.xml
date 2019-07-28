@@ -4,13 +4,8 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="0dp"
-        android:divider="@null"
-        android:listSelector="@android:color/transparent"
-        android:layout_marginBottom="@dimen/chat_edit_height">
+        android:id="@+id/announcementList"
+        style="@style/Layout.ListViewChatbot">
     </ListView>
 
     <RelativeLayout

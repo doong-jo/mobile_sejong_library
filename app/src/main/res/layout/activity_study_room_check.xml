@@ -68,7 +68,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
+                    android:layout_height="@dimen/large_widget_size"
                     android:padding="@dimen/normal_padding"
                     android:orientation="horizontal">
                     <TextView
@@ -82,7 +82,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
+                    android:layout_height="@dimen/large_widget_size"
                     android:padding="@dimen/normal_padding"
                     android:orientation="horizontal"
                     android:layout_gravity="center">
@@ -101,7 +101,7 @@
                     android:padding="@dimen/large_padding"
                     android:textAlignment="textStart"
                     android:breakStrategy="simple"
-                    app:lineHeight="30dp"
+                    app:lineHeight="@dimen/small_widget_size"
                     android:text="@string/study_room_guide_line"/>
             </LinearLayout>
 
